@@ -186,13 +186,13 @@
                 <div class="row margin-rl-0">
                     <div class="main-border" ng-show="showrecent" style="width:101%">
                         <div class="row margin-rl-0">
-                            <div class="col-sm-5">
+                            <div class="col-sm-5 padding-rl-0">
                                 <span class="text-center" id='heading-form' >Search Volunteers</span>
                             </div>
                             <div class="col-sm-7">&nbsp;</div>
                         </div>
                         <div class="row margin-rl-0">
-                            <div class="col-sm-4">
+                            <div class="col-sm-4 padding-rl-0">
                                 <span class="clear-search">
                                     <b ng-show="showrecent">{{lengthOfApplicants}}</b> 
                                     <b ng-show="showfavourite">{{lengthOfFavouriteApplicants}}</b> 
@@ -260,13 +260,13 @@
                     </div>
                     <div class="main-border" ng-show="showfavourite"  style="width:101%">
                         <div class="row margin-rl-0">
-                            <div class="col-sm-5">
+                            <div class="col-sm-5 padding-rl-0">
                                 <span class="text-center" id='heading-form' >Search Volunteers</span>
                             </div>
                             <div class="col-sm-7">&nbsp;</div>
                         </div>
                         <div class="row margin-rl-0">
-                            <div class="col-sm-4">
+                            <div class="col-sm-4 padding-rl-0">
                                 <span class="clear-search">
                                     <b ng-show="showrecent">{{lengthOfApplicants}}</b> 
                                     <b ng-show="showfavourite">{{lengthOfFavouriteApplicants}}</b> 
@@ -291,6 +291,7 @@
                                  </ul>
                             </div>
                         </div>
+                        <hr class="user-hr padding-top-5"/>
                         <div class="applicants" ng-repeat="applicant in favouriteApplicants">
                             <div class="row margin-rl-0">
                                 <div class="col-sm-2 padding-rl-0">
@@ -303,23 +304,27 @@
                                     <div style="padding-top:1px"></div>
                                     <span ng-bind="applicant.joined" class="city-detail"></span>
                                 </div>
-                                <div class="col-sm-4 pull-right padding-rl-0">
+                                <div class="col-sm-4 pull-right padding-right-8">
                                     <span>
-                                        <button type="button" class="btn btn-primary pull-right small-btn" data-toggle="modal" ng-class="{active:$index==2}" data-target="#contactApplicantModal" title="click to shortlist the applicant" ng-click="openModal(applicant)"><span class="fa fa-circle green-yellow"></span>&nbsp;Contact</button>
-                                        <a id="removeIconHover" title="remove from favourite" ng-click="deleteApplicant(applicant, favouriteApplicants, Applicants);removeIt = false" >
-                                            <div class="circle pull-right star-icon circle-white" ng-class="makeItWhite">
-                                                <span class="fa fa-heart font-size-1-3 icon-attr star-yellow" ng-class="makeItYellow"> </i>
+                                        <button type="button" class="btn btn-primary pull-right small-btn" ng-model="shortlisted" ng-class="{active:$index==2}" data-toggle="modal" data-target="#contactApplicantModal" ng-click="openModal(applicant)" title="click to shortlist the applicant"><span class="fa fa-circle green-yellow"></span>&nbsp;Contact</button>
+                                        <a id="removeIconHover" ng-if="!(applicant.selected || removeIt)" title="mark as favourite">
+                                            <div class="circle pull-right star-icon" ng-click="copyApplicant(applicant, Applicants, favouriteApplicants)">
+                                                <span class="fa fa-heart font-size-1-3 icon-attr"></i>
+                                            </div>
+                                        </a>
+                                        <a id="removeIconHover" ng-if="applicant.selected || removeIt" title="remove from favourite" ng-click="copyApplicant(applicant, Applicants, favouriteApplicants)" >
+                                            <div class="circle pull-right star-icon circle-white">
+                                                <span class="fa fa-heart font-size-1-3 icon-attr star-yellow"> </i>
                                             </div>
                                         </a>
                                     </span>
-                                    <span ng-bind="applicant.city" class="city-detail pull-right"></span>
+                                    
                                 </div>
                             </div>
-                            <div class="row padding-left-15">
-                                <div style="padding-top:5px;marging-top:5px;margin-right: 0px;margin-left: 0px;"></div>
-                                <span ng-bind="applicant.bodyText" ng-show="!applicant.value"></span>
+                            <div class="row margin-rl-0">
+                                <span ng-bind="applicant.bodyText" ng-show="!applicant.value" class="padding-top-5"></span>
                                 <div style="padding-top:5px;marging-top:5px;margin-right: 0px;margin-left: 0px;"></div> 
-                                <hr class="user-hr" ng-if="$index !== lengthOfFavouriteApplicants - 1" />
+                                <hr class="user-hr padding-top-5" ng-if="$index !== lengthOfFavouriteApplicants - 1" />
                             </div>
                         </div>
                         <div class="align-center show-clear" ng-show="lengthOfFavouriteApplicants == 0">
