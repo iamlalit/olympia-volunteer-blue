@@ -8,10 +8,11 @@
     <link href="../../css/bootstrap-responsive.min.css" rel="stylesheet">
     <link href="../../css/font-awesome.css" rel="stylesheet">
     <link rel="stylesheet" href="../../css/organization/postJob/postJob.css"/>
-    <link href="../../css/global.css" rel="stylesheet">
     <link href="../../css/organization/viewApp/viewApp.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,100,700&subset=latin,cyrillic-ext,greek-ext,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
     <link href="../../css/volunteer/jobDetails/jobDetails.css" rel="stylesheet">
+    <link href="../../css/global.css" rel="stylesheet">
+    
 </head>
 
 <body ng-controller="jobDetails">
@@ -74,6 +75,39 @@
             </div><!-- /.container-fluid -->
         </div>
     </header>
+
+    <div class="container">
+        <div class="header-box">
+            <div class="row margin-rl-0">
+
+                <div class="col-lg-3">
+                    <select class="form-control select-option">
+                        <option value="Volunteers">Volunteers</option>
+                        <option value="Organizations">Organizations</option>
+                        <option value="Volunteer Organizations">Volunteer Organizations</option>
+                        <option value="Jobs">Jobs</option>
+                    </select>
+                </div>
+                <div class="col-lg-4">
+                    <span class="search-txt">wat&nbsp;</span>
+                    <input type="text" placeholder="Keywords (e.g. name, interests or skills)" class="wat-text"/>
+                </div>
+
+                <div class="col-lg-3">
+                    <span class="search-txt">waar&nbsp;</span>
+                    <input type="text" placeholder="plaats or postcode" class="waar-text"/>
+                </div>
+                <div class="col-lg-1">
+                    &nbsp;
+                </div>
+
+                <div class="col-lg-1">
+                    <button type="button" class="btn btn-primary pull-right small-btn active"><span class="fa fa-search"></span>&nbsp;Contact</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <footer>
         <div class="container1">
             <div class="row">

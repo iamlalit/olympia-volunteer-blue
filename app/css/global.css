@@ -1,3 +1,7 @@
+body{
+  background: url('../img/background.png') left top;
+  font-size: 13px;
+}
 ul{
     list-style:none;
     margin:0;
@@ -350,6 +354,9 @@ position: relative;
 .padding-right-22{
   padding-right: 22px;
 }
+.padding-right-8{
+  padding-right: 8px;
+}
 .padding-right-5{
 	padding-right: 5px;
 }
@@ -552,12 +559,59 @@ position: relative;
   margin-bottom: 10px;
 }
 .small-box span a {
-  color: #fff;
+  color: #ffffff;
   font-size: 14px;
   font-family: Arial;
 }
-.small-box a:hover,
-.small-box a:focus{
-  color: #ffffff;
+.small-box  span.fa:hover,
+.small-box  span.fa:focus{
+  cursor: pointer;
+  background-color: #0e7bac;
   text-decoration: none;
+}
+.small-box  span.fa:hover a,
+.small-box  span.fa:focus a{ 
+  text-decoration: none;
+    color: #ffffff;
+}
+/******************
+*******************
+Header Search Box 
+*******************
+******************/
+.header-box {
+  border: 1px solid #1489be;
+  background-color: #1489be;
+  margin: 0 auto;
+  margin-bottom: 15px;
+  color: #ffffff;
+  width: 1010px;
+  font-size: 16px;
+  font-weight: normal;
+  padding: 25px 20px;
+  border-radius: 2px;     
+  -webkit-box-shadow: inset 0px -1px 3px 1px rgba(24 , 65, 102, 0.8);
+  -moz-box-shadow:    inset 0px -1px 3px 1px rgba(24 , 65, 102, 0.8);
+  box-shadow:         inset 0px -1px 3px 1px rgba(24 , 65, 102, 0.8);
+}
+.header-box .search-txt{
+  display: inline-block;
+  float: none;
+  vertical-align: middle;
+}
+.header-box input:hover,
+.header-box input:focus,
+.header-box input:active {
+  outline: none;
+  border-color: inherit;
+}
+.header-box .wat-text {
+  width: 250px;
+}
+
+.header-box .waar-text {
+  width: 170px;
+}
+.header-box button {
+  height: 32px;
 }
