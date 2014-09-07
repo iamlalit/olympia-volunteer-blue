@@ -540,33 +540,24 @@ position: relative;
 .btn.btn-primary:focus .green-yellow{
   color: #f2cb13;
 }
-.small-box {
-  width: 233px;
-  background: #eeeeee;
-  text-align: center;
-  display: block;
-  margin-bottom: 15px;
-}
 .small-box span.fa{
-  display: block;
+  width: 233px;
+  text-align: center;
+  display: inline-block;
   font-size: 16px;
   color: #ed6623;
   padding:10px 0;
-}
-.small-box a {
+  border-radius: 4px;
   background-color: #1489be;
-  color: #ffffff;
-  padding: 7px 39px;
-  -webkit-box-shadow: inset 0px -2px 0px 1px rgba(50, 50, 50, 0.46);
-  -moz-box-shadow:    inset 0px -2px 0px 1px rgba(50, 50, 50, 0.46);
-  box-shadow:         inset 0px -2px 0px 1px rgba(50, 50, 50, 0.46);
+  margin-bottom: 10px;
 }
-.small-box span.fa-search + a{
-  padding: 7px 55px;
+.small-box span a {
+  color: #fff;
+  font-size: 14px;
+  font-family: Arial;
 }
 .small-box a:hover,
 .small-box a:focus{
   color: #ffffff;
-  background-color: #0e7bac;
   text-decoration: none;
 }

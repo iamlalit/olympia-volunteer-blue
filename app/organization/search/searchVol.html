@@ -64,8 +64,8 @@
                         <li role="presentation" ><a role="menuitem" ng-model="client" ng-click="organization = false; client = true; addActive1 = 'make-it-white';addActive2=''" href="../../volunteer/searchJob/searchJob.html" ng-class="addActive1"><img src="../../img/user-icon.svg" height="25" width="25">&nbsp;&nbsp;&nbsp;Volunteer</a></li>
                         <li role="presentation" class="divider"></li>
                         <li role="presentation" id="separate-highlight"> 
-                            <span><a role="menuitem"  href="../../myAccount/myAccount.html?owner=organization" ng-if="client == true">sander_mrbrown</a></span>
-                            <span><a role="menuitem"  href="../../myAccount/myAccount.html?owner=organization" ng-if="organization == true">sander_mrbrown</a></span>
+                            <span><a role="menuitem" href="../../myAccount/myAccount.html?owner=organization" ng-if="client == true">sander_mrbrown</a></span>
+                            <span><a role="menuitem" href="../../myAccount/myAccount.html?owner=organization" ng-if="organization == true">sander_mrbrown</a></span>
                             <span><a role="menuitem"  href="../../login/login.html">Logout</a></span>
                         </li>
 
@@ -81,11 +81,9 @@
         <div class="row">
             <div class="col-sm-3 padding-left-0">
                 <span class="small-box">
-                    <span class="fa fa-heart"></span>
-                    <a href="" ng-click="showfavourite = true; showrecent = false">Your favourite volunteer</a>
-                </span>
-                <span class="small-box"><span class="fa fa-search"></span><a href="" ng-click="showrecent = true; showfavourite = false">Your recent search</a></span>
+                    <span class="fa fa-heart"> <a href="" ng-click="showfavourite = true; showrecent = false" style="display:inline-block">Your favourite volunteer</a></span>
 
+                </span>
                 <div class="box">
                     <div class="data-box">
                         <div class="box-heading">
@@ -153,20 +151,17 @@
             </div>
             <div class="col-sm-9 padding-rl-0">
                 <div class="row margin-rl-0">
-                    <div class="col-sm-5 padding-left-0">
+                    <div class="col-sm-5">
                         <span class="text-center" id='heading-form' >Search Volunteers</span>
                     </div>
-                    <div class="col-sm-7 padding-left-0 padding-right-0 hidden" style="text-align:right">
-                        <span>If you like this search, you can</span>
-                        <button type="button" class="btn btn-default"><span class="fa fa-plus-sign plus-sign"></i>&nbsp;Save your search</button>
-                    </div>
+                    <div class="col-sm-7">&nbsp;</div>
                 </div>
                 <div class="row margin-rl-0">
-                    <div class="col-sm-4 padding-left-0">
+                    <div class="col-sm-4">
                         <span class="clear-search">
                             <b ng-show="showrecent">{{lengthOfApplicants}}</b> 
                             <b ng-show="showfavourite">{{lengthOfFavouriteApplicants}}</b> 
-                            Volunteers found &nbsp;&nbsp;<a href="" title="Clear Search" ng-click="clearSearch(); showClearSearch = true">Clear Search</a>
+                            Volunteers found<a href="" title="Clear Search" ng-click="clearSearch(); showClearSearch = true">Clear Search</a>
                         </span>
                     </div>
                     <div class="col-sm-5 align-center">
