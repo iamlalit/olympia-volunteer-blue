@@ -221,7 +221,7 @@
                         <div class="applicants" ng-repeat="applicant in pagedItems[currentPage]" ng-init="autoScroll = false">
                             <div class="row margin-rl-0">
                                 <div class="col-sm-2 padding-rl-0">
-                                    <i class="glyphicon glyphicon-user font-size-4"></i>
+                                    <img src="{{applicant.image}}" width="70" height="73">
                                 </div>
                                 <div class="col-sm-6 padding-rl-0">
                                     <a style="color:#1489be" href="../../volunteer/volunteerProfile/volunteerProfile.html?name={{applicant.Name}}&city={{applicant.city}}"><label ng-bind="applicant.Name"></label></a>
@@ -295,7 +295,7 @@
                         <div class="applicants" ng-repeat="applicant in favouriteApplicants">
                             <div class="row margin-rl-0">
                                 <div class="col-sm-2 padding-rl-0">
-                                    <i class="glyphicon glyphicon-user font-size-4"></i>
+                                    <img src="{{applicant.image}}" width="70" height="73">
                                 </div>
                                 <div class="col-sm-6 padding-rl-0">
                                     <a style="color:#1489be" href="../../volunteer/volunteerProfile/volunteerProfile.html?name={{applicant.Name}}&city={{applicant.city}}"><label ng-bind="applicant.Name"></label></a>
