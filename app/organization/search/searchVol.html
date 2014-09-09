@@ -80,7 +80,7 @@
         <div class="header-box">
             <div class="row margin-rl-0">
 
-                <div class="col-lg-3">
+                <div class="col-lg-3 padding-rl-0">
                     <select class="form-control select-option">
                         <option value="Volunteers">Volunteers</option>
                         <option value="Organizations">Organizations</option>
@@ -88,25 +88,35 @@
                         <option value="Jobs">Jobs</option>
                     </select>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-4 padding-rl-0">
                     <span class="search-txt">wat&nbsp;</span>
                     <input type="text" placeholder="Keywords (e.g. name, interests or skills)" class="wat-text"/>
                 </div>
 
-                <div class="col-lg-3">
+                <div class="col-lg-3 padding-rl-0">
                     <span class="search-txt">waar&nbsp;</span>
                     <input type="text" placeholder="plaats or postcode" class="waar-text"/>
                 </div>
-                <div class="col-lg-1">
-                    &nbsp;
+                <div class="col-lg-1 padding-rl-0">
+                        <select class="select-search">
+                            <option value="5 Km">5 Km</option>
+                            <option value="10 Km">10 Km</option>
+                            <option value="15 km">15 km</option>
+                            <option value="20 Km">20 Km</option>
+                            <option value="25 Km">25 Km</option>
+                            <option value="30 Km" selected="selected">30 Km</option>
+                            <option value="35 Km">35 Km</option>
+                            <option value="40 Km">40 Km</option>
+                            <option value="45 Km">45 Km</option>
+                            <option value="50 Km">50 Km</option>
+                        </select>
                 </div>
 
-                <div class="col-lg-1">
+                <div class="col-lg-1 padding-rl-0" >
                     <button type="button" class="btn btn-primary pull-right small-btn active"><span class="fa fa-search"></span>&nbsp;Contact</button>
                 </div>
             </div>
         </div>
-
     <div class="container" ng-init="showrecent = true;hideIt = false" >
         <div class="row">
             <div class="col-sm-3 padding-left-0">
@@ -224,7 +234,7 @@
                                     <img src="{{applicant.image}}" width="70" height="73">
                                 </div>
                                 <div class="col-sm-6 padding-rl-0">
-                                    <a style="color:#1489be" href="../../volunteer/volunteerProfile/volunteerProfile.html?name={{applicant.Name}}&city={{applicant.city}}"><label ng-bind="applicant.Name"></label></a>
+                                    <a style="color:#1489be" href="../../volunteer/volunteerProfile/volunteerProfile.html?name={{applicant.Name}}&city={{applicant.city}}&image={{applicant.image}}"><label ng-bind="applicant.Name"></label></a>
                                     <div style="padding-top:1px"></div>
                                     <span ng-bind="applicant.city" class="city-detail"></span>
                                     <div style="padding-top:1px"></div>
@@ -251,6 +261,12 @@
                             <div class="row margin-rl-0">
                                 <span ng-bind="applicant.bodyText" ng-show="!applicant.value" class="padding-top-5"></span>
                                 <div style="padding-top:5px;marging-top:5px;margin-right: 0px;margin-left: 0px;"></div> 
+
+                                <div class=" padding-rl-0 margin-top-10 margin-bottom-10">
+                                    <div class="row margin-rl-0 margin-top-15">
+                                        <span class="small-pill" ng-class="{'margin-left-10':$index != 0}" ng-repeat="skill in volunteerSkills" ng-bind="skill"></span>
+                                    </div>
+                                </div>
                                 <hr class="user-hr padding-top-5" ng-if="$index !== lengthOfApplicantsPerPage - 1" />
                             </div>
                         </div>
@@ -298,7 +314,7 @@
                                     <img src="{{applicant.image}}" width="70" height="73">
                                 </div>
                                 <div class="col-sm-6 padding-rl-0">
-                                    <a style="color:#1489be" href="../../volunteer/volunteerProfile/volunteerProfile.html?name={{applicant.Name}}&city={{applicant.city}}"><label ng-bind="applicant.Name"></label></a>
+                                    <a style="color:#1489be" href="../../volunteer/volunteerProfile/volunteerProfile.html?name={{applicant.Name}}&city={{applicant.city}}&image={{applicant.image}}"><label ng-bind="applicant.Name"></label></a>
                                     <div style="padding-top:1px"></div>
                                     <span ng-bind="applicant.city" class="city-detail"></span>
                                     <div style="padding-top:1px"></div>

@@ -55,5 +55,6 @@ app.controller('jobDetails', ['$scope', function ($scope) {
   }
   $scope.volunteerName = getParameterByName('name');
   $scope.volunteerCity = getParameterByName('city');
+  $scope.volunteerImage = getParameterByName('image');
 
 }]);

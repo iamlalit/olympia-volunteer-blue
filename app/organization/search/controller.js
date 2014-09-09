@@ -31,7 +31,7 @@ app.controller('searchVolCtrl', function($scope){
         	'Monday - Late Night', 'Tuesday - Late Night', 'Wednesday - Late Night', 'Thursday - Late Night', 'Friday - Late Night', 'Saturday - Late Night', 'Sunday - Late Night'];
         	
   $scope.sortByList = ['Best Match', 'Newest Applicants', 'Oldest Applicants', 'Feedback'];
-	
+
   $scope.Applicants = [];
 	$scope.Applicants.push({Name:"Marleen Bosch",
             job: 'QA Analyst',
@@ -41,6 +41,7 @@ app.controller('searchVolCtrl', function($scope){
             status: '2/4 diploma/certificate/skills',  
             image: '../../img/name1.png',
             statusColor: 'red',
+            NumbertoStart: 7,
             joined: 'Joined 1 year ago',
             invited: true,   
             selected: false,
@@ -192,7 +193,7 @@ app.controller('searchVolCtrl', function($scope){
     }); 
       
 
-
+    $scope.volunteerSkills = ['Cooking', 'Education', 'Caring for People', 'Communication', 'Crowd control', 'Damage control', 'First aid'];
       $scope.favouriteApplicants = [];
       $scope.groupedItems = [];
       $scope.applicantsPerPage = 8;

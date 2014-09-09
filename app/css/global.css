@@ -240,6 +240,9 @@ footer{
   margin-right: 3px;
   margin-top: 3px;
 }
+.background-white {
+  background-color: #ffffff;
+}
 .background-green{
 	background-color: #009e0f;
 }
@@ -614,4 +617,19 @@ Header Search Box
 }
 .header-box button {
   height: 32px;
+}
+
+.select-search {
+  position: relative;
+  left: -43px;
+  top: 0px;
+  height: 32px;
+  border-left: none !important;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  appearance: none;
+  border-radius: 0;
+  border: 2px solid #eeeeee;
+  background-color: #1489be;
+  color: #ffffff;
 }
