@@ -28,35 +28,7 @@ signUp.controller("signupController", ['$scope', function ($scope) {
 
     $(document).ready(function () {
 
-        //$('.job-vacancy')
-        //.mouseover(function () {
-        //    if ($(this).children().find('a').hasClass('focused')) {
-        //        $(this).children().find('a').removeClass('focused');
-        //    }
-        //})
-        //.mouseout(function () {
-        //    if ($(this).children().find('a').hasClass('focused') == false) {
-        //        $(this).children().find('a').eq(2).addClass('focused');
-        //    }
-        //});
-        //
-        //$('#password-container').hide();
-        //$('#password-container-hide').show();
-        //
-        //$('input:radio[name=ques1]').click(function () {
-        //    var checkval = $(this).val();
-        //    $('#ques1-opt1-ans').prop('disabled', !(checkval == '1'));
-        //});
-        //
-        //$('#radio-email1').click(function () {
-        //    $('#password-container').hide();
-        //    $('#password-container-hide').show();
-        //});
-        //$('#radio-email2').click(function () {
-        //    $('#password-container').show();
-        //    $('#password-container-hide').hide();
-        //});
-        //
+    
         $('#errorMsg').hide();
 
         var

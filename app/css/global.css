@@ -34,7 +34,7 @@ a {
 }
 
 .blue{
-    color:#0093f0;
+    color:#1489be;
     cursor:pointer;
     text-decoration:none;
 }
@@ -230,6 +230,10 @@ footer{
 .valign-middle{
   position: relative;
 vertical-align: middle;
+}
+.valign-top{
+  position: relative;
+vertical-align: top;
 }
 .small-pill {
   display: inline-block;
@@ -701,7 +705,12 @@ Header Search Box
     border: 1px solid transparent;
     border-radius: 4px;
     color: #fff;
-    background-color: #428bca;
-    border-color: #357ebd;
+    background-color: #ed6623;
+    border-color: #ed6623;
     float: left; /* IE 9 Fix */
+}
+.nav>li>a {
+position: relative;
+display: block;
+padding: 15px 12px;
 }

@@ -5,11 +5,11 @@ loginController.controller('loginCredentialCheck', ['$scope', function ($scope) 
         $scope.alertError = 'false';
         var email = $('#email').val();
         var password = $('#pass').val();
-        if (((email == 'volunteer@email.com' && password == 'password') || (email == 'volunteer%40email.com' && password == 'password')) || ((email == 'organisation@email.com' && password == 'password') || (email == 'organisation%40email.com' && password == 'password'))) {
-            if (email == 'organisation@email.com' || email == 'organisation%40email.com') {
-                document.location.href = "../organization/search/searchVol.html" + '?form=signup&name=organisation'
+        if (((email == 'volunteer@email.com' && password == 'password') || (email == 'volunteer%40email.com' && password == 'password')) || ((email == 'organization@email.com' && password == 'password') || (email == 'organization%40email.com' && password == 'password'))) {
+            if (email == 'organization@email.com' || email == 'organization%40email.com') {
+                document.location.href = "../organization/search/searchVol.html?form=signup&owner=organization";
             } else {
-                document.location.href = "../volunteer/SearchJob/searchJob.html" + '?form=signup&name=volunteer'
+                document.location.href = "../volunteer/searchJob/searchJob.html?form=signup&owner=volunteer";
             }
             
         } else {

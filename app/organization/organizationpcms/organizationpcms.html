@@ -133,7 +133,7 @@
             <div class="col-sm-8 padding-rl-0">
                 <div class="main-border1">
                     <img src="../../img/user.svg" width="70" height="70"/>
-                    <div class="inline-block valign-middle">
+                    <div class="inline-block valign-top">
                         <div class="panel-title padding-left-0 inline-block">
                             <span ng-bind="organizationName"></span>
                         </div>
@@ -236,7 +236,7 @@
                             </div>      
                             <div class="col-sm-9">
                                 <span>
-                                    <a href="../../volunteer/volunteerProfile/volunteerProfile.html?name={{member}}&city=Amsterdam,%20Noord%20Holland" ng-bind="member">
+                                    <a href="../../volunteer/volunteerProfile/volunteerProfile.html?name={{member.name}}&city=Amsterdam,%20Noord%20Holland&image={{member.image}}" ng-bind="member.name">
                                     </a>
                                 </span>
                                     <br>

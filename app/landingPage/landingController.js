@@ -4,32 +4,52 @@ landingController.controller('landingPage', ['$scope', function ($scope) {
     $scope.volunteerMenu = false;
     $scope.profileModel = [
         {
-            'imgLink': '../img/4createyourprofile.png',
+            'imgLink': '../img/name3.png',
             'name': 'Amy McDougall',
             'skill': 'Writer/Translator'
         },
         {
-            'imgLink': '../img/4createyourprofile1.png',
+            'imgLink': '../img/name7.png',
             'name': 'Betsy Chang',
-            'skill': 'Customer Service agent'
+            'skill': 'PhotoGrapher'
         },
         {
-            'imgLink': '../img/4createyourprofile2.png',
+            'imgLink': '../img/name9.png',
             'name': 'Darius Kasperitis',
             'skill': 'Python Developer'
         },
         {
-            'imgLink': '../img/4createyourprofile2.png',
+            'imgLink': '../img/name11.png',
             'name': 'Marleen Dijkstra',
-            'skill': 'Ruby on Rails Developer'
+            'skill': 'Software Developer'
         },
         {
-            'imgLink': '../img/4createyourprofile1.png',
+            'imgLink': '../img/name5.png',
             'name': 'Henk-jan Bosch',
             'skill': 'Crowd Controller'
         }
-    
-
+    ];
+    $scope.profileModelOrganization = [
+        {
+            'name': 'Red Cross NL',
+            'type': 'NGO'    
+        },
+        {
+            'name': 'Global Conscise',
+            'type': 'NGO'
+        },
+        {
+            'name': 'Red Cross NL',
+            'type': 'NGO'
+        },
+        {
+            'name': 'Global Conscise',
+            'type': 'NGO'
+        },
+        {
+            'name': 'Red Cross NL',
+            'type': 'NGO'
+        }
     ];
 
     var urlParams;
@@ -46,8 +66,8 @@ landingController.controller('landingPage', ['$scope', function ($scope) {
 
     var userType = urlParams.owner;
     var formType = urlParams.form;
-    
-    if (userType == 'organisation') {
+    $scope.typeOfOwner = userType;
+    if (userType == 'organization') {
         $scope.organisationMenu = true;
     }
     if (userType == 'volunteer') {

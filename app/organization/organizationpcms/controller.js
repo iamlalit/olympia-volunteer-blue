@@ -2,7 +2,11 @@
 app.controller('jobDetails', ['$scope', function ($scope) {
     
   $scope.organizationCategories = ["Immigration", "Education", "Civic engagement", "Media", "Job and workplace", "consumer protection"];  
-  $scope.members = ["Robert de Bakker", "Lydia jnasen", "Marleen Bosch"];
+
+  $scope.members = [{name:"Robert de Bakker", image:"../../img/name6.png"}, 
+                    {name:"Lydia jnasen", image:"../../img/name12.png"}, 
+                    {name:"Marleen Bosch", image:"../../img/name9.png"}];
+
   $scope.jobPost = [{jobTitle: "Football Refree Volunteering", client:"Posted 1 month ago by Sander Noteborn", Applicants: 34, messaged: 1, hired:0, status:"Closed", jobDate: '1 month ago'},
         {jobTitle: "Volunteer Grant Writers", client:"Posted 1 month ago by Sander Noteborn" ,Applicants: 50, messaged: 3, hired:2, status:"Open", jobDate: '1 month ago'},
         {jobTitle: "Volunteer Coordinator - Volunteer", client:"Posted 4 days ago by Sander Noteborn", Applicants: 34, messaged: 1, hired:1, status:"Open", jobDate: '4 days ago'},
