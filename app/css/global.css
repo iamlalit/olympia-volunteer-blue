@@ -532,7 +532,7 @@ position: relative;
 .btn {
   display: inline-block;
   margin: 0;
-  font-weight: bold;
+  font-weight: normal;
   cursor: pointer;
   text-transform: capitalize;
   border-radius: 3px;
@@ -713,4 +713,10 @@ Header Search Box
 position: relative;
 display: block;
 padding: 15px 12px;
+}
+/*alert message*/
+.alert-danger {
+  background-color: #F28B8B;
+  border-color: #FF3333;
+  color: #B40400;
 }
