@@ -227,6 +227,10 @@ footer{
 .inline-block{
 	display: inline-block;
 }
+.valign-middle{
+  position: relative;
+vertical-align: middle;
+}
 .small-pill {
   display: inline-block;
   margin: 0;
@@ -245,6 +249,12 @@ footer{
 }
 .background-green{
 	background-color: #009e0f;
+}
+.background-grey {
+  background-color: #eeeeee;
+}
+.background-dgrey {
+  background-color: #cccccc;
 }
 .color-ffffff{
 	color: #ffffff;
@@ -329,6 +339,9 @@ position: relative;
 } 
 .padding-left-15{
 	padding-left: 15px;
+}
+.padding-left-20 {
+  padding-left: 20px;
 }
 .padding-left-25{
 	padding-left: 25px;
@@ -424,6 +437,9 @@ position: relative;
 }
 .margin-left-28{
 	margin-left: 28px;
+}
+.margin-left-15{
+  margin-left: 15px;
 }
 .margin-left-10{
 	margin-left: 10px;
@@ -588,7 +604,7 @@ Header Search Box
   margin: 0 auto;
   margin-bottom: 15px;
   color: #ffffff;
-  width: 1010px;
+  width: 999px;
   font-size: 16px;
   font-weight: normal;
   padding: 25px 20px;
@@ -632,4 +648,60 @@ Header Search Box
   border: 2px solid #eeeeee;
   background-color: #1489be;
   color: #ffffff;
+}
+/* Uploading files */
+
+.custom-file-upload-hidden {
+    display: none;
+    visibility: hidden;
+    position: absolute;
+    left: -9999px;
+}
+.custom-file-upload {
+    display: inline-block;
+    width: auto;
+    font-size: 14px;
+}
+.file-upload-wrapper {
+    position: relative; 
+    margin-bottom: 5px;
+    //border: 1px solid #ccc;
+}
+.file-upload-input {
+    width: 300px;
+    color: #333333;
+    border-radius: 3px;
+    margin-right: 15px;
+    font-size: 14px;
+    padding: 4px 9px; 
+    border: 1px solid #cccccc;
+    background-color: #ffffff; 
+    float: left; /* IE 9 Fix */ 
+}
+.file-upload-input:hover, .file-upload-input:focus { 
+    outline: none; 
+    border: 2px solid #00AEEC;
+}
+.file-upload-button {
+    display: inline-block;
+    padding: 4px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #fff;
+    background-color: #428bca;
+    border-color: #357ebd;
+    float: left; /* IE 9 Fix */
 }

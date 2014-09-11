@@ -113,7 +113,7 @@
                 </div>
 
                 <div class="col-lg-1 padding-rl-0" >
-                    <button type="button" class="btn btn-primary pull-right small-btn active"><span class="fa fa-search"></span>&nbsp;Contact</button>
+                    <button type="button" class="btn btn-primary pull-right small-btn active"><span class="fa fa-search"></span>&nbsp;Search</button>
                 </div>
             </div>
         </div>
@@ -227,10 +227,10 @@
                                  </ul>
                             </div>
                         </div>
-                <hr class="user-hr padding-top-5"/>
+                <div class="margin-bottom-10">&nbsp;</div>
                         <div class="applicants" ng-repeat="applicant in pagedItems[currentPage]" ng-init="autoScroll = false">
                             <div class="row margin-rl-0">
-                                <div class="col-sm-2 padding-rl-0">
+                                <div class="col-sm-2 padding-rl-0" ng-cloak>
                                     <img src="{{applicant.image}}" width="70" height="73">
                                 </div>
                                 <div class="col-sm-6 padding-rl-0">
@@ -307,7 +307,7 @@
                                  </ul>
                             </div>
                         </div>
-                        <hr class="user-hr padding-top-5"/>
+                        <div class="margin-bottom-10">&nbsp;</div>
                         <div class="applicants" ng-repeat="applicant in favouriteApplicants">
                             <div class="row margin-rl-0">
                                 <div class="col-sm-2 padding-rl-0">

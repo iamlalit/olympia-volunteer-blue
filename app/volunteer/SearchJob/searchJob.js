@@ -147,7 +147,7 @@ app.controller('searchJob', ['$scope', function ($scope) {
 
       $scope.favouriteJobs = [];
       $scope.groupedItems = [];
-      $scope.JobsPerPage = 8;
+      $scope.JobsPerPage = 10;
       $scope.pagedItems = [];
       $scope.currentPage = 0;
       $scope.lengthOfJobs = $scope.Jobs.length;

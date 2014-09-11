@@ -17,6 +17,7 @@ app.controller('viewAppCtrl', function($scope){
             bodyText: 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper...',
             bodyTextFull: 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper.Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper.',
             status: '2/4 diploma/certificate/skills',  
+            image: '../../img/name8.png',
             statusColor: 'red',
             invited: true,   
             selected: true,
@@ -29,6 +30,7 @@ app.controller('viewAppCtrl', function($scope){
             bodyTextFull: 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper.Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper.',
             status: '4/4 diploma/certificate/skills', 
             statusColor: 'green',    
+            image: '../../img/name4.png',
             invited: false,
             selected: true,
             value: false
@@ -40,6 +42,7 @@ app.controller('viewAppCtrl', function($scope){
             bodyTextFull: 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper.Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper.',
             status: '2/4 diploma/certificate/skills',     
             statusColor: 'red',
+            image: '../../img/name11.png',
             invited: false,
             selected: false,
             value: false    
@@ -51,6 +54,7 @@ app.controller('viewAppCtrl', function($scope){
             bodyTextFull: 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper.Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper.',
             status: '2/4 diploma/certificate/skills',     
             statusColor: 'red',
+            image: '../../img/name10.png',
             invited: true,
             selected: false,
             value: false      
@@ -62,6 +66,7 @@ app.controller('viewAppCtrl', function($scope){
             bodyTextFull: 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper.Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper.',
             status: '2/4 diploma/certificate/skills',     
             statusColor: 'red',
+            image: '../../img/name7.png',
             invited: false,
             selected: false,      
             value: false

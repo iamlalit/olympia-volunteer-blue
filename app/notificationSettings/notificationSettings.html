@@ -95,148 +95,190 @@
         </div>
     </header>
 
-    <div class="container">
-        <form>
-            <div class="row">
-                <div class="panel-title padding-left-0">
-                    <span>Notification Settings</span>
+    <div class="container" style="width:76%">
+        <div class="header-box">
+            <div class="row margin-rl-0">
+
+                <div class="col-lg-3 padding-rl-0">
+                    <select class="form-control select-option">
+                        <option value="Volunteers">Volunteers</option>
+                        <option value="Organizations">Organizations</option>
+                        <option value="Volunteer Organizations">Volunteer Organizations</option>
+                        <option value="Jobs">Jobs</option>
+                    </select>
+                </div>
+                <div class="col-lg-4 padding-rl-0">
+                    <span class="search-txt">wat&nbsp;</span>
+                    <input type="text" placeholder="Keywords (e.g. name, interests or skills)" class="wat-text"/>
+                </div>
+
+                <div class="col-lg-3 padding-rl-0">
+                    <span class="search-txt">waar&nbsp;</span>
+                    <input type="text" placeholder="plaats or postcode" class="waar-text"/>
+                </div>
+                <div class="col-lg-1 padding-rl-0">
+                        <select class="select-search">
+                            <option value="5 Km">5 Km</option>
+                            <option value="10 Km">10 Km</option>
+                            <option value="15 km">15 km</option>
+                            <option value="20 Km">20 Km</option>
+                            <option value="25 Km">25 Km</option>
+                            <option value="30 Km" selected="selected">30 Km</option>
+                            <option value="35 Km">35 Km</option>
+                            <option value="40 Km">40 Km</option>
+                            <option value="45 Km">45 Km</option>
+                            <option value="50 Km">50 Km</option>
+                        </select>
+                </div>
+
+                <div class="col-lg-1 padding-rl-0" >
+                    <button type="button" class="btn btn-primary pull-right small-btn active"><span class="fa fa-search"></span>&nbsp;Search</button>
                 </div>
             </div>
-            <div class="row margin-top-20">
-                <span>Send email notification to <label>abc@email.com</label> when ...</span>
-            </div>
-            <div class="row">
-                <div class="pill margin-top-20 padding-top-10 padding-bottom-10">
-                    <span class="font-size-20 ">Message Center</span>
-                    <span class="font-size-20 pull-right">Email</span>
-                </div> 
-            </div>
-            <div class="row">
-                <div class="checkbox padding-left-0 padding-right-22">
-                    <label>
-                        <span>Someone sends me a message</span> <input class="pull-right" type="checkbox">
-                    </label>
+        </div>
+        <div class="main-border1">
+            <form>
+                <div class="row margin-rl-0">
+                    <div class="panel-title padding-left-0">
+                        <span>Notification Settings</span>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="pill margin-top-20 padding-top-10 padding-bottom-10">
-                    <span class="font-size-20 ">Organization</span>
-                </div> 
-            </div>
-            <div class="row">
-                <div class="checkbox padding-left-0 padding-right-22">
-                    <label>
-                        <span>A job is posted or modified</span> <input class="pull-right" type="checkbox">
-                    </label>
+                <div class="row margin-top-20 margin-rl-0">
+                    <span>Send email notification to <label>abc@email.com</label> when ...</span>
                 </div>
-            </div>
-            <div class="row">
-                <div class="checkbox padding-left-0 padding-right-22">
-                    <label>
-                        <span>A job application is received</span> <input class="pull-right" type="checkbox">
-                    </label>
+                <div class="row margin-rl-0">
+                    <div class="pill margin-top-20 padding-top-10 padding-bottom-10">
+                        <span class="font-size-20 ">Message Center</span>
+                        <span class="font-size-20 pull-right">Email</span>
+                    </div> 
                 </div>
-            </div>
-            <div class="row">
-                <div class="checkbox padding-left-0 padding-right-22">
-                    <label>
-                        <span>An interview invite is declined or application withdrawn</span> <input class="pull-right" type="checkbox">
-                    </label>
+                <div class="row margin-rl-0">
+                    <div class="checkbox padding-left-0 padding-right-22">
+                        <label>
+                            <span>Someone sends me a message</span> <input class="pull-right" type="checkbox">
+                        </label>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="checkbox padding-left-0 padding-right-22">
-                    <label>
-                        <span>A job posting will expire soon</span> <input class="pull-right" type="checkbox">
-                    </label>
+                <div class="row margin-rl-0">
+                    <div class="pill margin-top-20 padding-top-10 padding-bottom-10">
+                        <span class="font-size-20 ">Organization</span>
+                    </div> 
                 </div>
-            </div>
-            <div class="row">
-                <div class="checkbox padding-left-0 padding-right-22">
-                    <label>
-                        <span>A job posting expired</span> <input class="pull-right" type="checkbox">
-                    </label>
+                <div class="row margin-rl-0">
+                    <div class="checkbox padding-left-0 padding-right-22">
+                        <label>
+                            <span>A job is posted or modified</span> <input class="pull-right" type="checkbox">
+                        </label>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="pill margin-top-20 padding-top-10 padding-bottom-10">
-                    <span class="font-size-20 ">Volunteer and Volunteer Organisation Job Applications</span>
-                </div> 
-            </div>
-            <div class="row">
-                <div class="checkbox padding-left-0 padding-right-22">
-                    <label>
-                        <span>A job application is submitted</span> <input class="pull-right" type="checkbox">
-                    </label>
+                <div class="row margin-rl-0">
+                    <div class="checkbox padding-left-0 padding-right-22">
+                        <label>
+                            <span>A job application is received</span> <input class="pull-right" type="checkbox">
+                        </label>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="checkbox padding-left-0 padding-right-22">
-                    <label>
-                        <span>An interview is initiated</span> <input class="pull-right" type="checkbox">
-                    </label>
+                <div class="row margin-rl-0">
+                    <div class="checkbox padding-left-0 padding-right-22">
+                        <label>
+                            <span>An interview invite is declined or application withdrawn</span> <input class="pull-right" type="checkbox">
+                        </label>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="checkbox padding-left-0 padding-right-22">
-                    <label>
-                        <span>An interview invitation is withdrawn</span> <input class="pull-right" type="checkbox">
-                    </label>
+                <div class="row margin-rl-0">
+                    <div class="checkbox padding-left-0 padding-right-22">
+                        <label>
+                            <span>A job posting will expire soon</span> <input class="pull-right" type="checkbox">
+                        </label>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="checkbox padding-left-0 padding-right-22">
-                    <label>
-                        <span>A job application is declined</span> <input class="pull-right" type="checkbox">
-                    </label>
+                <div class="row margin-rl-0">
+                    <div class="checkbox padding-left-0 padding-right-22">
+                        <label>
+                            <span>A job posting expired</span> <input class="pull-right" type="checkbox">
+                        </label>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="checkbox padding-left-0 padding-right-22">
-                    <label>
-                        <span>A job I applied to is modified or cancelled</span> <input class="pull-right" type="checkbox">
-                    </label>
+                <div class="row margin-rl-0">
+                    <div class="pill margin-top-20 padding-top-10 padding-bottom-10">
+                        <span class="font-size-20 ">Volunteer and Volunteer Organisation Job Applications</span>
+                    </div> 
                 </div>
-            </div>
-            <div class="row">
-                <div class="pill margin-top-20 padding-top-10 padding-bottom-10">
-                    <span class="font-size-20 ">Groups & Invitations</span>
-                </div> 
-            </div>
-            <div class="row">
-                <div class="checkbox padding-left-0 padding-right-22">
-                    <label>
-                        <span>Groups membership events occur</span> <input class="pull-right" type="checkbox">
-                    </label>
+                <div class="row margin-rl-0">
+                    <div class="checkbox padding-left-0 padding-right-22">
+                        <label>
+                            <span>A job application is submitted</span> <input class="pull-right" type="checkbox">
+                        </label>
+                    </div>
                 </div>
-            </div>
-             <div class="row">
-                <div class="checkbox padding-left-0 padding-right-22">
-                    <label>
-                        <span>Someone forwards me a volunteer's profile</span> <input class="pull-right" type="checkbox">
-                    </label>
+                <div class="row margin-rl-0">
+                    <div class="checkbox padding-left-0 padding-right-22">
+                        <label>
+                            <span>An interview is initiated</span> <input class="pull-right" type="checkbox">
+                        </label>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="checkbox padding-left-0 padding-right-22">
-                    <label>
-                        <span>Someone sends me an invitation</span> <input class="pull-right" type="checkbox">
-                    </label>
+                <div class="row margin-rl-0">
+                    <div class="checkbox padding-left-0 padding-right-22">
+                        <label>
+                            <span>An interview invitation is withdrawn</span> <input class="pull-right" type="checkbox">
+                        </label>
+                    </div>
                 </div>
-            </div>
-             <div class="row">
-                <div class="checkbox padding-left-0 padding-right-22">
-                    <label>
-                        <span>Team access is revoked</span> <input class="pull-right" type="checkbox">
-                    </label>
+                <div class="row margin-rl-0">
+                    <div class="checkbox padding-left-0 padding-right-22">
+                        <label>
+                            <span>A job application is declined</span> <input class="pull-right" type="checkbox">
+                        </label>
+                    </div>
                 </div>
-            </div>
-             <div class="row">
-                <div class="margin-top-30 align-center col-sm-12">
-                    <button class="btn btn-success" type="submit" ng-click="changePassword()">Save Changes</button>
+                <div class="row margin-rl-0">
+                    <div class="checkbox padding-left-0 padding-right-22">
+                        <label>
+                            <span>A job I applied to is modified or cancelled</span> <input class="pull-right" type="checkbox">
+                        </label>
+                    </div>
                 </div>
-            </div>
-        </form>
+                <div class="row margin-rl-0">
+                    <div class="pill margin-top-20 padding-top-10 padding-bottom-10">
+                        <span class="font-size-20 ">Groups & Invitations</span>
+                    </div> 
+                </div>
+                <div class="row margin-rl-0">
+                    <div class="checkbox padding-left-0 padding-right-22">
+                        <label>
+                            <span>Groups membership events occur</span> <input class="pull-right" type="checkbox">
+                        </label>
+                    </div>
+                </div>
+                 <div class="row margin-rl-0">
+                    <div class="checkbox padding-left-0 padding-right-22">
+                        <label>
+                            <span>Someone forwards me a volunteer's profile</span> <input class="pull-right" type="checkbox">
+                        </label>
+                    </div>
+                </div>
+                <div class="row margin-rl-0">
+                    <div class="checkbox padding-left-0 padding-right-22">
+                        <label>
+                            <span>Someone sends me an invitation</span> <input class="pull-right" type="checkbox">
+                        </label>
+                    </div>
+                </div>
+                 <div class="row margin-rl-0">
+                    <div class="checkbox padding-left-0 padding-right-22">
+                        <label>
+                            <span>Team access is revoked</span> <input class="pull-right" type="checkbox">
+                        </label>
+                    </div>
+                </div>
+                 <div class="row margin-rl-0">
+                    <div class="margin-top-30 align-center col-sm-12">
+                        <button class="btn btn-primary active" type="submit">Save Changes</button>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
     <footer>
         <div class="container1">

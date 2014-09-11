@@ -14,9 +14,15 @@
     <link href="../../css/font-awesome.css" rel="stylesheet">
     <link rel="stylesheet" href="../../css/organization/postjob/postjob.css"/>
     <link rel="stylesheet" href="../../css/organization/jobPost/jobPost.css"/>
-    <link rel="stylesheet" href="../../css/organization/viewApp/viewApp.css"/>
-    
+    <link rel="stylesheet" href="../../css/organization/viewApp/viewApp.css"/>    
     <link href="../../css/global.css" rel="stylesheet">
+    <style type="text/css">
+        .containerA{
+            width: 1015px;
+            margin: 0 auto;
+        }
+    </style>
+
 </head>
 <body ng-controller='jobPostCtrl'>
         <!-- Page Header Section Start-->
@@ -82,59 +88,98 @@
     </header>
     <!-- Page Header Section End-->
 
-        <div class="container1">
-            <div class="row">
-                <div class="col-sm-1"></div>
-                <div class="col-sm-2">
-                    <div class="panel-title padding-left-0" style="margin-left:-15px">
-                        <span>Job Postings</span>
-                    </div>
-                </div>
-                <div class="col-sm-6"></div>
-                <div class="col-sm-3" style="padding-left:60px">
-                    <span>
-                        Show: 
-                    </span>
-                    <select class='form-control' style="width:100px;display:inline" ng-model="statusShow.status" ng-init="statusShow.status = ''" ng-change="callUpdateStatus()">
-                        <option value="">All</option>
-                        <option value="Open">Open</option>
-                        <option value="Closed">Closed</option>
+        <div class="containerA">
+            <div class="header-box">
+            <div class="row margin-rl-0">
+
+                <div class="col-lg-3 padding-rl-0">
+                    <select class="form-control select-option">
+                        <option value="Volunteers">Volunteers</option>
+                        <option value="Organizations">Organizations</option>
+                        <option value="Volunteer Organizations">Volunteer Organizations</option>
+                        <option value="Jobs">Jobs</option>
                     </select>
                 </div>
-            </div>
-            <p style="margin:0px">&nbsp;</p>
-
-            <div class="row">
-                <div class="col-sm-1"></div>
-                <div class="col-sm-10" style="padding-left:0px;padding-right:0px">
-                    <section class=" accrd_table">
-                        <table ng-table="tableParams" class="table">
-                        <tr ng-repeat="user in $data | filter:statusShow.status">
-                            <td data-title="'Job Title'" sortable="'jobTitle'">
-                                <span><a href="../viewApp/viewApp.html?jobTitle={{user.jobTitle}}">{{user.jobTitle}}</a></span><br/>
-                                <span style="font-size:12px;">{{user.client}}<a style="padding-left:20px" href="../../volunteer/jobDetails/jobDetails.html?jobName={{user.jobTitle}}&jobDate={{user.jobDate}}">View Job Postings</a></span>
-                            </td>
-                            <td data-title="'Applicants'" sortable="'Applicants'" class="text-center">
-                                <span><a href="../viewApp/viewApp.html?jobTitle={{user.jobTitle}}">{{user.Applicants}}</a></span>
-                            </td>
-
-                            <td data-title="'Messaged'" sortable="'messaged'" class="text-center">
-                                <span><a href="../viewApp/viewApp.html?jobTitle={{user.jobTitle}}">{{user.messaged}}</a></span>
-                            </td>
-
-                            <td data-title="'Hired'" sortable="'hired'" class="text-center">
-                                <span><a href="../viewApp/viewApp.html?jobTitle={{user.jobTitle}}">{{user.hired}}</a></span>
-                            </td>
-
-                            <td data-title="'Status'"  sortable="'status'" class="text-center">
-                                {{user.status}}
-                            </td>
-                        </tr>
-                        </table>
-                    </section>
-                    
+                <div class="col-lg-4 padding-rl-0">
+                    <span class="search-txt">wat&nbsp;</span>
+                    <input type="text" placeholder="Keywords (e.g. name, interests or skills)" class="wat-text"/>
                 </div>
-                <div class="col-sm-1"></div>
+
+                <div class="col-lg-3 padding-rl-0">
+                    <span class="search-txt">waar&nbsp;</span>
+                    <input type="text" placeholder="plaats or postcode" class="waar-text"/>
+                </div>
+                <div class="col-lg-1 padding-rl-0">
+                        <select class="select-search">
+                            <option value="5 Km">5 Km</option>
+                            <option value="10 Km">10 Km</option>
+                            <option value="15 km">15 km</option>
+                            <option value="20 Km">20 Km</option>
+                            <option value="25 Km">25 Km</option>
+                            <option value="30 Km" selected="selected">30 Km</option>
+                            <option value="35 Km">35 Km</option>
+                            <option value="40 Km">40 Km</option>
+                            <option value="45 Km">45 Km</option>
+                            <option value="50 Km">50 Km</option>
+                        </select>
+                </div>
+
+                <div class="col-lg-1 padding-rl-0" >
+                    <button type="button" class="btn btn-primary pull-right small-btn active"><span class="fa fa-search"></span>&nbsp;Search</button>
+                </div>
+            </div>
+        </div>
+            <div class="main-border1">
+                <div class="row margin-rl-0">
+                    <div class="col-sm-4">
+                        <div class="panel-title padding-left-0" >
+                            <span>Job Postings</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-4 align-right">
+                        <span>
+                            Show: 
+                        </span>
+                        <select class='form-control' style="width:100px;display:inline" ng-model="statusShow.status" ng-init="statusShow.status = ''" ng-change="callUpdateStatus()">
+                            <option value="">All</option>
+                            <option value="Open">Open</option>
+                            <option value="Closed">Closed</option>
+                        </select>
+                    </div>
+                </div>
+                <p style="margin:0px">&nbsp;</p>
+
+                <div class="row margin-rl-0">
+                    <div class="col-sm-12" style="padding-left:0px;padding-right:0px">
+                        <section class=" accrd_table">
+                            <table ng-table="tableParams" class="table">
+                            <tr ng-repeat="user in $data | filter:statusShow.status">
+                                <td data-title="'Job Title'" sortable="'jobTitle'">
+                                    <span><a href="../viewApp/viewApp.html?jobTitle={{user.jobTitle}}">{{user.jobTitle}}</a></span><br/>
+                                    <span style="font-size:12px;">{{user.client}}<a style="padding-left:20px" href="../../volunteer/jobDetails/jobDetails.html?jobName={{user.jobTitle}}&jobDate={{user.jobDate}}">View Job Postings</a></span>
+                                </td>
+                                <td data-title="'Applicants'" sortable="'Applicants'" class="text-center">
+                                    <span><a href="../viewApp/viewApp.html?jobTitle={{user.jobTitle}}">{{user.Applicants}}</a></span>
+                                </td>
+
+                                <td data-title="'Messaged'" sortable="'messaged'" class="text-center">
+                                    <span><a href="../viewApp/viewApp.html?jobTitle={{user.jobTitle}}">{{user.messaged}}</a></span>
+                                </td>
+
+                                <td data-title="'Hired'" sortable="'hired'" class="text-center">
+                                    <span><a href="../viewApp/viewApp.html?jobTitle={{user.jobTitle}}">{{user.hired}}</a></span>
+                                </td>
+
+                                <td data-title="'Status'"  sortable="'status'" class="text-center">
+                                    {{user.status}}
+                                </td>
+                            </tr>
+                            </table>
+                        </section>
+                        
+                    </div>
+                </div>
             </div>
 
         </div>

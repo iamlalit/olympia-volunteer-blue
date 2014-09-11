@@ -55,20 +55,23 @@
 
 .navbar-default .navbar-nav > li > a{
 	color: #858583;
+	border: 1px solid #cae3f0;
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus{
 	color: #ffffff;
 	background-color: #1489be;
 	border-radius: 10px 10px 0 0;
+	border: 1px solid #eeeeee;
 }
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover, 
 .navbar-default .navbar-nav > .active > a:focus
 .navbar-default .navbar-nav > li > a:active{
-	color: #1489be;
-	background-color: #ffffff;
+	color: #ffffff;
+	background-color:  #1489be;
 	border-radius: 10px 10px 0 0;
+	border: 1px solid #eeeeee;
 }
 .navbar-right  li  a#hover-header-right{
 	border-radius: 4px 4px 4px 4px;
@@ -515,7 +518,7 @@ div[data-role="editor-toolbar"] {
 	background-color: #fff;
 	color: #444;
 	padding: 10px;
-	width: 196px;
+	width: 187px;
 	margin: 4px;
 	display: inline-block;
 }
@@ -526,7 +529,6 @@ div[data-role="editor-toolbar"] {
 	background-color: #fff;
 	color: #444;
 	padding: 10px;
-	width: 196px;
 	margin: 4px;
 	display: inline-block;
 	cursor: pointer;	

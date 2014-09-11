@@ -81,16 +81,44 @@
        <!-- Page Header Section End-->
       <div class="container" ng-init="showrecent = true;hideIt = false" >
         <div class="row">
-            <div class="col-sm-3 padding-left-0">
-                &nbsp;
-            </div>
-            <div class="col-sm-9 padding-left-0 padding-right-0">
-                <div class="col-sm-5 padding-left-0">
-                    <span class="text-center" id='heading-form' >Search Job</span>
-                </div>
-                <div class="col-sm-7 padding-left-0 padding-right-0 hidden" style="text-align:right">
-                    <span>If you like this search, you can</span>
-                    <button type="button" class="btn btn-default"><i class="fa fa-plus-sign plus-sign"></i>&nbsp;Save your search</button>
+            <div class="header-box">
+                <div class="row margin-rl-0">
+
+                    <div class="col-lg-3 padding-rl-0">
+                        <select class="form-control select-option">
+                            <option value="Volunteers">Volunteers</option>
+                            <option value="Organizations">Organizations</option>
+                            <option value="Volunteer Organizations">Volunteer Organizations</option>
+                            <option value="Jobs">Jobs</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-4 padding-rl-0">
+                        <span class="search-txt">wat&nbsp;</span>
+                        <input type="text" placeholder="Keywords (e.g. name, interests or skills)" class="wat-text"/>
+                    </div>
+
+                    <div class="col-lg-3 padding-rl-0">
+                        <span class="search-txt">waar&nbsp;</span>
+                        <input type="text" placeholder="plaats or postcode" class="waar-text"/>
+                    </div>
+                    <div class="col-lg-1 padding-rl-0">
+                            <select class="select-search">
+                                <option value="5 Km">5 Km</option>
+                                <option value="10 Km">10 Km</option>
+                                <option value="15 km">15 km</option>
+                                <option value="20 Km">20 Km</option>
+                                <option value="25 Km">25 Km</option>
+                                <option value="30 Km" selected="selected">30 Km</option>
+                                <option value="35 Km">35 Km</option>
+                                <option value="40 Km">40 Km</option>
+                                <option value="45 Km">45 Km</option>
+                                <option value="50 Km">50 Km</option>
+                            </select>
+                    </div>
+
+                    <div class="col-lg-1 padding-rl-0" >
+                        <button type="button" class="btn btn-primary pull-right small-btn active"><span class="fa fa-search"></span>&nbsp;Search</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -161,53 +189,57 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-9 padding-left-0 padding-right-0">
-                <div class="col-sm-4 padding-left-0">
-                    <span class="clear-search">
-                        <b ng-show="showrecent">{{lengthOfJobs}}</b> 
-                        <b ng-show="showfavourite">{{lengthOfFavouriteJobs}}</b> 
-                        Jobs found &nbsp;&nbsp;<a href="" title="Clear Search" ng-click="clearSearch(); showClearSearch = true">Clear Search</a>
-                    </span>
-                </div>
-                <div class="col-sm-4 align-center">
-                    <span>
-                        <label>Sort By: </label>
-                        <select class="form-control select-option">
-                            <option value="values" ng-repeat="values in sortByList" ng-bind="values"></option>
-                        </select>
-                    </span>
-                </div>
-                <div class="col-sm-4 padding-left-0 padding-right-0 align-right">
-                    <ul class="pagination" ng-hide="showClearSearch || showfavourite">
-                        <li ng-class="{disabled: currentPage == 0}"><span ng-click="prevPage()"> Previous </span></li>
-                        <li ng-repeat="n in range(pagedItems.length)" ng-class="{active: n == currentPage}" ng-click="setPage()"><span>{{n+1}}</span></li>
-                        <li ng-class="{disabled: currentPage == pagedItems.length - 1}"><span ng-click="nextPage()"> Next </span></li>
-                     </ul>
-                </div>
-            </div>
             <div class="row">
                 <div class="main-border" ng-show="showrecent">
+                    <div class="row margin-rl-0">
+                        <div class="col-sm-5 padding-rl-0">
+                            <span class="text-center" id='heading-form' >Search Job</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 padding-left-0">
+                        <span class="clear-search">
+                            <b ng-show="showrecent">{{lengthOfJobs}}</b> 
+                            <b ng-show="showfavourite">{{lengthOfFavouriteJobs}}</b> 
+                            Jobs found &nbsp;&nbsp;<a href="" title="Clear Search" ng-click="clearSearch(); showClearSearch = true">Clear Search</a>
+                        </span>
+                    </div>
+                    <div class="col-sm-4 align-center">
+                        <span>
+                            <label>Sort By: </label>
+                            <select class="form-control select-option">
+                                <option value="values" ng-repeat="values in sortByList" ng-bind="values"></option>
+                            </select>
+                        </span>
+                    </div>
+                    <div class="col-sm-4 padding-left-0  align-right">
+                        <ul class="pagination" ng-hide="showClearSearch || showfavourite">
+                            <li ng-class="{disabled: currentPage == 0}"><span ng-click="prevPage()"> Previous </span></li>
+                            <li ng-repeat="n in range(pagedItems.length)" ng-class="{active: n == currentPage}" ng-click="setPage()"><span>{{n+1}}</span></li>
+                            <li ng-class="{disabled: currentPage == pagedItems.length - 1}"><span ng-click="nextPage()"> Next </span></li>
+                         </ul>
+                    </div>
+                    <div class="margin-top-10">&nbsp;</div>
                     <div class="applicants" ng-repeat="Job in pagedItems[currentPage]" ng-init="autoScroll = false">
-                        <div class="row">
-                            <div class="col-sm-8">
+                        <div class="row margin-rl-0">
+                            <div class="col-sm-8 padding-rl-0">
                                 <a style="color:#1489be" href="" ng-click="CreateObject(Job)"><label ng-bind="Job.Name"></label></a><br />
                             </div>
-                            <div class="col-sm-4">
+                            <div class="col-sm-4 padding-rl-0">
                                 <span ng-if="Job.selected" class="small-pill pull-right background-green color-ffffff"><i class="fa fa-check"></i> Applied</span>
                             </div>
                         </div>
-                        <div class="row padding-left-15">
+                        <div class="row margin-rl-0">
                             <span class="color-999999">Volunteer Job posted by </span>
                             <span><a ng-bind="Job.company" href="../../organization/organizationpcms/organizationpcms.html?organizationName={{Job.company}}"></a> </span>
                             <span class="color-999999"> - {{Job.about}}</span>
                         </div>
-                        <div class="row padding-left-15">
+                        <div class="row margin-rl-0">
                             <span ng-bind="Job.bodyText" ng-show="!Job.value"></span>
                             <div style="padding-top:5px;marging-top:5px;margin-right: 0px;margin-left: 0px;"></div> 
                             <hr class="user-hr" ng-if="$index !== lengthOfJobsPerPage - 1" />
                         </div>
                     </div>
-                    <div class="align-center show-clear" ng-show="showClearSearch">
+                    <div class="align-center show-clear" ng-show="showClearSearch" style="left:-32%">
                         <label>Cleared all search results, <br />Please search again to find the Jobs</label>
                     </div>
                 </div>

@@ -11,11 +11,17 @@
     <link href="../../lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" type="text/css" />
     <link href="../../lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="../../css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="../../css/organization/viewApp/viewApp.css" rel="stylesheet">
     <link href="../../css/font-awesome.css" rel="stylesheet">
     <link rel="stylesheet" href="../../css/organization/postjob/postjob.css"/>
     <link rel="stylesheet" href="../../css/volunteer/jobApplication/jobApplication.css"/>
-    
     <link href="../../css/global.css" rel="stylesheet">
+    <style type="text/css">
+        .containerA{
+            width: 1015px;
+            margin: 0 auto;
+        }
+    </style>
 </head>
 <body ng-controller='jobAPPlicationCtrl'>
         <!-- Page Header Section Start-->
@@ -80,16 +86,56 @@
     </header>
     <!-- Page Header Section End-->
 
-        <div class="container1">
-            <div class="row">
-                <div class="col-sm-1"></div>
+    <div class="containerA">
+        <div class="header-box">
+            <div class="row margin-rl-0">
+
+                <div class="col-lg-3 padding-rl-0">
+                    <select class="form-control select-option">
+                        <option value="Volunteers">Volunteers</option>
+                        <option value="Organizations">Organizations</option>
+                        <option value="Volunteer Organizations">Volunteer Organizations</option>
+                        <option value="Jobs">Jobs</option>
+                    </select>
+                </div>
+                <div class="col-lg-4 padding-rl-0">
+                    <span class="search-txt">wat&nbsp;</span>
+                    <input type="text" placeholder="Keywords (e.g. name, interests or skills)" class="wat-text"/>
+                </div>
+
+                <div class="col-lg-3 padding-rl-0">
+                    <span class="search-txt">waar&nbsp;</span>
+                    <input type="text" placeholder="plaats or postcode" class="waar-text"/>
+                </div>
+                <div class="col-lg-1 padding-rl-0">
+                        <select class="select-search">
+                            <option value="5 Km">5 Km</option>
+                            <option value="10 Km">10 Km</option>
+                            <option value="15 km">15 km</option>
+                            <option value="20 Km">20 Km</option>
+                            <option value="25 Km">25 Km</option>
+                            <option value="30 Km" selected="selected">30 Km</option>
+                            <option value="35 Km">35 Km</option>
+                            <option value="40 Km">40 Km</option>
+                            <option value="45 Km">45 Km</option>
+                            <option value="50 Km">50 Km</option>
+                        </select>
+                </div>
+
+                <div class="col-lg-1 padding-rl-0" >
+                    <button type="button" class="btn btn-primary pull-right small-btn active"><span class="fa fa-search"></span>&nbsp;Search</button>
+                </div>
+            </div>
+        </div>
+        <div class="main-border1 min-height-500">
+            <div class="row margin-rl-0">
                 <div class="col-sm-3">
-                    <div class="panel-title padding-left-0" style="margin-left:-15px">
+                    <div class="panel-title">
                         <span>Job Applications</span>
                     </div>
                 </div>
                 <div class="col-sm-5"></div>
-                <div class="col-sm-3" style="padding-left:40px">
+                <div class="col-sm-4 align-right">
                     <span>
                         Show: 
                     </span>
@@ -104,9 +150,8 @@
                 </div>
             </div>
             <p style="margin:0px">&nbsp;</p>
-            <div class="row">
-                <div class="col-sm-1"></div>
-                <div class="col-sm-10" style="padding-left:0px;padding-right:0px">
+            <div class="row margin-rl-0">
+                <div class="col-sm-12">
                     <section class=" accrd_table">
                         <table ng-table="tableParams" class="table">
                         <tr ng-repeat="user in $data | filter:statusShow.status">
@@ -120,7 +165,7 @@
                                 <span class="padding-left-42">{{user.status}}</span>
                             </td>
                             <td data-title="'Client'" sortable="'client'">
-                                <span class="padding-left-25">{{user.client}}</span>
+                                <span class="padding-left-25"><a href="../../organization/organizationpcms/organizationpcms.html?organizationName={{user.client}}">{{user.client}}</a></span>
                             </td>
                             <td data-title="'Reason'" sortable="'reason'" class="width-236" >
                                 <span class="padding-left-42">{{user.reason}}</span>
@@ -128,12 +173,10 @@
                         </tr>
                         </table>
                     </section>
-                    
                 </div>
-                <div class="col-sm-1"></div>
             </div>
-
         </div>
+    </div>
     <footer>
         <div class="container1">
             <div class="row">
@@ -174,7 +217,7 @@
                     </ul>
                 </div>
                 <div class="col-lg-4">
-                    <div class="social-network-icon-wrap"  style="padding-right:60px">
+                    <div class="social-network-icon-wrap" style="padding-right:60px">
                         <a href="#" class="footer-select social-network-icons">
                             <span class="footer-circle footer-circle-linkedin pull-right">
                                 <i class="fa fa-linkedin font-size-20 icon-attr1"> </i>

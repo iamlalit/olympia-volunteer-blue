@@ -77,7 +77,46 @@
         </div>
     </header>
     <div class="container" ng-cloak>
+        <div class="header-box">
+            <div class="row margin-rl-0">
 
+                <div class="col-lg-3 padding-rl-0">
+                    <select class="form-control select-option">
+                        <option value="Volunteers">Volunteers</option>
+                        <option value="Organizations">Organizations</option>
+                        <option value="Volunteer Organizations">Volunteer Organizations</option>
+                        <option value="Jobs">Jobs</option>
+                    </select>
+                </div>
+                <div class="col-lg-4 padding-rl-0">
+                    <span class="search-txt">wat&nbsp;</span>
+                    <input type="text" placeholder="Keywords (e.g. name, interests or skills)" class="wat-text"/>
+                </div>
+
+                <div class="col-lg-3 padding-rl-0">
+                    <span class="search-txt">waar&nbsp;</span>
+                    <input type="text" placeholder="plaats or postcode" class="waar-text"/>
+                </div>
+                <div class="col-lg-1 padding-rl-0">
+                        <select class="select-search">
+                            <option value="5 Km">5 Km</option>
+                            <option value="10 Km">10 Km</option>
+                            <option value="15 km">15 km</option>
+                            <option value="20 Km">20 Km</option>
+                            <option value="25 Km">25 Km</option>
+                            <option value="30 Km" selected="selected">30 Km</option>
+                            <option value="35 Km">35 Km</option>
+                            <option value="40 Km">40 Km</option>
+                            <option value="45 Km">45 Km</option>
+                            <option value="50 Km">50 Km</option>
+                        </select>
+                </div>
+
+                <div class="col-lg-1 padding-rl-0" >
+                    <button type="button" class="btn btn-primary pull-right small-btn active"><span class="fa fa-search"></span>&nbsp;Search</button>
+                </div>
+            </div>
+        </div>
         <div class="row margin-rl-0" ng-cloak>
             <div class="col-sm-8 padding-rl-0">
                 <div class="alert alert-danger col-sm-12" id="errorMsg" ng-cloak>
@@ -135,16 +174,16 @@
                         <div>
                             <label class="bold inline-block">Cover Letter</label>
                             <span id="optional-text" class="italic"> &nbsp;&nbsp;Write few lines to motivate your application</span>
-                            <textarea class="text-area" cols="102" rows="10" maxlength="5000" id="question1"></textarea>
+                            <textarea class="text-area" cols="87" rows="10" maxlength="5000" id="question1"></textarea>
                             <p class="pull-right" id="optional-text">5000 characters left</p>
                         </div>
                         <div class="margin-top-10">
                             <label class="bold inline-block">Why do you think you are a good fit for this particular project?</label>
-                            <textarea class="text-area" cols="102" rows="10" maxlength="5000" id="question2"></textarea>
+                            <textarea class="text-area" cols="87" rows="10" maxlength="5000" id="question2"></textarea>
                         </div>
                         <div class="margin-top-10">
                             <label class="bold inline-block">What challenging part of this job are you most experienced in?</label>
-                            <textarea class="text-area" cols="102" rows="10" maxlength="5000" id="question3"></textarea>
+                            <textarea class="text-area" cols="87" rows="10" maxlength="5000" id="question3"></textarea>
                         </div>
                         <div class="margin-top-20">
                             <label >Attachment </label><span id='optional-text'> (optional)</span><br/>
@@ -172,7 +211,7 @@
                             <img src="../../img/redCross.jpg" height="50" width="50">
                         </div>
                         <div class="col-sm-10">
-                            <span><a href="#">Red Cross NL</a></span>
+                            <span><a href="../../organization/organizationpcms/organizationpcms.html?organizationName=Red Cross NL">Red Cross NL</a></span>
                             <p>Riders Club is more than just a way to get from here to there. Riders Club is a way to maintain freedom. Our mission is very simple: We provide scheduled transportation for mobile seniors. <span><a href="#" class="pull-right">more >></a></span></p>
                         </div>
                     </div>
@@ -192,7 +231,7 @@
                             </p>
                     </div>
                     <div class="grid" ng-if="!hideMap">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4884.242518322868!2d6.219930051904146!3d52.25934304268567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x4fcf143d1059e0f4!2sApotheek+De+Vijfhoek!5e0!3m2!1sen!2sin!4v1407835821567" width="290" height="200" frameborder="0" style="border:0"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4884.242518322868!2d6.219930051904146!3d52.25934304268567!2m3!1f0!2f0!3f0!3m2!1i874!2i768!4f13.1!3m3!1m2!1s0x0%3A0x4fcf143d1059e0f4!2sApotheek+De+Vijfhoek!5e0!3m2!1sen!2sin!4v1407835821567" width="290" height="200" frameborder="0" style="border:0"></iframe>
                     </div>
                 </div>
 

@@ -1,6 +1,6 @@
 ﻿/*Css updated*/
 .container-body{
-    width: 984px;
+    width: 1010px;
     margin: 0 auto
 }
 .border-heading{
@@ -118,7 +118,7 @@ div.time-label label{
 .pill{
     border-radius: 10px;
     padding: 4px 10px;
-    background-color: #eeeeee;
+    background-color: #cccccc;
 }
 .circle-green {
     width: 24px;
@@ -149,7 +149,6 @@ div.time-label label{
     padding: 5px  5px;
     font-size: 13px;
     color: #444444;
-    width: 900px;
     background-color: #ffffff;
     border: 2px solid #dddddd;
     border-radius: 4px;

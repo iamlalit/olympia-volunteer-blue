@@ -79,30 +79,67 @@
         </nav>
     </header>
     <div class="container">
+        <div class="header-box">
+            <div class="row margin-rl-0">
+
+                <div class="col-lg-3 padding-rl-0">
+                    <select class="form-control select-option">
+                        <option value="Volunteers">Volunteers</option>
+                        <option value="Organizations">Organizations</option>
+                        <option value="Volunteer Organizations">Volunteer Organizations</option>
+                        <option value="Jobs">Jobs</option>
+                    </select>
+                </div>
+                <div class="col-lg-4 padding-rl-0">
+                    <span class="search-txt">wat&nbsp;</span>
+                    <input type="text" placeholder="Keywords (e.g. name, interests or skills)" class="wat-text"/>
+                </div>
+
+                <div class="col-lg-3 padding-rl-0">
+                    <span class="search-txt">waar&nbsp;</span>
+                    <input type="text" placeholder="plaats or postcode" class="waar-text"/>
+                </div>
+                <div class="col-lg-1 padding-rl-0">
+                        <select class="select-search">
+                            <option value="5 Km">5 Km</option>
+                            <option value="10 Km">10 Km</option>
+                            <option value="15 km">15 km</option>
+                            <option value="20 Km">20 Km</option>
+                            <option value="25 Km">25 Km</option>
+                            <option value="30 Km" selected="selected">30 Km</option>
+                            <option value="35 Km">35 Km</option>
+                            <option value="40 Km">40 Km</option>
+                            <option value="45 Km">45 Km</option>
+                            <option value="50 Km">50 Km</option>
+                        </select>
+                </div>
+
+                <div class="col-lg-1 padding-rl-0" >
+                    <button type="button" class="btn btn-primary pull-right small-btn active"><span class="fa fa-search"></span>&nbsp;Search</button>
+                </div>
+            </div>
+        </div>
         <div class="row margin-rl-0">
             <div class="col-sm-12 padding-rl-0">
                 <!-- Navigation back to page-->
                 <span>
-                    <a href="../search/searchVol.html" class="navigation">
+                    <a href="../search/searchVol.html">
                         <i class="fa fa-chevron-left black-arrow"></i>Back to search results
                     </a>
                 </span>
             </div>
         </div>
-        <div class="row margin-rl-0 margin-top-10 margin-bottom-10">
-            <div class="col-sm-1">
-                <img src="../../img/user.svg" width="70" height="70"/>
-            </div>
-            <div class="col-sm-11">
-                <div class="panel-title padding-left-0">
-                    <span ng-bind="organizationName"></span>
-                </div>
-                <label id="optional-text">Non-profit organization</label>
-            </div>
-        </div>
         <div class="row margin-rl-0">
             <div class="col-sm-8 padding-rl-0">
                 <div class="main-border1">
+                    <img src="../../img/user.svg" width="70" height="70"/>
+                    <div class="inline-block valign-middle">
+                        <div class="panel-title padding-left-0 inline-block">
+                            <span ng-bind="organizationName"></span>
+                        </div>
+                        <br>
+                        <label id="optional-text" >Non-profit organization</label>
+                    </div>
                     <h4 class="bold">
                         About <span ng-bind="organizationName"></span>
                     </h4>
@@ -123,10 +160,10 @@
                             <i class="fa fa-angle-right" id="right"></i>
                         </div>
                     </div>
-                    <div class="pill margin-top-20 margin-bottom-10">
-                        <h5><strong>Organization recent job postings</strong></h5>
-                    </div>
+                    <h5 class="margin-bottom-30"><strong>Organization recent job postings</strong></h5>
+
                     <div class="row job margin-rl-0" ng-repeat="job in jobPost">
+
                         <span>
                             <a href="../../volunteer/jobDetails/jobDetails.html?jobName={{job.jobTitle}}&jobDate={{job.jobDate}}" ng-bind="job.jobTitle">
                             </a>

@@ -18,6 +18,13 @@
     <link rel="stylesheet" href="../../css/organization/jobPost/jobPost.css"/>
     <link rel="stylesheet" href="../../css/organization/viewApp/viewApp.css"/>
     <link href="../../css/global.css" rel="stylesheet">
+    <style type="text/css">
+        .containerA{
+            width: 1015px;
+            margin: 0 auto;
+        }
+    </style>
+
 </head>
 <body ng-controller="postJobCntrl">
 
@@ -81,659 +88,700 @@
 		  </div><!-- /.container-fluid -->
 		</nav>
 	</header>
-	<div class="row">
-        <div class="col-lg-1"></div>
-        <div class="col-lg-9 margin-left-71">
-        	<div class="col-sm-2"></div>
-            <div class="alert alert-danger col-sm-8" id="errorMsg">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                <h2 class="text-center margin-top-0">Please fix the following issues</h2>
-                <ul id="errorList" class="errorList" style="margin-bottom:35px"></ul>
+
+    <div class="containerA">
+        <div class="header-box">
+            <div class="row margin-rl-0">
+
+                <div class="col-lg-3 padding-rl-0">
+                    <select class="form-control select-option">
+                        <option value="Volunteers">Volunteers</option>
+                        <option value="Organizations">Organizations</option>
+                        <option value="Volunteer Organizations">Volunteer Organizations</option>
+                        <option value="Jobs">Jobs</option>
+                    </select>
+                </div>
+                <div class="col-lg-4 padding-rl-0">
+                    <span class="search-txt">wat&nbsp;</span>
+                    <input type="text" placeholder="Keywords (e.g. name, interests or skills)" class="wat-text"/>
+                </div>
+
+                <div class="col-lg-3 padding-rl-0">
+                    <span class="search-txt">waar&nbsp;</span>
+                    <input type="text" placeholder="plaats or postcode" class="waar-text"/>
+                </div>
+                <div class="col-lg-1 padding-rl-0">
+                        <select class="select-search">
+                            <option value="5 Km">5 Km</option>
+                            <option value="10 Km">10 Km</option>
+                            <option value="15 km">15 km</option>
+                            <option value="20 Km">20 Km</option>
+                            <option value="25 Km">25 Km</option>
+                            <option value="30 Km" selected="selected">30 Km</option>
+                            <option value="35 Km">35 Km</option>
+                            <option value="40 Km">40 Km</option>
+                            <option value="45 Km">45 Km</option>
+                            <option value="50 Km">50 Km</option>
+                        </select>
+                </div>
+
+                <div class="col-lg-1 padding-rl-0" >
+                    <button type="button" class="btn btn-primary pull-right small-btn active"><span class="fa fa-search"></span>&nbsp;Search</button>
+                </div>
             </div>
-            <div class="col-sm-2"></div>
         </div>
-        <div class="col-lg-2"></div>
     </div>
-	<div class="row">
-		<div class="row margin-top-15" ></div>
-		<div class="col-sm-1">
-		</div>
-		<form  id="postJobForm" role="form">
-			<div class="col-sm-10">
-				<div class='row  margin-left-71'>
-					<span id='heading-form'>Post a Job</span>
-				</div>
-				<div class='row'>
-					<div class='margin-top-15'>
-					</div>
-				</div>
-				<div class="row margin-left-57" id="jobs">
-					<div class="col-sm-8">
-						<label >Job Types</label>
-						<select class='form-control' id="job-type" style="width:400px;" required ng-model="jobType" ng-init="jobType='job'">
-							<option value='job'>Job</option>
-							<option value='Internship'>Internship</option>
-							<option value='Event'>Event</option>
-						</select>
-					</div>
-				</div>
-				<div class='row'>
-					<div class='margin-top-10'>
-					</div>
-				</div>
-				<div class="row margin-left-57" id="title">
-					<div class="col-sm-10" >
-						<label>Give your job a title</label>
-						<input type='text' ng-model="jobTitle" style="width:690px;" class='form-control' id='form-control-weight' for='inserting job title' id='form-text-control' placeholder='Title' id="job-title" >
-					</div>
-				</div>
-				<div class='row'>
-					<div class='margin-top-10'>
-					</div>
-				</div>
-				<div class="row margin-left-57" id="describe-work">
-					<div class="form-group">
-						<div class='col-sm-8'>
-						<label >Describe the work to be done</label>
-							<a href="#" id="zoomTextarea" class="pull-right" title="Click to Zoom" data-toggle="modal" data-target="#textBoxBig">Expand <i class="olympia-expand2"></i></a>
-							<textarea id="text-content" maxlength="5000" class="form-control" rows="5" ng-model="describeWork"></textarea>
-							<p>Number of characters <span id="text-content-count">0</span> (max 5000 characters)</p>
+    <div class="containerA">
+		<div class="row">
+	        <div class="col-lg-1"></div>
+	        <div class="col-lg-9 margin-left-71">
+	        	<div class="col-sm-2"></div>
+	            <div class="alert alert-danger col-sm-8" id="errorMsg">
+	                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+	                <h2 class="text-center margin-top-0">Please fix the following issues</h2>
+	                <ul id="errorList" class="errorList" style="margin-bottom:35px"></ul>
+	            </div>
+	            <div class="col-sm-2"></div>
+	        </div>
+	        <div class="col-lg-2"></div>
+	    </div>
+	    <div class="main-border1">
+			<div class="row margin-rl-0">
+				<div class="row margin-top-15 margin-rl-0" ></div>
+				<form  id="postJobForm" role="form">
+					<div class="col-sm-12">
+						<div class='row margin-rl-0'>
+							<span id='heading-form'>Post a Job</span>
 						</div>
-					</div>
-				</div>
-				<div class='row'>
-					<div class='margin-top-10'>
-					</div>
-				</div>
-				<div class='row margin-left-57'>
-					<div class="col-sm-9">
-						<label >Attach a document </label><span id='optional-text'> (optional)</span>
-						<input type="file" name="CV" accept="text/*" />
-					</div>
-				</div>
-				<div class='row'>
-					<div id='margin-top-10'>
-					</div>
-				</div>
-				<div class='row margin-left-57'>
-					<div class='col-sm-8' for='first content'>
-						<span id='optional-text'> Less than 5mb</span>
-					</div>
-				</div>
-				<div class='row'>
-					<div class='margin-top-10'>
-					</div>
-				</div>
-				<div class='row margin-left-57' >
-					<div class='col-sm-11'>
-						<div class='border-heading'>
-							<label class="font-size-16" style='vertical-align:middle;' >Customize your application requirements</label>
+						<div class='row margin-rl-0'>
+							<div class='margin-top-15'>
+							</div>
 						</div>
-					</div>
-				</div>
-
-				<div class='row'>
-					<div class='margin-top-15'>
-					</div>
-				</div>
-				<div class="row margin-left-57">
-					<div class="col-sm-11">
-						<div class='col-sm-1  font-size-4 '>
-							<span class="glyphicon glyphicon-list-alt"></span>			    	
-					    </div>
-					    <div class="col-sm-6">
-					    	<label class="font-size-15">Preferred Skills and Diplomas</label>
-					    </div>
-					    <div class='col-sm-11' >
-					    	<span>
-								Specify the skills and diplomas/certificates you are looking for in a successful application. Volunteers may still apply if they do not meet your preferences, but they will be clearly notified that they are at a disadvantage.
-							</span>
-
-							<div class='row'>
-								<div class='margin-top-10'>
+						<div class="row margin-rl-0" id="jobs">
+							<div class="col-sm-8 padding-rl-0">
+								<label >Job Types</label>
+								<select class='form-control' id="job-type" style="width:400px;" required ng-model="jobType" ng-init="jobType='job'">
+									<option value='job'>Job</option>
+									<option value='Internship'>Internship</option>
+									<option value='Event'>Event</option>
+								</select>
+							</div>
+						</div>
+						<div class='row margin-rl-0'>
+							<div class='margin-top-10'>
+							</div>
+						</div>
+						<div class="row margin-rl-0" id="title">
+							<div class="col-sm-10 padding-rl-0" >
+								<label>Give your job a title</label>
+								<input type='text' ng-model="jobTitle" style="width:700px;" id='form-control-weight' for='inserting job title' id='form-text-control' placeholder='Title' id="job-title" >
+							</div>
+						</div>
+						<div class='row margin-rl-0'>
+							<div class='margin-top-10'>
+							</div>
+						</div>
+						<div class="row margin-rl-0" id="describe-work">
+							<div class="form-group">
+								<div class='col-sm-9 padding-left-0'>
+								<label >Describe the work to be done</label>
+									<a href="#" id="zoomTextarea" class="pull-right" title="Click to Zoom" data-toggle="modal" data-target="#textBoxBig">Expand <i class="olympia-expand2"></i></a>
+									<textarea id="text-content" maxlength="5000" class="text-area" cols="96" rows="7" ng-model="describeWork"></textarea>
+									<p>Number of characters <span id="text-content-count">0</span> (max 5000 characters)</p>
 								</div>
 							</div>
-							<button class="btn btn-primary" type="button" id="skills" value="Add Skills / Certificates" name="Add Skills / Certificates">Add Skills / Certificates</button>
-							<ul class="ishidden" id="group-skills">
-								<!-- <li style="list-style-type:none; padding-bottom:30px;" id="skills-popover"> -->
-								<li style="list-style-type:none; padding-bottom:30px;">								
-									<label >What Skills are needed?</label>
-									<span id="optional-text">(optional) </span>
-									<div  id='form-component-arrangement-input' style="margin-bottom:-10px;">
-										<input type="text" class='form-control' id='skill-tag' placeholder="Add skills" />
-									</div>
-									<div class="col-sm-12">
-										<span style="margin-left:-13px;"><a href="#" id="zoomTextarea" id="modal-skill" onclick="updateValueSkillText()" title="Click to Zoom" data-toggle="modal" data-target="#skillBox">Add skills requirements to your job posting</a>
-										</span>
-									</div>
-								</li>
-								<!-- <li style="list-style-type:none" id="diploma-popover"> -->
-								<li style="list-style-type:none">
-									<label >What Diploma/Certificates are needed?</label>
-									<span id="optional-text">(optional) </span>
-									<div  id='form-component-arrangement-input' style="margin-bottom:-10px;">
-										<input type="text" class='form-control' id='diploma-tag' placeholder="Add Diploma/Certificates" />
-									</div>
-									<div class="col-sm-12">
-										<span style="margin-left:-13px;"><a href="#" id="zoomTextarea" id="modal-diploma" onclick="updateValueDiplomaText()" title="Click to Zoom" data-toggle="modal" data-target="#diplomaBox">Add Diploma/Certificates requirements to your job posting</a>
-										</span>
-									</div>
-								</li>
-							</ul>
-					    </div>
-					</div>
-				</div>
-				<div class="row margin-left-57">
-					<div class="col-sm-11">
-						<hr style="height:1px; background-color:#DDDDDD;">
-					</div>	
-				</div>
-				<div class="row margin-left-57">
-					<div class="col-sm-11">
-						<div class='col-sm-1  font-size-4 '>
-							<span class="glyphicon glyphicon-time"></span>			    	
-					    </div>
-					    <div class="col-sm-6">
-					    	<label class="font-size-15">Preferred Time commitments</label>
-					    </div>
-					    <div class='col-sm-11' >
-					    	<span>
-								Specify the time commitments, schedule and days of week you're looking for in a successful application. Volunteers may still apply if they do not meet your requirement preferences, but they will be clearly notified that they are at a disadvantage.
-							</span>
-
-							<div class='row'>
-								<div class='margin-top-10'>
+						</div>
+						<div class='row margin-rl-0'>
+							<div class='margin-top-10'>
+							</div>
+						</div>
+						<div class="row margin-rl-0">
+							<div class="">
+	                            <label >Attachment </label><span id='optional-text'> (optional)</span><br/>
+	                            <div class="custom-file-upload">
+	                                <input type="file" id="file" name="myfiles[]" multiple />
+	                            </div>
+	                        </div>
+	                        <div class="margin-top-0">
+	                            <p class="italic small">File size should be less than 5MB.</p>
+	                        </div>
+						</div>
+						<div class='row margin-rl-0'>
+							<div id='margin-top-10'>
+							</div>
+						</div>
+						<div class='row margin-rl-0' >
+							<div class='col-sm-12 padding-rl-0'>
+								<div class='border-heading'>
+									<label class="font-size-16" style='vertical-align:middle;' >Customize your application requirements</label>
 								</div>
 							</div>
-							<button type="button"  class="btn btn-primary" id="time">Add Time Comittments</button>
-							<ul class="ishidden" id="group-skills">
-							
-								<li style="list-style-type:none; margin-left:-16px;" id="datepicker">
-									<div class='col-sm-6'>
-			            				<div class="form-group" >
-							                <label>Start date</label>
-							                <div class='input-group date' id='datetimepicker8' style="max-width:330px;">
-							                    <input type='text' class="form-control" id='datepicker1'/>
-							                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
-							                    </span>
-							                </div>
-							            </div>
-							        </div>
-									<div class='col-sm-6'>
-							            <div class="form-group">
-							            	<label>End date</label>
-							                <div class='input-group date' id='datetimepicker9'  style="max-width:330px;">
-							                    <input type='text' class="form-control" id='datepicker2'/>
-							                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
-							                    </span>
-							                </div>
-							            </div>
-							        </div>
-								</li>
+						</div>
 
-								<li style="list-style-type:none" class="check-label">
-									<div class="row">
-										<label class="margin-left-28">Time Comittment</label>
-										<a>
-											<i class="glyphicon glyphicon-question-sign blue" id="time-checkbox"></i>
-										</a>
-										<span id="optional-text">(optional) </span>
-										
-									</div>
-									<!-- <label class="margin">Time Comittment</label> -->
-									<div class="col-sm-6 ">
-										<div class="checkbox">
-											<label>
-												<input type="checkbox"> <a>Occasional(weekly or monthly)</a>
-											</label>
-										</div>
-										<div class="checkbox">
-											<label>
-												<input type="checkbox"> <a>A lot(10+ hours/week)</a>
-											</label>
-										</div>
-										<div class="checkbox">
-											<label>
-												<input type="checkbox"> <a>Full time(30-40 hours/week)</a>
-											</label>
-										</div>
-									</div>
-									<div class="col-sm-6">
-										<div class="checkbox">
-											<label>
-												<input type="checkbox"> <a>One time</a>
-											</label>
-										</div>
-										<div class="checkbox">
-											<label>
-												<input type="checkbox" > <a>For few hours</a>
-											</label>
-										</div>
-										<div class="checkbox">
-											<label>
-												<input type="checkbox"> <a>Less than 1 hour </a>
-											</label>
-										</div>
-									</div>
-								</li>
-								<!-- <li style="list-style-type:none">
-									<label id='form-component-arrangement-label'>Estimated Duration</label>
-									<div  id='form-component-arrangement-input'>
-										<input type="text" class='form-control' id='form-text-control' placeholder="Add Estimated duration" />
-									</div>
-								</li> -->
-								<li style="list-style-type:none" class="check-label">
-									<div class="row">
-										<label class="margin-left-28">Schedule</label>
-										<a>
-											<i class="glyphicon glyphicon-question-sign blue"  id="schedule-checkbox"></i>
-										</a>
-
-										<span id="optional-text">(optional) </span>
-										
-									</div>
-									<div class="col-sm-12 ">
-										<div class="checkbox">
-											<label>
-												<input type="checkbox"> <a>Flexible schedule</a>
-											</label>
-										</div>
-										<div class="checkbox">
-											<label>
-												<input type="checkbox"> <a>Fixed schedule</a>
-											</label>
-										</div>
-									</div>
-								</li>
-								<!-- <li style="list-style-type:none" id="dow-popover"> -->
-								<li style="list-style-type:none">
-									<label id='form-component-arrangement-label'>Days of Week</label>
-									<span id="optional-text">(optional) </span>
-									<div  id='form-component-arrangement-input' style="margin-bottom:-10px;">
-										<input type="text" class='form-control' id='dow-tag' placeholder="Add days of week" />
-									</div>
-									<div class="col-sm-12">
-										<span style="margin-left:-13px;"><a href="#" id="zoomTextarea"id="modal-dow" onclick="updateValueDowText()" title="Click to Zoom" data-toggle="modal" data-target="#dowBox">Add days of week requirements to your job posting</a>
-										</span>
-									</div>
-								</li>
-							</ul>
-					    </div>
-					</div>
-				</div>
-				<div class="row margin-left-57">
-					<div class="col-sm-11">
-						<hr style="height:1px; background-color:#DDDDDD;">
-					</div>	
-				</div>
-				<div class="row margin-left-57">
-					<div class="col-sm-11">
-						<div class='col-sm-1  font-size-4 '>
-							<span class="glyphicon glyphicon-tasks"></span>			    	
-					    </div>
-					    <div class="col-sm-6">
-					    	<label class="font-size-15">Extra Preferences</label>
-					    </div>
-					    <div class='col-sm-11' >
-					    	<span>
-								Specify the International volunter option, language and other extra details you're looking for in a successful application. Volunteers may still apply if they do not meet your preferences, but they will be clearly notified that they are at a disadvantage.
-							</span>
-							<div class='row'>
-								<div class='margin-top-10'>
-								</div>
+						<div class='row margin-rl-0'>
+							<div class='margin-top-15'>
 							</div>
-							<button type="button"  class="btn btn-primary" id="miscleaneous">Add Extra Preferences</button>
-							<ul class="ishidden" id="group-skills">
-								<li style="list-style-type:none" class="check-label">
-									<div class="row">
-										<label class="margin-left-28">Appropriate for</label>
-										<a>
-											<i class="glyphicon glyphicon-question-sign blue"  id="appropriate-checkbox"></i>
-										</a>
-										<span id="optional-text">(optional) </span>
-										
-									</div>
-									<!-- <label class="margin">Time Comittment</label> -->
-									<div class="col-sm-12">
-										<div class="checkbox">
-											<label>
-												<input type="checkbox"> <a>Families</a>
-											</label>
-										</div>
-										<div class="checkbox">
-											<label>
-												<input type="checkbox"> <a>Groups</a>
-											</label>
+						</div>
+						<div class="row margin-rl-0">
+							<div class="col-sm-12 padding-rl-0">
+								<div class='col-sm-1  font-size-4 '>
+									<span class="glyphicon glyphicon-list-alt"></span>			    	
+							    </div>
+							    <div class="col-sm-6">
+							    	<label class="font-size-15">Preferred Skills and Diplomas</label>
+							    </div>
+							    <div class='col-sm-11' >
+							    	<span>
+										Specify the skills and diplomas/certificates you are looking for in a successful application. Volunteers may still apply if they do not meet your preferences, but they will be clearly notified that they are at a disadvantage.
+									</span>
+
+									<div class='row'>
+										<div class='margin-top-10'>
 										</div>
 									</div>
-								</li>
-								<li style="list-style-type:none" class="check-label">
-									<div class="row">
-										<label class="margin-left-28">International volunteer option</label>
-										<a>
-											<i class="glyphicon glyphicon-question-sign blue"  id="IVO-checkbox"></i>
-										</a>
-										<span id="optional-text">(optional) </span>
-										
-									</div>
-									<!-- <label class="margin">Time Comittment</label> -->
-									<div class="col-sm-6">
-										<div class="checkbox">
-											<label>
-												<input type="checkbox"> <a>Housing available</a>
-											</label>
+									<button class="btn btn-primary active" type="button" id="skills" value="Add Skills / Certificates" name="Add Skills / Certificates">Add Skills / Certificates</button>
+									<ul class="ishidden" id="group-skills">
+										<!-- <li style="list-style-type:none; padding-bottom:30px;" id="skills-popover"> -->
+										<li style="list-style-type:none; padding-bottom:30px;">								
+											<label >What Skills are needed?</label>
+											<span id="optional-text">(optional) </span>
+											<div  id='form-component-arrangement-input' style="margin-bottom:-10px;">
+												<input type="text" class='form-control' id='skill-tag' placeholder="Add skills" />
+											</div>
+											<div class="col-sm-12">
+												<span style="margin-left:-13px;"><a href="#" id="zoomTextarea" id="modal-skill" onclick="updateValueSkillText()" title="Click to Zoom" data-toggle="modal" data-target="#skillBox">Add skills requirements to your job posting</a>
+												</span>
+											</div>
+										</li>
+										<!-- <li style="list-style-type:none" id="diploma-popover"> -->
+										<li style="list-style-type:none">
+											<label >What Diploma/Certificates are needed?</label>
+											<span id="optional-text">(optional) </span>
+											<div  id='form-component-arrangement-input' style="margin-bottom:-10px;">
+												<input type="text" class='form-control' id='diploma-tag' placeholder="Add Diploma/Certificates" />
+											</div>
+											<div class="col-sm-12">
+												<span style="margin-left:-13px;"><a href="#" id="zoomTextarea" id="modal-diploma" onclick="updateValueDiplomaText()" title="Click to Zoom" data-toggle="modal" data-target="#diplomaBox">Add Diploma/Certificates requirements to your job posting</a>
+												</span>
+											</div>
+										</li>
+									</ul>
+							    </div>
+							</div>
+						</div>
+						<div class="row margin-rl-0">
+							<div class="col-sm-12">
+								<hr style="height:1px; background-color:#DDDDDD;">
+							</div>	
+						</div>
+						<div class="row margin-rl-0">
+							<div class="col-sm-12 padding-rl-0">
+								<div class='col-sm-1  font-size-4 '>
+									<span class="glyphicon glyphicon-time"></span>			    	
+							    </div>
+							    <div class="col-sm-6">
+							    	<label class="font-size-15">Preferred Time commitments</label>
+							    </div>
+							    <div class='col-sm-11' >
+							    	<span>
+										Specify the time commitments, schedule and days of week you're looking for in a successful application. Volunteers may still apply if they do not meet your requirement preferences, but they will be clearly notified that they are at a disadvantage.
+									</span>
+
+									<div class='row'>
+										<div class='margin-top-10'>
 										</div>
-										<div class="checkbox">
-											<label>
-												<input type="checkbox"> <a>International volunteers welcome</a>
-											</label>
-										</div>
 									</div>
-									<div class="col-sm-6">
-										<div class="checkbox">
-											<label>
-												<input type="checkbox"> <a>Language/cultural support available</a>
-											</label>
-										</div>
-										<div class="checkbox">
-										</div>
-									</div>
-								</li>
-								<li style="list-style-type:none" class="check-label">
-									<div class="row">
-										<label class="margin-left-28 ">Extra Details</label>
-										<a>
-											<i class="glyphicon glyphicon-question-sign blue"  id="extra-checkbox"></i>
-										</a>
-										<span id="optional-text">(optional) </span>
-									</div>
+									<button type="button"  class="btn btn-primary active" id="time">Add Time Comittments</button>
+									<ul class="ishidden" id="group-skills">
 									
-									<div class="col-sm-6">
-										<div class="checkbox">
-											<label>
-												<input type="checkbox"> <a>Training provided</a>
-											</label>
-										</div>
-										<div class="checkbox">
-											<label>
-												<input type="checkbox"> <a>Fee required</a>
-											</label>
-										</div>
-									</div>
-									<div class="col-sm-6">
-										<div class="checkbox">
-											<label>
-												<input type="checkbox"> <a>Stipend provided</a>
-											</label>
-										</div>
-										<div class="checkbox">
-										</div>
-									</div>
-								</li>
-								<li style="list-style-type:none" >								
-									<label>Language</label>
-									<span id="optional-text">(optional) </span>								
-									<div  id='form-component-arrangement-input' style="margin-bottom:-10px;">
-										<input type="text" class='form-control' id="language-tag" placeholder="Add Languages" />
-									</div>
+										<li style="list-style-type:none; margin-left:-16px;" id="datepicker">
+											<div class='col-sm-6'>
+					            				<div class="form-group" >
+									                <label>Start date</label>
+									                <div class='input-group date' id='datetimepicker8' style="max-width:330px;">
+									                    <input type='text' class="form-control" id='datepicker1'/>
+									                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+									                    </span>
+									                </div>
+									            </div>
+									        </div>
+											<div class='col-sm-6'>
+									            <div class="form-group">
+									            	<label>End date</label>
+									                <div class='input-group date' id='datetimepicker9'  style="max-width:330px;">
+									                    <input type='text' class="form-control" id='datepicker2'/>
+									                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+									                    </span>
+									                </div>
+									            </div>
+									        </div>
+										</li>
 
-									<div class="col-sm-12" >
-										<span style="margin-left:-13px;"><a href="#" id="zoomTextarea" onclick="updateValueLanText()" title="Click to Zoom" data-toggle="modal" data-target="#languageBox">Add language requirements to your job posting</a>
-										</span>
+										<li style="list-style-type:none" class="check-label">
+											<div class="row">
+												<label class="margin-left-28">Time Comittment</label>
+												<a>
+													<i class="glyphicon glyphicon-question-sign blue" id="time-checkbox"></i>
+												</a>
+												<span id="optional-text">(optional) </span>
+												
+											</div>
+											<!-- <label class="margin">Time Comittment</label> -->
+											<div class="col-sm-6 ">
+												<div class="checkbox">
+													<label>
+														<input type="checkbox"> <a>Occasional(weekly or monthly)</a>
+													</label>
+												</div>
+												<div class="checkbox">
+													<label>
+														<input type="checkbox"> <a>A lot(10+ hours/week)</a>
+													</label>
+												</div>
+												<div class="checkbox">
+													<label>
+														<input type="checkbox"> <a>Full time(30-40 hours/week)</a>
+													</label>
+												</div>
+											</div>
+											<div class="col-sm-6">
+												<div class="checkbox">
+													<label>
+														<input type="checkbox"> <a>One time</a>
+													</label>
+												</div>
+												<div class="checkbox">
+													<label>
+														<input type="checkbox" > <a>For few hours</a>
+													</label>
+												</div>
+												<div class="checkbox">
+													<label>
+														<input type="checkbox"> <a>Less than 1 hour </a>
+													</label>
+												</div>
+											</div>
+										</li>
+										<!-- <li style="list-style-type:none">
+											<label id='form-component-arrangement-label'>Estimated Duration</label>
+											<div  id='form-component-arrangement-input'>
+												<input type="text" class='form-control' id='form-text-control' placeholder="Add Estimated duration" />
+											</div>
+										</li> -->
+										<li style="list-style-type:none" class="check-label">
+											<div class="row">
+												<label class="margin-left-28">Schedule</label>
+												<a>
+													<i class="glyphicon glyphicon-question-sign blue"  id="schedule-checkbox"></i>
+												</a>
+
+												<span id="optional-text">(optional) </span>
+												
+											</div>
+											<div class="col-sm-12 ">
+												<div class="checkbox">
+													<label>
+														<input type="checkbox"> <a>Flexible schedule</a>
+													</label>
+												</div>
+												<div class="checkbox">
+													<label>
+														<input type="checkbox"> <a>Fixed schedule</a>
+													</label>
+												</div>
+											</div>
+										</li>
+										<!-- <li style="list-style-type:none" id="dow-popover"> -->
+										<li style="list-style-type:none">
+											<label id='form-component-arrangement-label'>Days of Week</label>
+											<span id="optional-text">(optional) </span>
+											<div  id='form-component-arrangement-input' style="margin-bottom:-10px;">
+												<input type="text" class='form-control' id='dow-tag' placeholder="Add days of week" />
+											</div>
+											<div class="col-sm-12">
+												<span style="margin-left:-13px;"><a href="#" id="zoomTextarea"id="modal-dow" onclick="updateValueDowText()" title="Click to Zoom" data-toggle="modal" data-target="#dowBox">Add days of week requirements to your job posting</a>
+												</span>
+											</div>
+										</li>
+									</ul>
+							    </div>
+							</div>
+						</div>
+						<div class="row margin-rl-0">
+							<div class="col-sm-12 padding-rl-0">
+								<hr style="height:1px; background-color:#DDDDDD;">
+							</div>	
+						</div>
+						<div class="row margin-rl-0">
+							<div class="col-sm-11 padding-rl-0">
+								<div class='col-sm-1  font-size-4 '>
+									<span class="glyphicon glyphicon-tasks"></span>			    	
+							    </div>
+							    <div class="col-sm-6">
+							    	<label class="font-size-15">Extra Preferences</label>
+							    </div>
+							    <div class='col-sm-11' >
+							    	<span>
+										Specify the International volunter option, language and other extra details you're looking for in a successful application. Volunteers may still apply if they do not meet your preferences, but they will be clearly notified that they are at a disadvantage.
+									</span>
+									<div class='row'>
+										<div class='margin-top-10'>
+										</div>
 									</div>
-								</li>
-							</ul>
-					    </div>
-					</div>
-				</div>
-				<div class="row margin-left-57">
-					<div class="col-sm-11">
-						<hr style="height:1px; background-color:#DDDDDD;">
-					</div>	
-				</div>
+									<button type="button"  class="btn btn-primary active" id="miscleaneous">Add Extra Preferences</button>
+									<ul class="ishidden" id="group-skills">
+										<li style="list-style-type:none" class="check-label">
+											<div class="row">
+												<label class="margin-left-28">Appropriate for</label>
+												<a>
+													<i class="glyphicon glyphicon-question-sign blue"  id="appropriate-checkbox"></i>
+												</a>
+												<span id="optional-text">(optional) </span>
+												
+											</div>
+											<!-- <label class="margin">Time Comittment</label> -->
+											<div class="col-sm-12">
+												<div class="checkbox">
+													<label>
+														<input type="checkbox"> <a>Families</a>
+													</label>
+												</div>
+												<div class="checkbox">
+													<label>
+														<input type="checkbox"> <a>Groups</a>
+													</label>
+												</div>
+											</div>
+										</li>
+										<li style="list-style-type:none" class="check-label">
+											<div class="row">
+												<label class="margin-left-28">International volunteer option</label>
+												<a>
+													<i class="glyphicon glyphicon-question-sign blue"  id="IVO-checkbox"></i>
+												</a>
+												<span id="optional-text">(optional) </span>
+												
+											</div>
+											<!-- <label class="margin">Time Comittment</label> -->
+											<div class="col-sm-6">
+												<div class="checkbox">
+													<label>
+														<input type="checkbox"> <a>Housing available</a>
+													</label>
+												</div>
+												<div class="checkbox">
+													<label>
+														<input type="checkbox"> <a>International volunteers welcome</a>
+													</label>
+												</div>
+											</div>
+											<div class="col-sm-6">
+												<div class="checkbox">
+													<label>
+														<input type="checkbox"> <a>Language/cultural support available</a>
+													</label>
+												</div>
+												<div class="checkbox">
+												</div>
+											</div>
+										</li>
+										<li style="list-style-type:none" class="check-label">
+											<div class="row">
+												<label class="margin-left-28 ">Extra Details</label>
+												<a>
+													<i class="glyphicon glyphicon-question-sign blue"  id="extra-checkbox"></i>
+												</a>
+												<span id="optional-text">(optional) </span>
+											</div>
+											
+											<div class="col-sm-6">
+												<div class="checkbox">
+													<label>
+														<input type="checkbox"> <a>Training provided</a>
+													</label>
+												</div>
+												<div class="checkbox">
+													<label>
+														<input type="checkbox"> <a>Fee required</a>
+													</label>
+												</div>
+											</div>
+											<div class="col-sm-6">
+												<div class="checkbox">
+													<label>
+														<input type="checkbox"> <a>Stipend provided</a>
+													</label>
+												</div>
+												<div class="checkbox">
+												</div>
+											</div>
+										</li>
+										<li style="list-style-type:none" >								
+											<label>Language</label>
+											<span id="optional-text">(optional) </span>								
+											<div  id='form-component-arrangement-input' style="margin-bottom:-10px;">
+												<input type="text" class='form-control' id="language-tag" placeholder="Add Languages" />
+											</div>
 
-				<div class="row margin-left-57">
-					<div class="col-sm-11">
-						<div class='col-sm-1  font-size-4 '>
-							<span class="glyphicon glyphicon-globe"></span>			    	
-					    </div>
-					    <div class="col-sm-6">
-					    	<label class="font-size-15">Volunteer Job Location</label>
-					    </div>
-					    <div class='col-sm-11' >
-					    	<span>
-								Specify the Volunteer Job Location, where job is located.
-							</span>
+											<div class="col-sm-12" >
+												<span style="margin-left:-13px;"><a href="#" id="zoomTextarea" onclick="updateValueLanText()" title="Click to Zoom" data-toggle="modal" data-target="#languageBox">Add language requirements to your job posting</a>
+												</span>
+											</div>
+										</li>
+									</ul>
+							    </div>
+							</div>
+						</div>
+						<div class="row margin-rl-0">
+							<div class="col-sm-12 padding-rl-0">
+								<hr style="height:1px; background-color:#DDDDDD;">
+							</div>	
+						</div>
 
-						    <div class='row'>
-								<div class='margin-top-10'>
+						<div class="row margin-rl-0">
+							<div class="col-sm-12 padding-rl-0">
+								<div class='col-sm-1  font-size-4 '>
+									<span class="glyphicon glyphicon-globe"></span>			    	
+							    </div>
+							    <div class="col-sm-6">
+							    	<label class="font-size-15">Volunteer Job Location</label>
+							    </div>
+							    <div class='col-sm-11' >
+							    	<span>
+										Specify the Volunteer Job Location, where job is located.
+									</span>
+
+								    <div class='row'>
+										<div class='margin-top-10'>
+										</div>
+									</div>
+									<button type="button" class="btn btn-primary active" id="location">Add job Location</button>
+									<ul class="ishidden" id="address" style="padding-left: 0px;">
+										<li style="list-style-type:none" style="margin-left:-50px;" >	
+											<div class="margin-top-15"></div>		
+											<label>Address</label>
+											<span id="optional-text">(optional) </span>
+											<div class="row"></div>					
+											<div class='border-address col-sm-7' id="address-block">
+												<label >City</label>
+												<input type='text' class='form-control' id='form-control-weight' for='city' id='form-text-control'>
+												<div class='row'>
+													<div id='extra-space-label'>
+													</div>
+												</div>
+
+												<label >Country</label>
+												<select class='form-control'>
+													<option value='Ipsum'>Afghanistan</option>
+													<option value='Consectetur'>Akrotiri</option>
+													<option value='Ipsum'>Albania</option>
+													<option value='Consectetur'>Algeria</option>
+													<option value='Ipsum'>Angola</option>
+													<option value='Consectetur'>Antarctica</option>
+													<option value='Ipsum'>Antigua and Barbuda</option>
+													<option value='Consectetur'>Argentina</option>
+													<option value='Ipsum'>Australia</option>
+													<option value='Consectetur'>Austria</option>
+													<option value='Ipsum'>Bahamas, The</option>
+													<option value='Consectetur'>Bangladesh</option>
+													<option value='Ipsum'>Bassas da India</option>
+													<option value='Consectetur'>Belarus</option>
+													<option value='Ipsum'>Belgium</option>
+													<option value='Consectetur'>Bermuda</option>
+													<option value='Ipsum'>Bhutan</option>
+													<option value='Consectetur'>Brazil</option>
+													<option value='Ipsum'>British Indian Ocean Territory</option>
+													<option value='Consectetur'>British Virgin Islands</option>
+													<option value='Ipsum'>Bulgaria</option>
+													<option value='Consectetur'>Burma</option>
+													<option value='Ipsum'>Burundi</option>
+													<option value='Consectetur'>Cambodia</option>
+													<option value='Ipsum'>Cameroon</option>
+													<option value='Consectetur'>Canada</option>
+													<option value='Ipsum'>China</option>
+													<option value='Consectetur'>Cocos (Keeling) Islands</option>
+													<option value='Ipsum'>Colombia</option>
+													<option value='Consectetur'>Comoros</option>
+													<option value='Ipsum'>Congo, Democratic Republic of the</option>
+													<option value='Consectetur'>Congo, Republic of the</option>
+													<option value='Ipsum'>Cook Islands</option>
+													<option value='Consectetur'>Cuba</option>
+													<option value='Ipsum'>Cyprus</option>
+													<option value='Consectetur'>Denmark</option>
+													<option value='Ipsum'>Dominican Republic</option>
+													<option value='Consectetur'>Ecuador</option>
+													<option value='Ipsum'>Egypt</option>
+													<option value='Consectetur'>Ethiopia</option>
+													<option value='Ipsum'>Finland</option>
+													<option value='Consectetur'>France</option>
+													<option value='Ipsum'>Georgia</option>
+													<option value='Consectetur'>Germany</option>
+													<option value='Ipsum'>Greece</option>
+													<option value='Consectetur'>Greenland</option>
+													<option value='Ipsum'>Guinea</option>
+													<option value='Consectetur'>Holy See (Vatican City)</option>
+													<option value='Ipsum'>Hong Kong</option>
+													<option value='Consectetur'>Iceland</option>
+													<option value='Ipsum'>India</option>
+													<option value='Consectetur'>Indonesia</option>
+													<option value='Ipsum'>Iran</option>
+													<option value='Consectetur'>Iraq</option>
+													<option value='Ipsum'>Ireland</option>
+													<option value='Consectetur'>Israel</option>
+													<option value='Ipsum'>Italy</option>
+													<option value='Consectetur'>Jamaica</option>
+													<option value='Ipsum'>Japan</option>
+													<option value='Consectetur'>Jersey</option>
+													<option value='Ipsum'>Kazakhstan</option>
+													<option value='Consectetur'>Kenya</option>
+													<option value='Ipsum'>Korea</option>
+													<option value='Consectetur'>Kuwait</option>
+													<option value='Ipsum'>Laos</option>
+													<option value='Consectetur'>Lebanon</option>
+													<option value='Ipsum'>Liberia</option>
+													<option value='Consectetur'>Macau</option>
+													<option value='Ipsum'>Malaysia</option>
+													<option value='Consectetur'>Maldives</option>
+													<option value='Ipsum'>Mauritius</option>
+													<option value='Consectetur'>Mexico</option>
+													<option value='Ipsum'>Mozambique</option>
+													<option value='Consectetur'>Namibia</option>
+													<option value='Ipsum'>Nepal</option>
+													<option value='Consectetur' selected="selected">Netherlands</option>
+													<option value='Ipsum'>New Zealand</option>
+													<option value='Consectetur'>Norway</option>
+													<option value='Ipsum'>Oman</option>
+													<option value='Consectetur'>Pakistan</option>
+													<option value='Ipsum'>Peru</option>
+													<option value='Consectetur'>Philippines</option>
+													<option value='Ipsum'>Poland</option>
+													<option value='Consectetur'>Portugal</option>
+													<option value='Ipsum'>Qatar</option>
+													<option value='Consectetur'>Romania</option>
+													<option value='Ipsum'>Russia</option>
+													<option value='Consectetur'>Saudi Arabia</option>
+													<option value='Ipsum'>Sierra Leone</option>
+													<option value='Consectetur'>Singapore</option>
+													<option value='Ipsum'>Solomon Islands</option>
+													<option value='Consectetur'>Somalia</option>
+
+													<option value='Ipsum'>South Africa</option>
+													<option value='Consectetur'>Spain</option>
+													<option value='Ipsum'>Sri Lanka</option>
+													<option value='Consectetur'>Sweden</option>
+													<option value='Ipsum'>Switzerland</option>
+													<option value='Consectetur'>Syria</option>
+													<option value='Ipsum'>Taiwan</option>
+													<option value='Consectetur'>Thailand</option>
+													<option value='Ipsum'>Turkey</option>
+													<option value='Consectetur'>Uganda</option>
+													<option value='Ipsum'>Ukraine</option>
+													<option value='Consectetur'>United Arab Emirates</option>
+													<option value='Ipsum'>United Kingdom</option>
+													<option value='Consectetur'>United States</option>
+													<option value='Ipsum'>Venezuela</option>
+													<option value='Consectetur'>Vietnam</option>
+													<option value='Ipsum'>Yemen</option>
+													<option value='Consectetur'>Zambia</option>
+													<option value='Ipsum'>Zimbabwe</option>
+												</select>
+												<div class='row'>
+													<div id='extra-space-label'>
+													</div>
+												</div>
+
+												<label >Zipcode</label>
+												<input type='text' class='form-control' id='form-control-weight' for='inserting address' id='form-text-control' placeholder='Zipcode'>
+												<div class='row'>
+													<div id='extra-space-label'>
+													</div>
+												</div>
+												<span ><a style='text-align:right; cursor: pointer;' onclick="addNewAddress()">+Add another address</a></span>
+											</div>
+										</li>
+									</ul>
+							    </div>
+							</div>
+						</div>
+						<div class="row margin-rl-0">
+							<div class="col-sm-12 padding-rl-0">
+								<hr style="height:1px; background-color:#DDDDDD;">
+							</div>	
+						</div>
+						<div class="row margin-rl-0">
+							<div class="col-sm-12 padding-rl-0">
+								<div class='col-sm-1  font-size-4 '>
+									<span class="glyphicon glyphicon-edit"></span>			    	
+							    </div>
+							    <div class="col-sm-6">
+							    	<label class="font-size-15">Cover Letter</label>
+							    </div>
+							    <div class='col-sm-9' >
+							    	<span>Ask applicants to write a cover letter introducing themselves.</span>
+							    	<div class="checkbox">
+								      <input type="checkbox" id='checkbox-cover'><span style='font-weight:700;'> Yes, require a cover letter</span>
+								  	</div>
+							    </div>
+							    <div class='col-sm-9 margin-left-80' >
+							    	<span>Ask applicants to complete the profile before applying to the job.</span>
+							    	<div class="checkbox">
+								      <input type="checkbox" id='checkbox-profile'> <span style='font-weight:700;'>Yes, complete their profile</span>
+								    </div>
 								</div>
 							</div>
-							<button type="button" class="btn btn-primary" id="location">Add job Location</button>
-							<ul class="ishidden" id="address" style="padding-left: 0px;">
-								<li style="list-style-type:none" style="margin-left:-50px;" >	
-									<div class="margin-top-15"></div>		
-									<label>Address</label>
-									<span id="optional-text">(optional) </span>
-									<div class="row"></div>					
-									<div class='border-address col-sm-7' id="address-block">
-										<label >City</label>
-										<input type='text' class='form-control' id='form-control-weight' for='city' id='form-text-control'>
-										<div class='row'>
-											<div id='extra-space-label'>
-											</div>
-										</div>
+						</div>
+						<div class="row margin-rl-0">
+							<div class="col-sm-12 padding-rl-0">
+								<hr style="height:1px; background-color:#DDDDDD;">
+							</div>	
+						</div>
+						<!--screening questions -->
 
-										<label >Country</label>
-										<select class='form-control'>
-											<option value='Ipsum'>Afghanistan</option>
-											<option value='Consectetur'>Akrotiri</option>
-											<option value='Ipsum'>Albania</option>
-											<option value='Consectetur'>Algeria</option>
-											<option value='Ipsum'>Angola</option>
-											<option value='Consectetur'>Antarctica</option>
-											<option value='Ipsum'>Antigua and Barbuda</option>
-											<option value='Consectetur'>Argentina</option>
-											<option value='Ipsum'>Australia</option>
-											<option value='Consectetur'>Austria</option>
-											<option value='Ipsum'>Bahamas, The</option>
-											<option value='Consectetur'>Bangladesh</option>
-											<option value='Ipsum'>Bassas da India</option>
-											<option value='Consectetur'>Belarus</option>
-											<option value='Ipsum'>Belgium</option>
-											<option value='Consectetur'>Bermuda</option>
-											<option value='Ipsum'>Bhutan</option>
-											<option value='Consectetur'>Brazil</option>
-											<option value='Ipsum'>British Indian Ocean Territory</option>
-											<option value='Consectetur'>British Virgin Islands</option>
-											<option value='Ipsum'>Bulgaria</option>
-											<option value='Consectetur'>Burma</option>
-											<option value='Ipsum'>Burundi</option>
-											<option value='Consectetur'>Cambodia</option>
-											<option value='Ipsum'>Cameroon</option>
-											<option value='Consectetur'>Canada</option>
-											<option value='Ipsum'>China</option>
-											<option value='Consectetur'>Cocos (Keeling) Islands</option>
-											<option value='Ipsum'>Colombia</option>
-											<option value='Consectetur'>Comoros</option>
-											<option value='Ipsum'>Congo, Democratic Republic of the</option>
-											<option value='Consectetur'>Congo, Republic of the</option>
-											<option value='Ipsum'>Cook Islands</option>
-											<option value='Consectetur'>Cuba</option>
-											<option value='Ipsum'>Cyprus</option>
-											<option value='Consectetur'>Denmark</option>
-											<option value='Ipsum'>Dominican Republic</option>
-											<option value='Consectetur'>Ecuador</option>
-											<option value='Ipsum'>Egypt</option>
-											<option value='Consectetur'>Ethiopia</option>
-											<option value='Ipsum'>Finland</option>
-											<option value='Consectetur'>France</option>
-											<option value='Ipsum'>Georgia</option>
-											<option value='Consectetur'>Germany</option>
-											<option value='Ipsum'>Greece</option>
-											<option value='Consectetur'>Greenland</option>
-											<option value='Ipsum'>Guinea</option>
-											<option value='Consectetur'>Holy See (Vatican City)</option>
-											<option value='Ipsum'>Hong Kong</option>
-											<option value='Consectetur'>Iceland</option>
-											<option value='Ipsum'>India</option>
-											<option value='Consectetur'>Indonesia</option>
-											<option value='Ipsum'>Iran</option>
-											<option value='Consectetur'>Iraq</option>
-											<option value='Ipsum'>Ireland</option>
-											<option value='Consectetur'>Israel</option>
-											<option value='Ipsum'>Italy</option>
-											<option value='Consectetur'>Jamaica</option>
-											<option value='Ipsum'>Japan</option>
-											<option value='Consectetur'>Jersey</option>
-											<option value='Ipsum'>Kazakhstan</option>
-											<option value='Consectetur'>Kenya</option>
-											<option value='Ipsum'>Korea</option>
-											<option value='Consectetur'>Kuwait</option>
-											<option value='Ipsum'>Laos</option>
-											<option value='Consectetur'>Lebanon</option>
-											<option value='Ipsum'>Liberia</option>
-											<option value='Consectetur'>Macau</option>
-											<option value='Ipsum'>Malaysia</option>
-											<option value='Consectetur'>Maldives</option>
-											<option value='Ipsum'>Mauritius</option>
-											<option value='Consectetur'>Mexico</option>
-											<option value='Ipsum'>Mozambique</option>
-											<option value='Consectetur'>Namibia</option>
-											<option value='Ipsum'>Nepal</option>
-											<option value='Consectetur' selected="selected">Netherlands</option>
-											<option value='Ipsum'>New Zealand</option>
-											<option value='Consectetur'>Norway</option>
-											<option value='Ipsum'>Oman</option>
-											<option value='Consectetur'>Pakistan</option>
-											<option value='Ipsum'>Peru</option>
-											<option value='Consectetur'>Philippines</option>
-											<option value='Ipsum'>Poland</option>
-											<option value='Consectetur'>Portugal</option>
-											<option value='Ipsum'>Qatar</option>
-											<option value='Consectetur'>Romania</option>
-											<option value='Ipsum'>Russia</option>
-											<option value='Consectetur'>Saudi Arabia</option>
-											<option value='Ipsum'>Sierra Leone</option>
-											<option value='Consectetur'>Singapore</option>
-											<option value='Ipsum'>Solomon Islands</option>
-											<option value='Consectetur'>Somalia</option>
+						<div class="row margin-rl-0">
+							<div class="col-sm-12 padding-rl-0">
+								<div class='col-sm-1  font-size-4 '>
+									<span class="glyphicon glyphicon-th-list"></span>			    	
+							    </div>
+							    <div class="col-sm-6">
+							    	<label class="font-size-15">Screening Questions</label>
+							    </div>
 
-											<option value='Ipsum'>South Africa</option>
-											<option value='Consectetur'>Spain</option>
-											<option value='Ipsum'>Sri Lanka</option>
-											<option value='Consectetur'>Sweden</option>
-											<option value='Ipsum'>Switzerland</option>
-											<option value='Consectetur'>Syria</option>
-											<option value='Ipsum'>Taiwan</option>
-											<option value='Consectetur'>Thailand</option>
-											<option value='Ipsum'>Turkey</option>
-											<option value='Consectetur'>Uganda</option>
-											<option value='Ipsum'>Ukraine</option>
-											<option value='Consectetur'>United Arab Emirates</option>
-											<option value='Ipsum'>United Kingdom</option>
-											<option value='Consectetur'>United States</option>
-											<option value='Ipsum'>Venezuela</option>
-											<option value='Consectetur'>Vietnam</option>
-											<option value='Ipsum'>Yemen</option>
-											<option value='Consectetur'>Zambia</option>
-											<option value='Ipsum'>Zimbabwe</option>
-										</select>
-										<div class='row'>
-											<div id='extra-space-label'>
-											</div>
-										</div>
-
-										<label >Zipcode</label>
-										<input type='text' class='form-control' id='form-control-weight' for='inserting address' id='form-text-control' placeholder='Zipcode'>
-										<div class='row'>
-											<div id='extra-space-label'>
-											</div>
-										</div>
-										<span ><a style='text-align:right; cursor: pointer;' onclick="addNewAddress()">+Add another address</a></span>
-									</div>
-								</li>
-							</ul>
-					    </div>
-					</div>
-				</div>
-				<div class="row margin-left-57">
-					<div class="col-sm-11">
-						<hr style="height:1px; background-color:#DDDDDD;">
-					</div>	
-				</div>
-				<div class="row margin-left-57">
-					<div class="col-sm-11">
-						<div class='col-sm-1  font-size-4 '>
-							<span class="glyphicon glyphicon-edit"></span>			    	
-					    </div>
-					    <div class="col-sm-6">
-					    	<label class="font-size-15">Cover Letter</label>
-					    </div>
-					    <div class='col-sm-9' >
-					    	<span>Ask applicants to write a cover letter introducing themselves.</span>
-					    	<div class="checkbox">
-						      <input type="checkbox" id='checkbox-cover'><span style='font-weight:700;'> Yes, require a cover letter</span>
-						  	</div>
-					    </div>
-					    <div class='col-sm-9 margin-left-80' >
-					    	<span>Ask applicants to complete the profile before applying to the job.</span>
-					    	<div class="checkbox">
-						      <input type="checkbox" id='checkbox-profile'> <span style='font-weight:700;'>Yes, complete their profile</span>
-						    </div>
+							    <div class='col-sm-9' id="screening-popover">
+							    	<span>Add a few question that youd like to ask your candidates to answer when applying to your job</span>
+							    	<div class="margin-top-10"></div>
+							    	<input type="text" class='form-control' id='screening-tag' placeholder="Add Questions"/>
+							    </div>
+						    	<div class="col-sm-11">
+						    		<div class="col-sm-1">
+						    		</div>
+									<span style="margin-left:5px;"><a href="#" id="zoomTextarea" onclick="updateValueScreeningText()" title="Click to Zoom" data-toggle="modal" data-target="#screeningBox">Add from suggested or recent questions to your job posting</a>
+									</span>
+									<span class="pull-right" style="margin-right:80px;"><a style="cursor: pointer;" onclick="addNewTextScreening()">Create my own question</a>
+									</span>
+								</div>
+								<div id="screening-questions">
+								</div>
+										
+							</div>
+						</div>
+						<div style="margin-bottom:50px;">
+						</div>
+						<!-- buttons at the bottom -->
+						<div class='row margin-rl-0'>
+							<div class='col-sm-4'>
+							</div>
+							<div class='col-sm-4 padding-rl-0'>
+								<button class='btn btn-primary' type="button" style='padding:5px 15px 5px 15px; font-size:15px;'>Preview</button>
+								<button class='btn btn-success' type="submit" style='padding:5px 15px 5px 15px; font-size:15px;' ng-click="saveData()">Post a Job</button>
+								<button class='btn btn-danger' type="button" style='padding:5px 15px 5px 15px; font-size:15px;'>Cancel</button>
+							</div>
+						</div>
+						<div style="margin-bottom:50px;">
 						</div>
 					</div>
-				</div>
-				<div class="row margin-left-57">
-					<div class="col-sm-11">
-						<hr style="height:1px; background-color:#DDDDDD;">
-					</div>	
-				</div>
-				<!--screening questions -->
-
-				<div class="row margin-left-57">
-					<div class="col-sm-11">
-						<div class='col-sm-1  font-size-4 '>
-							<span class="glyphicon glyphicon-th-list"></span>			    	
-					    </div>
-					    <div class="col-sm-6">
-					    	<label class="font-size-15">Screening Questions</label>
-					    </div>
-
-					    <div class='col-sm-9' id="screening-popover">
-					    	<span>Add a few question that youd like to ask your candidates to answer when applying to your job</span>
-					    	<div class="margin-top-10"></div>
-					    	<input type="text" class='form-control' id='screening-tag' placeholder="Add Questions"/>
-					    </div>
-				    	<div class="col-sm-11">
-				    		<div class="col-sm-1">
-				    		</div>
-							<span style="margin-left:5px;"><a href="#" id="zoomTextarea" onclick="updateValueScreeningText()" title="Click to Zoom" data-toggle="modal" data-target="#screeningBox">Add from suggested or recent questions to your job posting</a>
-							</span>
-							<span class="pull-right" style="margin-right:80px;"><a style="cursor: pointer;" onclick="addNewTextScreening()">Create my own question</a>
-							</span>
-						</div>
-						<div id="screening-questions">
-						</div>
-								
-					</div>
-				</div>
-				<div style="margin-bottom:50px;">
-				</div>
-				<!-- buttons at the bottom -->
-				<div class='row'>
-					<div class='col-sm-4'>
-					</div>
-					<div class='col-sm-4'>
-						<button class='btn btn-primary' type="button" style='padding:5px 15px 5px 15px; font-size:15px;'>Preview</button>
-						<button class='btn btn-success' type="submit" style='padding:5px 15px 5px 15px; font-size:15px;' ng-click="saveData()">Post a Job</button>
-						<button class='btn btn-danger' type="button" style='padding:5px 15px 5px 15px; font-size:15px;'>Cancel</button>
-					</div>
-				</div>
-				<div style="margin-bottom:50px;">
-				</div>
+				</form>
 			</div>
-		</form>
+		</div>
 	</div>
 
 	<footer>
@@ -1783,6 +1831,7 @@
 	<script src="../../lib/bootstrap3-typeahead.js"></script>
 	<script src="../../js/app.js"></script>
     <script src="controller.js"></script>
+    <script src="../../js/inputFile/inputFile.js"></script>
 	<script src="control.js"></script>
 	<script src="validation.js"></script>
 </body>
