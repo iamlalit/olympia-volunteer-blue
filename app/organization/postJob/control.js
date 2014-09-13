@@ -62,12 +62,7 @@ $( "#job-type" ).focusout(function() {
 });
 
 /*popover for title */
-var element_title = "<p style='text-align:left; width:250px;color: #7c7c7a;font-family: Helvetica,Arial,sans-serif;font-size: 13px;'>Quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>" + 
-                    "<ul style='text-align:left; width:250px;color: #7c7c7a;font-family: Helvetica,Arial,sans-serif;font-size: 13px;'>" + 
-                    "<li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy</li>" + 
-                    "<li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy</li>" + 
-                    "<li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy</li>" + 
-                  "</ul>";
+var element_title1 = "<p style='text-align:left; width:250px;color: #7c7c7a;font-family: Helvetica,Arial,sans-serif;font-size: 13px;'>Announce what you’re looking for.</p>";
 $("#form-control-weight").popover({
       title: "What's the title?",
       trigger: "focus"
@@ -84,7 +79,7 @@ $( "#form-control-weight" ).focusout(function() {
     $("#form-control-weight").popover('hide');
 });
 /*popover for textarea to descrbe the work to be done */
-var element_describe = "<p style='text-align:left; width:250px;color: #7c7c7a;font-family: Helvetica,Arial,sans-serif;font-size: 13px;'>Quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>";
+var element_describe = "<p style='text-align:left; width:250px;color: #7c7c7a;font-family: Helvetica,Arial,sans-serif;font-size: 13px;'>Provide an overview of your needs and what you’re looking for in the right volunteer. Add specifics here as needed, or use the Additional Information boxes below.</p>";
 $("#text-content").popover({
       title: "Describe the work?",
       trigger: "focus"
