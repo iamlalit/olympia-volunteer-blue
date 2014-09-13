@@ -365,10 +365,10 @@ $( "#miscleaneous" ).click(function() {
   $( this ).next( "ul" ).toggle();
   if($(this).is('.btn-primary')){
       $(this).removeClass('btn-primary').addClass('btn-danger');
-      $( this ).text("Hide Extra Preferences")
+      $( this ).text("Hide Additional Preferences")
     }else{
       $(this).removeClass('btn-danger').addClass('btn-primary');
-      $( this ).text("Add Extra Preferences")
+      $( this ).text("Add Additional Preferences")
       //Do Stop
     }
 });
