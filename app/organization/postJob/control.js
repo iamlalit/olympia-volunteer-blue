@@ -354,10 +354,10 @@ $( "#time" ).click(function() {
   $( this ).next( "ul" ).toggle();
   if($(this).is('.btn-primary')){
         $(this).removeClass('btn-primary').addClass('btn-danger');
-        $( this ).text("Hide Time Comittments")
+        $( this ).text("Hide Time Commitments")
     }else{
         $(this).removeClass('btn-danger').addClass('btn-primary');
-        $( this ).text("Add Time Comittments")
+        $( this ).text("Add Time Commitments")
         //Do Stop
     }
 });
