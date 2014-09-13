@@ -16,6 +16,12 @@
     <link href="../../css/organization/viewApp/viewApp.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,100,700&subset=latin,cyrillic-ext,greek-ext,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
     <link href="../../css/volunteer/createProfileForm/createProfileForm.css" rel="stylesheet" />
+    <style type="text/css">
+        .containerA{
+            width: 1008px;
+            margin: 0 auto;
+        }
+    </style>
 </head>
 
 <body ng-controller="landingPage">
@@ -38,7 +44,7 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <!-- Volunteer Menu Start-->
                     <ul class="nav navbar-nav">
-                        <li><a href="#" class='menu-interval'>Search Jobs</a></li>
+                        <li><a href="../searchJob/searchJob.html" class='menu-interval'>Search Jobs</a></li>
                         <li><a href="../jobApplication/jobApplication.html" class='menu-interval'>Job Applications</a></li>
                         <li><a href="#" class='menu-interval'>Recommendations</a></li>
                         <li><a href="../../message/message.html?owner=volunteer" class='menu-interval'>Messages</a></li>
@@ -60,8 +66,8 @@
                         </li>
                         <li class='pull-right'><a href="#" id="icons-header-right"><span class="fa fa-exclamation"></a></li>
                         <li class="dropdown pull-right" style="margin-top:5px;" id="username" ng-init="client = true; organization = false">
-                            <a href="#" class="dropdown-toggle"  id="hover-header-right" data-toggle="dropdown"  ng-if="organization == true">Organization &nbsp;<b class="caret blue"></b></a>
-                            <a href="#" class="dropdown-toggle"  id="hover-header-right" data-toggle="dropdown" ng-if="client == true">Volunteer &nbsp;<b class="caret blue"></b></a>
+                            <a href="#" class="dropdown-toggle"  id="hover-header-right" data-toggle="dropdown"  ng-if="organization == true">Organization &nbsp;<b class="caret"></b></a>
+                            <a href="#" class="dropdown-toggle"  id="hover-header-right" data-toggle="dropdown" ng-if="client == true">Volunteer &nbsp;<b class="caret"></b></a>
                             <ul class="dropdown-menu header-right-dropdown" ng-init=" addActive1 = 'make-it-white'">
                                 <li role="presentation" ><a role="menuitem" ng-model="organization" ng-click="organization = true; client = false; addActive2 = 'make-it-white';addActive1=''" href="../../organization/search/searchVol.html" id="tab-header-1" ng-class="addActive2"><img src="../../img/client-icon.png">&nbsp;&nbsp;&nbsp;Organization</a></li>
                                 <li role="presentation" class="divider"></li>
@@ -80,7 +86,7 @@
         </div>
     </header>
 
-    <div class="container-body">
+    <div class="containerA">
         <div class="header-box">
             <div class="row margin-rl-0">
 

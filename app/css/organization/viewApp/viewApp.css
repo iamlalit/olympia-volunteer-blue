@@ -46,7 +46,6 @@ Date: 6/12/2014
 }
 .select-option{
     width:auto; 
-    text-align:center;
 }
 
 .main-border1{
@@ -270,6 +269,7 @@ footer .footer-text:focus,
 footer .footer-text:hover{
     color: #444444;
     text-decoration: none;
+    outline: 0;
 }
 .social-network-icon-wrap{
     float:left;

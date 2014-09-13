@@ -38,6 +38,7 @@
 .navbar-brand:hover,
 .navbar-brand:focus {
   text-decoration: none;
+  outline: 0;
 }
 
 .navbar-default {
@@ -63,6 +64,7 @@
 	background-color: #1489be;
 	border-radius: 10px 10px 0 0;
 	border: 1px solid #eeeeee;
+	outline: 0;
 }
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover, 
@@ -86,20 +88,24 @@
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
-	background-color: #aed2e5;
 	vertical-align: text-bottom;
-	border: 1px solid #aed2e5;
-	color: #ffffff;
-	-webkit-box-shadow: inset 0px -2px 0px 0px rgba(6, 113, 169, 0.19);
-	-moz-box-shadow: inset 0px -2px 0px 0px rgba(6, 113, 169, 0.19);
-	box-shadow: inset 0px -2px 0px 0px rgba(6, 113, 169, 0.19);
+	color: #777777;
+}
+.navbar-right  li  a#hover-header-right i{
+	color: #1489be;
 }
 .navbar-right  li  a#hover-header-right:hover,
 .navbar-right  li  a#hover-header-right:focus{
    color:#ffffff;
    cursor: pointer;
    background-color: #1489be;
-
+   outline: 0;
+}
+.navbar-right  li  a#hover-header-right:hover i,
+.navbar-right  li  a#hover-header-right:focus i{
+   color:#ffffff;
+   cursor: pointer;
+   outline: 0;
 }
 .navbar-right  li  a#icons-header-right{
 	margin-top: 10px;
@@ -139,6 +145,7 @@ right: 3px;
    color:#ffffff;
    cursor: pointer;
    background-color: #1489be;
+   outline: 0;
 }
 .navbar-right .dropdown-menu{
 	border-radius: 4px;
@@ -148,6 +155,7 @@ right: 3px;
 }
 .nav .open > a, .nav .open > a:hover, .nav .open > a:focus{
 	background-color: inherit;
+	outline: 0;
 }
 .navbar-right .dropdown-menu li a{
 	font-family: inherit;
@@ -164,6 +172,7 @@ right: 3px;
 	background-color:#ffffff;
 	border: #444444;
 	color: black;
+	outline: 0;
 }
 .navbar-right .dropdown-menu li a:active{
 	background-color: #ffffff;
@@ -387,6 +396,7 @@ div[data-role="editor-toolbar"] {
 .checkbox a:focus,{
 	color: #333333;
 	text-decoration: none;
+	outline: 0;
 }
 
 .border-address{
@@ -496,6 +506,7 @@ div[data-role="editor-toolbar"] {
 .has-error select:focus{
     border-color:#C70909;
     box-shadow:none;
+    outline: 0;
 }
 .has-error label{
     color:#C70909;
@@ -506,6 +517,7 @@ div[data-role="editor-toolbar"] {
 .has-error .form-control:focus{
     border-color:#C70909;
     box-shadow:none;
+    outline: 0;
 }
 
 
@@ -522,7 +534,7 @@ div[data-role="editor-toolbar"] {
 	background-color: #fff;
 	color: #444;
 	padding: 10px;
-	width: 187px;
+	width: 184px;
 	margin: 4px;
 	display: inline-block;
 }

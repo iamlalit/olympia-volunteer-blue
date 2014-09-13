@@ -20,7 +20,7 @@
     <link href="../../css/global.css" rel="stylesheet">
     <style type="text/css">
         .containerA{
-            width: 1015px;
+            width: 1008px;
             margin: 0 auto;
         }
     </style>
@@ -68,8 +68,8 @@
 		        </li>
 		        <li class='pull-right' ><a href="#" id="icons-header-right"><span class="fa fa-exclamation"></a></li>
 				<li class="dropdown pull-right" style="margin-top:5px;" id="username" ng-init="client = false; organization = true">
-                    <a href="#" class="dropdown-toggle"  id="hover-header-right" data-toggle="dropdown"  ng-if="organization == true">Organization &nbsp;<b class="caret blue"></b></a>
-                    <a href="#" class="dropdown-toggle"  id="hover-header-right" data-toggle="dropdown" ng-if="client == true">Volunteer &nbsp;<b class="caret blue"></b></a>
+                    <a href="#" class="dropdown-toggle"  id="hover-header-right" data-toggle="dropdown"  ng-if="organization == true">Organization &nbsp;<b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle"  id="hover-header-right" data-toggle="dropdown" ng-if="client == true">Volunteer &nbsp;<b class="caret"></b></a>
                     <ul class="dropdown-menu header-right-dropdown" ng-init=" addActive2 = 'make-it-white'">
                         <li role="presentation" ><a role="menuitem" ng-model="organization" ng-click="organization = true; client = false; addActive2 = 'make-it-white';addActive1=''"  href="../../organization/search/searchVol.html" id="tab-header-1" ng-class="addActive2"><img src="../../img/client-icon.png">&nbsp;&nbsp;&nbsp;Organization</a></li>
                         <li role="presentation" class="divider"></li>
@@ -186,7 +186,7 @@
 								<div class='col-sm-9 padding-left-0'>
 								<label >Describe the work to be done</label>
 									<a href="#" id="zoomTextarea" class="pull-right" title="Click to Zoom" data-toggle="modal" data-target="#textBoxBig">Expand <i class="olympia-expand2"></i></a>
-									<textarea id="text-content" maxlength="5000" class="text-area" cols="96" rows="7" ng-model="describeWork"></textarea>
+									<textarea id="text-content" maxlength="5000" class="text-area" cols="92" rows="7" ng-model="describeWork"></textarea>
 									<p>Number of characters <span id="text-content-count">0</span> (max 5000 characters)</p>
 								</div>
 							</div>
