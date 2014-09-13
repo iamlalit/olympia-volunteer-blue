@@ -10,11 +10,17 @@
 	<link href="//fonts.googleapis.com/css?family=PT+Sans:400italic,400,700italic,700"/>
 	<link href="../../lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" type="text/css"/>
 	<link href="../../css/font-awesome.css" rel="stylesheet">
-	
-	<link rel="stylesheet" href="../../css/organization/viewApp/viewApp.css"/>
-	
+	<link rel="stylesheet" href="../../css/organization/viewApp/viewApp.css"/>	
 	<link rel="stylesheet" href="../../css/global.css"/>
 	<link rel="stylesheet" href="../../css/organization/postjob/postjob.css"/>
+    <style type="text/css">
+        .containerA{
+            width: 1008px;
+            margin: 0 auto;
+        }
+    </style>
+
+
 </head>
 <body ng-controller="confirmationCtrl">
 
@@ -58,8 +64,8 @@
 		        </li>
 		        <li class='pull-right' ><a href="#" id="icons-header-right"><span class="fa fa-exclamation"></a></li>
 				<li class="dropdown pull-right" style="margin-top:5px;" id="username" ng-init="client = false; organization = true">
-                    <a href="#" class="dropdown-toggle"  id="hover-header-right" data-toggle="dropdown"  ng-if="organization == true">Organization &nbsp;<b class="caret blue"></b></a>
-                    <a href="#" class="dropdown-toggle"  id="hover-header-right" data-toggle="dropdown" ng-if="client == true">Volunteer &nbsp;<b class="caret blue"></b></a>
+                    <a href="#" class="dropdown-toggle"  id="hover-header-right" data-toggle="dropdown"  ng-if="organization == true">Organization &nbsp;<b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle"  id="hover-header-right" data-toggle="dropdown" ng-if="client == true">Volunteer &nbsp;<b class="caret"></b></a>
                     <ul class="dropdown-menu header-right-dropdown" ng-init=" addActive2 = 'make-it-white'">
                         <li role="presentation" ><a role="menuitem" ng-model="organization" ng-click="organization = true; client = false; addActive2 = 'make-it-white';addActive1=''"  href="../../organization/search/searchVol.html" id="tab-header-1" ng-class="addActive2"><img src="../../img/client-icon.png">&nbsp;&nbsp;&nbsp;Organization</a></li>
                         <li role="presentation" class="divider"></li>
@@ -78,7 +84,7 @@
 		  </div><!-- /.container-fluid -->
 		</nav>
 	</header>
-	<div class="container1">
+	<div class="containerA">
 		<div class="header-box">
             <div class="row margin-rl-0">
 

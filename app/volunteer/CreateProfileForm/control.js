@@ -648,7 +648,7 @@ $("#text-content-pop").keyup(function() {
 
 $(".dropdown-menu li a").click(function(){
   var selText = $(this).text();
-  $(this).parents('.btn-group').find('.dropdown-toggle').html(selText+' <b class="caret blue"></b>');
+  $(this).parents('.btn-group').find('.dropdown-toggle').html(selText+' <b class="caret"></b>');
 });
 
 

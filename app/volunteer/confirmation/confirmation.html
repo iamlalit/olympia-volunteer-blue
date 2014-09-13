@@ -13,6 +13,12 @@
     <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,100,700&subset=latin,cyrillic-ext,greek-ext,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
     <link href="../../css/volunteer/jobDetails/jobDetails.css" rel="stylesheet">
     <link href="../../css/global.css" rel="stylesheet">
+    <style type="text/css">
+        .containerA{
+            width: 1008px;
+            margin: 0 auto;
+        }
+    </style>
 </head>
 
 <body ng-controller="jobDetails" ng-cloak>
@@ -57,8 +63,8 @@
                         </li>
                         <li class='pull-right'><a href="#" id="icons-header-right"><span class="fa fa-exclamation"></a></li>
                         <li class="dropdown pull-right" style="margin-top:5px;" id="username" ng-init="client = true; organization = false" ng-cloak>
-                            <a href="#" class="dropdown-toggle"  id="hover-header-right" data-toggle="dropdown"  ng-if="organization == true">Organization &nbsp;<b class="caret blue"></b></a>
-                            <a href="#" class="dropdown-toggle"  id="hover-header-right" data-toggle="dropdown" ng-if="client == true">Volunteer &nbsp;<b class="caret blue"></b></a>
+                            <a href="#" class="dropdown-toggle"  id="hover-header-right" data-toggle="dropdown"  ng-if="organization == true">Organization &nbsp;<b class="caret"></b></a>
+                            <a href="#" class="dropdown-toggle"  id="hover-header-right" data-toggle="dropdown" ng-if="client == true">Volunteer &nbsp;<b class="caret"></b></a>
                             <ul class="dropdown-menu header-right-dropdown" ng-init=" addActive1 = 'make-it-white'">
                                 <li role="presentation" ng-cloak><a role="menuitem" ng-model="organization" ng-click="organization = true; client = false; addActive2 = 'make-it-white';addActive1=''" href="../../organization/search/searchVol.html" id="tab-header-1" ng-class="addActive2"><img src="../../img/client-icon.png">&nbsp;&nbsp;&nbsp;Organization</a></li>
                                 <li role="presentation" class="divider" ng-cloak></li>
@@ -77,31 +83,73 @@
         </div>
     </header>
 
-    <div class="container main-border1" ng-cloak>
-        <div class='row' style="margin-left:0px;">
-            <span class="text-center" id='heading-form' >Success! Your job application is submitted.</span>
-        </div>
-        <hr >
-        <label>NOTE:</label><span class="italic"> Your Job application is sent successfully, As soon as it is reviewed by the client, based on your availability and your capability you will be called.</span>
-        <div class="row margin-rl-0">
-            <div class="col-sm-12 padding-rl-0">
-                <div class="pill margin-top-20 background-grey padding-left-15">
-                    <h5><strong>Similar Jobs on Volunteer</strong></h5>
-                </div>                
-                <ul class="margin-top-10 margin-left-15">
-                    <li><span><a>Middle School Tutor</a></span></li>
-                    <li><span><a>GED Social Studies Co-Teacher</a></span></li>
-                    <li><span><a>Research Assistant - Green Sea Turtle Programme</a></span></li>
-                    <li><span><a>It's National Mentoring Month - Become a mentor and change a life!</a></span></li>
-                    <li><span><a>Resource Development Committee</a></span></li>
-                </ul>
+    <div class="containerA" ng-cloak>
+        <div class="header-box">
+            <div class="row margin-rl-0">
+
+                <div class="col-lg-3 padding-rl-0">
+                    <select class="form-control select-option">
+                        <option value="Volunteers">Volunteers</option>
+                        <option value="Organizations">Organizations</option>
+                        <option value="Volunteer Organizations">Volunteer Organizations</option>
+                        <option value="Jobs">Jobs</option>
+                    </select>
+                </div>
+                <div class="col-lg-4 padding-rl-0">
+                    <span class="search-txt">wat&nbsp;</span>
+                    <input type="text" placeholder="Keywords (e.g. name, interests or skills)" class="wat-text"/>
+                </div>
+
+                <div class="col-lg-3 padding-rl-0">
+                    <span class="search-txt">waar&nbsp;</span>
+                    <input type="text" placeholder="plaats or postcode" class="waar-text"/>
+                </div>
+                <div class="col-lg-1 padding-rl-0">
+                        <select class="select-search">
+                            <option value="5 Km">5 Km</option>
+                            <option value="10 Km">10 Km</option>
+                            <option value="15 km">15 km</option>
+                            <option value="20 Km">20 Km</option>
+                            <option value="25 Km">25 Km</option>
+                            <option value="30 Km" selected="selected">30 Km</option>
+                            <option value="35 Km">35 Km</option>
+                            <option value="40 Km">40 Km</option>
+                            <option value="45 Km">45 Km</option>
+                            <option value="50 Km">50 Km</option>
+                        </select>
+                </div>
+
+                <div class="col-lg-1 padding-rl-0" >
+                    <button type="button" class="btn btn-primary pull-right small-btn active"><span class="fa fa-search"></span>&nbsp;Search</button>
+                </div>
             </div>
         </div>
-        <p>&nbsp;</p>
-        <p>&nbsp;</p>
-        <p>&nbsp;</p>
-        <p>&nbsp;</p>
-        <p>&nbsp;</p>
+        <div class="main-border1">
+            <div class='row' style="margin-left:0px;">
+                <span class="text-center" id='heading-form' >Success! Your job application is submitted.</span>
+            </div>
+            <hr >
+            <label>NOTE:</label><span class="italic"> Your Job application is sent successfully, As soon as it is reviewed by the client, based on your availability and your capability you will be called.</span>
+            <div class="row margin-rl-0">
+                <div class="col-sm-12 padding-rl-0">
+                    <div class="pill margin-top-20 background-grey padding-left-15">
+                        <h5><strong>Similar Jobs on Volunteer</strong></h5>
+                    </div>                
+                    <ul class="margin-top-10 margin-left-15">
+                        <li><span><a>Middle School Tutor</a></span></li>
+                        <li><span><a>GED Social Studies Co-Teacher</a></span></li>
+                        <li><span><a>Research Assistant - Green Sea Turtle Programme</a></span></li>
+                        <li><span><a>It's National Mentoring Month - Become a mentor and change a life!</a></span></li>
+                        <li><span><a>Resource Development Committee</a></span></li>
+                    </ul>
+                </div>
+            </div>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+        </div>
     </div>
 
     <footer>

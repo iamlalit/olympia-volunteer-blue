@@ -16,6 +16,12 @@
     <link href="../css/organization/viewApp/viewApp.css" rel="stylesheet" />
     <link href="../css/global.css" rel="stylesheet" />
     <link href="../css/message/message.css" rel="stylesheet" />
+    <style type="text/css">
+        .containerA{
+            width: 1008px;
+            margin: 0 auto;
+        }
+    </style>
 </head>
 <body ng-controller='messageController'>
     <!-- Page Header Section Start-->
@@ -80,8 +86,8 @@
                         </li>
                         <li class='pull-right'><a href="#" id="icons-header-right"><span class="fa fa-exclamation"></a></li>
                         <li class="dropdown pull-right" style="margin-top:5px;" id="username">
-                            <a href="#" class="dropdown-toggle"  id="hover-header-right" data-toggle="dropdown"  ng-if="typeOfOwner == 'organization'">Organization &nbsp;<b class="caret blue"></b></a>
-                            <a href="#" class="dropdown-toggle"  id="hover-header-right" data-toggle="dropdown" ng-if="typeOfOwner == 'volunteer'">Volunteer &nbsp;<b class="caret blue"></b></a>
+                            <a href="#" class="dropdown-toggle"  id="hover-header-right" data-toggle="dropdown"  ng-if="typeOfOwner == 'organization'">Organization &nbsp;<b class="caret"></b></a>
+                            <a href="#" class="dropdown-toggle"  id="hover-header-right" data-toggle="dropdown" ng-if="typeOfOwner == 'volunteer'">Volunteer &nbsp;<b class="caret"></b></a>
                             <ul class="dropdown-menu header-right-dropdown" ng-init=" addActive2 = 'make-it-white'">
                                 <li role="presentation" ><a role="menuitem" href="../organization/search/searchVol.html" id="tab-header-1" ng-class="{'make-it-white':typeOfOwner == 'organization'}"><img src="../img/client-icon.png">&nbsp;&nbsp;&nbsp;Organization</a></li>
                                 <li role="presentation" class="divider"></li>
@@ -101,7 +107,7 @@
         </div>
     </header>
     <!-- Page Header Section End-->
-    <div class="container">
+    <div class="containerA">
         <div class="header-box">
             <div class="row margin-rl-0">
 

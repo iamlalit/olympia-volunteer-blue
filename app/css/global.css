@@ -19,7 +19,9 @@ span a:hover{
   text-decoration: underline;
 	font-weight: 500;
 }
-
+span a:focus{
+  outline: 0;
+}
 /* Fonts */
 .text-bold {
     font-weight: bold;
@@ -541,6 +543,13 @@ position: relative;
   outline: 0;
   border: 0;
 }
+.btn:hover,
+.btn:focus {
+  outline: 0; 
+}
+.btn::-moz-focus-inner {
+  border: 0;
+}
 
 .btn.btn-primary{
     color: #ffffff;
@@ -553,6 +562,7 @@ position: relative;
 .btn.btn-primary:hover,
 .btn.btn-primary:focus {
   background-color: #ed6623;
+  outline: 0;
 }
 .btn.btn-primary.active {
   background-color: #ed6623; 
@@ -630,10 +640,12 @@ Header Search Box
 }
 .header-box .wat-text {
   width: 250px;
+  height: 32px;
 }
 
 .header-box .waar-text {
   width: 170px;
+  height: 32px;
 }
 .header-box button {
   height: 32px;
