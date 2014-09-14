@@ -579,8 +579,8 @@ var address_element = "<div class='border-address col-sm-7'>" +
                                 "<div id='extra-space-label'>" +
                                 "</div>" +
                               "</div>" +
-                              "<label >Zipcode</label>" +
-                              "<input type='text' class='form-control' id='form-control-weight' for='inserting address' id='form-text-control' placeholder='Zipcode'>" +
+                              "<label >Zip code</label>" +
+                              "<input type='text' class='form-control' id='form-control-weight' for='inserting address' id='form-text-control' placeholder='Zip code'>" +
                               "<div class='row'>" +
                                 "<div id='extra-space-label'>" +
                                 "</div>" +

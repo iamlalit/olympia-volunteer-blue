@@ -169,9 +169,9 @@ var address_element = "<div class='border-address col-sm-7 margin-left-80' id='a
                             "<option value='Ipsum'>Zimbabwe</option>"+
                         "</select>"+
                         "<br>"+
-                        "<label >Zipcode</label>"+
+                        "<label >Zip code</label>"+
                         "<br>"+
-                        "<input type='text' class='form-control' id='form-control-weight' for='inserting address' id='form-text-control' placeholder='Zipcode'>"+
+                        "<input type='text' class='form-control' id='form-control-weight' for='inserting address' id='form-text-control' placeholder='Zip code'>"+
                     "</div>";
 function addNewAddress(){
   $("#address").append( address_element );
