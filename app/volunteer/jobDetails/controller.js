@@ -63,8 +63,55 @@ app.controller('jobDetails', ['$scope', function ($scope) {
   }
   $scope.jobName = getParameterByName('jobName');
   $scope.jobDate = getParameterByName('jobDate');
+  //parameters for theming
+
+
   $scope.topBar = "#" + getParameterByName('topBar');
-  console.log($scope.topBar);
+  $scope.clientImage = getParameterByName('clientImage');
+  $scope.topBarText = "#" + getParameterByName('topBarText');
+  $scope.hoverBackground = "#" + getParameterByName('hoverBackground');
+  $scope.buttonColor = "#" + getParameterByName('buttonColor');
+  $scope.buttonBackColor = "#" + getParameterByName('buttonBackColor');
+  $scope.selectedItemText = "#" + getParameterByName('selectedItemText');
+  $scope.selectedBackground = "#" + getParameterByName('selectedBackground');
+  $scope.bottomBarText = "#" + getParameterByName('bottomBarText');
+  $scope.bottomBar = "#" + getParameterByName('bottomBar');
+  $scope.colorBackground  = "#" + getParameterByName('colorBackground');
+  if ($scope.topBarText){
+      $(document).ready(function() {
+
+       $('.nav li a').hover(
+           function () {
+            if($(this).parents('li').hasClass('active')) {
+              console.log("selected state");
+            }else {
+              $(this).css({"background-color":$scope.hoverBackground}); 
+            }
+           }, 
+           function () {
+            if($(this).parents('li').hasClass('active')) {
+              console.log("selected state");
+            }else {
+              $(this).css({"background-color":$scope.topBar});
+            }
+             
+           }
+       );
+
+       $('.nav li.active a').css({"background-color":$scope.selectedBackground, "color": $scope.selectedItemText})
+
+       $('.nav li a#icons-header-right').hover(
+
+           function () {
+              console.log("yahoo selected");
+              $(this).css({"background-color":$scope.hoverBackground}); 
+            }, 
+           function () {
+              $(this).css({"background-color":$scope.hoverBackground});
+           }
+       );
+     });
+  }
 
   $scope.applyToJob = function(){
     window.location.href = "../jobApply/jobApply.html?jobName=" + $scope.jobName +"&jobDate=" + $scope.jobDate;

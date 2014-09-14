@@ -11,6 +11,7 @@
     <link href="../css/organization/viewApp/viewApp.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,100,700&subset=latin,cyrillic-ext,greek-ext,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
     <link href="../css/global.css" rel="stylesheet">
+    <link href="../css/colpick/colpick.css" rel="stylesheet">
     <style type="text/css">
         .containerA{
             width: 1008px;
@@ -146,12 +147,39 @@
                 <div class="row margin-top-20 margin-rl-0">
                     <span>Site can be customised for this colour scheme. Use this screen to customise the colour scheme of your site. Enter standard <strong>HTML/CSS2</strong> colour codes.Any changes you make will immediately be reflected across the Site. You can easily return to the default scheme by clicking <strong>Reset Default</strong>.</span>
                 </div>
+
+                <div class="row margin-rl-0">
+                    <div class="pill margin-top-20 padding-top-10 padding-bottom-10">
+                        <span class="font-size-20 ">Organization Details</span>
+                    </div> 
+                </div>
+                <div class="row margin-rl-0 margin-top-20 valign-middle">
+                    <div class="col-sm-6 align-right padding-top-5">
+                        <label>
+                            <span>Update Logo </span>
+                        </label>
+                    </div>
+                    <div class="col-sm-6 ">
+                        <input type="text" ng-model="clientImage"/>
+                    </div>
+                </div>
                 <div class="row margin-rl-0">
                     <div class="pill margin-top-20 padding-top-10 padding-bottom-10">
                         <span class="font-size-20 ">Color Scheme</span>
                         <span class="font-size-20 pull-right">Values</span>
                     </div> 
                 </div>
+                <div class="row margin-rl-0 margin-top-20 valign-middle">
+                    <div class="col-sm-6 align-right padding-top-5">
+                        <label>
+                            <span>Color Picker </span>
+                        </label>
+                    </div>
+                    <div class="col-sm-6 ">
+                        <button id="picker" class="btn btn-primary active">Show Color Picker</button>
+                    </div>
+                </div>
+                
                 <div class="row margin-rl-0 margin-top-20 valign-middle">
                     <div class="col-sm-6 align-right padding-top-5">
                         <label>
@@ -169,7 +197,7 @@
                         </label>
                     </div>
                     <div class="col-sm-6 ">
-                        <input type="text" ng-model="color.topBarText"/>
+                        <input type="text" ng-model="topBarText"/>
                     </div>
                 </div>
                 <div class="row margin-rl-0 margin-top-20 valign-middle">
@@ -179,7 +207,7 @@
                         </label>
                     </div>
                     <div class="col-sm-6 ">
-                        <input type="text" />
+                        <input type="text" ng-model="selectedBackground"/>
                     </div>
                 </div>
                 <div class="row margin-rl-0 margin-top-20 valign-middle">
@@ -189,17 +217,48 @@
                         </label>
                     </div>
                     <div class="col-sm-6 ">
-                        <input type="text" />
+                        <input type="text" ng-model="selectedItemText"/>
+                    </div>
+                </div>
+
+                <div class="row margin-rl-0 margin-top-20 valign-middle">
+                    <div class="col-sm-6 align-right padding-top-5">
+                        <label>
+                            <span>Top Bar Menu hover state </span>
+                        </label>
+                    </div>
+                    <div class="col-sm-6 ">
+                        <input type="text" ng-model="hoverBackground"/>
                     </div>
                 </div>
                 <div class="row margin-rl-0 margin-top-20 valign-middle">
                     <div class="col-sm-6 align-right padding-top-5">
                         <label>
-                            <span>Link Colors </span>
+                            <span>Background Color </span>
                         </label>
                     </div>
                     <div class="col-sm-6 ">
-                        <input type="text" />
+                        <input type="text" ng-model="colorBackground"/>
+                    </div>
+                </div>
+                <div class="row margin-rl-0 margin-top-20 valign-middle">
+                    <div class="col-sm-6 align-right padding-top-5">
+                        <label>
+                            <span>Button Text </span>
+                        </label>
+                    </div>
+                    <div class="col-sm-6 ">
+                        <input type="text" ng-model="buttonColor"/>
+                    </div>
+                </div>
+                <div class="row margin-rl-0 margin-top-20 valign-middle">
+                    <div class="col-sm-6 align-right padding-top-5">
+                        <label>
+                            <span>Button Background </span>
+                        </label>
+                    </div>
+                    <div class="col-sm-6 ">
+                        <input type="text" ng-model="buttonBackColor"/>
                     </div>
                 </div>
                 <div class="row margin-rl-0 margin-top-20 valign-middle">
@@ -209,7 +268,7 @@
                         </label>
                     </div>
                     <div class="col-sm-6 ">
-                        <input type="text" />
+                        <input type="text" ng-model="bottomBar"/>
                     </div>
                 </div>
                 <div class="row margin-rl-0 margin-top-20 valign-middle">
@@ -219,7 +278,7 @@
                         </label>
                     </div>
                     <div class="col-sm-6 ">
-                        <input type="text" />
+                        <input type="text" ng-model="bottomBarText"/>
                     </div>
                 </div>
                 
@@ -305,5 +364,11 @@
     <script src="../lib/angular/angular.min.js"></script>
     <script src="../lib/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="controller.js"></script>
+    <script src="../js/colpick/colpick.js"></script>
+    <script type="text/javascript">
+        $('#picker').colpick({
+            submitText: true
+        });
+    </script>
 </body>
 </html>

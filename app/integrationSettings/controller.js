@@ -3,8 +3,8 @@
 .controller('changePasswordCntrl', ['$scope', function ($scope) {
 
 	$scope.saveChanges = function(color){
-		console.log($scope.topBar);
-		window.location.href = "../volunteer/jobDetails/jobDetails.html?topBar=" + $scope.topBar +"&";
+		$scope.clientImage = '../../img/redCross.jpg';
+		window.location.href = "../volunteer/jobDetails/jobDetails.html?topBar=" + $scope.topBar +"&clientImage=" + $scope.clientImage + "&topBarText=" + $scope.topBarText + "&hoverBackground=" + $scope.hoverBackground + "&buttonBackColor=" + $scope.buttonBackColor + "&buttonColor=" + $scope.buttonColor + "&selectedBackground=" + $scope.selectedBackground + "&selectedItemText=" + $scope.selectedItemText + "&bottomBarText=" + $scope.bottomBarText + "&bottomBar=" + $scope.bottomBar + "&colorBackground=" + $scope.colorBackground;
 	}
 
     $scope.typeOfOwner = '';
