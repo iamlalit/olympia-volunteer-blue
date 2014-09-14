@@ -181,3 +181,81 @@ ul li #zoomTextarea1{
 .width-121{
     width: 121px;
 }
+
+/*Custom checkbox with legend*/
+.Selectwrapper{
+    float:left;
+    width:100%;
+    clear:left;
+    padding-left:15px;
+    padding-top:25px;
+}
+.buttonWrapper{
+    float:left;
+    width:100%;
+    clear:left;
+    padding-left:15px;   
+}
+.selectAll{
+    font-size:13px;
+    float:left;
+    margin-right:10px;
+}
+.checkboxLegendWrapper{
+    position: relative;
+    border:1px solid #ccc;
+    border-bottom:2px solid #ccc;
+    padding:4px 10px;
+    font-size:14px;
+    border-radius:4px;
+    float:left;
+    text-align: center;
+    margin-right:10px;
+}
+.checkboxLegendWrapper:hover{
+    border-color:#A09E9E;
+    cursor:pointer;
+}
+.checkboxLegendWrapper:hover .checkboxCustom{
+    border-color:#00AEEC;   
+}
+.checkboxLegendWrapper:hover .checkboxCustom i{
+    color:#00AEEC;   
+}
+.checkboxLegendWrapper:hover .legendCustom{
+    cursor:default;  
+}
+.checkboxLegendWrapper .checkboxCustom{
+    display:inline-block;
+    width:13px;
+    height:13px;
+    line-height: 22px;
+    border-radius:3px;
+    border:1px solid #929292;
+    float:left;
+    margin-top:4px;
+    margin-right:5px;
+    font-weight:normal;
+    font-size:10px;
+    position: relative;
+}
+.checkboxLegendWrapper .checkboxCustom i{
+    position: absolute;
+    top:1px;
+    left:1px;
+}
+.checkboxLegendWrapper .checkboxCustom.cross i{
+    left:1px;
+}
+.checkboxLegendWrapper .checkboxCustom:hover{
+    cursor:pointer;
+}
+.checkboxLegendWrapper .legendCustom{
+    float:left;
+}
+.checkboxLegendWrapper .legendCustom.strikeThrough{
+    text-decoration: line-through;
+}
+/* Tick in checkbox*/
+
+/* Tick in checkbox*/
