@@ -21,34 +21,30 @@
     </style>
 </head>
 
-<body ng-controller="jobDetails">
+<body ng-controller="jobDetails" ng-style="{'background-color': colorBackground, 'background-image' : 'none'}">
     <!-- Page Header Section Start-->
     <header>
         <div class="navbar navbar-default" role="navigation" ng-style="{'background-color': topBar, 'border-color': topBar}">
             <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#"><img src="../../img/logo.png"></a>
+                    <a class="navbar-brand" href="#" ng-if="clientImage == 'undefined' || clientImage == ''"><img src="../../img/logo.png"></a>
+
+                    <a class="navbar-brand" href="#" ng-if="clientImage !== ''"><img ng-src="{{clientImage}}" width="70" height="55"></a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <!-- Volunteer Menu Start-->
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="../searchJob/searchJob.html" class='menu-interval'>Search Job</a></li>
-                        <li><a href="../jobApplication/jobApplication.html" class='menu-interval'>Job Applications</a></li>
-                        <li><a href="#" class='menu-interval'>Recommendations</a></li>
-                        <li><a href="../../message/message.html?owner=volunteer" class='menu-interval'>Messages</a></li>
+                        <li class="active"><a href="../searchJob/searchJob.html" class='menu-interval' ng-style="{'color': topBarText}">Search Job</a></li>
+                        <li><a href="../jobApplication/jobApplication.html" class='menu-interval' ng-style="{'color': topBarText}">Job Applications</a></li>
+                        <li><a href="#" class='menu-interval' ng-style="{'color': topBarText}">Recommendations</a></li>
+                        <li><a href="../../message/message.html?owner=volunteer" class='menu-interval' ng-style="{'color': topBarText}">Messages</a></li>
                     </ul>
                     <!-- Volunteer Menu end here-->
                     <ul class="nav navbar-nav navbar-right">
-                        <li class='pull-right'><a href="#" id="icons-header-right"><span class="fa fa-question"></a></li>
+                        <li class='pull-right'><a href="#" id="icons-header-right" ><span class="fa fa-question"></a></li>
                         <li class='dropdown pull-right'>
                             <a href="#" class="dropdown-toggle" id="icons-header-right" data-toggle="dropdown"><i class='fa fa-cog'></i></a>
                             <ul class="dropdown-menu">
@@ -119,7 +115,7 @@
                 </div>
 
                 <div class="col-lg-1 padding-rl-0" >
-                    <button type="button" class="btn btn-primary pull-right small-btn active"><span class="fa fa-search"></span>&nbsp;Search</button>
+                    <button type="button" class="btn btn-primary pull-right small-btn active" ng-style="{'background-color':buttonBackColor, 'color': buttonColor}"><span class="fa fa-search" ></span>&nbsp;Search</button>
                 </div>
             </div>
         </div>
@@ -203,7 +199,7 @@
             </div>
             <div class="col-sm-4 padding-right-0">
                 <div class="margin-bottom-10">
-                    <button class="btn btn-primary active apply-button" type="button" ng-click="applyToJob()">Apply to this Job</button>
+                    <button class="btn btn-primary active apply-button" type="button" ng-style="{'background-color':buttonBackColor, 'color': buttonColor}" ng-click="applyToJob()">Apply to this Job</button>
                 </div>
                 <div class="main-border1">
                     <h5 class="bold">Organization</h5>
@@ -284,43 +280,43 @@
 
 
 
-    <footer>
+    <footer ng-style="{'background-color': bottomBar, 'color': bottomBarText}">
         <div class="container1">
             <div class="row">
                 <div class="col-lg-2">
                     <ul class="footer-link-list" style="padding-left:80px">
                         <li>
-                            <a href="#" class="footer-text">About Us </a>
+                            <a href="#" class="footer-text" ng-style="{'color': bottomBarText}">About Us </a>
                         </li>
-                        <li><a href="#" class="footer-text">Blog </a></li>
-                        <li><a href="#" class="footer-text">Feedback </a></li>
+                        <li><a href="#" class="footer-text"  ng-style="{'color': bottomBarText}">Blog </a></li>
+                        <li><a href="#" class="footer-text"  ng-style="{'color': bottomBarText}">Feedback </a></li>
                     </ul>
                 </div>
                 <div class="col-lg-2">
                     <ul class="footer-link-list" style="padding-left:40px">
                         <li>
-                            <a href="#" class="footer-text">Comunnity</a>
+                            <a href="#" class="footer-text"  ng-style="{'color': bottomBarText}">Comunnity</a>
                         </li>
-                        <li><a href="#" class="footer-text">Trust & Safety </a></li>
-                        <li><a href="#" class="footer-text">Help & Support </a></li>
+                        <li><a href="#" class="footer-text"  ng-style="{'color': bottomBarText}">Trust & Safety </a></li>
+                        <li><a href="#" class="footer-text"  ng-style="{'color': bottomBarText}">Help & Support </a></li>
                     </ul>
                 </div>
                 <div class="col-lg-2">
                     <ul class="footer-link-list" style="padding-left:30px">
                         <li>
-                            <a href="#" class="footer-text">Enterprise Solutions</a>
+                            <a href="#" class="footer-text"  ng-style="{'color': bottomBarText}">Enterprise Solutions</a>
                         </li>
-                        <li><a href="#" class="footer-text">Terms of Service</a></li>
-                        <li><a href="#" class="footer-text">Privacy Policy</a></li>
+                        <li><a href="#" class="footer-text"  ng-style="{'color': bottomBarText}">Terms of Service</a></li>
+                        <li><a href="#" class="footer-text"  ng-style="{'color': bottomBarText}">Privacy Policy</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-2">
                     <ul class="footer-link-list" style="padding-left:30px">
                         <li>
-                            <a href="#" class="footer-text">Tools</a>
+                            <a href="#" class="footer-text"  ng-style="{'color': bottomBarText}">Tools</a>
                         </li>
-                        <li><a href="#" class="footer-text">Client Resources</a></li>
-                        <li><a href="#" class="footer-text">Help & Support</a></li>
+                        <li><a href="#" class="footer-text"  ng-style="{'color': bottomBarText}">Client Resources</a></li>
+                        <li><a href="#" class="footer-text"  ng-style="{'color': bottomBarText}">Help & Support</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-4">
