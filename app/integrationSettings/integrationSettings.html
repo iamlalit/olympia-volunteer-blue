@@ -2,7 +2,7 @@
 <html ng-app="changePasswordController">
 <head>
     <meta charset="utf-8">
-    <title>Notification Settings</title>
+    <title>Integration Settings</title>
     <link href="../img/olympia-fav.ico" rel="shortcut icon" type="image/x-icon" />
     <link href="../lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="../css/bootstrap-responsive.min.css" rel="stylesheet">
@@ -159,7 +159,7 @@
                         </label>
                     </div>
                     <div class="col-sm-6 ">
-                        <input type="text" />
+                        <input type="text" ng-model="topBar"/>
                     </div>
                 </div>
                 <div class="row margin-rl-0 margin-top-20 valign-middle">
@@ -169,7 +169,7 @@
                         </label>
                     </div>
                     <div class="col-sm-6 ">
-                        <input type="text" />
+                        <input type="text" ng-model="color.topBarText"/>
                     </div>
                 </div>
                 <div class="row margin-rl-0 margin-top-20 valign-middle">
@@ -225,7 +225,7 @@
                 
                  <div class="row margin-rl-0">
                     <div class="margin-top-30 align-center col-sm-12">
-                        <button class="btn btn-success" type="submit">Save Changes</button>
+                        <button class="btn btn-success" type="button" ng-click="saveChanges(color)">Save Changes</button>
                     </div>
                 </div>
             </form>

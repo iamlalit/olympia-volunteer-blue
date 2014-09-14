@@ -2,6 +2,11 @@
 
 .controller('changePasswordCntrl', ['$scope', function ($scope) {
 
+	$scope.saveChanges = function(color){
+		console.log($scope.topBar);
+		window.location.href = "../volunteer/jobDetails/jobDetails.html?topBar=" + $scope.topBar +"&";
+	}
+
     $scope.typeOfOwner = '';
     function getParameterByName(name) {
         name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");

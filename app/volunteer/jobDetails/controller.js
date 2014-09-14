@@ -63,6 +63,8 @@ app.controller('jobDetails', ['$scope', function ($scope) {
   }
   $scope.jobName = getParameterByName('jobName');
   $scope.jobDate = getParameterByName('jobDate');
+  $scope.topBar = "#" + getParameterByName('topBar');
+  console.log($scope.topBar);
 
   $scope.applyToJob = function(){
     window.location.href = "../jobApply/jobApply.html?jobName=" + $scope.jobName +"&jobDate=" + $scope.jobDate;
