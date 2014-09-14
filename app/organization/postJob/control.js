@@ -62,7 +62,7 @@ $( "#job-type" ).focusout(function() {
 });
 
 /*popover for title */
-var element_title1 = "<p style='text-align:left; width:250px;color: #7c7c7a;font-family: Helvetica,Arial,sans-serif;font-size: 13px;'>Announce what you’re looking for.</p>";
+var element_title1 = " ";
 $("#form-control-weight").popover({
       title: "What's the title?",
       trigger: "focus"
@@ -310,12 +310,7 @@ $( "#extra-checkbox" ).hover(function(event) {
 });
 
 /* title popover */
-var element_title = "<p style='text-align:left; width:250px;color: #7c7c7a;font-family: Helvetica,Arial,sans-serif;font-size: 13px;'>Quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>" + 
-                    "<ul style='text-align:left; width:250px;color: #7c7c7a;font-family: Helvetica,Arial,sans-serif;font-size: 13px;'>" + 
-                    "<li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy</li>" + 
-                    "<li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy</li>" + 
-                    "<li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy</li>" + 
-                  "</ul>";
+var element_title = "<p style='text-align:left; width:250px;color: #7c7c7a;font-family: Helvetica,Arial,sans-serif;font-size: 13px;'>Announce what you’re looking for.</p>";
 $("#form-control-weight").popover({
       title: "What's the title?",
       trigger: "focus"
