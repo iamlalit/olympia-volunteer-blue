@@ -1,6 +1,6 @@
 ﻿var app = angular.module('jobDetailsController', []);
 app.controller('jobDetails', ['$scope', function ($scope) {
-    $scope.hideHeaderFooter = 'true';
+    
     $scope.areaFocuses = ["Disability", "Education", "Energy conservation", "Government reform", "Housing and homelessness"];
     $scope.postJobSkills = ["Crowd control", "Cooking", "Communication"];
     $scope.postJobDiploma = ["Program coordinator", "Negotiation"];
@@ -15,15 +15,10 @@ app.controller('jobDetails', ['$scope', function ($scope) {
     function getParameterByName(name) {
       name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
       var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-          results = regex.exec(location.search);
+      results = regex.exec(location.search);
       return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-  }
-  $scope.jobName = getParameterByName('jobName');
-  $scope.jobDate = getParameterByName('jobDate');
-  //parameters for theming
+    }
 
-  $scope.jobName = 'Student Activist Coordinator';
-  $scope.jobDate = 'About 1 hour ago';
   $scope.topBar = "#" + getParameterByName('topBar');
   $scope.clientImage = getParameterByName('clientImage');
   $scope.topBarText = "#" + getParameterByName('topBarText');
@@ -39,11 +34,11 @@ app.controller('jobDetails', ['$scope', function ($scope) {
   $scope.headingSize  = getParameterByName('headingSize') + "px";
   $scope.subHeadingSize  = getParameterByName('subHeadingSize') + "px";
   $scope.bodySize  = getParameterByName('bodySize') + "px";
-
   $scope.fontFace  = getParameterByName('fontFace');
 
-  $scope.applyToJob = function(){
-    $scope.clientImage = '../../img/redCross.jpg';
-    window.location.href = "../jobApply/jobApply.html?jobName=" + $scope.jobName +"&jobDate=" + $scope.jobDate + "&topBar=" + $scope.topBar.replace("#", "") +"&clientImage=" + $scope.clientImage + "&topBarText=" + $scope.topBarText.replace("#", "") + "&buttonBackColor=" + $scope.buttonBackColor.replace("#", "") + "&buttonColor=" + $scope.buttonColor.replace("#", "") + "&bottomBarText=" + $scope.bottomBarText.replace("#", "") + "&bottomBar=" + $scope.bottomBar.replace("#", "") + "&colorBackground=" + $scope.colorBackground.replace("#", "") + "&colorHeading=" + $scope.colorHeading.replace("#", "") + "&colorBodyText=" + $scope.colorBodyText.replace("#", "") + "&headingSize=" + $scope.headingSize + "&subHeadingSize=" + $scope.subHeadingSize + "&bodySize=" + $scope.bodySize + "&fontFace=" + $scope.fontFace;
-  }
+  $scope.jobName = getParameterByName('jobName');
+  $scope.jobDate = getParameterByName('jobDate')
+
+  $scope.hideHeaderFooter = 'true';
+  $scope.jobApplyPageURL = "../job/job.html?jobName=" + $scope.jobName +"&jobDate=" + $scope.jobDate + "&topBar=" + $scope.topBar.replace("#", "") +"&clientImage=" + $scope.clientImage + "&topBarText=" + $scope.topBarText.replace("#", "") + "&buttonBackColor=" + $scope.buttonBackColor.replace("#", "") + "&buttonColor=" + $scope.buttonColor.replace("#", "") + "&bottomBarText=" + $scope.bottomBarText.replace("#", "") + "&bottomBar=" + $scope.bottomBar.replace("#", "") + "&colorBackground=" + $scope.colorBackground.replace("#", "") + "&colorHeading=" + $scope.colorHeading.replace("#", "") + "&colorBodyText=" + $scope.colorBodyText.replace("#", "") + "&headingSize=" + $scope.headingSize + "&subHeadingSize=" + $scope.subHeadingSize + "&bodySize=" + $scope.bodySize + "&fontFace=" + $scope.fontFace;
 }]);
