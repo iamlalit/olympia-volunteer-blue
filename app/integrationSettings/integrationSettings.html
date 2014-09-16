@@ -158,15 +158,18 @@
                         <span class="font-size-20" style="padding-right:60px">Organization Details</span>
                     </div> 
                 </div>
+
                 <div class="row margin-rl-0 margin-top-20 valign-middle">
-                    <div class="col-sm-3 padding-top-5">
-                        <label>
-                            <span>Upload Image </span>
-                        </label>
+                    <div class="margin-top-10 padding-left-15">
+                        <label >Attachment </label><span id='optional-text'> (optional)</span><br/>
+                        <div class="custom-file-upload">
+                            <input type="file" id="file" name="myfiles[]" multiple />
+                        </div>
                     </div>
-                    <div class="col-sm-4 ">
-                        <input type="text" ng-model="clientImage"/>
+                    <div class="margin-top-0 padding-left-15">
+                        <p class="italic small">File size should be less than 5MB. </p>
                     </div>
+                        
                 </div>
                 <div class="row margin-rl-0" >
                     <div class="row margin-rl-0 pill margin-top-20 padding-top-10 padding-bottom-10">
@@ -385,7 +388,7 @@
                     <div class="margin-top-30 col-sm-12">
                         <button class="btn btn-success" type="button" >Save Changes</button>
                         <button class="btn btn-primary active" type="button" ng-click="saveChanges(color)">Preview Changes</button>
-                        <button class="btn btn-primary" type="button">Reset Default</button>
+                        <button class="btn btn-primary" type="button" ng-click="topBar = 'cae3f0'; topBarText = '858583'; colorBackground = 'f2edf2'; buttonBackColor = 'ed6623'; buttonColor = 'ffffff'; bottomBar = '1489be'; colorHeading = '111111'; colorBodyText = '333333'; headingSize = '26'; subHeadingSize = '18'; bodySize = '13'; fontFace = 'Arial';">Reset Default</button>
                     </div>
                 </div>
                 <p>&nbsp;</p>
@@ -466,6 +469,7 @@
     <script src="../lib/angular/angular.min.js"></script>
     <script src="../lib/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="controller.js"></script>
+    <script src="../js/inputFile/inputFile.js"></script>
     <script src="../js/colpick/colpick.js"></script>
     <script type="text/javascript">
         $('#picker').colpick({
