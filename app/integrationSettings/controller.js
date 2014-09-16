@@ -4,7 +4,7 @@
 
 	$scope.saveChanges = function(color){
 		$scope.clientImage = '../../img/redCross.jpg';
-		window.location.href = "../organization/job/job.html?topBar=" + $scope.topBar +"&clientImage=" + $scope.clientImage + "&topBarText=" + $scope.topBarText + "&hoverBackground=" + $scope.hoverBackground + "&buttonBackColor=" + $scope.buttonBackColor + "&buttonColor=" + $scope.buttonColor + "&selectedBackground=" + $scope.selectedBackground + "&selectedItemText=" + $scope.selectedItemText + "&bottomBarText=" + $scope.bottomBarText + "&bottomBar=" + $scope.bottomBar + "&colorBackground=" + $scope.colorBackground;
+		window.location.href = "../organization/job/job.html?topBar=" + $scope.topBar +"&clientImage=" + $scope.clientImage + "&topBarText=" + $scope.topBarText + "&buttonBackColor=" + $scope.buttonBackColor + "&buttonColor=" + $scope.buttonColor + "&bottomBarText=" + $scope.bottomBarText + "&bottomBar=" + $scope.bottomBar + "&colorBackground=" + $scope.colorBackground + "&colorHeading=" + $scope.colorHeading + "&colorBodyText=" + $scope.colorBodyText + "&headingSize=" + $scope.headingSize;
 	}
 
     $scope.typeOfOwner = '';
