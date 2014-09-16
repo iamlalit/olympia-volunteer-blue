@@ -37,6 +37,7 @@ app.controller('jobDetails', ['$scope', function ($scope) {
   $scope.colorHeading  = "#" + getParameterByName('colorHeading');
   $scope.colorBodyText  = "#" + getParameterByName('colorBodyText');
   $scope.headingSize  = getParameterByName('headingSize') + "px";
+  $scope.fontFace  = getParameterByName('fontFace');
 
   $scope.applyToJob = function(){
     window.location.href = "../jobApply/jobApply.html?jobName=" + $scope.jobName +"&jobDate=" + $scope.jobDate;

@@ -755,3 +755,15 @@ padding: 15px 12px;
   display: inline-block;
   padding: 4px 30px;
 }
+
+/*different font faces*/
+@font-face {
+    font-family: Calibri;
+    src: url("../fonts/customizeSite/Calibri.ttf");
+    font-weight:400;
+}
+@font-face {
+    font-family: Verdana;
+    src: url("../fonts/customizeSite/Verdana.ttf");
+    font-weight:400;
+}

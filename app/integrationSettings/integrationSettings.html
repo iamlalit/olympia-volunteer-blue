@@ -346,6 +346,38 @@
                         <span ng-style="{'font-size': bodySize + 'px'}">ABCDEFGHIJLMNOPQRSTUVWXYZ</span>
                     </div>
                 </div>
+
+                <div class="row margin-rl-0">
+                    <div class="pill margin-top-20 padding-top-10 padding-bottom-10 align-center">
+                        <span class="font-size-20" style="padding-right:72px">Font Type</span>
+                    </div> 
+                </div>
+
+                <div class="row margin-rl-0 margin-top-20 valign-middle">
+                    <div class="col-sm-5 align-right">
+                        <label class="padding-top-5">
+                            <span>Body/Heading</span>
+                        </label>
+                    </div>
+                    <div class="col-sm-1">&nbsp;</div>
+                    <div class="col-sm-5">
+                        <select ng-model="fontFace" ng-init="fontFace = 'Arial'" ng-focus="showFontType = true">
+                            <option value="Arial">Arial</option>
+                            <option value="Verdana">Verdana</option>
+                            <option value="Calibri">Calibri</option>
+                            <option value="sans-serif">Sans-Serif</option>
+                            <option value="serif">Serif</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row margin-rl-0 margin-top-20 valign-middle align-center" ng-if="showFontType">
+                    <div class="alphabet-box">
+                        <span ng-style="{'font-family': fontFace}">ABCDEFGHIJLMNOPQRSTUVWXYZ</span>
+                    </div>
+                </div>
+
+
+                
                  <div class="row margin-rl-0">
                     <div class="margin-top-30 align-center col-sm-12">
                         <button class="btn btn-success" type="button" ng-click="saveChanges(color)">Save Changes</button>
