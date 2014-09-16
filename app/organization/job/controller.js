@@ -37,6 +37,9 @@ app.controller('jobDetails', ['$scope', function ($scope) {
   $scope.colorHeading  = "#" + getParameterByName('colorHeading');
   $scope.colorBodyText  = "#" + getParameterByName('colorBodyText');
   $scope.headingSize  = getParameterByName('headingSize') + "px";
+  $scope.subHeadingSize  = getParameterByName('subHeadingSize') + "px";
+  $scope.bodySize  = getParameterByName('bodySize') + "px";
+
   $scope.fontFace  = getParameterByName('fontFace');
 
   $scope.applyToJob = function(){
