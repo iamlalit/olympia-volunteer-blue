@@ -69,7 +69,12 @@
                                 </li>
                                 <li role="presentation" class="divider"></li>
                                 <li role="presentation">
-                                    <a role="menuitem" href="#"><i class='fa fa-bell'></i> Notification Settings</a>
+                                    <a role="menuitem" href="../notificationSettings/notificationSettings.html?owner=organization"><i class='fa fa-bell'></i> Notification Settings</a>
+                                </li>
+                                <li role="presentation" class="divider" ng-if="typeOfOwner == 'organization'"></li>
+                                <li role="presentation" ng-if="typeOfOwner == 'organization'">
+                                    <a role="menuitem" href="#"><i class='fa fa-list-alt'></i> Integration Settings
+                                    </a>
                                 </li>
                             </ul>
                         </li>
@@ -150,143 +155,243 @@
 
                 <div class="row margin-rl-0">
                     <div class="pill margin-top-20 padding-top-10 padding-bottom-10">
-                        <span class="font-size-20 ">Organization Details</span>
+                        <span class="font-size-20" style="padding-right:60px">Organization Details</span>
                     </div> 
                 </div>
+
                 <div class="row margin-rl-0 margin-top-20 valign-middle">
-                    <div class="col-sm-6 align-right padding-top-5">
-                        <label>
-                            <span>Update Logo </span>
-                        </label>
+                    <div class="margin-top-10 padding-left-15">
+                        <label >Attachment </label><span id='optional-text'> (optional)</span><br/>
+                        <div class="custom-file-upload">
+                            <input type="file" id="file" name="myfiles[]" multiple />
+                        </div>
                     </div>
-                    <div class="col-sm-6 ">
-                        <input type="text" ng-model="clientImage"/>
+                    <div class="margin-top-0 padding-left-15">
+                        <p class="italic small">File size should be less than 5MB. </p>
+                    </div>
+                        
+                </div>
+                <div class="row margin-rl-0" >
+                    <div class="row margin-rl-0 pill margin-top-20 padding-top-10 padding-bottom-10">
+                        <div class="col-sm-2 padding-top-5 padding-rl-0">
+                            <span class="font-size-20">Color Scheme</span>
+                        </div>
+                        <div class="col-sm-10">&nbsp;</div>
                     </div>
                 </div>
-                <div class="row margin-rl-0">
-                    <div class="pill margin-top-20 padding-top-10 padding-bottom-10">
-                        <span class="font-size-20 ">Color Scheme</span>
-                        <span class="font-size-20 pull-right">Values</span>
-                    </div> 
-                </div>
                 <div class="row margin-rl-0 margin-top-20 valign-middle">
-                    <div class="col-sm-6 align-right padding-top-5">
+                    <div class="col-sm-2 padding-top-5">
                         <label>
                             <span>Color Picker </span>
                         </label>
                     </div>
+                    <div class="col-sm-1"></div>
                     <div class="col-sm-6 ">
                         <button id="picker" class="btn btn-primary active">Show Color Picker</button>
                     </div>
                 </div>
                 
-                <div class="row margin-rl-0 margin-top-20 valign-middle">
-                    <div class="col-sm-6 align-right padding-top-5">
-                        <label>
+                <div class="row margin-rl-0 margin-top-20 valign-middle" ng-init="topBar = 'cae3f0'; topBarText = '858583'; colorBackground = 'f2edf2'; buttonBackColor = 'ed6623'; buttonColor = 'ffffff'; bottomBar = '1489be'; colorHeading = '111111'; colorBodyText = '333333'">
+                    <div class="col-sm-2">
+                        <label class="padding-top-5">
                             <span>Top Bar - Header </span>
                         </label>
+                    </div>
+                    <div class="col-sm-1 align-center">
+                        <div class="color-box" ng-style="{'background-color': '#'+topBar}"></div>
                     </div>
                     <div class="col-sm-6 ">
                         <input type="text" ng-model="topBar"/>
                     </div>
                 </div>
                 <div class="row margin-rl-0 margin-top-20 valign-middle">
-                    <div class="col-sm-6 align-right padding-top-5">
-                        <label>
+                    <div class="col-sm-2">
+                        <label class="padding-top-5">
                             <span>Top Bar Text </span>
                         </label>
+                    </div>
+                    <div class="col-sm-1 align-center">
+                        <div class="color-box" ng-style="{'background-color': '#'+topBarText}"></div>
                     </div>
                     <div class="col-sm-6 ">
                         <input type="text" ng-model="topBarText"/>
                     </div>
                 </div>
                 <div class="row margin-rl-0 margin-top-20 valign-middle">
-                    <div class="col-sm-6 align-right padding-top-5">
-                        <label>
-                            <span>Top Bar Menu Selected Background </span>
+                    <div class="col-sm-2">
+                        <label class="padding-top-5">
+                            <span>Body Background </span>
                         </label>
                     </div>
-                    <div class="col-sm-6 ">
-                        <input type="text" ng-model="selectedBackground"/>
-                    </div>
-                </div>
-                <div class="row margin-rl-0 margin-top-20 valign-middle">
-                    <div class="col-sm-6 align-right padding-top-5">
-                        <label>
-                            <span>Top Bar Menu Selected Text </span>
-                        </label>
-                    </div>
-                    <div class="col-sm-6 ">
-                        <input type="text" ng-model="selectedItemText"/>
-                    </div>
-                </div>
-
-                <div class="row margin-rl-0 margin-top-20 valign-middle">
-                    <div class="col-sm-6 align-right padding-top-5">
-                        <label>
-                            <span>Top Bar Menu hover state </span>
-                        </label>
-                    </div>
-                    <div class="col-sm-6 ">
-                        <input type="text" ng-model="hoverBackground"/>
-                    </div>
-                </div>
-                <div class="row margin-rl-0 margin-top-20 valign-middle">
-                    <div class="col-sm-6 align-right padding-top-5">
-                        <label>
-                            <span>Background Color </span>
-                        </label>
+                    <div class="col-sm-1 align-center">
+                        <div class="color-box" ng-style="{'background-color': '#'+colorBackground}"></div>
                     </div>
                     <div class="col-sm-6 ">
                         <input type="text" ng-model="colorBackground"/>
                     </div>
                 </div>
                 <div class="row margin-rl-0 margin-top-20 valign-middle">
-                    <div class="col-sm-6 align-right padding-top-5">
-                        <label>
-                            <span>Button Text </span>
+                    <div class="col-sm-2">
+                        <label class="padding-top-5">
+                            <span>Heading Text </span>
                         </label>
                     </div>
+                    <div class="col-sm-1 align-center">
+                        <div class="color-box" ng-style="{'background-color': '#'+colorHeading}"></div>
+                    </div>
                     <div class="col-sm-6 ">
-                        <input type="text" ng-model="buttonColor"/>
+                        <input type="text" ng-model="colorHeading"/>
                     </div>
                 </div>
                 <div class="row margin-rl-0 margin-top-20 valign-middle">
-                    <div class="col-sm-6 align-right padding-top-5">
-                        <label>
+                    <div class="col-sm-2">
+                        <label class="padding-top-5">
+                            <span>Body Text </span>
+                        </label>
+                    </div>
+                    <div class="col-sm-1 align-center">
+                        <div class="color-box" ng-style="{'background-color': '#'+colorBodyText}"></div>
+                    </div>
+                    <div class="col-sm-6 ">
+                        <input type="text" ng-model="colorBodyText"/>
+                    </div>
+                </div>
+
+                <div class="row margin-rl-0 margin-top-20 valign-middle">
+                    <div class="col-sm-2">
+                        <label class="padding-top-5">
                             <span>Button Background </span>
                         </label>
+                    </div>
+                    <div class="col-sm-1 align-center">
+                        <div class="color-box" ng-style="{'background-color': '#'+buttonBackColor}"></div>
                     </div>
                     <div class="col-sm-6 ">
                         <input type="text" ng-model="buttonBackColor"/>
                     </div>
                 </div>
                 <div class="row margin-rl-0 margin-top-20 valign-middle">
-                    <div class="col-sm-6 align-right padding-top-5">
-                        <label>
+                    <div class="col-sm-2">
+                        <label class="padding-top-5">
+                            <span>Button Text </span>
+                        </label>
+                    </div>
+                        <div class="col-sm-1 align-center">
+                            <div class="color-box" ng-style="{'background-color': '#'+buttonColor}"></div>
+                        </div>
+                    <div class="col-sm-6 ">
+                        <input type="text" ng-model="buttonColor"/>
+                    </div>
+                </div>
+                <div class="row margin-rl-0 margin-top-20 valign-middle">
+                    <div class="col-sm-2">
+                        <label class="padding-top-5">
                             <span>Bottom Bar - Footer </span>
                         </label>
+                    </div>
+                    <div class="col-sm-1 align-center">
+                        <div class="color-box" ng-style="{'background-color': '#'+bottomBar}"></div>
                     </div>
                     <div class="col-sm-6 ">
                         <input type="text" ng-model="bottomBar"/>
                     </div>
                 </div>
-                <div class="row margin-rl-0 margin-top-20 valign-middle">
-                    <div class="col-sm-6 align-right padding-top-5">
-                        <label>
-                            <span>Bottom Bar Text </span>
-                        </label>
-                    </div>
-                    <div class="col-sm-6 ">
-                        <input type="text" ng-model="bottomBarText"/>
-                    </div>
+                <div class="row margin-rl-0">
+                    <div class="pill margin-top-20 padding-top-10 padding-bottom-10">
+                        <span class="font-size-20" >Font Size</span>
+                    </div> 
                 </div>
                 
-                 <div class="row margin-rl-0">
-                    <div class="margin-top-30 align-center col-sm-12">
-                        <button class="btn btn-success" type="button" ng-click="saveChanges(color)">Save Changes</button>
+                <div class="row margin-rl-0 margin-top-20 valign-middle" ng-init="headingSize = '26'; subHeadingSize = '18'; bodySize = '13'">
+                    <div class="col-sm-2">
+                        <label class="padding-top-5">
+                            <span>Heading</span>
+                        </label>
+                    </div>
+                    <div class="col-sm-3">
+                        <input type="text" ng-model="headingSize" ng-focus="showHeadingSize = true" ng-blur="showHeadingSize = false"/>
+                    </div>
+                    <div class="col-sm-7 padding-rl-0">
+                        <div class="row margin-rl-0" ng-if="showHeadingSize">
+                            <div class="alphabet-box">
+                                <span ng-style="{'font-size': headingSize + 'px'}">ABCDEFGHIJLMNOPQRSTUVWXYZ</span>
+                            </div>
+                        </div>  
                     </div>
                 </div>
+                <div class="row margin-rl-0 margin-top-20 valign-middle">
+                    <div class="col-sm-2">
+                        <label class="padding-top-5">
+                            <span>Sub Heading</span>
+                        </label>
+                    </div>
+                    <div class="col-sm-3">
+                        <input type="text" ng-model="subHeadingSize" ng-focus="showSubHeadingSize = true" ng-blur="showSubHeadingSize = false"/>
+                    </div>
+                    <div class="col-sm-7 padding-rl-0">
+                        <div class="row margin-rl-0" ng-if="showSubHeadingSize">
+                            <div class="alphabet-box">
+                                <span ng-style="{'font-size': subHeadingSize + 'px'}">ABCDEFGHIJLMNOPQRSTUVWXYZ</span>
+                            </div>
+                        </div>  
+                    </div>
+                </div>
+                <div class="row margin-rl-0 margin-top-20 valign-middle">
+                    <div class="col-sm-2">
+                        <label class="padding-top-5">
+                            <span>Body</span>
+                        </label>
+                    </div>
+                    <div class="col-sm-3">
+                        <input type="text" ng-model="bodySize" ng-focus="showBodySize = true" ng-blur="showBodySize = false"/>
+                    </div>
+                    <div class="col-sm-7 padding-rl-0">
+                        <div class="row margin-rl-0" ng-if="showBodySize">
+                            <div class="alphabet-box">
+                                <span ng-style="{'font-size': bodySize + 'px'}">ABCDEFGHIJLMNOPQRSTUVWXYZ</span>
+                            </div>
+                        </div>  
+                    </div>
+                </div>
+
+                <div class="row margin-rl-0">
+                    <div class="pill margin-top-20 padding-top-10 padding-bottom-10">
+                        <span class="font-size-20" style="padding-right:72px">Font Type</span>
+                    </div> 
+                </div>
+
+                <div class="row margin-rl-0 margin-top-20 valign-middle">
+                    <div class="col-sm-2">
+                        <label class="padding-top-5">
+                            <span>Body/Heading</span>
+                        </label>
+                    </div>
+                    <div class="col-sm-2">
+                        <select ng-model="fontFace" ng-init="fontFace = 'Arial'" ng-focus="showFontType = true">
+                            <option value="Arial">Arial</option>
+                            <option value="Verdana">Verdana</option>
+                            <option value="Calibri">Calibri</option>
+                            <option value="sans-serif">Sans-Serif</option>
+                            <option value="serif">Serif</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-8 padding-right-0">
+                        <div class="row margin-rl-0 valign-middle align-center" ng-if="showFontType">
+                            <div class="alphabet-box">
+                                <span ng-style="{'font-family': fontFace}">ABCDEFGHIJLMNOPQRSTUVWXYZ</span>
+                            </div>
+                        </div>                
+                    </div>
+                </div>
+            
+                 <div class="row margin-rl-0">
+                    <div class="margin-top-30 col-sm-12">
+                        <button class="btn btn-success" type="button" >Save Changes</button>
+                        <button class="btn btn-primary active" type="button" ng-click="saveChanges(color)">Preview Changes</button>
+                        <button class="btn btn-primary" type="button" ng-click="topBar = 'cae3f0'; topBarText = '858583'; colorBackground = 'f2edf2'; buttonBackColor = 'ed6623'; buttonColor = 'ffffff'; bottomBar = '1489be'; colorHeading = '111111'; colorBodyText = '333333'; headingSize = '26'; subHeadingSize = '18'; bodySize = '13'; fontFace = 'Arial';">Reset Default</button>
+                    </div>
+                </div>
+                <p>&nbsp;</p>
             </form>
         </div>
     </div>
@@ -364,6 +469,7 @@
     <script src="../lib/angular/angular.min.js"></script>
     <script src="../lib/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="controller.js"></script>
+    <script src="../js/inputFile/inputFile.js"></script>
     <script src="../js/colpick/colpick.js"></script>
     <script type="text/javascript">
         $('#picker').colpick({

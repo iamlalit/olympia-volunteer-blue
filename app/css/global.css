@@ -735,3 +735,35 @@ padding: 15px 12px;
   border-color: #FF3333;
   color: #B40400;
 }
+.color-box {
+  width: 41px;
+  height: 31px;
+  background-color: #ffffff;
+  border-radius: 3px;
+  border: 2px solid #eeeeee; 
+  display: inline-block;
+  float: none;
+  vertical-align: top;
+}
+
+.alphabet-box {
+  border: 2px solid #eeeeee;
+  border-radius: 4px;
+  text-align: center;
+  box-shadow: 0 3px 1px 2px #cccccc;
+  min-width: 500px;
+  display: inline-block;
+  padding: 4px 30px;
+}
+
+/*different font faces*/
+@font-face {
+    font-family: Calibri;
+    src: url("../fonts/customizeSite/Calibri.ttf");
+    font-weight:400;
+}
+@font-face {
+    font-family: Verdana;
+    src: url("../fonts/customizeSite/Verdana.ttf");
+    font-weight:400;
+}

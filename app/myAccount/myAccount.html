@@ -76,6 +76,11 @@
                                     <a role="menuitem" href="../notificationSettings/notificationSettings.html?owner=volunteer" ng-if="typeOfOwner == 'volunteer'"><i class='fa fa-bell'></i> Notification Settings</a>
                                     <a role="menuitem" href="../notificationSettings/notificationSettings.html?owner=organization" ng-if="typeOfOwner == 'organization'"><i class='fa fa-bell'></i> Notification Settings</a>
                                 </li>
+                                <li role="presentation" class="divider" ng-if="typeOfOwner == 'organization'"></li>
+                                <li role="presentation" ng-if="typeOfOwner == 'organization'">
+                                    <a role="menuitem" href="../integrationSettings/integrationSettings.html?owner=organization"><i class='fa fa-list-alt'></i> Integration Settings
+                                    </a>
+                                </li>
                             </ul>
                         </li>
                         <li class='pull-right'><a href="#" id="icons-header-right"><span class="fa fa-exclamation"></a></li>
