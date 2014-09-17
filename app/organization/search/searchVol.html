@@ -250,25 +250,25 @@
                                     <span>
                                         <button type="button" class="btn btn-primary pull-right small-btn" ng-model="shortlisted" ng-class="{active:$index==2}" data-toggle="modal" data-target="#contactApplicantModal" ng-click="openModal(applicant)" title="click to contact the applicant"><span class="fa fa-circle green-yellow"></span>&nbsp;Contact</button>
                                         <a id="removeIconHover" ng-if="!(applicant.selected || removeIt)" title="mark as favourite">
-                                            <div class="circle pull-right star-icon" ng-click="copyApplicant(applicant, Applicants, favouriteApplicants)">
-                                                <span class="fa fa-heart font-size-1-3 icon-attr"></i>
+                                            <div class="pull-right star-icon" ng-click="copyApplicant(applicant, Applicants, favouriteApplicants)">
+                                                <span class="fa fa-heart font-size-1-5 icon-attr color-grey"></i>
                                             </div>
                                         </a>
                                         <a id="removeIconHover" ng-if="applicant.selected || removeIt" title="remove from favourite" ng-click="copyApplicant(applicant, Applicants, favouriteApplicants)" >
-                                            <div class="circle pull-right star-icon circle-white">
-                                                <span class="fa fa-heart font-size-1-3 icon-attr star-yellow"> </i>
+                                            <div class="pull-right star-icon">
+                                                <span class="fa fa-heart font-size-1-5 icon-attr star-yellow"> </i>
                                             </div>
                                         </a>
                                     </span>
                                     
                                 </div>
                             </div>
-                            <div class="row margin-rl-0">
+                            <div class="row margin-rl-0 margin-top-10">
                                 <span ng-bind="applicant.bodyText" ng-show="!applicant.value" class="padding-top-5"></span>
                                 <div style="padding-top:5px;marging-top:5px;margin-right: 0px;margin-left: 0px;"></div> 
 
-                                <div class=" padding-rl-0 margin-top-10 margin-bottom-10">
-                                    <div class="row margin-rl-0 margin-top-15">
+                                <div class=" padding-rl-0 margin-bottom-10">
+                                    <div class="row margin-rl-0">
                                         <span class="small-pill" ng-class="{'margin-left-10':$index != 0}" ng-repeat="skill in volunteerSkills" ng-bind="skill"></span>
                                     </div>
                                 </div>
@@ -288,7 +288,7 @@
                         </div>
                         <div class="row margin-rl-0">
                             <div class="col-sm-4 padding-rl-0">
-                             3e   <span class="clear-search">
+                                <span class="clear-search">
                                     <b ng-show="showrecent">{{lengthOfApplicants}}</b> 
                                     <b ng-show="showfavourite">{{lengthOfFavouriteApplicants}}</b> 
                                     Volunteers found&nbsp;
@@ -329,20 +329,20 @@
                                     <span>
                                         <button type="button" class="btn btn-primary pull-right small-btn" ng-model="shortlisted" ng-class="{active:$index==2}" data-toggle="modal" data-target="#contactApplicantModal" ng-click="openModal(applicant)" title="click to contact the applicant"><span class="fa fa-circle green-yellow"></span>&nbsp;Contact</button>
                                         <a id="removeIconHover" ng-if="!(applicant.selected || removeIt)" title="mark as favourite">
-                                            <div class="circle pull-right star-icon" ng-click="copyApplicant(applicant, Applicants, favouriteApplicants)">
-                                                <span class="fa fa-heart font-size-1-3 icon-attr"></i>
+                                            <div class="pull-right star-icon" ng-click="copyApplicant(applicant, Applicants, favouriteApplicants)">
+                                                <span class="fa fa-heart font-size-1-5 icon-attr color-grey"></i>
                                             </div>
                                         </a>
                                         <a id="removeIconHover" ng-if="applicant.selected || removeIt" title="remove from favourite" ng-click="copyApplicant(applicant, Applicants, favouriteApplicants)" >
-                                            <div class="circle pull-right star-icon circle-white">
-                                                <span class="fa fa-heart font-size-1-3 icon-attr star-yellow"> </i>
+                                            <div class="pull-right star-icon">
+                                                <span class="fa fa-heart font-size-1-5 icon-attr star-yellow"> </i>
                                             </div>
                                         </a>
                                     </span>
                                     
                                 </div>
                             </div>
-                            <div class="row margin-rl-0">
+                            <div class="row margin-rl-0 margin-top-10">
                                 <span ng-bind="applicant.bodyText" ng-show="!applicant.value" class="padding-top-5"></span>
                                 <div style="padding-top:5px;marging-top:5px;margin-right: 0px;margin-left: 0px;"></div> 
                                 <hr class="user-hr padding-top-5" ng-if="$index !== lengthOfFavouriteApplicants - 1" />
