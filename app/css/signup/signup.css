@@ -19,7 +19,7 @@
     color:#fff;
 }
 .wrap-login-text span{
-    display:block;
+    display:inline-block;
     font-size:13px;
 }
 .wrap-login-text span a{
