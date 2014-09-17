@@ -204,8 +204,8 @@ app.controller('searchJob', ['$scope', function ($scope) {
       $scope.copyJob= function(item, from, to) {
             var idx=from.indexOf(item);
             //to check for uncommon objects
-            $scope.Jobs[idx].selected = !$scope.Jobs[idx].selected;
-            if($scope.Jobs[idx].selected){
+            $scope.Jobs[idx].value = !$scope.Jobs[idx].value;
+            if($scope.Jobs[idx].value){
                 
                 var check = true;
                 if (idx != -1) {
@@ -215,8 +215,8 @@ app.controller('searchJob', ['$scope', function ($scope) {
                             }
                       };
                       if(check == true){
-                            $scope.Jobs[idx].selected = false;
-                            item.selected = true;
+                            $scope.Jobs[idx].value = false;
+                            item.value = true;
                             to.push(item);
                       }
                 }   
@@ -235,7 +235,7 @@ app.controller('searchJob', ['$scope', function ($scope) {
                   from.splice(idx, 1);
             }
             console.log($scope.Jobs[idx2]);     
-            $scope.Jobs[idx2].selected = false;
+            $scope.Jobs[idx2].value = false;
             $scope.lengthOfFavouriteJobs = $scope.favouriteJobs.length;
       }
       //to clear all th search result

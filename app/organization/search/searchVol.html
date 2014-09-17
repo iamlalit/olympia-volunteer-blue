@@ -274,7 +274,23 @@
                                 </div>
                                 <hr class="user-hr padding-top-5" ng-if="$index !== lengthOfApplicantsPerPage - 1" />
                             </div>
+
                         </div>
+                        <div class="row margin-rl-0">
+                                <div class="col-sm-4 padding-rl-0">
+                                    &nbsp;
+                                </div>
+                                <div class="col-sm-4 padding-rl-0 align-center">
+                                    &nbsp;
+                                </div>
+                                <div class="col-sm-4 padding-left-0 align-right">
+                                    <ul class="pagination" ng-hide="">
+                                        <li ng-class="{disabled: currentPage == 0}"><span ng-click="prevPage()"> Previous </span></li>
+                                        <li ng-repeat="n in range(pagedItems.length)" ng-class="{active: n == currentPage}" ng-click="setPage()"><span>{{n+1}}</span></li>
+                                        <li ng-class="{disabled: currentPage == pagedItems.length - 1}"><span ng-click="nextPage()"> Next </span></li>
+                                     </ul>
+                                </div>
+                            </div>
                         <div class="align-center show-clear" ng-show="showClearSearch">
                             <label>Cleared all search results, <br />Please search again to find the Volunteers</label>
                         </div>
@@ -346,6 +362,21 @@
                                 <span ng-bind="applicant.bodyText" ng-show="!applicant.value" class="padding-top-5"></span>
                                 <div style="padding-top:5px;marging-top:5px;margin-right: 0px;margin-left: 0px;"></div> 
                                 <hr class="user-hr padding-top-5" ng-if="$index !== lengthOfFavouriteApplicants - 1" />
+                            </div>
+                            <div class="row margin-rl-0">
+                                <div class="col-sm-4 padding-rl-0">
+                                    &nbsp;
+                                </div>
+                                <div class="col-sm-4 padding-rl-0 align-center">
+                                    &nbsp;
+                                </div>
+                                <div class="col-sm-4 padding-left-0 align-right">
+                                    <ul class="pagination" ng-hide="">
+                                        <li ng-class="{disabled: currentPage == 0}"><span ng-click="prevPage()"> Previous </span></li>
+                                        <li ng-repeat="n in range(pagedItems.length)" ng-class="{active: n == currentPage}" ng-click="setPage()"><span>{{n+1}}</span></li>
+                                        <li ng-class="{disabled: currentPage == pagedItems.length - 1}"><span ng-click="nextPage()"> Next </span></li>
+                                     </ul>
+                                </div>
                             </div>
                         </div>
                         <div class="align-center show-clear" ng-show="lengthOfFavouriteApplicants == 0">
