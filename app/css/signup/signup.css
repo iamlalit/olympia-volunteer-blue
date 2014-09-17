@@ -60,12 +60,20 @@
  margin-bottom:0;   
  font-weight:bold;
  margin-top:5px;
+ line-height:24px;
+}
+.need-wrapper .icon-button{
+    width:23%;
+    float:left;
+}
+.need-wrapper .icon-button a{
+    margin-bottom:8px;
 }
 .need-wrapper .need{
     float:right;
     width:77%;
     padding-left:5px;
-    padding-right:30px;
+    padding-right:20px;
 }
 .need-wrapper .need p{
     margin-bottom:20px;
