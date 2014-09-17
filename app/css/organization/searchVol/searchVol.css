@@ -121,8 +121,6 @@ border-radius:10px;
 
 /* favourite star circle */
 .circle {
-
-
      width: 28px !important;
     height: 28px !important;
     margin-bottom: 8px !important;
@@ -138,6 +136,9 @@ border-radius:10px;
 }
 .icon-attr{
 	display: inline-block !important;
-	margin-top: 6px !important;
-	margin-left: 6px !important;
+	margin-top: 4px !important;
+	margin-right: 4px !important;
+}
+.color-grey{
+	color: #bbbbbb !important;
 }
