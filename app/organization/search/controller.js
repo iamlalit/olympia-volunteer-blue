@@ -4,6 +4,7 @@ var app = angular.module('searchVolController', []);
 
 app.controller('searchVolCtrl', function($scope){
 	//Dummy data
+
       $scope.categories = ['Aggriculture', 'Animals', 'Arts', 'Communications access', 
 	'Community development', 'conflict resolution'];
 	
@@ -43,6 +44,7 @@ app.controller('searchVolCtrl', function($scope){
             statusColor: 'red',
             NumbertoStart: 7,
             joined: 'Joined 1 year ago',
+            volunteerSkills: ['Education', 'Crowd control', 'Damage control', 'First aid'],
             invited: true,   
             selected: false,
             value: false
@@ -56,6 +58,7 @@ app.controller('searchVolCtrl', function($scope){
             image: '../../img/name2.png',
             statusColor: 'green',    
             joined: 'Joined 5 year ago',
+            volunteerSkills: ['Cooking', 'Education', 'Caring for People', 'Communication'],
             invited: false,
             selected: false,
             value: false
@@ -69,6 +72,7 @@ app.controller('searchVolCtrl', function($scope){
             image: '../../img/name3.png',
             statusColor: 'red',
             joined: 'Joined 3 months ago',
+            volunteerSkills: ['Damage control', 'First aid', 'Caring for People', 'Communication'],
             invited: false,
             selected: false,
             value: false    
@@ -82,6 +86,7 @@ app.controller('searchVolCtrl', function($scope){
             image: '../../img/name4.png',
             statusColor: 'red',
             joined: 'Joined 1 day ago',
+            volunteerSkills: ['Cooking', 'Education', 'Caring for People', 'Communication'],
             invited: true,
             selected: false,
             value: false      
@@ -95,6 +100,7 @@ app.controller('searchVolCtrl', function($scope){
             image: '../../img/name5.png',
             statusColor: 'red',
             joined: 'Joined 6 months ago',
+            volunteerSkills: ['Cooking', 'Education', 'Caring for People', 'Communication'],
             invited: false,
             selected: false,      
             value: false
@@ -108,6 +114,7 @@ app.controller('searchVolCtrl', function($scope){
             image: '../../img/name6.png',
             statusColor: 'red',
             joined: 'Joined 2 months ago',
+            volunteerSkills: ['Cooking', 'Damage control', 'First aid'],
             invited: false,
             selected: false,      
             value: false
@@ -122,6 +129,7 @@ app.controller('searchVolCtrl', function($scope){
             image: '../../img/name7.png',
             statusColor: 'red',
             joined: 'Joined 1 year ago',
+            volunteerSkills: ['Cooking', 'Caring for People', 'Communication'],
             invited: true,   
             selected: false,
             value: false
@@ -135,6 +143,7 @@ app.controller('searchVolCtrl', function($scope){
             image: '../../img/name8.png',
             statusColor: 'green',    
             joined: 'Joined 5 year ago',
+            volunteerSkills: ['Cooking', 'Education', 'Damage control', 'First aid'],
             invited: false,
             selected: false,
             value: false
@@ -148,6 +157,7 @@ app.controller('searchVolCtrl', function($scope){
             image: '../../img/name9.png',
             statusColor: 'red',
             joined: 'Joined 3 months ago',
+            volunteerSkills: ['Cooking', 'Damage control', 'First aid'],
             invited: false,
             selected: false,
             value: false    
@@ -161,6 +171,7 @@ app.controller('searchVolCtrl', function($scope){
             image: '../../img/name10.png',
             statusColor: 'red',
             joined: 'Joined 1 day ago',
+            volunteerSkills: ['Cooking', 'Education', 'Crowd control', 'Damage control', 'First aid'],
             invited: true,
             selected: false,
             value: false      
@@ -174,6 +185,7 @@ app.controller('searchVolCtrl', function($scope){
             image: '../../img/name11.png',
             statusColor: 'red',
             joined: 'Joined 6 months ago',
+            volunteerSkills: ['Damage control', 'First aid', 'Caring for People', 'Communication'],
             invited: false,
             selected: false,      
             value: false
@@ -187,6 +199,7 @@ app.controller('searchVolCtrl', function($scope){
             image: '../../img/name12.png',
             statusColor: 'red',
             joined: 'Joined 2 months ago',
+            volunteerSkills: ['Crowd control', 'Damage control', 'First aid'],
             invited: false,
             selected: false,      
             value: false
@@ -298,6 +311,8 @@ app.controller('searchVolCtrl', function($scope){
       $scope.openModal = function(object) {
             $scope.modalApplicant = object;
        }
+       //show more show less
+       $scope.letterLimit = 150;
 
 
 });

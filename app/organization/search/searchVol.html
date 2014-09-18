@@ -263,13 +263,21 @@
                                     
                                 </div>
                             </div>
-                            <div class="row margin-rl-0 margin-top-10">
-                                <span ng-bind="applicant.bodyText" ng-show="!applicant.value" class="padding-top-5"></span>
+                            <div class="row margin-rl-0 margin-top-10" ng-init="more = true">
+                                <span class="padding-top-5">
+                                    {{applicant.bodyText | limitTo:letterLimit}}
+                                    <span ng-show="more">...
+                                        <a ng-click="letterLimit = 500;more = !more">more</a>
+                                    </span>
+                                    <span ng-show="!more">
+                                        <a ng-click="letterLimit = 150;more = !more">less</a>
+                                    </span>
+                                </span>
                                 <div style="padding-top:5px;marging-top:5px;margin-right: 0px;margin-left: 0px;"></div> 
 
-                                <div class=" padding-rl-0 margin-bottom-10">
+                                <div class=" padding-rl-0 margin-bottom-20 margin-top-5">
                                     <div class="row margin-rl-0">
-                                        <span class="small-pill" ng-class="{'margin-left-10':$index != 0}" ng-repeat="skill in volunteerSkills" ng-bind="skill"></span>
+                                        <span class="small-pill" ng-class="{'margin-left-10':$index != 0}" ng-repeat="skill in applicant.volunteerSkills" ng-bind="skill"></span>
                                     </div>
                                 </div>
                                 <hr class="user-hr padding-top-5" ng-if="$index !== lengthOfApplicantsPerPage - 1" />
@@ -358,12 +366,22 @@
                                     
                                 </div>
                             </div>
-                            <div class="row margin-rl-0 margin-top-10">
-                                <span ng-bind="applicant.bodyText" ng-show="!applicant.value" class="padding-top-5"></span>
+                            <div class="row margin-rl-0 margin-top-10" ng-init="moreF = true">
+                                <span class="padding-top-5">
+                                    {{applicant.bodyText | limitTo:letterLimit}}
+                                    <span ng-show="moreF">...
+                                        <a ng-click="letterLimit = 500;moreF = !moreF">more</a>
+                                    </span>
+                                    <span ng-show="!moreF">
+                                        <a ng-click="letterLimit = 150;moreF = !moreF">less</a>
+                                    </span>
+                                </span>
                                 <div style="padding-top:5px;marging-top:5px;margin-right: 0px;margin-left: 0px;"></div> 
                                 <hr class="user-hr padding-top-5" ng-if="$index !== lengthOfFavouriteApplicants - 1" />
                             </div>
-                            <div class="row margin-rl-0">
+                            
+                        </div>
+                        <div class="row margin-rl-0">
                                 <div class="col-sm-4 padding-rl-0">
                                     &nbsp;
                                 </div>
@@ -378,7 +396,6 @@
                                      </ul>
                                 </div>
                             </div>
-                        </div>
                         <div class="align-center show-clear" ng-show="lengthOfFavouriteApplicants == 0">
                             <label>No favourite applicant available</label>
                         </div>
