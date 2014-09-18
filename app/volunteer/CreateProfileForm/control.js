@@ -1101,6 +1101,10 @@ function updateValueVolunteerInterest() {
     }
 }
 
+function clearVolunteerInterest(){
+  $(".jsBlank").click();
+}
+
 function updateValueVolunteerInterestText(){
   
   $("#volunteer-tag").tagsinput("refresh");
