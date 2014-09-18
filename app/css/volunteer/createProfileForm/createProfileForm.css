@@ -257,5 +257,21 @@ ul li #zoomTextarea1{
     text-decoration: line-through;
 }
 /* Tick in checkbox*/
-
+.checkboxUpdated{
+    padding-left:0;
+    line-height: 13px;
+}
+.checkboxUpdated label.strikeThrough{
+    text-decoration: line-through;;
+}
+.checkboxUpdated span{
+    float:left;
+    line-height:normal;
+}
+.checkboxCustom{
+    float:left;margin-right:8px;
+}
+.checkboxPropagation{
+    float:left;
+}
 /* Tick in checkbox*/
