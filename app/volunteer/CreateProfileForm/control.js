@@ -1037,6 +1037,7 @@ function updateValueVolunteerWork() {
     var listOfVolunteerWork = [];
     for (i = 1 ; i <= 12 ; i++) {
         if ($("#volunteerWrk" + i + "").is(":checked")) {
+            console.log($("#volunteerWrk" + i + "").val());
             listOfVolunteerWork.push($("#volunteerWrk" + i + "").val());
         }
     }
@@ -1085,9 +1086,12 @@ $('#volunteer-tag').tagsinput({
 });
 function updateValueVolunteerInterest() {
     var listOfVolunteerWork = [];
-    for (i = 1 ; i <= 57 ; i++) {
-        if ($("#v" + i + "").is(":checked")) {
-            listOfVolunteerWork.push($("#v" + i + "").val());
+    for (i = 1 ; i <= 56 ; i++) {
+        var target = $("#desiredWork" + i).children("span");
+        tickCheck=target[0].className.indexOf("tick");
+        if(tickCheck>-1){
+          var nextElement = $("#desiredWork" + i).children("label").text();
+          listOfVolunteerWork.push(nextElement);
         }
     }
     $('#volunteer-tag').tagsinput('removeAll');
