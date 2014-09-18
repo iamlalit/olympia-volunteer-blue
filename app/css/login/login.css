@@ -54,12 +54,6 @@ body {
 }
 
 /*Footer*/
-footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  background-color: #666666;
-}
 footer p.footer-copyrights{
     color:#fff;
 }
