@@ -232,7 +232,7 @@
                     <div class="applicants" ng-repeat="Job in pagedItems[currentPage]" ng-init="autoScroll = false" ng-if="showrecent == true">
                         <div class="row margin-rl-0">
                             <div class="col-sm-2 padding-rl-0" ng-cloak>
-                                <img src="../../img/redCross.jpg" width="70" height="73">
+                                <img src="{{Job.image}}" width="70" height="73">
                             </div>
                             <div class="col-sm-8 padding-rl-0 padding-top-10">
                                 <a style="color:#1489be" href="" ng-click="CreateObject(Job)"><label ng-bind="Job.Name"></label></a>
@@ -261,9 +261,17 @@
                             </div>
                         </div>
 
-                        <div class="row margin-rl-0">
-                            <span ng-bind="Job.bodyText"></span>
-                            <div style="padding-top:5px;marging-top:5px;margin-right: 0px;margin-left: 0px;"></div> 
+                        <div class="row margin-rl-0 margin-top-5" ng-init="more = true;letterLimit = 160">
+                            <span class="padding-top-5">
+                                {{Job.bodyText | limitTo:letterLimit}}
+                                <span ng-show="more">...
+                                    <a ng-click="letterLimit = 500;more = !more">more</a>
+                                </span>
+                                <span ng-show="!more">
+                                    <a ng-click="letterLimit = 160;more = !more">less</a>
+                                </span>
+                            </span>
+                            <div style="padding-top:20px;margin-right: 0px;margin-left: 0px;"></div> 
                             <hr class="user-hr" ng-if="$index !== lengthOfJobsPerPage - 1" />
                         </div>
                     </div>
@@ -300,8 +308,16 @@
                             </div>
                         </div>
 
-                        <div class="row margin-rl-0">
-                            <span ng-bind="Job.bodyText"></span>
+                        <div class="row margin-rl-0" ng-init="moreF = true;letterLimit = 160">
+                            <span class="padding-top-5">
+                                {{Job.bodyText | limitTo:letterLimit}}
+                                <span ng-show="moreF">...
+                                    <a ng-click="letterLimit = 500;moreF = !moreF">more</a>
+                                </span>
+                                <span ng-show="!moreF">
+                                    <a ng-click="letterLimit = 160;moreF = !moreF">less</a>
+                                </span>
+                            </span>
                             <div style="padding-top:5px;marging-top:5px;margin-right: 0px;margin-left: 0px;"></div> 
                             <hr class="user-hr" ng-if="$index !== lengthOfFavouriteJobs - 1" />
                         </div>

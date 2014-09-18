@@ -36,6 +36,7 @@ app.controller('searchJob', ['$scope', function ($scope) {
             city: 'Amsterdam, Noord Holland', 
             bodyText: 'Are you a student looking for a way to develop as a human rights leader? Would you like to take your activism to a new level? make an investment in Amnesty and Amnesty will make an investment in you.',
             about: 'About 1 hour ago',
+            image: '../../img/redCross.jpg',
             invited: true,   
             selected: false,
             value: false
@@ -46,6 +47,7 @@ app.controller('searchJob', ['$scope', function ($scope) {
             bodyText: 'Intern in kenya work primarily in rural settings and provide support to the community and its leaders. The interns also learn about the rich cultures of Kenya while sharing their own gifts, experience and insights. Our headquarters are located in Nairobi but you will be contacted on phone first.',
             status: '4/4 diploma/certificate/skills',     
             about: 'About 5 hours ago',
+            image: '../../img/redCross.jpg',
             invited: false,
             selected: false,
             value: false
@@ -55,6 +57,7 @@ app.controller('searchJob', ['$scope', function ($scope) {
             city: 'De Kwakel, Noord Holland', 
             bodyText: "Global Conscience Initiative seeks to the address and improve Cameroon's most pressing human right issues: chiefly, Corruption. abuse of prisoner's, gender discrimination and etc.",
             about: 'About 3 hours ago',
+            image: '../../img/GCI.jpg',
             invited: false,
             selected: false,
             value: false    
@@ -64,6 +67,7 @@ app.controller('searchJob', ['$scope', function ($scope) {
             city: 'Drechterland, Noord Holland', 
             bodyText: 'United African Organization is a dynamic coalotion of African community-based organizations that promotes social and economic justice, civic participation, and empowerment of African immigrants and refugees in Illinois',
             about: 'About 6 hours ago',
+            image: '../../img/GCI.jpg',
             invited: false,
             selected: true,      
             value: false
@@ -73,6 +77,7 @@ app.controller('searchJob', ['$scope', function ($scope) {
             city: 'Aalsmeerderbrug, Noord Holland', 
             bodyText: 'Photographer: Volunteering is a wonderful way to give back to the community. We are looking ideally for someone who would like to use their skills and their time to benefit out organization, which has existed for over 50 years and support.',
             about: 'About 1 hours ago',
+            image: '../../img/GCI.jpg',
             invited: true,
             selected: false,
             value: false      
@@ -82,6 +87,7 @@ app.controller('searchJob', ['$scope', function ($scope) {
             city: 'Drechterland, Noord Holland', 
             bodyText: 'United African Organization is a dynamic coalotion of African community-based organizations that promotes social and economic justice, civic participation, and empowerment of African immigrants and refugees in Illinois',
             about: 'About 6 hours ago',
+            image: '../../img/redCross.jpg',
             invited: false,
             selected: false,      
             value: false
@@ -91,6 +97,7 @@ app.controller('searchJob', ['$scope', function ($scope) {
             city: 'Aalsmeerderbrug, Noord Holland', 
             bodyText: 'Are you a student looking for a way to develop as a human rights leader? Would you like to take your activism to a new level? make an investment in Amnesty and Amnesty will make an investment in you.',
             about: 'About 2 hours ago',
+            image: '../../img/redCross.jpg',
             invited: false,
             selected: false,      
             value: false
@@ -101,6 +108,7 @@ app.controller('searchJob', ['$scope', function ($scope) {
             city: 'Amsterdam, Noord Holland', 
             bodyText: 'Intern in kenya work primarily in rural settings and provide support to the community and its leaders. The interns also learn about the rich cultures of Kenya while sharing their own gifts, experience and insights. Our headquarters are located in Nairobi but you will be contacted on phone first.',
             about: 'About 1 hour ago',
+            image: '../../img/redCross.jpg',
             invited: true,   
             selected: false,
             value: false
@@ -111,6 +119,7 @@ app.controller('searchJob', ['$scope', function ($scope) {
             bodyText: "Global Conscience Initiative seeks to the address and improve Cameroon's most pressing human right issues: chiefly, Corruption. abuse of prisoner's, gender discrimination and etc.",
             status: '4/4 diploma/certificate/skills',     
             about: 'About 5 hours ago',
+            image: '../../img/redCross.jpg',
             invited: false,
             selected: false,
             value: false
@@ -120,6 +129,7 @@ app.controller('searchJob', ['$scope', function ($scope) {
             city: 'Aalsmeerderbrug, Noord Holland', 
             bodyText: 'Photographer: Volunteering is a wonderful way to give back to the community. We are looking ideally for someone who would like to use their skills and their time to benefit out organization, which has existed for over 50 years and support.',
             about: 'About 1 hour ago',
+            image: '../../img/redCross.jpg',
             invited: true,
             selected: false,
             value: false      
@@ -129,6 +139,7 @@ app.controller('searchJob', ['$scope', function ($scope) {
             city: 'Aalsmeerderbrug, Noord Holland', 
             bodyText: 'United African Organization is a dynamic coalotion of African community-based organizations that promotes social and economic justice, civic participation, and empowerment of African immigrants and refugees in Illinois',
             about: 'About 2 hours ago',
+            image: '../../img/redCross.jpg',
             invited: false,
             selected: false,      
             value: false
@@ -138,6 +149,7 @@ app.controller('searchJob', ['$scope', function ($scope) {
             city: 'De Kwakel, Noord Holland', 
             bodyText: "Global Conscience Initiative seeks to the address and improve Cameroon's most pressing human right issues: chiefly, Corruption. abuse of prisoner's, gender discrimination and etc.",
             about: 'About 3 hours ago',
+            image: '../../img/redCross.jpg',
             invited: false,
             selected: false,
             value: false    
