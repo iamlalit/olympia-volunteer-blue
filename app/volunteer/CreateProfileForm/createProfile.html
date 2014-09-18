@@ -2498,22 +2498,25 @@
           });
         $(".buttonWrapper").on("click", ".jsBlank", function(e){
             console.log('in blank');
-            console.log($(".blank").parent());
-            $(".cross, .tick, .blank").parent().parent().removeClass("hidden");
-            $(".cross, .tick").parent().parent().addClass("hidden");
-            $(".blank").parent().parent().addClass("show");
+            console.log($(".checkboxPropagation").children("span"));
+            $(".checkboxPropagation").children("span").removeClass("tick");
+            $(".checkboxPropagation").children("span").removeClass("cross");
+            $(".checkboxPropagation").children("span").next("label").removeClass("strikeThrough");
+            $(".checkboxPropagation").children("span").addClass("blank");
         });
         $(".buttonWrapper").on("click", ".jsTick", function(e){
             console.log('in tick');
-            $(".cross, .tick, .blank").parent().parent().removeClass("hidden");
-            $(".cross, .blank").parent().parent().addClass("hidden");            
-            $(".tick").parent().parent().addClass("show");
+            $(".checkboxPropagation").children("span").removeClass("blank");
+            $(".checkboxPropagation").children("span").removeClass("cross");
+            $(".checkboxPropagation").children("span").next("label").removeClass("strikeThrough");
+            $(".checkboxPropagation").children("span").addClass("tick");
         });
         $(".buttonWrapper").on("click", ".jsStrikeThrough", function(e){
             console.log('in cross');
-            $(".cross, .tick, .blank").parent().parent().removeClass("hidden");
-            $(".tick, .blank").parent().parent().addClass("hidden");
-            $(".cross").parent().parent().addClass("show");
+            $(".checkboxPropagation").children("span").removeClass("blank");
+            $(".checkboxPropagation").children("span").removeClass("tick");
+            $(".checkboxPropagation").children("span").addClass("cross");
+            $(".checkboxPropagation").children("span").next("label").addClass("strikeThrough");
         });
         });
     </script>
