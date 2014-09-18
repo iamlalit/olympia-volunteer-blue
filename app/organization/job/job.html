@@ -28,8 +28,8 @@
             <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="#" ng-if="clientImage == 'undefined' || clientImage == ''"><img src="../../img/logo.png"></a>
-                    <a class="navbar-brand padding-bottom-20" href="#" ng-if="clientImage !== ''"><img ng-src="{{clientImage}}" width="64" height="55"></a>
+                    <a class="navbar-brand" href="{{headerImageLink}}" ng-if="clientImage == 'undefined' || clientImage == ''"><img src="../../img/logo.png"></a>
+                    <a class="navbar-brand padding-bottom-20" href="http://{{headerImageLink}}" ng-if="clientImage !== ''"><img ng-src="{{clientImage}}" width="64" height="55"></a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->

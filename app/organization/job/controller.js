@@ -39,7 +39,7 @@ app.controller('jobDetails', ['$scope', function ($scope) {
   $scope.headingSize  = getParameterByName('headingSize') + "px";
   $scope.subHeadingSize  = getParameterByName('subHeadingSize') + "px";
   $scope.bodySize  = getParameterByName('bodySize') + "px";
-
+  $scope.headerImageLink  = getParameterByName('headerImageLink');
   $scope.fontFace  = getParameterByName('fontFace');
 
   $scope.applyToJob = function(){
