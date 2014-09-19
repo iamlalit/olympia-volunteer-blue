@@ -5,32 +5,23 @@ html {
 }
 body {
   /* Margin bottom by footer height */
-  background:#ebebeb;
+  /*background:#ebebeb;*/
 }
 .container-fluid{
     padding-left:0;
     padding-right:0;
 }
 /* Header */
-.navbar-default{
-    height:200px;
-}
+/*.navbar-default{
+      height:200px;
+}*/
 
 /* Login wrapper */
 .sign-wrapper{
-    background:#fff;
-    border-radius:5px;
-    -webkit-border-radius:5px;
-    -moz-border-radius:5px;
-    padding:54px;
-    border:1px solid #ccc;
-    border-bottom:3px solid #999;
-    margin-top:-110px;
-    z-index:9999;
-    position:relative;
 }
 .sign-wrapper .col-lg-5 {
-    float:none
+    float:none;
+    padding-bottom:11px;
 }
 .sign-wrapper h2{
     font-size:26px;
