@@ -930,7 +930,18 @@ function updateValueVolunteerWork() {
     for (i = 0 ; i < listOfSkill.length ; i++) {
         $("#category-tag").tagsinput('add', listOfSkill[i]);
     }
+    $("#category-tag").next().children('input').attr("placeholder", " ");
+
 }
+
+/* On Removing tags */
+$('#category-tag').on('itemRemoved', function(event) {
+  var lengthInputTag = $("#category-tag").next().children().length;
+  if (lengthInputTag == 1){
+      $("#category-tag").next().children('input').attr("placeholder", "Add categories");   
+  }
+});
+
 
 function updateValueSkillCheck() {
     var listOfSkill = [];
@@ -945,7 +956,17 @@ function updateValueSkillCheck() {
     for (i = 0 ; i < listOfSkill.length ; i++) {
         $("#skill-tag").tagsinput('add', listOfSkill[i]);
     }
+    $("#skill-tag").next().children('input').attr("placeholder", " ");
 }
+
+/* On Removing tags */
+$('#skill-tag').on('itemRemoved', function(event) {
+  var lengthInputTag = $("#skill-tag").next().children().length;
+  if (lengthInputTag == 1){
+      $("#skill-tag").next().children('input').attr("placeholder", "Add skills");   
+  }
+});
+
 
 //Function that update the skill input tag from pop up values
 function updateValueSkillNewCheck() {
@@ -995,13 +1016,21 @@ function updateValueDiplomaCheck() {
             listOfDiploma.push($("#diploma" + i + "").val());
         }
     }
-    console.log(listOfDiploma);
     $('#diploma-tag').tagsinput('removeAll');
     $("#diploma-tag").tagsinput("refresh");
     for (i = 0 ; i < listOfDiploma.length ; i++) {
         $("#diploma-tag").tagsinput('add', listOfDiploma[i]);
     }
+    $("#diploma-tag").next().children('input').attr("placeholder", " ");   
 }
+
+/* On Removing tags */
+$('#diploma-tag').on('itemRemoved', function(event) {
+  var lengthInputTag = $("#diploma-tag").next().children().length;
+  if (lengthInputTag == 1){
+      $("#diploma-tag").next().children('input').attr("placeholder", "Add diploma/certificate");   
+  }
+});
 
 function updateValueDiplomaText() {
     $("#diploma-tag").tagsinput("refresh");
@@ -1047,7 +1076,16 @@ function updateValueVolunteerWork() {
     for (i = 0 ; i < listOfVolunteerWork.length ; i++) {
         $("#volunteer-work-tag").tagsinput('add', listOfVolunteerWork[i]);
     }
+    $("#volunteer-work-tag").next().children('input').attr("placeholder", " ");
 }
+
+/* On Removing tags placeholder should fill up */
+$('#volunteer-work-tag').on('itemRemoved', function(event) {
+  var lengthInputTag = $("#volunteer-work-tag").next().children().length;
+  if (lengthInputTag == 1){
+      $("#volunteer-work-tag").next().children('input').attr("placeholder", "Add categories");   
+  }
+});
 
 function updateValueVolunteerWorkText(){
   
@@ -1099,7 +1137,16 @@ function updateValueVolunteerInterest() {
     for (i = 0 ; i < listOfVolunteerWork.length ; i++) {
         $("#volunteer-tag").tagsinput('add', listOfVolunteerWork[i]);
     }
+    $("#volunteer-tag").next().children('input').attr("placeholder", " ");
 }
+
+/* On Removing tags */
+$('#volunteer-tag').on('itemRemoved', function(event) {
+  var lengthInputTag = $("#volunteer-tag").next().children().length;
+  if (lengthInputTag == 1){
+      $("#volunteer-tag").next().children('input').attr("placeholder", "Add volunteer work area");   
+  }
+});
 
 function clearVolunteerInterest(){
   $(".jsBlank").click();
