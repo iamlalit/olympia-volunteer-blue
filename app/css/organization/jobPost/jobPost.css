@@ -358,3 +358,7 @@ th.table_content_head
     font-weight: 500;
     text-align: left;
 }
+/*background color for navigation */
+.navbar-nav > li.active > a{
+  background-color: black;
+}

@@ -1,0 +1,6 @@
+﻿.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus
+ .navbar-default .navbar-nav > li > a:active{
+    background: url('../../img/background.png') left top;
+    color: #1489be;
+    font-weight: regular;
+ }

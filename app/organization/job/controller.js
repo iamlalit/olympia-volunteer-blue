@@ -41,6 +41,9 @@ app.controller('jobDetails', ['$scope', function ($scope) {
   $scope.bodySize  = getParameterByName('bodySize') + "px";
   $scope.headerImageLink  = getParameterByName('headerImageLink');
   $scope.fontFace  = getParameterByName('fontFace');
+  $scope.fontFaceH3  = getParameterByName('fontFaceH3');
+  $scope.fontFaceH2  = getParameterByName('fontFaceH2');
+  $scope.fontFaceH1  = getParameterByName('fontFaceH1');
 
   $scope.applyToJob = function(){
     $scope.clientImage = '../../img/redCross.jpg';
