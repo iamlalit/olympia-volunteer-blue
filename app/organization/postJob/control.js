@@ -921,7 +921,7 @@ function addressLocationShow(){
 
   var elementTextbox = "<span class='textBoxCrossIcon margin-top-10'>" + 
                         "<input type='text' class='form-control' value ='" + completeAddress  + "' placeholder='Address'/>" +
-                        "<a onClick='removeCurrentTextbox'><i class='fa fa-times'></i></a> " +
+                        "<a id='removeCurrentNode'><i class='fa fa-times'></i></a> " +
                         "</span>";
   $('#boxAddress').append(elementTextbox);
   //$('#boxAddress span a').removeClass('hidden');
