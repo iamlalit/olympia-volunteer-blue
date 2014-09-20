@@ -894,3 +894,24 @@ function updateValueSkillText(){
     }
   }
 }
+
+$(document).ready(function(){
+  $('#locationCountry, #locationZip, #locationNumber').on( 'change' , function(){
+    var countryLocation = $('#locationCountry').val();
+    var zipCodeLocation =  $('#locationZip').val();
+    var numberLocation =  $('#locationNumber').val();
+    if(zipCodeLocation.length != 0 && numberLocation.length != 0 && countryLocation.length != 0){
+        var completeAddress = countryLocation + "," + numberLocation + "," + zipCodeLocation;
+        $('#locationAddress').val(completeAddress);
+    }
+  });
+  function jobLocationTextFieldUpdate(){
+
+  }
+function addressShow(){
+  console.log(country);
+  console.log(zipCode);
+  console.log(number);
+}
+
+});
