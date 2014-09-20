@@ -703,13 +703,21 @@ function updateValueSkillCheck(){
      listOfSkill.push($("#skill" + i +"").val());
     }
   }
-  console.log(listOfSkill);
   $('#skill-tag').tagsinput('removeAll');
   $("#skill-tag").tagsinput("refresh");
   for(i = 0 ; i < listOfSkill.length ; i++){
     $("#skill-tag").tagsinput('add', listOfSkill[i]);
   }
+  $("#skill-tag").next().children('input').attr("placeholder", " ");
 }
+
+/* On Removing tags */
+$('#skill-tag').on('itemRemoved', function(event) {
+  var lengthInputTag = $("#skill-tag").next().children().length;
+  if (lengthInputTag == 1){
+      $("#skill-tag").next().children('input').attr("placeholder", "Add Skills");   
+  }
+});
 
 function updateValueSkillText(){
   
