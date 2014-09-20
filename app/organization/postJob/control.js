@@ -896,22 +896,35 @@ function updateValueSkillText(){
 }
 
 $(document).ready(function(){
+  var completeAddress;
   $('#locationCountry, #locationZip, #locationNumber').on( 'change' , function(){
     var countryLocation = $('#locationCountry').val();
     var zipCodeLocation =  $('#locationZip').val();
     var numberLocation =  $('#locationNumber').val();
     if(zipCodeLocation.length != 0 && numberLocation.length != 0 && countryLocation.length != 0){
-        var completeAddress = countryLocation + "," + numberLocation + "," + zipCodeLocation;
+        completeAddress = countryLocation + "," + numberLocation + "," + zipCodeLocation;
         $('#locationAddress').val(completeAddress);
     }
   });
-  function jobLocationTextFieldUpdate(){
+  //$('#boxAddress span:last-child a').addClass('hidden');
+  
+});
 
-  }
-function addressShow(){
-  console.log(country);
-  console.log(zipCode);
-  console.log(number);
+$('#removeCurrentNode').on('click', function(event){
+    $(this).parent().remove();
+});
+
+
+function addressLocationShow(){
+  //Element to append
+  var completeAddress = $('#locationAddress').val();
+
+  var elementTextbox = "<span class='textBoxCrossIcon margin-top-10'>" + 
+                        "<input type='text' class='form-control' value ='" + completeAddress  + "' placeholder='Address'/>" +
+                        "<a onClick='removeCurrentTextbox'><i class='fa fa-times'></i></a> " +
+                        "</span>";
+  $('#boxAddress').append(elementTextbox);
+  //$('#boxAddress span a').removeClass('hidden');
+  //$('#boxAddress span:last-child a').addClass('hidden');
 }
 
-});

@@ -552,3 +552,19 @@ div[data-role="editor-toolbar"] {
 .color-Blue{
 	color: #00AEEC;
 }
+
+/* Textbox with cross icon */
+.textBoxCrossIcon{
+	position:relative;
+	display: block;
+}
+
+.textBoxCrossIcon a{
+	position: absolute;
+	right:11px;
+	top:9px;
+	color:#444;
+}
+#boxAddress span:last-child a{
+	display:none;
+}
