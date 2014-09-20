@@ -763,7 +763,16 @@ function updateValueDiplomaCheck(){
   for(i = 0 ; i < listOfDiploma.length ; i++){
     $("#diploma-tag").tagsinput('add', listOfDiploma[i]);
   }
+  $("#diploma-tag").next().children('input').attr("placeholder", " ");
 }
+
+/* On Removing tags */
+$('#diploma-tag').on('itemRemoved', function(event) {
+  var lengthInputTag = $("#diploma-tag").next().children().length;
+  if (lengthInputTag == 1){
+      $("#diploma-tag").next().children('input').attr("placeholder", "Add diploma/certificate");   
+  }
+});
 
 function updateValueDiplomaText(){
   $("#diploma-tag").tagsinput("refresh");
