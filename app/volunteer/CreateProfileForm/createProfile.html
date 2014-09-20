@@ -489,19 +489,13 @@
         </div>
         <div class="row margin-rl-0">
             <div class="col-sm-12 margin-top-20 padding-rl-0">
-                <div class="main-border1">
-                    <div class="row  margin-rl-0 pull-right">
-                        <div class="circle-green pointer">
-                            <i class="fa fa-plus icon-white-plus" title="Add School/Education"> </i>
-                        </div>
-                        <span><a href="#" id="zoomTextarea1" title="Click to add school" data-toggle="modal" data-target="#addSchool" ng-click="schoolCancel()">Add school</a></span>
-                    </div>
-                    <div class="margin-top-35" ng-if="lengthOfSchools == 0">
+                <div class="main-border1 margin-bottom-5">
+                    <div ng-if="lengthOfSchools == 0">
                         <p class="align-center bold italic">No school information has been added yet</p>
                         <p class="align-center italic">Please click on "add school" to add information about your school/education</p>
                     </div>
                     
-                    <div class="margin-top-35" ng-if="lengthOfSchools != 0">
+                    <div ng-if="lengthOfSchools != 0">
                         <div ng-repeat="school in listOfSchools track by $index">
                             <div class='padding-rl-0'>
                                 <label ng-bind="school.name" class="margin-right-15"></label>
@@ -523,6 +517,11 @@
                 </div>
             </div>
         </div>
+        <div class="row margin-rl-0">
+            <div class="col-sm-12 padding-rl-0">
+                <span><a href="#" id="zoomTextarea1" title="Click to add school" data-toggle="modal" data-target="#addSchool" ng-click="schoolCancel()">Add school</a></span>
+            </div>
+        </div>
 
         <!-- Part 3-->
         <div class="row margin-rl-0">
@@ -534,19 +533,13 @@
         </div>
         <div class="row margin-rl-0">
             <div class="col-sm-12 margin-top-20 padding-rl-0">
-                <div class="main-border1">
-                    <div class="row  margin-rl-0 pull-right">
-                        <div class="circle-green pointer">
-                            <i class="fa fa-plus icon-white-plus" title="Add a image"> </i>
-                        </div>
-                        <span><a href="#" id="zoomTextarea1" title="Click to add Job" data-toggle="modal" data-target="#addJob" ng-click="jobCancel()">Add volunteer experience</a></span>
-                    </div>
-                    <div class="margin-top-35" ng-if="lengthOfJobs == 0">
+                <div class="main-border1 margin-bottom-5">
+                    <div ng-if="lengthOfJobs == 0">
                         <p class="align-center bold italic">No job/volunteer experience has been shared yet</p>
                         <p class="align-center italic">Please click on "add volunteer experience" to add information about specific work you've taken on </p>
                     </div>
 
-                    <div class="margin-top-35" ng-if="lengthOfJobs != 0">
+                    <div ng-if="lengthOfJobs != 0">
                         <div ng-repeat="job in listOfJobs track by $index">
                             <p class="margin-bottom-0"><label ng-bind="job.title"></label></p>
                             <p class="margin-bottom-0"><label class="margin-bottom-0">Organization - </label>&nbsp;<span ng-bind="job.name"></span></p>
@@ -560,6 +553,11 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="row margin-rl-0">
+            <div class="col-sm-12 padding-rl-0">
+                <span><a href="#" id="zoomTextarea1" title="Click to add Job" data-toggle="modal" data-target="#addJob" ng-click="jobCancel()">Add volunteer experience</a></span>
             </div>
         </div>
 
