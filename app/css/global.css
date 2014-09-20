@@ -254,7 +254,7 @@ vertical-align: top;
   background-color: #ffffff;
 }
 .background-green{
-	background-color: #009e0f;
+	background-color: #009e0f !important;
 }
 .background-grey {
   background-color: #eeeeee;

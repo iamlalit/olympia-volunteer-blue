@@ -48,8 +48,14 @@ app.controller('jobDetails', ['$scope', function ($scope) {
   $scope.showApplyButton  = getParameterByName('showApplyButton');
   $scope.showJobLocation  = getParameterByName('showJobLocation');
   $scope.showOrgADDDetails  = getParameterByName('showOrgADDDetails');
-  $scope.showOrgDetails  = getParameterByName('showOrgDetails');
-  $scope.messageInstruction  = getParameterByName('messageInstruction');
+  $scope.messageInstruction = getParameterByName('showOrgDetails');
+  var messageInstruction  = getParameterByName('messageInstruction');
+  
+  if(messageInstruction == 'undefined') {
+    $scope.messageInstruction = '';  
+  }else{
+    $scope.messageInstruction = messageInstruction;
+  }
   $scope.SITV  = getParameterByName('SITV');
 
   $scope.applyToJob = function(){
