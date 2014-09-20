@@ -104,12 +104,16 @@
                         <li>Review software documentation to ensure technical accuracy</li>
                     </ul>
                 </div>
+                <div class="main-border1" ng-if="SITV">
+                    <h5 class="bold" ng-style="{'color': colorHeading, 'font-size': subHeadingSize}">Contact Details</h5>
+                    <p ng-bind="messageInstruction"></p>
+                </div>
             </div>
             <div class="col-sm-4 padding-right-0">
-                <div class="margin-bottom-10">
+                <div class="margin-bottom-10" ng-if="showApplyButton">
                     <button class="btn btn-primary active apply-button" type="button" ng-style="{'background-color':buttonBackColor, 'color': buttonColor}" ng-click="applyToJob()">Apply to this Job</button>
                 </div>
-                <div class="main-border1">
+                <div class="main-border1" ng-if="showOrgDetails">
                     <h5 class="bold" ng-style="{'color': colorHeading, 'font-size': subHeadingSize}">Organization</h5>
                     <div class="row">
                         <div class="col-sm-2">
@@ -127,7 +131,7 @@
                     </div>
                 </div>
 
-                <div class="main-border1" ng-init="hideMap = false">
+                <div class="main-border1" ng-init="hideMap = false"  ng-if="showJobLocation">
                     <h5 class="bold" ng-style="{'color': colorHeading, 'font-size': subHeadingSize}">Location (s)</h5>
                     <div class="grid">
                         <p><label>A - </label> Evert va de Beekstraat 202, 1118 CP Coevorden, Netherlands</p>
@@ -142,7 +146,7 @@
                     </div>
                 </div>
 
-                <div class="main-border1">
+                <div class="main-border1" ng-if="showOrgADDDetails">
                     <label class="margin-bottom-0">Skills needed:</label>
                     <div class="row margin-rl-0 margin-bottom-15 margin-top--3">
                         <span class="small-pill" ng-repeat="skills in postJobSkills">{{skills}}</span>

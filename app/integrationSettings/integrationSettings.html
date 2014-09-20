@@ -12,7 +12,6 @@
     <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,100,700&subset=latin,cyrillic-ext,greek-ext,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
     <link href="../css/global.css" rel="stylesheet">
     <link href="../css/colpick/colpick.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="../css/header/headerGen.css">
     <style type="text/css">
         .containerA{
             width: 1008px;
@@ -420,7 +419,62 @@
                         </div>                
                     </div>
                 </div>
-            
+                <div class="row margin-rl-0" ng-init="headingSize = '26'; subHeadingSize = '18'; bodySize = '13'; subHeadingSize3 = '16'">
+                    <div class="pill margin-top-20 padding-top-10 padding-bottom-10">
+                        <span class="font-size-20" style="padding-right:72px">Configure Job Detail Components</span>
+                    </div> 
+                </div>
+                <div class="row margin-rl-0 padding-left-10" ng-init="showOrgDetails = true">
+                    <div class="col-sm-12">
+                        <div class="checkbox">
+                            <label>
+                              <input class="margin-top-2" type="checkbox" ng-model="showOrgDetails" checked="checked"> 
+                              <span>Show organization details<span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row margin-rl-0 padding-left-10" ng-init="showOrgADDDetails = true">
+                    <div class=" col-sm-12">
+                        <div class="checkbox">
+                            <label>
+                              <input class="margin-top-2" type="checkbox" ng-model="showOrgADDDetails" value="" checked="checked"> Show job's additional detail
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row margin-rl-0 padding-left-10" ng-init="showJobLocation = true">
+                    <div class="col-sm-12">
+                        <div class="checkbox">
+                            <label>
+                              <input class="margin-top-2" type="checkbox" ng-model="showJobLocation" checked="checked"> Show job locations
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row margin-rl-0 padding-left-10" ng-init="showApplyButton = true">
+                    <div class="col-sm-12">
+                        <div class="checkbox">
+                            <label>
+                              <input class="margin-top-2" type="checkbox" ng-model="showApplyButton" value="" checked="checked"> Allow volunteers to apply for this job
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row margin-rl-0 padding-left-10">
+                    <div class="col-sm-12" ng-init="SITV = false">
+                        <div class="checkbox">
+                            <label>
+                              <input class="margin-top-2" type="checkbox" ng-model="SITV"> Show instruction to volunteer
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row margin-rl-0 padding-left-10">
+                    <div class="col-sm-12" ng-if="SITV == true">
+                        <textarea class="text-area" cols="80" rows="7" ng-model="$parent.messageInstruction" placeholder="Please enter instruction message e.g. To apply for this job please send us an email at {organization-email} or call us at {organization-phone}"></textarea>
+                    </div>
+                </div>
                  <div class="row margin-rl-0">
                     <div class="margin-top-30 col-sm-12">
                         <button class="btn btn-success" type="button" >Save Changes</button>

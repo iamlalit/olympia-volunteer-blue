@@ -44,6 +44,13 @@ app.controller('jobDetails', ['$scope', function ($scope) {
   $scope.fontFaceH3  = getParameterByName('fontFaceH3');
   $scope.fontFaceH2  = getParameterByName('fontFaceH2');
   $scope.fontFaceH1  = getParameterByName('fontFaceH1');
+  //show and hide feature
+  $scope.showApplyButton  = getParameterByName('showApplyButton');
+  $scope.showJobLocation  = getParameterByName('showJobLocation');
+  $scope.showOrgADDDetails  = getParameterByName('showOrgADDDetails');
+  $scope.showOrgDetails  = getParameterByName('showOrgDetails');
+  $scope.messageInstruction  = getParameterByName('messageInstruction');
+  $scope.SITV  = getParameterByName('SITV');
 
   $scope.applyToJob = function(){
     $scope.clientImage = '../../img/redCross.jpg';
