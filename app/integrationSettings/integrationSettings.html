@@ -307,67 +307,11 @@
                         <input type="text" ng-model="bottomBar"/>
                     </div>
                 </div>
-                <div class="row margin-rl-0">
-                    <div class="pill margin-top-20 padding-top-10 padding-bottom-10">
-                        <span class="font-size-20" >Font size</span>
-                    </div> 
-                </div>
                 
-                <div class="row margin-rl-0 margin-top-20 valign-middle" ng-init="headingSize = '26'; subHeadingSize = '18'; bodySize = '13'">
-                    <div class="col-sm-2">
-                        <label class="padding-top-5">
-                            <span>Heading</span>
-                        </label>
-                    </div>
-                    <div class="col-sm-3">
-                        <input type="text" ng-model="headingSize" ng-focus="showHeadingSize = true" ng-blur="showHeadingSize = false"/>
-                    </div>
-                    <div class="col-sm-7 padding-rl-0">
-                        <div class="row margin-rl-0" ng-if="showHeadingSize">
-                            <div class="alphabet-box">
-                                <span ng-style="{'font-size': headingSize + 'px'}">ABCDEFGHIJLMNOPQRSTUVWXYZ</span>
-                            </div>
-                        </div>  
-                    </div>
-                </div>
-                <div class="row margin-rl-0 margin-top-20 valign-middle">
-                    <div class="col-sm-2">
-                        <label class="padding-top-5">
-                            <span>Sub heading</span>
-                        </label>
-                    </div>
-                    <div class="col-sm-3">
-                        <input type="text" ng-model="subHeadingSize" ng-focus="showSubHeadingSize = true" ng-blur="showSubHeadingSize = false"/>
-                    </div>
-                    <div class="col-sm-7 padding-rl-0">
-                        <div class="row margin-rl-0" ng-if="showSubHeadingSize">
-                            <div class="alphabet-box">
-                                <span ng-style="{'font-size': subHeadingSize + 'px'}">ABCDEFGHIJLMNOPQRSTUVWXYZ</span>
-                            </div>
-                        </div>  
-                    </div>
-                </div>
-                <div class="row margin-rl-0 margin-top-20 valign-middle">
-                    <div class="col-sm-2">
-                        <label class="padding-top-5">
-                            <span>Body text</span>
-                        </label>
-                    </div>
-                    <div class="col-sm-3">
-                        <input type="text" ng-model="bodySize" ng-focus="showBodySize = true" ng-blur="showBodySize = false"/>
-                    </div>
-                    <div class="col-sm-7 padding-rl-0">
-                        <div class="row margin-rl-0" ng-if="showBodySize">
-                            <div class="alphabet-box">
-                                <span ng-style="{'font-size': bodySize + 'px'}">ABCDEFGHIJLMNOPQRSTUVWXYZ</span>
-                            </div>
-                        </div>  
-                    </div>
-                </div>
 
-                <div class="row margin-rl-0">
+                <div class="row margin-rl-0" ng-init="headingSize = '26'; subHeadingSize = '18'; bodySize = '13'; subHeadingSize3 = '16'">
                     <div class="pill margin-top-20 padding-top-10 padding-bottom-10">
-                        <span class="font-size-20" style="padding-right:72px">Font Type</span>
+                        <span class="font-size-20" style="padding-right:72px">Font Size/Type</span>
                     </div> 
                 </div>
 
@@ -376,6 +320,9 @@
                         <label class="padding-top-5">
                             <span>H1</span>
                         </label>
+                    </div>
+                    <div class="col-sm-1">
+                        <input type="text" class="col-sm-12 height-34" ng-model="headingSize" ng-focus="showFontTypeH1 = true" ng-blur="showFontTypeH1 = false"/>
                     </div>
                     <div class="col-sm-2">
                         <select ng-model="fontFaceH1" ng-init="fontFaceH1 = 'Arial'" ng-focus="showFontTypeH1 = true" ng-blur="showFontTypeH1 = false">
@@ -386,10 +333,10 @@
                             <option value="serif">Serif</option>
                         </select>
                     </div>
-                    <div class="col-sm-8 padding-right-0">
+                    <div class="col-sm-7 padding-rl-0">
                         <div class="row margin-rl-0 valign-middle align-center" ng-if="showFontTypeH1">
                             <div class="alphabet-box">
-                                <span ng-style="{'font-family': fontFaceH1}">ABCDEFGHIJLMNOPQRSTUVWXYZ</span>
+                                <span ng-style="{'font-family': fontFaceH1, 'font-size': headingSize + 'px'}">ABCDEFGHIJLMNOPQRSTUVWXYZ</span>
                             </div>
                         </div>                
                     </div>
@@ -400,6 +347,10 @@
                             <span>H2</span>
                         </label>
                     </div>
+                    <div class="col-sm-1">
+                        <input type="text" class="height-34 col-sm-12" ng-model="subHeadingSize" ng-focus="showFontTypeH2 = true" ng-blur="showFontTypeH2 = false"/>
+                    </div>
+                
                     <div class="col-sm-2">
                         <select ng-model="fontFaceH2" ng-init="fontFaceH2 = 'Arial'" ng-focus="showFontTypeH2 = true" ng-blur="showFontTypeH2 = false">
                             <option value="Arial">Arial</option>
@@ -409,10 +360,10 @@
                             <option value="serif">Serif</option>
                         </select>
                     </div>
-                    <div class="col-sm-8 padding-right-0">
+                    <div class="col-sm-7 padding-rl-0">
                         <div class="row margin-rl-0 valign-middle align-center" ng-if="showFontTypeH2">
                             <div class="alphabet-box">
-                                <span ng-style="{'font-family': fontFaceH2}">ABCDEFGHIJLMNOPQRSTUVWXYZ</span>
+                                <span ng-style="{'font-family': fontFaceH2, 'font-size': subHeadingSize + 'px'}">ABCDEFGHIJLMNOPQRSTUVWXYZ</span>
                             </div>
                         </div>                
                     </div>
@@ -423,6 +374,9 @@
                             <span>H3</span>
                         </label>
                     </div>
+                    <div class="col-sm-1">
+                        <input type="text" class="height-34 col-sm-12" ng-model="subHeadingSize3" ng-focus="showFontTypeH3 = true" ng-blur="showFontTypeH3 = false"/>
+                    </div>
                     <div class="col-sm-2">
                         <select ng-model="fontFaceH3" ng-init="fontFaceH3 = 'Arial'" ng-focus="showFontTypeH3 = true" ng-blur="showFontTypeH3 = false">
                             <option value="Arial">Arial</option>
@@ -432,10 +386,10 @@
                             <option value="serif">Serif</option>
                         </select>
                     </div>
-                    <div class="col-sm-8 padding-right-0">
+                    <div class="col-sm-7 padding-rl-0">
                         <div class="row margin-rl-0 valign-middle align-center" ng-if="showFontTypeH3">
                             <div class="alphabet-box">
-                                <span ng-style="{'font-family': fontFaceH3}">ABCDEFGHIJLMNOPQRSTUVWXYZ</span>
+                                <span ng-style="{'font-family': fontFaceH3, 'font-size': subHeadingSize3 + 'px'}">ABCDEFGHIJLMNOPQRSTUVWXYZ</span>
                             </div>
                         </div>                
                     </div>
@@ -446,6 +400,9 @@
                             <span>Body copy</span>
                         </label>
                     </div>
+                    <div class="col-sm-1">
+                        <input type="text" class="col-sm-12 height-34" ng-model="bodySize" ng-focus="showFontType = true" ng-blur="showFontType = false"/>
+                    </div>
                     <div class="col-sm-2">
                         <select ng-model="fontFace" ng-init="fontFace = 'Arial'" ng-focus="showFontType = true" ng-blur="showFontType = false">
                             <option value="Arial">Arial</option>
@@ -455,10 +412,10 @@
                             <option value="serif">Serif</option>
                         </select>
                     </div>
-                    <div class="col-sm-8 padding-right-0">
+                    <div class="col-sm-7 padding-rl-0">
                         <div class="row margin-rl-0 valign-middle align-center" ng-if="showFontType">
                             <div class="alphabet-box">
-                                <span ng-style="{'font-family': fontFace}">ABCDEFGHIJLMNOPQRSTUVWXYZ</span>
+                                <span ng-style="{'font-family': fontFace, 'font-size': bodySize}">ABCDEFGHIJLMNOPQRSTUVWXYZ</span>
                             </div>
                         </div>                
                     </div>

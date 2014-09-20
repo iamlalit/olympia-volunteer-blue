@@ -769,6 +769,9 @@ padding: 15px 12px;
     src: url("../fonts/customizeSite/Verdana.ttf");
     font-weight:400;
 }
+.height-34 {
+  height: 34px;
+}
 
 /* Custom checkbox functionality*/
 .checkboxCustom{
