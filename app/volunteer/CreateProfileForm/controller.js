@@ -589,11 +589,40 @@ landingController.controller('landingPage', ['$scope', function ($scope) {
             jobAns7.parent().addClass('has-error');
         }   
     }
- 
-    //edit functionality
+    //in order to store the index of school globally so that it can be used elsewhere
+    $scope.globalSchoolIndex = "";
+    //edit functionality to open the modal with the desired data
     $scope.openSchoolModel = function(school, index) {
-        $('#addSchool').modal('show');
-        console.log($scope.listOfSchools[index]);
+        $('#updateSchool').modal('show');
+        $scope.school.name = school.name;
+        $scope.school.degree = school.degree;
+        $scope.school.areaOfStudy = school.areaOfStudy;
+        $scope.school.startDate = school.startDate;
+        $scope.school.endDate = school.endDate;
+
+        $scope.globalSchoolIndex = index;
+    }
+    //just to hide the modal poppups
+    $scope.updateSchoolCancel = function() {
+        $('#updateSchool').modal('hide');
+    }
+    //updated the information of the school details on the page
+    $scope.updateDetailSchool = function(school, globalSchoolIndex) {
+        console.log($scope.listOfSchools[globalSchoolIndex])
+        $scope.listOfSchools[globalSchoolIndex].name = school.name;
+        $scope.listOfSchools[globalSchoolIndex].degree = school.degree;
+        $scope.listOfSchools[globalSchoolIndex].areaOfStudy = school.areaOfStudy;
+        $scope.listOfSchools[globalSchoolIndex].startDate = school.startDate;
+        $scope.listOfSchools[globalSchoolIndex].endDate = school.endDate;
+        $('#updateSchool').modal('hide');
+    }
+    //delete the clicked school
+    $scope.deleteSchool = function(school, $index) {
+        var idx = $scope.listOfSchools.indexOf(school);
+        if (idx != -1) {
+              $scope.listOfSchools.splice(idx, 1);
+        }
+        $scope.lengthOfSchools = $scope.listOfSchools.length;        
     }
 
 }]);
