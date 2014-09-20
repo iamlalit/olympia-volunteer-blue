@@ -703,13 +703,21 @@ function updateValueSkillCheck(){
      listOfSkill.push($("#skill" + i +"").val());
     }
   }
-  console.log(listOfSkill);
   $('#skill-tag').tagsinput('removeAll');
   $("#skill-tag").tagsinput("refresh");
   for(i = 0 ; i < listOfSkill.length ; i++){
     $("#skill-tag").tagsinput('add', listOfSkill[i]);
   }
+  $("#skill-tag").next().children('input').attr("placeholder", " ");
 }
+
+/* On Removing tags */
+$('#skill-tag').on('itemRemoved', function(event) {
+  var lengthInputTag = $("#skill-tag").next().children().length;
+  if (lengthInputTag == 1){
+      $("#skill-tag").next().children('input').attr("placeholder", "Add Skills");   
+  }
+});
 
 function updateValueSkillText(){
   
@@ -755,7 +763,16 @@ function updateValueDiplomaCheck(){
   for(i = 0 ; i < listOfDiploma.length ; i++){
     $("#diploma-tag").tagsinput('add', listOfDiploma[i]);
   }
+  $("#diploma-tag").next().children('input').attr("placeholder", " ");
 }
+
+/* On Removing tags */
+$('#diploma-tag').on('itemRemoved', function(event) {
+  var lengthInputTag = $("#diploma-tag").next().children().length;
+  if (lengthInputTag == 1){
+      $("#diploma-tag").next().children('input').attr("placeholder", "Add diploma/certificate");   
+  }
+});
 
 function updateValueDiplomaText(){
   $("#diploma-tag").tagsinput("refresh");
@@ -896,22 +913,35 @@ function updateValueSkillText(){
 }
 
 $(document).ready(function(){
+  var completeAddress;
   $('#locationCountry, #locationZip, #locationNumber').on( 'change' , function(){
     var countryLocation = $('#locationCountry').val();
     var zipCodeLocation =  $('#locationZip').val();
     var numberLocation =  $('#locationNumber').val();
     if(zipCodeLocation.length != 0 && numberLocation.length != 0 && countryLocation.length != 0){
-        var completeAddress = countryLocation + "," + numberLocation + "," + zipCodeLocation;
+        completeAddress = countryLocation + "," + numberLocation + "," + zipCodeLocation;
         $('#locationAddress').val(completeAddress);
     }
   });
-  function jobLocationTextFieldUpdate(){
+  //$('#boxAddress span:last-child a').addClass('hidden');
+  
+});
 
-  }
-function addressShow(){
-  console.log(country);
-  console.log(zipCode);
-  console.log(number);
+$('#removeCurrentNode').on('click', function(event){
+    $(this).parent().remove();
+});
+
+
+function addressLocationShow(){
+  //Element to append
+  var completeAddress = $('#locationAddress').val();
+
+  var elementTextbox = "<span class='textBoxCrossIcon margin-top-10'>" + 
+                        "<input type='text' class='form-control' value ='" + completeAddress  + "' placeholder='Address'/>" +
+                        "<a id='removeCurrentNode'><i class='fa fa-times'></i></a> " +
+                        "</span>";
+  $('#boxAddress').append(elementTextbox);
+  //$('#boxAddress span a').removeClass('hidden');
+  //$('#boxAddress span:last-child a').addClass('hidden');
 }
 
-});
