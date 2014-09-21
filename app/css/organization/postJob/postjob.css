@@ -166,6 +166,7 @@ right: 3px;
 	padding: 10px 70px 10px 13px;
 	background-color:#f7f7f5;
 	border-radius: 4px;
+	opacity: 0.6;
 }
 .navbar-right .dropdown-menu li a:hover,
 .navbar-right .dropdown-menu li a:focus{
@@ -173,6 +174,7 @@ right: 3px;
 	border: #444444;
 	color: black;
 	outline: 0;
+	opacity: 1;
 }
 .navbar-right .dropdown-menu li a:active{
 	background-color: #ffffff;

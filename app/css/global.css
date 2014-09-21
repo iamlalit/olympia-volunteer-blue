@@ -152,7 +152,7 @@ hr {
   border: 2px solid #C70909;
 }
 input[type='text'] {
-    display: inline-block;
+    display: block;
     padding: 5px;
     font-size: 13px;
     color: #444444;
@@ -794,4 +794,9 @@ padding: 15px 12px;
 .checkboxCustom.cross{
   background:url('../img/checkbox.png') 10px 20px;
   background-size:29px;
+}
+
+
+label.disabled {
+  color: #ccc;
 }
