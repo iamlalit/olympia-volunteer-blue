@@ -923,12 +923,18 @@ $(document).ready(function(){
         $('#locationAddress').val(completeAddress);
     }
   });
-  //$('#boxAddress span:last-child a').addClass('hidden');
+  
   
 });
 
-$('#removeCurrentNode').on('click', function(event){
+$('#boxAddress').on('click', '#removeCurrentNode', function(event){
+    console.log('in');
     $(this).parent().remove();
+    if($('#boxAddress span').length>1){
+      $('#boxAddress span a').addClass('show');
+    } else if($('#boxAddress span').length == 1){
+      $('#boxAddress span a').addClass('hidden');
+    }
 });
 
 
@@ -941,7 +947,8 @@ function addressLocationShow(){
                         "<a id='removeCurrentNode'><i class='fa fa-times'></i></a> " +
                         "</span>";
   $('#boxAddress').append(elementTextbox);
-  //$('#boxAddress span a').removeClass('hidden');
-  //$('#boxAddress span:last-child a').addClass('hidden');
+  if($('#boxAddress span').length>1){
+    $('#boxAddress span a').addClass('show');
+  }
 }
 
