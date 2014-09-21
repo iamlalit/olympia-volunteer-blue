@@ -74,6 +74,9 @@ a {
 .form-group .form-control:focus{
     border-color:#33ccff;
 }
+.fullWidth{
+  width:100%;
+}
 /*errors listings*/
 .errorList {
   list-style-type: disc;
