@@ -814,7 +814,11 @@ select[disabled] {
   cursor:not-allowed;
   background-color: #f5f5f2;
 }
-
+.disabled-button{
+  background-color: #f5f5f2;
+  border-color: #f5f5f2;
+  color: #ccc; 
+}
 input[disabled="disabled"] {
   color: #ccc;
   cursor:not-allowed !important;

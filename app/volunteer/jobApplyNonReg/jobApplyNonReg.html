@@ -81,6 +81,7 @@
                     </div>
                 </div>
                 <div class="main-border1">
+                    <form id="jobApplyForm" role="form">
                     <div class="row margin-rl-0">
                         <div class="col-sm-12 padding-rl-0">
                             <label>Email address</label>
@@ -124,7 +125,7 @@
                     </div>
                     <div class="row margin-rl-0 margin-top-20" ng-model="CTPI" ng-init="CTPI = true">
                         <div class="col-sm-12 padding-rl-0">
-                            <button class="btn btn-primary" ng-click="CTPI = false">Continue to personal information <i class="fa fa-arrow-down"></i></button>
+                            <button class="btn btn-primary" type="button" ng-click="CTPI = false; updateButtons()">Continue to personal information <i class="fa fa-arrow-down"></i></button>
                             <span class="fa fa-facebook-square margin-left-10"></span><a href="">Facebook</a>,
                             <span class="fa fa-linkedin-square"></span> <a href="#">LinkedIn</a> or
                             <span class="fa fa-google-plus-square"></span><a href="">Google</a>
@@ -872,38 +873,38 @@
                             </div>
                         </div>
                     </div>
-                    <form id="jobApplyForm" role="form">
-                        <div class="margin-top-15">
-                            <label class="bold inline-block" ng-class="{disabled: CTPI}">Cover letter</label>
-                            <span id="optional-text" class="italic"> &nbsp;&nbsp;Write few lines to motivate your application</span>
-                            <textarea class="text-area" cols="87" rows="10" maxlength="5000" id="question1" ng-disabled="CTPI"></textarea>
-                            <p class="pull-right" id="optional-text">5000 characters left</p>
+                
+                    <div class="margin-top-15">
+                        <label class="bold inline-block" ng-class="{disabled: CTPI}">Cover letter</label>
+                        <span id="optional-text" class="italic"> &nbsp;&nbsp;Write few lines to motivate your application</span>
+                        <textarea class="text-area" cols="87" rows="10" maxlength="5000" id="question1" ng-disabled="CTPI"></textarea>
+                        <p class="pull-right" id="optional-text">5000 characters left</p>
+                    </div>
+                    <div class="margin-top-10">
+                        <label class="bold inline-block" ng-class="{disabled: CTPI}">Why do you think you are a good fit for this particular project?</label>
+                        <textarea class="text-area" cols="87" rows="10" maxlength="5000" id="question2" ng-disabled="CTPI"></textarea>
+                    </div>
+                    <div class="margin-top-10">
+                        <label class="bold inline-block" ng-class="{disabled: CTPI}">What challenging part of this job are you most experienced in?</label>
+                        <textarea class="text-area" cols="87" rows="10" maxlength="5000" id="question3" ng-disabled="CTPI"></textarea>
+                    </div>
+                    <div class="margin-top-20">
+                        <label ng-class="{disabled: CTPI}">Attachment </label><span id='optional-text'> (optional)</span><br/>
+                        <div class="custom-file-upload">
+                            <input type="file" id="file" name="myfiles[]" multiple ng-disabled="CTPI"/>
                         </div>
-                        <div class="margin-top-10">
-                            <label class="bold inline-block" ng-class="{disabled: CTPI}">Why do you think you are a good fit for this particular project?</label>
-                            <textarea class="text-area" cols="87" rows="10" maxlength="5000" id="question2" ng-disabled="CTPI"></textarea>
-                        </div>
-                        <div class="margin-top-10">
-                            <label class="bold inline-block" ng-class="{disabled: CTPI}">What challenging part of this job are you most experienced in?</label>
-                            <textarea class="text-area" cols="87" rows="10" maxlength="5000" id="question3" ng-disabled="CTPI"></textarea>
-                        </div>
-                        <div class="margin-top-20">
-                            <label ng-class="{disabled: CTPI}">Attachment </label><span id='optional-text'> (optional)</span><br/>
-                            <div class="custom-file-upload">
-                                <input type="file" id="file" name="myfiles[]" multiple ng-disabled="CTPI"/>
-                            </div>
-                        </div>
-                        <div class="margin-top-0">
-                            <p class="italic small">File size should be less than 5MB. Include work samplesor other documents to support your application.</p>
-                        </div>
-                        <div class="margin-top-30 align-center">
-                            <button class="btn btn-success" type="submit">Apply to this job</button>
-                            <button class="btn btn-danger" type="button">Cancel</button>
-                        </div>
-                    </form>
-                </div>
-
+                    </div>
+                    <div class="margin-top-0">
+                        <p class="italic small">File size should be less than 5MB. Include work samplesor other documents to support your application.</p>
+                    </div>
+                    <div class="margin-top-30 align-center">
+                        <button class="btn btn-success" type="submit">Apply to this job</button>
+                        <button class="btn btn-danger" type="button">Cancel</button>
+                    </div>
+                </form>
             </div>
+
+        </div>
 
             <div class="col-sm-4 padding-right-0">
                 <div class="main-border1">
