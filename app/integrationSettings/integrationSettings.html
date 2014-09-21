@@ -54,7 +54,7 @@
                             <a href="#" class="dropdown-toggle" id="icons-header-right" data-toggle="dropdown"><i class='fa fa-cog'></i></a>
                             <ul class="dropdown-menu">
                                 <li role="presentation">
-                                    <a role="menuitem" href="../volunteer/createProfileForm/createProfile.html" ng-if="typeOfOwner == 'volunteer'"><i class='glyphicon glyphicon-user'></i> My Profile</a>
+                                    <a role="menuitem" href="../volunteer/createProfileForm/createProfile.html" ng-if="typeOfOwner == 'volunteer'"><img src="../img/VV_Icon_OrganizationLogo.png" width="25" height="25"> My Profile</a>
                                     <a role="menuitem" href="../organization/organizationProfile/organizationProfile.html" ng-if="typeOfOwner == 'organization'"><img src="../img/VV_Icon_OrganizationLogo.png" width="25" height="25"> My Profile</a>
                                 </li>
                                 <li role="presentation" class="divider"></li>
@@ -85,7 +85,10 @@
                             <ul class="dropdown-menu header-right-dropdown" ng-init=" addActive2 = 'make-it-white'">
                                 <li role="presentation" ><a role="menuitem" href="../organization/search/searchVol.html" id="tab-header-1" ng-class="{'make-it-white':typeOfOwner == 'organization'}"><img src="../img/VV_Icon_OrganizationLogo.png" wdth="28" height="28">&nbsp;&nbsp;&nbsp;Organization</a></li>
                                 <li role="presentation" class="divider"></li>
-                                <li role="presentation" ><a role="menuitem" href="../volunteer/searchJob/searchJob.html"  ng-class="{'make-it-white':typeOfOwner == 'volunteer'}"><img src="../img/VV_Icon_Profile.png" height="28" width="28">&nbsp;&nbsp;&nbsp;Volunteer</a></li>
+                                <li role="presentation" >
+                                    <a role="menuitem" ng-if="typeOfOwner == 'organization'" href="../volunteer/searchJob/searchJob.html"  ng-class="{'make-it-white':typeOfOwner == 'volunteer'}"><img src="../img/VV_Icon_Profile.png" height="28" width="28">&nbsp;&nbsp;&nbsp;Volunteer</a>
+                                    <a role="menuitem" ng-if="typeOfOwner == 'volunteer'" href="../volunteer/searchJob/searchJob.html"  ng-class="{'make-it-white':typeOfOwner == 'volunteer'}"><img src="../img/VV_Icon_Volunteers.png" height="28" width="28">&nbsp;&nbsp;&nbsp;Volunteer</a>
+                                </li>
                                 <li role="presentation" class="divider"></li>
                                 <li role="presentation" id="separate-highlight"> 
                                     <span><a role="menuitem" href="../myAccount/myAccount.html?owner=volunteer" ng-if="typeOfOwner == 'volunteer'">sander_mrbrown</a></span>

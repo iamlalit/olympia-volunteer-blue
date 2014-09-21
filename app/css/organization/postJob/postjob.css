@@ -166,6 +166,8 @@ right: 3px;
 	padding: 10px 70px 10px 13px;
 	background-color:#f7f7f5;
 	border-radius: 4px;
+}
+.navbar-right .dropdown-menu li a img {
 	opacity: 0.6;
 }
 .navbar-right .dropdown-menu li a:hover,
@@ -176,9 +178,14 @@ right: 3px;
 	outline: 0;
 	opacity: 1;
 }
+
+.navbar-right .dropdown-menu li a:hover img {
+	opacity: 1;
+}
 .navbar-right .dropdown-menu li a:active{
 	background-color: #ffffff;
 	border-radius: 4px;
+	opacity: 1;
 }
 .navbar-right ul.dropdown-menu li.divider{
 	margin-top: 0px;
