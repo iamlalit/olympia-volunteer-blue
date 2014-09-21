@@ -190,8 +190,8 @@
                                 <div class="row-fluid" ng-repeat="message in messageInbox">
                                     <div class="col-lg-2 padding-right-0">
                                         <input type="checkbox" ng-model="message.checked" />
-                                        <span class="user-block margin-left-10" ng-click="passMessage(message);$parent.showMessage = !showMessage;toggle(3)">
-                                            <i class="glyphicon glyphicon-user"></i>
+                                        <span class="margin-left-10" ng-click="passMessage(message);$parent.showMessage = !showMessage;toggle(3)">
+                                            <img src="../img/VV_Icon_Profile.png" width="30" height="30">
                                         </span>
                                     </div>
                                     <div ng-click="passMessage(message);$parent.showMessage = false;toggle(3)">
@@ -227,8 +227,8 @@
                                 <div class="row-fluid" ng-repeat="message in messageSent">
                                     <div class="col-lg-2 padding-right-0">
                                         <input type="checkbox" value="" />
-                                        <span class="user-block margin-left-10"  ng-click="passMessage(message);$parent.showMessage = false;toggle(3)">
-                                            <i class="glyphicon glyphicon-user"></i>
+                                        <span class="margin-left-10"  ng-click="passMessage(message);$parent.showMessage = false;toggle(3)">
+                                            <img src="../img/VV_Icon_Profile.png" width="30" height="30">
                                         </span>
                                     </div>
                                     <div class="col-lg-2 align-left padding-rl-0"  ng-click="passMessage(message);$parent.showMessage = false;toggle(3)">
@@ -270,8 +270,8 @@
                                 <div class="row-fluid" ng-repeat="message in messageArchive">
                                     <div class="col-lg-2 padding-right-0">
                                         <input type="checkbox" ng-model="message.checked" />
-                                        <span class="user-block margin-left-10"  ng-click="passMessage(message);$parent.showMessage = false;toggle(3)">
-                                            <i class="glyphicon glyphicon-user"></i>
+                                        <span class="margin-left-10"  ng-click="passMessage(message);$parent.showMessage = false;toggle(3)">
+                                            <img src="../img/VV_Icon_Profile.png" width="30" height="30">
                                         </span>
                                     </div>
                                     <div class="col-lg-2 align-left padding-rl-0"  ng-click="passMessage(message);$parent.showMessage = false;toggle(3)">
@@ -329,8 +329,8 @@
                         </div>
                     </div>
                     <div class="col-lg-3 pull-right" ng-show="!showMessage">
-                        <span class="user-block">
-                            <i class="glyphicon glyphicon-user"></i>
+                        <span class="">
+                            <img src="../img/VV_Icon_Profile.png" width="30" height="30">
                         </span>
                         <label class="sender-name bold" ng-bind="passedMessaged.name"></label>
                     </div>

@@ -133,11 +133,11 @@
                             <div class="row margin-rl-0">
                                 <div class="col-sm-6 padding-left-0">
                                     <label ng-class="{disabled: CTPI}">First Name</label>
-                                    <input type="text" name="firstname" id="firstname" class="col-sm-12" placeholder="First Name">
+                                    <input type="text" name="firstname" id="firstname" class="col-sm-12" placeholder="First Name" ng-disabled="CTPI">
                                 </div>
                                 <div class="col-sm-6 padding-right-0"> 
                                     <label ng-class="{disabled: CTPI}">Last Name</label>
-                                    <input type="text" name="lastname" id="lastname" class="col-sm-12" placeholder="Last Name">
+                                    <input type="text" name="lastname" id="lastname" class="col-sm-12" placeholder="Last Name" ng-disabled="CTPI">
                                 </div>
                             </div>
                             <div class="row margin-rl-0 margin-top-10">
@@ -145,17 +145,17 @@
                                     <label ng-class="{disabled: CTPI}">Gender</label>
                                     <br/>
                                     <label class="radio-inline" ng-class="{disabled: CTPI}">
-                                        <input type="radio" name="Gaslachet" value="option1"> Male
+                                        <input type="radio" name="Gaslachet" value="option1" ng-disabled="CTPI"> Male
                                     </label>
                                     <label class="radio-inline" ng-class="{disabled: CTPI}">
-                                        <input type="radio" name="Gaslachet" value="option2"> Female
+                                        <input type="radio" name="Gaslachet" value="option2" ng-disabled="CTPI"> Female
                                     </label>
                                 </div>
                             </div>
                             <div class="row margin-rl-0 margin-top-10">
                                 <div class="col-sm-6 padding-left-0">
                                     <label ng-class="{disabled: CTPI}">Country</label>
-                                    <select name="country" id="country" class="col-sm-12" ng-class="{disabled: CTPI}">
+                                    <select name="country" id="country" class="col-sm-12" ng-disabled="CTPI">
                                         <option value="0" label="Country">Country</option>
                                         <option value="41" label="Belgium">
                                             Belgium
@@ -853,18 +853,18 @@
                                     </select>
                                 </div>
                                 <div class="col-sm-6 padding-left-0">
-                                    <label>City</label>
-                                    <input type="text" name="city" id="city" class="col-sm-12" placeholder="City">
+                                    <label ng-class="{disabled: CTPI}">City</label>
+                                    <input type="text" name="city" id="city" class="col-sm-12" placeholder="City" ng-disabled="CTPI">
                                 </div>
                             </div>
                             <div class="row margin-rl-0 margin-top-10">
                                 <div class="col-sm-6 padding-left-0">
-                                    <label>Username</label>
-                                    <input type="text" name="username" id="username" class="col-sm-12" placeholder="Username">
+                                    <label ng-class="{disabled: CTPI}">Username</label>
+                                    <input type="text" name="username" id="username" class="col-sm-12" placeholder="Username" ng-disabled="CTPI">
                                 </div>
                                 <div class="col-sm-6 padding-left-0">
-                                    <label>Password</label>
-                                    <input type="text" name="password" id="password" class="col-sm-12" placeholder="Password">
+                                    <label ng-class="{disabled: CTPI}">Password</label>
+                                    <input type="text" name="password" id="password" class="col-sm-12" placeholder="Password" ng-disabled="CTPI">
                                 </div>
                             </div>
                         </div>
