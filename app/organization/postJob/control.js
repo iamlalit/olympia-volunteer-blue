@@ -931,8 +931,10 @@ $('#boxAddress').on('click', '#removeCurrentNode', function(event){
     console.log('in');
     $(this).parent().remove();
     if($('#boxAddress span').length>1){
+      $('#boxAddress span a').removeClass('hidden');
       $('#boxAddress span a').addClass('show');
     } else if($('#boxAddress span').length == 1){
+      $('#boxAddress span a').removeClass('show');
       $('#boxAddress span a').addClass('hidden');
     }
 });
@@ -948,7 +950,11 @@ function addressLocationShow(){
                         "</span>";
   $('#boxAddress').append(elementTextbox);
   if($('#boxAddress span').length>1){
+    $('#boxAddress span a').removeClass('hidden');
     $('#boxAddress span a').addClass('show');
+  } else if($('#boxAddress span').length == 1){
+    $('#boxAddress span a').removeClass('show');
+    $('#boxAddress span a').addClass('hidden');
   }
 }
 
