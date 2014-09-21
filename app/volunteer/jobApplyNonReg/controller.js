@@ -1,6 +1,8 @@
 ﻿var app = angular.module('jobDetailsController', []);
 app.controller('jobDetails', ['$scope', function ($scope) {
     
+    $scope.jobName = 'Student Activist Coordinator';
+    $scope.jobDate = 'About 6 hours ago';
     $scope.areaFocuses = ["Disability", "Education", "Energy conservation", "Government reform", "Housing and homelessness"];
     $scope.postJobSkills = ["Crowd control", "Cooking", "Communication"];
     $scope.postJobDiploma = ["Program coordinator", "Negotiation"];
@@ -20,4 +22,7 @@ app.controller('jobDetails', ['$scope', function ($scope) {
     }
     $scope.jobName = getParameterByName('jobName');
     $scope.jobDate = getParameterByName('jobDate')
+    
+    $scope.jobName = 'Student Activist Coordinator';
+    $scope.jobDate = 'About 6 hours ago';
 }]);

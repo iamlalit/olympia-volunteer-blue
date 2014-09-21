@@ -151,6 +151,9 @@ hr {
 .text-area.error:focus {
   border: 2px solid #C70909;
 }
+input[type='number'],
+input[type='email'],
+input[type='password'],
 input[type='text'] {
     display: inline-block;
     padding: 5px;
@@ -162,6 +165,9 @@ input[type='text'] {
     outline: 0;
     cursor: text;   
 }
+input[type='number']:focus,
+input[type='email']:focus,
+input[type='password']:focus,
 input[type='text']:focus {
     border-color: #00aeec;   
 }
@@ -796,16 +802,40 @@ padding: 15px 12px;
   background-size:29px;
 }
 
-
+p.disabled,
 label.disabled {
   color: #ccc;
 }
 select[disabled] {
   color: #ccc;
   cursor:not-allowed;
+  background-color: #f5f5f2;
 }
 
-input[disabled] {
+input[disabled="disabled"] {
   color: #ccc;
-  cursor:not-allowed;
+  cursor:not-allowed !important;
+}
+textarea[disabled] {
+  color: #ccc;
+  background-color: #f5f5f2;
+  cursor:not-allowed !important; 
+}
+.fa-facebook-square {
+color: #3b5998;
+font-size: 20px;
+vertical-align: -2px;
+padding-right: 4px;
+}
+.fa-linkedin-square {
+color: #1777b1;
+font-size: 20px;
+vertical-align: -2px;
+}
+.fa-google-plus-square {
+color: #d93c39;
+font-size: 20px;
+vertical-align: -2px;
+margin-left: 5px;
+margin-right: 3px;
 }

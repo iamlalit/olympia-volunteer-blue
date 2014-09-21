@@ -64,7 +64,7 @@
                     </div>
                     <br />
                     <h4 class="margin-top-0 margin-bottom-0 bold">Job Description</h4>
-                    <p>As a Quality assurance enginner, you will work cross functionality with your team to release new versions of our product on a weekly release cycle. This is an exciting oppurtunity to be an advocate for our users. <a href="" ng-model="showMoreData" ng-click="showMoreData = !showMoreData" ng-show="!showMoreData">more</a> <a href="" ng-click="showMoreData = !showMoreData" ng-show="showMoreData">less</a></p>
+                    <p>As a Quality assurance enginner, you will work cross functionality with your team to release new versions of our product on a weekly release cycle. This is an exciting oppurtunity to be an advocate for our users. <a href="" ng-model="showMoreData" ng-click="showMoreData = !showMoreData" ng-show="!showMoreData">more</a></p>
                     <div ng-if="showMoreData"> 
                         
                         <p>Additionally you will be a critical factor in the development and success of the engineering department test automation and continous integration efforts.</p>
@@ -76,7 +76,7 @@
                             <li>Collaborate and communicate with engineering and product teams both in Ukraine and United States</li>
                             <li>Develop, maintain and automate regression test cases for various test features</li>
                             <li>Identify, analyze, and document problems with program functionality and/or content</li>
-                            <li>Review software documentation to ensure technical accuracy</li>
+                            <li>Review software documentation to ensure technical accuracy <a href="" ng-click="$parent.showMoreData = !showMoreData" ng-show="$parent.showMoreData">less</a></li>
                         </ul>
                     </div>
                 </div>
@@ -88,7 +88,7 @@
                     </div>
                     <div class="row margin-rl-0">
                         <div class="col-sm-12 padding-rl-0">
-                            <input type="text" class="col-sm-6" ng-model="email"/>
+                            <input type="email" class="col-sm-6" ng-model="email" placeholder="Email"/>
                         </div>
                     </div>
                     <div class="row margin-rl-0 margin-top-10" ng-init="radioEmail = 'option1'">
@@ -109,7 +109,7 @@
                     </div>
                     <div class="row margin-rl-0" ng-if="radioEmail == 'option1'">
                         <div class="col-sm-12 padding-rl-0">
-                            <p>With data from this application is like a personal account created Olympia. Allows you to store the data in a vacancy and sollicatie (if any) immediately following application reuse and easily customize.</p>
+                            <p>With data from this application is like a personal account created Olympia volunteer. Allows you to store the data in a vacancy and sollicatie (if any) immediately following application reuse and easily customize.</p>
                         </div>
                     </div>
                     <div class="row margin-rl-0" ng-if="radioEmail == 'option2'">
@@ -119,12 +119,15 @@
                     </div>
                     <div class="row margin-rl-0" ng-if="radioEmail == 'option2'">
                         <div class="col-sm-12 padding-rl-0">
-                            <input type="text" class="col-sm-6" ng-model="password"/>
+                            <input type="password" class="col-sm-6" ng-model="password" placeholder="Password"/>
                         </div>
                     </div>
                     <div class="row margin-rl-0 margin-top-20" ng-model="CTPI" ng-init="CTPI = true">
                         <div class="col-sm-12 padding-rl-0">
                             <button class="btn btn-primary" ng-click="CTPI = false">Continue to personal information <i class="fa fa-arrow-down"></i></button>
+                            <span class="fa fa-facebook-square margin-left-10"></span><a href="">Facebook</a>,
+                            <span class="fa fa-linkedin-square"></span> <a href="#">LinkedIn</a> or
+                            <span class="fa fa-google-plus-square"></span><a href="">Google</a>
                         </div>
                     </div>
 
@@ -135,12 +138,12 @@
                                     <label ng-class="{disabled: CTPI}">First Name</label>
                                     <input type="text" name="firstname" id="firstname" class="col-sm-12" placeholder="First Name" ng-disabled="CTPI">
                                 </div>
-                                <div class="col-sm-6 padding-right-0"> 
+                                <div class="col-sm-6 padding-left-0"> 
                                     <label ng-class="{disabled: CTPI}">Last Name</label>
                                     <input type="text" name="lastname" id="lastname" class="col-sm-12" placeholder="Last Name" ng-disabled="CTPI">
                                 </div>
                             </div>
-                            <div class="row margin-rl-0 margin-top-10">
+                            <div class="row margin-rl-0 margin-top-15">
                                 <div class="col-sm-6 padding-left-0">
                                     <label ng-class="{disabled: CTPI}">Gender</label>
                                     <br/>
@@ -152,7 +155,7 @@
                                     </label>
                                 </div>
                             </div>
-                            <div class="row margin-rl-0 margin-top-10">
+                            <div class="row margin-rl-0 margin-top-15">
                                 <div class="col-sm-6 padding-left-0">
                                     <label ng-class="{disabled: CTPI}">Country</label>
                                     <select name="country" id="country" class="col-sm-12" ng-disabled="CTPI">
@@ -857,7 +860,7 @@
                                     <input type="text" name="city" id="city" class="col-sm-12" placeholder="City" ng-disabled="CTPI">
                                 </div>
                             </div>
-                            <div class="row margin-rl-0 margin-top-10">
+                            <div class="row margin-rl-0 margin-top-15">
                                 <div class="col-sm-6 padding-left-0">
                                     <label ng-class="{disabled: CTPI}">Username</label>
                                     <input type="text" name="username" id="username" class="col-sm-12" placeholder="Username" ng-disabled="CTPI">
@@ -870,24 +873,24 @@
                         </div>
                     </div>
                     <form id="jobApplyForm" role="form">
-                        <div>
-                            <label class="bold inline-block">Cover letter</label>
+                        <div class="margin-top-15">
+                            <label class="bold inline-block" ng-class="{disabled: CTPI}">Cover letter</label>
                             <span id="optional-text" class="italic"> &nbsp;&nbsp;Write few lines to motivate your application</span>
-                            <textarea class="text-area" cols="87" rows="10" maxlength="5000" id="question1"></textarea>
+                            <textarea class="text-area" cols="87" rows="10" maxlength="5000" id="question1" ng-disabled="CTPI"></textarea>
                             <p class="pull-right" id="optional-text">5000 characters left</p>
                         </div>
                         <div class="margin-top-10">
-                            <label class="bold inline-block">Why do you think you are a good fit for this particular project?</label>
-                            <textarea class="text-area" cols="87" rows="10" maxlength="5000" id="question2"></textarea>
+                            <label class="bold inline-block" ng-class="{disabled: CTPI}">Why do you think you are a good fit for this particular project?</label>
+                            <textarea class="text-area" cols="87" rows="10" maxlength="5000" id="question2" ng-disabled="CTPI"></textarea>
                         </div>
                         <div class="margin-top-10">
-                            <label class="bold inline-block">What challenging part of this job are you most experienced in?</label>
-                            <textarea class="text-area" cols="87" rows="10" maxlength="5000" id="question3"></textarea>
+                            <label class="bold inline-block" ng-class="{disabled: CTPI}">What challenging part of this job are you most experienced in?</label>
+                            <textarea class="text-area" cols="87" rows="10" maxlength="5000" id="question3" ng-disabled="CTPI"></textarea>
                         </div>
                         <div class="margin-top-20">
-                            <label >Attachment </label><span id='optional-text'> (optional)</span><br/>
+                            <label ng-class="{disabled: CTPI}">Attachment </label><span id='optional-text'> (optional)</span><br/>
                             <div class="custom-file-upload">
-                                <input type="file" id="file" name="myfiles[]" multiple />
+                                <input type="file" id="file" name="myfiles[]" multiple ng-disabled="CTPI"/>
                             </div>
                         </div>
                         <div class="margin-top-0">
