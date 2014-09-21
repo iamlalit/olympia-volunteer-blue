@@ -152,7 +152,7 @@ hr {
   border: 2px solid #C70909;
 }
 input[type='text'] {
-    display: block;
+    display: inline-block;
     padding: 5px;
     font-size: 13px;
     color: #444444;
