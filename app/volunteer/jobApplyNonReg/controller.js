@@ -27,10 +27,7 @@ app.controller('jobDetails', ['$scope', function ($scope) {
     $scope.jobDate = 'About 6 hours ago';
 
     $('#jobApplyForm').find('button').addClass('disabled-button');
-    if($scope.CTPI) {
-      console.log("here");
-    }
     $scope.updateButtons = function(){
-      $('#jobApplyForm').find('button').removeClass('disabled-button');
+        $('#jobApplyForm').find('button').removeClass('disabled-button');  
     }
 }]);
