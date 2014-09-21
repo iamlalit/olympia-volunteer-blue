@@ -246,7 +246,7 @@ $(document).ready(function () {
         //Job title is required
         if (organizationName.val() == '' || organizationName.val() == null) {
             if (errorList.find('.errormessage-organizationName').length == 0) {
-                $('<li />', { html: 'Organization Name required !', class: 'col-sm-6 errormessage-organizationName' })
+                $('<li />', { html: 'Organization name required !', class: 'col-sm-6 errormessage-organizationName' })
                 .appendTo(errorList)
                 .click(function () {
                     $('html, body').animate({
@@ -271,7 +271,7 @@ $(document).ready(function () {
         //nick name
         if (organizationNickName.val() == '' || organizationNickName.val() == null) {
             if (errorList.find('.errormessage-organizationNickName').length == 0) {
-                $('<li />', { html: 'Organization Nick Name required !', class: 'col-sm-6 errormessage-organizationNickName' })
+                $('<li />', { html: 'Organization nickname required !', class: 'col-sm-6 errormessage-organizationNickName' })
                 .appendTo(errorList)
                 .click(function () {
                     $('html, body').animate({
@@ -296,7 +296,7 @@ $(document).ready(function () {
         if (termsAndCondition.is(":not(:checked)")) {
 
             if (errorList.find('.errormessage-termsAndCondition').length == 0) {
-                $('<li />', { html: 'Terms and condtion Not checked !', class: 'col-sm-6 errormessage-termsAndCondition' })
+                $('<li />', { html: 'Terms and conditions sponsorship not accepted !', class: 'col-sm-6 errormessage-termsAndCondition' })
             .appendTo(errorList)
             .click(function () {
                 $('html, body').animate({
