@@ -790,27 +790,6 @@ function updateValueDiplomaText(){
     }
   }
 }
-var uid=0;
-function addNewTextScreening(){
-  var element_text_screeining = "<div class='col-sm-12' style='padding:0px' id='divTextTag" + uid + "'>" +
-                                  "<div class='col-sm-9 crossTextbox' style='padding:10px 20px 10px 0px;width:701px; margin-left:93px;'>" +
-                                    "<input type='text' class='form-control' id='screening-tag' placeholder='Add Questions'/>" +
-                                    "<button type='button' class='close pull-left screening-Q' aria-hidden='true' onclick='closeTextScreening()' id='" + uid + "'>&times;</button>" +
-                                  "</div>" + 
-                                "</div>";
-  $("div#screening-questions").append(element_text_screeining);
-  uid++;
-}
-var remove = '';
-function closeTextScreening(){
-$(".screening-Q").click(function(){
- //Get the id of this clicked item
-  remove = $(this).attr("id");
-  $("div#screening-questions #divTextTag" + remove).remove();
-  uid--;
-});
-
-}
 var source_question = ['Have you taken any Volunteer tests and done well on them that you think are relevant to this job?',
     'Why did you apply to this particular job?',
     'Which part of the project do you think will take the most time?',
@@ -822,28 +801,44 @@ var source_question = ['Have you taken any Volunteer tests and done well on them
     'What questions do you have about the project?',
     'What past project or job have you had that is most like this one and why?'
     ];
-
-
-function updateValueScreeningCheck(){
-  var listOfScreening = [];
+var listOfScreening = [];
+function updateValueScreeningCheck(){ 
+  var tempList = listOfScreening;
   for( i=1 ; i <= 10 ; i++){
     if($("#screening" + i +"").is(":checked")){
      listOfScreening.push($("#screening" + i +"").val());
+     console.log(i)
     }
-  }
+  }  
+  console.log(listOfScreening, tempList)
   for (var i = 0; i < listOfScreening.length; i++) {
     addNewTextScreening();
-    $("#divTextTag"+ i +"").find("input").val(listOfScreening[i]);
+    $("#divTextTag:nth-child("+ (i + 1)+")").find("input").val(listOfScreening[i]);
   };
+}
+function addNewTextScreening(){
+  var element_text_screeining = "<div class='col-sm-12' style='padding:0px' id='divTextTag'>" +
+                                  "<div class='col-sm-9 crossTextbox' style='padding:10px 20px 10px 0px;width:701px; margin-left:93px;'>" +
+                                    "<input type='text' class='form-control' id='screening-tag' placeholder='Add Questions'/>" +
+                                    "<button type='button' class='close pull-left screening-Q' aria-hidden='true' onclick='closeTextScreening()' >&times;</button>" +
+                                  "</div>" + 
+                                "</div>";
+  $("div#screening-questions").append(element_text_screeining);
+}
+
+function closeTextScreening(){
+  $(".screening-Q").click(function(){
+    remove = $(this).closest("#divTextTag").remove();
+  });
 }
 function updateValueScreeningText(){
   for( i=0 ; i <= 10 ; i++){
     $("#screening" + i + "").prop("checked", false);
   }
   var tagsValues = [];
-  var tagsValueScreening = $("#divTextTag"+ 0 +"").find("input").val();
+  var tagsValueScreening = $("#divTextTag:nth-child("+ (0)+")").find("input").val();
   for (var i = 0; tagsValueScreening != undefined ; i++) {
-    var tagsValueScreening = $("#divTextTag"+ i +"").find("input").val();
+    var tagsValueScreening = $("#divTextTag:nth-child("+ (i + 1)+")").find("input").val();
     tagsValues.push(tagsValueScreening);
   }
   console.log(tagsValues);
@@ -855,9 +850,9 @@ function updateValueScreeningText(){
     };
   };
   for (var i = 0; i<20 ; i++) {
-    var tagsValueScreening = $("#divTextTag"+ i +"").find("input").val();
+    var tagsValueScreening = $("#divTextTag:nth-child("+ (i + 1)+")").find("input").val();
     if(tagsValueScreening === ""){
-        $("div#screening-questions #divTextTag" + i).remove();
+        $("div#screening-questions #divTextTag:nth-child("+ (i + 1)+")").remove();
         console.log("remobe");
     }
   }
