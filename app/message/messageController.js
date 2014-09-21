@@ -53,7 +53,7 @@ messageApp.controller('messageController', ['$scope', function ($scope) {
         title: "Lorem ipsum title",
         content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut tincidunt, tortor id ultricies eleifend, dui erat dapibus massa, quis aliquet lacus quam id leo."
     });
-    $scope.messageInbox.push({name:"Marleen Dijkstra",
+    $scope.messageInbox.push({name:"Marleen Dijkstrajo",
         date: "June 18",
         checked: false,
         title: "Lorem ipsum title",

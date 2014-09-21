@@ -305,7 +305,7 @@ vertical-align: top;
 .font-size-6{
   font-size:6em;
 }
-
+.containerA,
 .container1,
 .container,
 .container-body{
@@ -797,4 +797,18 @@ padding: 15px 12px;
 .checkboxCustom.cross{
   background:url('../img/checkbox.png') 10px 20px;
   background-size:29px;
+}
+
+
+label.disabled {
+  color: #ccc;
+}
+select[disabled] {
+  color: #ccc;
+  cursor:not-allowed;
+}
+
+input[disabled] {
+  color: #ccc;
+  cursor:not-allowed;
 }
