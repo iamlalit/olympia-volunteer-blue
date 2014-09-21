@@ -247,7 +247,7 @@
                         <div class="applicants" ng-repeat="applicant in pagedItems[currentPage]" ng-init="autoScroll = false">
                             <div class="row margin-rl-0">
                                 <div class="col-sm-2 padding-rl-0" ng-cloak>
-                                    <img src="{{applicant.image}}" width="70" height="73">
+                                    <img src="{{applicant.image}}" width="70" height="80">
                                 </div>
                                 <div class="col-sm-6 padding-rl-0">
                                     <a style="color:#1489be" href="../../volunteer/volunteerProfile/volunteerProfile.html?name={{applicant.Name}}&city={{applicant.city}}&image={{applicant.image}}"><label ng-bind="applicant.Name"></label></a>
@@ -255,6 +255,8 @@
                                     <span ng-bind="applicant.city" class="city-detail"></span>
                                     <div style="padding-top:1px"></div>
                                     <span ng-bind="applicant.joined" class="city-detail"></span>
+                                    <div style="padding-top:1px"></div>
+                                    <span ng-bind="applicant.lastActive" class="city-detail"></span>
                                 </div>
 
                                 <div class="col-sm-4 pull-right padding-right-8">
