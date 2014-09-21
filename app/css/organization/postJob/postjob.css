@@ -576,3 +576,13 @@ div[data-role="editor-toolbar"] {
 #boxAddress span:last-child a{
 	display:none;
 }
+
+/* Cross with textbox */
+.crossTextbox{
+	position:relative;
+}
+.crossTextbox button{
+	position:absolute;
+	top:17px;
+	right:33px;
+}

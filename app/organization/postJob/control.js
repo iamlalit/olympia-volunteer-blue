@@ -793,10 +793,8 @@ function updateValueDiplomaText(){
 var uid=0;
 function addNewTextScreening(){
   var element_text_screeining = "<div class='col-sm-12' style='padding:0px' id='divTextTag" + uid + "'>" +
-                                  "<div class='col-sm-9' style='padding:10px 20px 10px 0px; margin-left:93px;'>" +
+                                  "<div class='col-sm-9 crossTextbox' style='padding:10px 20px 10px 0px; margin-left:93px;'>" +
                                     "<input type='text' class='form-control' id='screening-tag' placeholder='Add Questions'/>" +
-                                  "</div>" + 
-                                  "<div class='col-sm-1' style='padding-top:18px;'>" +
                                     "<button type='button' class='close pull-left screening-Q' aria-hidden='true' onclick='closeTextScreening()' id='" + uid + "'>&times;</button>" +
                                   "</div>" + 
                                 "</div>";
