@@ -186,7 +186,8 @@ $(document).ready(function () {
   errorDiv = $('#errorMsg'),
   errorList = $('#errorList'),
   organizationName = $('#organizationName'),
-  organizationNickName = $('#organizationNickName')  
+  organizationNickName = $('#organizationNickName'),
+  termsAndCondition = $('#termsAndCondition')  
   
     //on change of writing in any of input fields
     organizationName.change(function() {
@@ -246,13 +247,13 @@ $(document).ready(function () {
         if (organizationName.val() == '' || organizationName.val() == null) {
             if (errorList.find('.errormessage-organizationName').length == 0) {
                 $('<li />', { html: 'Organization Name required !', class: 'col-sm-6 errormessage-organizationName' })
-        .appendTo(errorList)
-        .click(function () {
-            $('html, body').animate({
-                scrollTop: organizationName.offset().top - 100
-            }, 500);
-            organizationName.focus();
-        })
+                .appendTo(errorList)
+                .click(function () {
+                    $('html, body').animate({
+                        scrollTop: organizationName.offset().top - 100
+                    }, 500);
+                    organizationName.focus();
+                })
                 $('#errorMsg').show();
                 organizationName.parent().addClass('has-error');
             }
@@ -271,13 +272,13 @@ $(document).ready(function () {
         if (organizationNickName.val() == '' || organizationNickName.val() == null) {
             if (errorList.find('.errormessage-organizationNickName').length == 0) {
                 $('<li />', { html: 'Organization Nick Name required !', class: 'col-sm-6 errormessage-organizationNickName' })
-        .appendTo(errorList)
-        .click(function () {
-            $('html, body').animate({
-                scrollTop: organizationNickName.offset().top - 100
-            }, 500);
-            organizationNickName.focus();
-        })
+                .appendTo(errorList)
+                .click(function () {
+                    $('html, body').animate({
+                        scrollTop: organizationNickName.offset().top - 100
+                    }, 500);
+                    organizationNickName.focus();
+                })
                 $('#errorMsg').show();
                 organizationNickName.parent().addClass('has-error');
             }
@@ -288,6 +289,31 @@ $(document).ready(function () {
             };
             if (errorList.find('.errormessage-organizationNickName').length > 0) {
                 errorList.find('.errormessage-organizationNickName').remove();
+                $('#errorMsg').hide();
+            }
+        }
+        //Terms and condtion name
+        if (termsAndCondition.is(":not(:checked)")) {
+
+            if (errorList.find('.errormessage-termsAndCondition').length == 0) {
+                $('<li />', { html: 'Terms and condtion Not checked !', class: 'col-sm-6 errormessage-organizationNickName' })
+            .appendTo(errorList)
+            .click(function () {
+                $('html, body').animate({
+                    scrollTop: termsAndCondition.offset().top - 100
+                }, 500);
+                termsAndCondition.focus();
+            })
+                    $('#errorMsg').show();
+                termsAndCondition.parent().addClass('has-error');
+            }
+        }
+        else {
+            if (termsAndCondition.parent().hasClass('has-error')) {
+                termsAndCondition.parent().removeClass('has-error')
+            };
+            if (errorList.find('.errormessage-termsAndCondition').length > 0) {
+                errorList.find('.errormessage-termsAndCondition').remove();
                 $('#errorMsg').hide();
             }
         }
