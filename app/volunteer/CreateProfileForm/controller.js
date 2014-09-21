@@ -625,4 +625,50 @@ landingController.controller('landingPage', ['$scope', function ($scope) {
         $scope.lengthOfSchools = $scope.listOfSchools.length;        
     }
 
+    //**************************
+    //volunteer job information*
+    //**************************
+    //in order to store the index of job globally so that it can be used elsewhere
+    $scope.globalJobIndex = "";
+    //edit functionality to open the modal with the desired data
+    $scope.openJobModel = function(job, index) {
+        $('#updateJob').modal('show');
+        $scope.job.name = job.name;
+        $scope.job.city = job.city;
+        $scope.job.country = job.country;
+        $scope.job.title = job.title;
+        
+        $scope.job.month1 = job.month1;
+        $scope.job.startDate = job.startDate;
+        $scope.job.month2 = job.month2;
+        $scope.job.endDate = job.endDate;
+
+        $scope.globalJobIndex = index;
+    }
+    //just to hide the modal poppups
+    $scope.updateJobCancel = function() {
+        $('#updateJob').modal('hide');
+    }
+    //updated the information of the job details on the page
+    $scope.updateDetailJob = function(job, globalJobIndex) {
+        $scope.listOfJobs[globalJobIndex].name = job.name;
+        $scope.listOfJobs[globalJobIndex].city = job.city;
+        $scope.listOfJobs[globalJobIndex].country = job.country;
+        $scope.listOfJobs[globalJobIndex].title = job.title;
+        $scope.listOfJobs[globalJobIndex].month1 = job.month1;
+        $scope.listOfJobs[globalJobIndex].startDate = job.startDate;
+        $scope.listOfJobs[globalJobIndex].month2 = job.month2;
+        $scope.listOfJobs[globalJobIndex].endDate = job.endDate;
+        $('#updateJob').modal('hide');
+    }
+    //delete the clicked job
+    $scope.deletejob = function(job, $index) {
+        var idx = $scope.listOfJobs.indexOf(job);
+        if (idx != -1) {
+              $scope.listOfJobs.splice(idx, 1);
+        }
+        $scope.lengthOfJobs = $scope.listOfJobs.length;
+    }
+
+
 }]);
