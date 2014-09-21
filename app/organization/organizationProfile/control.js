@@ -296,7 +296,7 @@ $(document).ready(function () {
         if (termsAndCondition.is(":not(:checked)")) {
 
             if (errorList.find('.errormessage-termsAndCondition').length == 0) {
-                $('<li />', { html: 'Terms and condtion Not checked !', class: 'col-sm-6 errormessage-organizationNickName' })
+                $('<li />', { html: 'Terms and condtion Not checked !', class: 'col-sm-6 errormessage-termsAndCondition' })
             .appendTo(errorList)
             .click(function () {
                 $('html, body').animate({
