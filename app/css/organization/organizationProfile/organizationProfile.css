@@ -42,3 +42,11 @@
     padding-left:10px;
     padding-right:10px;
 }
+.sponsorShip p.paraCheck{
+    position:relative;
+    
+}
+.sponsorShip p.paraCheck input{
+    position:absolute;
+    top:-2px;
+}
