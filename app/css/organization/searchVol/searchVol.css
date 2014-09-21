@@ -59,7 +59,7 @@ border-radius:10px;
     border-right: none;
 }
 .star-icon{
-	margin-right:5px;
+	margin-right:10px;
 }
 .star-icon i{
 	display:-webkit-inline-box!important;
@@ -141,4 +141,11 @@ border-radius:10px;
 }
 .color-grey{
 	color: #bbbbbb !important;
+}
+.background-dgrey{
+	background-color: #ccc;
+	margin: 0 -10px 0 -15px;
+}
+.small-pill {
+	background-color: #cccccc !important;
 }

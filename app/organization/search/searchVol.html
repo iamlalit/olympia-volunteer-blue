@@ -200,15 +200,15 @@
             </div>
             <div class="col-sm-9 padding-rl-0">
                 <div class="row margin-rl-0">
-                    <div class="main-border1" ng-show="showrecent">
-                        <div class="row margin-rl-0">
-                            <div class="col-sm-5 padding-rl-0">
+                    <div class="main-border1 padding-top-0 padding-bottom-0" ng-show="showrecent">
+                        <div class="row background-dgrey">
+                            <div class="col-sm-5 padding-top-10">
                                 <span class="text-center" id='heading-form' >Search Volunteers</span>
                             </div>
                             <div class="col-sm-7">&nbsp;</div>
                         </div>
-                        <div class="row margin-rl-0">
-                            <div class="col-sm-4 padding-rl-0">
+                        <div class="row background-dgrey">
+                            <div class="col-sm-4">
                                 <span class="clear-search">
                                     <b ng-show="showrecent">{{lengthOfApplicants}}</b> 
                                     <b ng-show="showfavourite">{{lengthOfFavouriteApplicants}}</b> 
@@ -218,6 +218,14 @@
                                 </span>
                             </div>
                             <div class="col-sm-4 padding-rl-0 align-center">
+                                &nbsp;
+                            </div>
+                            <div class="col-sm-4 padding-left-0 align-right ishidden">
+                                &nbsp;
+                            </div>
+                        </div>
+                        <div class="row background-dgrey padding-top-15">
+                            <div class="col-sm-4 padding-rl-0 align-center">
                                 <span>
                                     <label>Sort By: </label>
                                     <select class="form-control select-option">
@@ -225,7 +233,9 @@
                                     </select>
                                 </span>
                             </div>
-                            <div class="col-sm-4 padding-left-0 align-right">
+                            <div class="col-sm-4"></div>
+                            
+                            <div class="col-sm-4 align-right padding-right-22">
                                 <ul class="pagination" ng-hide="showClearSearch || showfavourite">
                                     <li ng-class="{disabled: currentPage == 0}"><span ng-click="prevPage()"> Previous </span></li>
                                     <li ng-repeat="n in range(pagedItems.length)" ng-class="{active: n == currentPage}" ng-click="setPage()"><span>{{n+1}}</span></li>
@@ -233,7 +243,7 @@
                                  </ul>
                             </div>
                         </div>
-                        <div class="margin-bottom-10">&nbsp;</div>
+                        <div class="margin-bottom-20 background-dgrey">&nbsp;</div>
                         <div class="applicants" ng-repeat="applicant in pagedItems[currentPage]" ng-init="autoScroll = false">
                             <div class="row margin-rl-0">
                                 <div class="col-sm-2 padding-rl-0" ng-cloak>
@@ -285,14 +295,14 @@
                             </div>
 
                         </div>
-                        <div class="row margin-rl-0">
-                                <div class="col-sm-4 padding-rl-0">
+                        <div class="row background-dgrey">
+                                <div class="col-sm-4">
                                     &nbsp;
                                 </div>
-                                <div class="col-sm-4 padding-rl-0 align-center">
+                                <div class="col-sm-4 align-center">
                                     &nbsp;
                                 </div>
-                                <div class="col-sm-4 padding-left-0 align-right">
+                                <div class="col-sm-4 align-right padding-top-10 padding-bottom-10 padding-right-22">
                                     <ul class="pagination" ng-hide="">
                                         <li ng-class="{disabled: currentPage == 0}"><span ng-click="prevPage()"> Previous </span></li>
                                         <li ng-repeat="n in range(pagedItems.length)" ng-class="{active: n == currentPage}" ng-click="setPage()"><span>{{n+1}}</span></li>
@@ -304,15 +314,15 @@
                             <label>Cleared all search results, <br />Please search again to find the Volunteers</label>
                         </div>
                     </div>
-                    <div class="main-border1" ng-show="showfavourite">
-                        <div class="row margin-rl-0">
-                            <div class="col-sm-5 padding-rl-0">
+                    <div class="main-border1 padding-top-0 padding-bottom-0" ng-show="showfavourite">
+                        <div class="row background-dgrey">
+                            <div class="col-sm-5 ">
                                 <span class="text-center" id='heading-form' >Search Volunteers</span>
                             </div>
                             <div class="col-sm-7">&nbsp;</div>
                         </div>
-                        <div class="row margin-rl-0">
-                            <div class="col-sm-4 padding-rl-0">
+                        <div class="row background-dgrey">
+                            <div class="col-sm-4">
                                 <span class="clear-search">
                                     <b ng-show="showrecent">{{lengthOfApplicants}}</b> 
                                     <b ng-show="showfavourite">{{lengthOfFavouriteApplicants}}</b> 
@@ -322,6 +332,14 @@
                                 </span>
                             </div>
                             <div class="col-sm-4 padding-rl-0 align-center">
+                                &nbsp;
+                            </div>
+                            <div class="col-sm-4 padding-left-0 align-right ishidden">
+                                &nbsp;
+                            </div>
+                        </div>
+                        <div class="row background-dgrey padding-top-15">
+                            <div class="col-sm-4 padding-rl-0 align-center">
                                 <span>
                                     <label>Sort By: </label>
                                     <select class="form-control select-option">
@@ -329,7 +347,9 @@
                                     </select>
                                 </span>
                             </div>
-                            <div class="col-sm-4 padding-left-0 align-right">
+                            <div class="col-sm-4"></div>
+                            
+                            <div class="col-sm-4 align-right padding-right-22">
                                 <ul class="pagination" ng-hide="lengthOfFavouriteApplicants == 0">
                                     <li ng-class="{disabled: currentPage == 0}"><span ng-click="prevPage()"> Previous </span></li>
                                     <li ng-repeat="n in range(pagedItems.length)" ng-class="{active: n == currentPage}" ng-click="setPage()"><span>{{n+1}}</span></li>
@@ -337,7 +357,7 @@
                                  </ul>
                             </div>
                         </div>
-                        <div class="margin-bottom-10">&nbsp;</div>
+                        <div class="margin-bottom-20 background-dgrey">&nbsp;</div>
                         <div class="applicants" ng-repeat="applicant in favouriteApplicants">
                             <div class="row margin-rl-0">
                                 <div class="col-sm-2 padding-rl-0">
@@ -388,21 +408,21 @@
                             </div>
                             
                         </div>
-                        <div class="row margin-rl-0">
-                                <div class="col-sm-4 padding-rl-0">
+                        <div class="row background-dgrey">
+                                <div class="col-sm-4">
                                     &nbsp;
                                 </div>
-                                <div class="col-sm-4 padding-rl-0 align-center">
+                                <div class="col-sm-4 align-center">
                                     &nbsp;
                                 </div>
-                                <div class="col-sm-4 padding-left-0 align-right">
-                                    <ul class="pagination" ng-hide="lengthOfFavouriteApplicants == 0">
+                                <div class="col-sm-4 align-right padding-top-10 padding-bottom-10 padding-right-22">
+                                    <ul class="pagination" ng-hide="">
                                         <li ng-class="{disabled: currentPage == 0}"><span ng-click="prevPage()"> Previous </span></li>
                                         <li ng-repeat="n in range(pagedItems.length)" ng-class="{active: n == currentPage}" ng-click="setPage()"><span>{{n+1}}</span></li>
                                         <li ng-class="{disabled: currentPage == pagedItems.length - 1}"><span ng-click="nextPage()"> Next </span></li>
                                      </ul>
                                 </div>
-                            </div>
+                        </div>
                         <div class="align-center show-clear" ng-show="lengthOfFavouriteApplicants == 0">
                             <label>No favourite applicant available</label>
                         </div>
