@@ -919,7 +919,7 @@ $(document).ready(function(){
     var zipCodeLocation =  $('#locationZip').val();
     var numberLocation =  $('#locationNumber').val();
     if(zipCodeLocation.length != 0 && numberLocation.length != 0 && countryLocation.length != 0){
-        completeAddress = countryLocation + "," + numberLocation + "," + zipCodeLocation;
+        completeAddress = countryLocation + ", " + numberLocation + ", " + zipCodeLocation;
         $('#locationAddress').val(completeAddress);
     }
   });
