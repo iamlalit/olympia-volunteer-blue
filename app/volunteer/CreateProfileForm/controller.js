@@ -26,6 +26,7 @@ landingController.controller('landingPage', ['$scope', function ($scope) {
     $scope.lengthOfJobs = $scope.listOfJobs.length;
 
 
+    var checkDateSchool = false;
     $scope.updateSchoolDetails = function(obj, check, index){
         if(schoolAns1.val() == '' || schoolAns1.val() == null){
         	if (errorList.find('.errormessage-schoolAns1').length == 0) {
@@ -88,7 +89,8 @@ landingController.controller('landingPage', ['$scope', function ($scope) {
         }
 
         if(parseInt($('#schoolAns4 option:selected').val()) == 0 || parseInt($('#schoolAns5 option:selected').val()) == 0){
-			if (errorList.find('.errormessage-schoolAns4').length == 0) {
+			
+            if (errorList.find('.errormessage-schoolAns4').length == 0) {
                 $('<li />', { html: 'Date Attended required !', class: 'col-sm-6 errormessage-schoolAns4' })
                 .appendTo(errorList)
                 .click(function () {
@@ -100,15 +102,43 @@ landingController.controller('landingPage', ['$scope', function ($scope) {
                 schoolAns5.parent().addClass('has-error');
             }
         }else {
-	            if (schoolAns4.parent().hasClass('has-error') || schoolAns5.parent().hasClass('has-error')) {
-	                schoolAns4.parent().removeClass('has-error');
-	                schoolAns5.parent().removeClass('has-error');
-	            };
-	            if (errorList.find('.errormessage-schoolAns4').length > 0) {
-	                errorList.find('.errormessage-schoolAns4').remove();
-	                $('#errorMsg').hide();
-	            }
+                if(parseInt($('#schoolAns4 option:selected').val()) >= parseInt($('#schoolAns5 option:selected').val()) ){ 
+                    if (errorList.find('.errormessage-schoolAns7').length == 0) {
+                        $('<li />', { html: 'End date should be later then start date, please select the correct end date !', class: 'col-sm-6 errormessage-schoolAns7' })
+                        .appendTo(errorList)
+                        .click(function () {
+                            console.log("clicked");
+                            $("#schoolAns4").find('option:first').focus();
+                        })
+                        $('#errorMsg').show();
+                        schoolAns4.parent().addClass('has-error');
+                        schoolAns5.parent().addClass('has-error');
+                        checkDateSchool = true;
+                    }
+                }else {
+                        if (schoolAns4.parent().hasClass('has-error') || schoolAns5.parent().hasClass('has-error')) {
+                            schoolAns4.parent().removeClass('has-error');
+                            schoolAns5.parent().removeClass('has-error');
+                        };
+                        if (errorList.find('.errormessage-schoolAns7').length > 0) {
+                            errorList.find('.errormessage-schoolAns7').remove();
+                            $('#errorMsg').hide();
+                        }
+                }
+                if(!checkDateSchool) {
+
+                    if (schoolAns4.parent().hasClass('has-error') || schoolAns5.parent().hasClass('has-error')) {
+                        schoolAns4.parent().removeClass('has-error');
+                        schoolAns5.parent().removeClass('has-error');
+                    };
+                    if (errorList.find('.errormessage-schoolAns4').length > 0) {
+                        errorList.find('.errormessage-schoolAns4').remove();
+                        $('#errorMsg').hide();
+                    }   
+                }
         }
+
+        
 
         schoolAns1.change(function() {
             if(schoolAns1.val() == '' || schoolAns1.val() == null){
@@ -174,13 +204,12 @@ landingController.controller('landingPage', ['$scope', function ($scope) {
         });
 
         schoolAns4.change(function() {
-
     	    if(parseInt($('#schoolAns4 option:selected').val()) == 0 || parseInt($('#schoolAns5 option:selected').val()) == 0){
-    			if (errorList.find('.errormessage-schoolAns4').length == 0) {
+    			
+                if (errorList.find('.errormessage-schoolAns4').length == 0) {
                     $('<li />', { html: 'Date Attended required !', class: 'col-sm-6 errormessage-schoolAns4' })
                     .appendTo(errorList)
                     .click(function () {
-                    	console.log("clicked");
                         $("#schoolAns4").find('option:first').focus();
                     })
                     $('#errorMsg').show();
@@ -188,7 +217,6 @@ landingController.controller('landingPage', ['$scope', function ($scope) {
                     schoolAns5.parent().addClass('has-error');
                 }
             }else {
-            	console.log("updated");
     	            if (schoolAns4.parent().hasClass('has-error') || schoolAns5.parent().hasClass('has-error')) {
     	                schoolAns4.parent().removeClass('has-error');
     	                schoolAns5.parent().removeClass('has-error');
@@ -200,13 +228,11 @@ landingController.controller('landingPage', ['$scope', function ($scope) {
         });
 
         schoolAns5.change(function() {
-
     	    if(parseInt($('#schoolAns4 option:selected').val()) == 0 || parseInt($('#schoolAns5 option:selected').val()) == 0){
     			if (errorList.find('.errormessage-schoolAns4').length == 0) {
                     $('<li />', { html: 'Date Attended required !', class: 'col-sm-6 errormessage-schoolAns4' })
                     .appendTo(errorList)
                     .click(function () {
-                    	console.log("clicked");
                         $("#schoolAns4").find('option:first').focus();
                     })
                     $('#errorMsg').show();
@@ -214,7 +240,6 @@ landingController.controller('landingPage', ['$scope', function ($scope) {
                     schoolAns5.parent().addClass('has-error');
                 }
             }else {
-            	console.log("updated");
     	            if (schoolAns4.parent().hasClass('has-error') || schoolAns5.parent().hasClass('has-error')) {
     	                schoolAns4.parent().removeClass('has-error');
     	                schoolAns5.parent().removeClass('has-error');
