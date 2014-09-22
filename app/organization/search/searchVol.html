@@ -259,7 +259,7 @@
                                     <span ng-bind="applicant.lastActive" class="city-detail"></span>
                                 </div>
 
-                                <div class="col-sm-4 pull-right padding-right-8">
+                                <div class="col-sm-4 pull-right padding-right-8 padding-top-47">
                                     <span>
                                         <button type="button" class="btn btn-primary pull-right small-btn" ng-model="shortlisted" ng-class="{active:$index==2}" data-toggle="modal" data-target="#contactApplicantModal" ng-click="openModal(applicant)" title="click to contact the applicant"><span class="fa fa-circle green-yellow"></span>&nbsp;Contact</button>
                                         <a id="removeIconHover" ng-if="!(applicant.selected || removeIt)" title="mark as favourite">
@@ -374,7 +374,7 @@
                                     <div style="padding-top:1px"></div>
                                     <span ng-bind="applicant.lastActive" class="city-detail"></span>
                                 </div>
-                                <div class="col-sm-4 pull-right padding-right-8">
+                                <div class="col-sm-4 pull-right padding-right-8 padding-top-47">
                                     <span>
                                         <button type="button" class="btn btn-primary pull-right small-btn" ng-model="shortlisted" ng-class="{active:$index==2}" data-toggle="modal" data-target="#contactApplicantModal" ng-click="openModal(applicant)" title="click to contact the applicant"><span class="fa fa-circle green-yellow"></span>&nbsp;Contact</button>
                                         <a id="removeIconHover" ng-if="!(applicant.selected || removeIt)" title="mark as favourite">
@@ -412,20 +412,20 @@
                             </div>
                             
                         </div>
-                        <div class="row background-dgrey"  ng-hide="lengthOfFavouriteApplicants == 0">
-                                <div class="col-sm-4">
-                                    &nbsp;
-                                </div>
-                                <div class="col-sm-4 align-center">
-                                    &nbsp;
-                                </div>
-                                <div class="col-sm-4 align-right padding-top-10 padding-bottom-10 padding-right-22">
-                                    <ul class="pagination">
-                                        <li ng-class="{disabled: currentPage == 0}"><span ng-click="prevPage()"> Previous </span></li>
-                                        <li ng-repeat="n in range(pagedItems.length)" ng-class="{active: n == currentPage}" ng-click="setPage()"><span>{{n+1}}</span></li>
-                                        <li ng-class="{disabled: currentPage == pagedItems.length - 1}"><span ng-click="nextPage()"> Next </span></li>
-                                     </ul>
-                                </div>
+                        <div class="row background-dgrey" ng-hide="lengthOfFavouriteApplicants == 0">
+                            <div class="col-sm-4">
+                                &nbsp;
+                            </div>
+                            <div class="col-sm-4 align-center">
+                                &nbsp;
+                            </div>
+                            <div class="col-sm-4 align-right padding-top-10 padding-bottom-10 padding-right-22">
+                                <ul class="pagination">
+                                    <li ng-class="{disabled: currentPage == 0}"><span ng-click="prevPage()"> Previous </span></li>
+                                    <li ng-repeat="n in range(pagedItems.length)" ng-class="{active: n == currentPage}" ng-click="setPage()"><span>{{n+1}}</span></li>
+                                    <li ng-class="{disabled: currentPage == pagedItems.length - 1}"><span ng-click="nextPage()"> Next </span></li>
+                                 </ul>
+                            </div>
                         </div>
                         <div class="align-center show-clear" ng-show="lengthOfFavouriteApplicants == 0">
                             <label>No favourite applicant available</label>
