@@ -27,6 +27,7 @@ landingController.controller('landingPage', ['$scope', function ($scope) {
 
 
     var checkDateSchool = false;
+    var checkDateJob = false;
     $scope.updateSchoolDetails = function(obj, check, index){
         if(schoolAns1.val() == '' || schoolAns1.val() == null){
         	if (errorList.find('.errormessage-schoolAns1').length == 0) {
@@ -203,52 +204,52 @@ landingController.controller('landingPage', ['$scope', function ($scope) {
             }
         });
 
-        schoolAns4.change(function() {
-    	    if(parseInt($('#schoolAns4 option:selected').val()) == 0 || parseInt($('#schoolAns5 option:selected').val()) == 0){
+       //  schoolAns4.change(function() {
+    	  //   if(parseInt($('#schoolAns4 option:selected').val()) == 0 || parseInt($('#schoolAns5 option:selected').val()) == 0){
     			
-                if (errorList.find('.errormessage-schoolAns4').length == 0) {
-                    $('<li />', { html: 'Date Attended required !', class: 'col-sm-6 errormessage-schoolAns4' })
-                    .appendTo(errorList)
-                    .click(function () {
-                        $("#schoolAns4").find('option:first').focus();
-                    })
-                    $('#errorMsg').show();
-                    schoolAns4.parent().addClass('has-error');
-                    schoolAns5.parent().addClass('has-error');
-                }
-            }else {
-    	            if (schoolAns4.parent().hasClass('has-error') || schoolAns5.parent().hasClass('has-error')) {
-    	                schoolAns4.parent().removeClass('has-error');
-    	                schoolAns5.parent().removeClass('has-error');
-    	            };
-    	            if (errorList.find('.errormessage-schoolAns4').length > 0) {
-    	                errorList.find('.errormessage-schoolAns4').remove();
-    	            }
-    	        }
-        });
+       //          if (errorList.find('.errormessage-schoolAns4').length == 0) {
+       //              $('<li />', { html: 'Date Attended required !', class: 'col-sm-6 errormessage-schoolAns4' })
+       //              .appendTo(errorList)
+       //              .click(function () {
+       //                  $("#schoolAns4").find('option:first').focus();
+       //              })
+       //              $('#errorMsg').show();
+       //              schoolAns4.parent().addClass('has-error');
+       //              schoolAns5.parent().addClass('has-error');
+       //          }
+       //      }else {
+    	  //           if (schoolAns4.parent().hasClass('has-error') || schoolAns5.parent().hasClass('has-error')) {
+    	  //               schoolAns4.parent().removeClass('has-error');
+    	  //               schoolAns5.parent().removeClass('has-error');
+    	  //           };
+    	  //           if (errorList.find('.errormessage-schoolAns4').length > 0) {
+    	  //               errorList.find('.errormessage-schoolAns4').remove();
+    	  //           }
+    	  //       }
+       //  });
 
-        schoolAns5.change(function() {
-    	    if(parseInt($('#schoolAns4 option:selected').val()) == 0 || parseInt($('#schoolAns5 option:selected').val()) == 0){
-    			if (errorList.find('.errormessage-schoolAns4').length == 0) {
-                    $('<li />', { html: 'Date Attended required !', class: 'col-sm-6 errormessage-schoolAns4' })
-                    .appendTo(errorList)
-                    .click(function () {
-                        $("#schoolAns4").find('option:first').focus();
-                    })
-                    $('#errorMsg').show();
-                    schoolAns4.parent().addClass('has-error');
-                    schoolAns5.parent().addClass('has-error');
-                }
-            }else {
-    	            if (schoolAns4.parent().hasClass('has-error') || schoolAns5.parent().hasClass('has-error')) {
-    	                schoolAns4.parent().removeClass('has-error');
-    	                schoolAns5.parent().removeClass('has-error');
-    	            };
-    	            if (errorList.find('.errormessage-schoolAns4').length > 0) {
-    	                errorList.find('.errormessage-schoolAns4').remove();
-    	            }
-    	        }
-        });
+       //  schoolAns5.change(function() {
+    	  //   if(parseInt($('#schoolAns4 option:selected').val()) == 0 || parseInt($('#schoolAns5 option:selected').val()) == 0){
+    			// if (errorList.find('.errormessage-schoolAns4').length == 0) {
+       //              $('<li />', { html: 'Date Attended required !', class: 'col-sm-6 errormessage-schoolAns4' })
+       //              .appendTo(errorList)
+       //              .click(function () {
+       //                  $("#schoolAns4").find('option:first').focus();
+       //              })
+       //              $('#errorMsg').show();
+       //              schoolAns4.parent().addClass('has-error');
+       //              schoolAns5.parent().addClass('has-error');
+       //          }
+       //      }else {
+    	  //           if (schoolAns4.parent().hasClass('has-error') || schoolAns5.parent().hasClass('has-error')) {
+    	  //               schoolAns4.parent().removeClass('has-error');
+    	  //               schoolAns5.parent().removeClass('has-error');
+    	  //           };
+    	  //           if (errorList.find('.errormessage-schoolAns4').length > 0) {
+    	  //               errorList.find('.errormessage-schoolAns4').remove();
+    	  //           }
+    	  //       }
+       //  });
         if (errorList.children('li').length > 0) {
             $('#errorMsg').show();
         } else {
@@ -379,6 +380,34 @@ landingController.controller('landingPage', ['$scope', function ($scope) {
                 jobAns7.parent().addClass('has-error');
             }
         }else {
+            if(parseInt($('#jobAns5 option:selected').val()) > parseInt($('#jobAns7 option:selected').val())) {
+                if (errorList1.find('.errormessage-jobAns7').length == 0) {
+                    $('<li />', { html: 'End date should be later then start date, please select the correct end date !', class: 'col-sm-6 errormessage-jobAns7' })
+                    .appendTo(errorList1)
+                    .click(function () {
+                        console.log("clicked");
+                        $("#jobAns4").find('option:first').focus();
+                    })
+                    $('#errorMsg').show();
+                    jobAns4.parent().addClass('has-error');
+                    jobAns5.parent().addClass('has-error');
+                    jobAns6.parent().addClass('has-error');
+                    jobAns7.parent().addClass('has-error');
+                    checkDateJob = true;       
+                }
+            }else {
+                if (jobAns4.parent().hasClass('has-error') || jobAns5.parent().hasClass('has-error') || jobAns6.parent().hasClass('has-error') || jobAns7.parent().hasClass('has-error')) {
+                    jobAns4.parent().removeClass('has-error');
+                    jobAns5.parent().removeClass('has-error');
+                    jobAns6.parent().removeClass('has-error');
+                    jobAns7.parent().removeClass('has-error');
+                };
+                if (errorList1.find('.errormessage-jobAns7').length > 0) {
+                    errorList1.find('.errormessage-jobAns7').remove();
+                    $('#errorMsg1').hide();
+                }          
+            }
+            if(!checkDateJob){
                 if (jobAns4.parent().hasClass('has-error') || jobAns5.parent().hasClass('has-error') || jobAns6.parent().hasClass('has-error') || jobAns7.parent().hasClass('has-error')) {
                     jobAns4.parent().removeClass('has-error');
                     jobAns5.parent().removeClass('has-error');
@@ -389,7 +418,10 @@ landingController.controller('landingPage', ['$scope', function ($scope) {
                     errorList1.find('.errormessage-jobAns4').remove();
                     $('#errorMsg1').hide();
                 }
+            }              
         }
+
+        
 
         jobAns1.change(function() {
             if(jobAns1.val() == '' || jobAns1.val() == null){
