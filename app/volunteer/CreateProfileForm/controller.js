@@ -378,9 +378,10 @@ landingController.controller('landingPage', ['$scope', function ($scope) {
                 jobAns5.parent().addClass('has-error');
                 jobAns6.parent().addClass('has-error');
                 jobAns7.parent().addClass('has-error');
+                checkDateJob = false;  
             }
         }else {
-            if(parseInt($('#jobAns5 option:selected').val()) > parseInt($('#jobAns7 option:selected').val())) {
+            if( (parseInt($('#jobAns5 option:selected').val()) > parseInt($('#jobAns7 option:selected').val())) || (parseInt($('#jobAns5 option:selected').val()) == parseInt($('#jobAns7 option:selected').val()) && parseInt($('#jobAns4 option:selected').val()) >= parseInt($('#jobAns6 option:selected').val()))){
                 if (errorList1.find('.errormessage-jobAns7').length == 0) {
                     $('<li />', { html: 'End date should be later then start date, please select the correct end date !', class: 'col-sm-6 errormessage-jobAns7' })
                     .appendTo(errorList1)
@@ -405,8 +406,9 @@ landingController.controller('landingPage', ['$scope', function ($scope) {
                 if (errorList1.find('.errormessage-jobAns7').length > 0) {
                     errorList1.find('.errormessage-jobAns7').remove();
                     $('#errorMsg1').hide();
-                }          
+                }         
             }
+
             if(!checkDateJob){
                 if (jobAns4.parent().hasClass('has-error') || jobAns5.parent().hasClass('has-error') || jobAns6.parent().hasClass('has-error') || jobAns7.parent().hasClass('has-error')) {
                     jobAns4.parent().removeClass('has-error');
