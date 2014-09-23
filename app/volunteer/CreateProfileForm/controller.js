@@ -632,7 +632,12 @@ landingController.controller('landingPage', ['$scope', function ($scope) {
             //sorting using start date
             $scope.listOfJobs = $scope.listOfJobs.sort(function(obj1, obj2) {
                 // Ascending: first startDate less than the previous
-                return obj2.startDate - obj1.startDate;
+                if(obj2.startDate == obj1.startDate) {
+                    return (obj2.startDate + obj2.month1) - (obj1.startDate + obj1.month1);
+                }else{
+                    return obj2.startDate - obj1.startDate;    
+                }
+                
             });
             $scope.listOfJobs
         }
