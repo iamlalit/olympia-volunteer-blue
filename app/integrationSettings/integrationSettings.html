@@ -364,7 +364,7 @@
                         </label>
                     </div>
                     <div class="col-sm-1">
-                        <input type="text" class="height-34 col-sm-12" ng-model="bodySize" ng-focus="showFontType = true" ng-blur="showFontType = false"/>
+                        <input type="text" class="col-sm-12 height-34" ng-model="bodySize" ng-focus="showFontType = true" ng-blur="showFontType = false"/>
                     </div>
                     <div class="col-sm-2">
                         <select ng-model="fontFace" ng-init="fontFace = 'Arial'" ng-focus="showFontType = true" ng-blur="showFontType = false">
@@ -376,7 +376,7 @@
                         </select>
                     </div>
                     <div class="col-sm-7 padding-rl-0">
-                        <div class="row margin-rl-0 valign-middle align-center">
+                        <div class="row margin-rl-0 valign-middle align-center" ng-if="showFontType">
                             <div class="alphabet-box">
                                 <span ng-style="{'font-family': fontFace, 'font-size': bodySize + 'px'}">ABCDEFGHIJLMNOPQRSTUVWXYZ</span>
                             </div>
