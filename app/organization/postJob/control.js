@@ -681,26 +681,38 @@ function updateValueDowText(){
     }
   }
 }
-  
-var skills_set = ['Answering Telephones', 'Accounting', 'Administration', 'Business Correspondence', 'Client Relations', 'Communication',
-                  'Crowd Control', 'Crime & Safety', 'Customer Service', 'Clerical', 'Document Management', 'Disaster Relief', 
-                  'Document Management', 'Event Coordination', 'Employee Relations', 'Legal Familiarity', 'Meeting Planning', 'Office Administration',
-                  'Organizational Skills', 'Public Relations', 'Public Speaking', 'People Management', 'Receptionist', 'Stenography', 
-                  'Travel Arrangements', 'Word Processing', 'Written Communication'];
+
+
+//Key-value pair value to work 
+var skills_set = [{'value':'Answering Telephones','text':'Answering Telephones'}, {'value':'Accounting','text':'Accounting'}, {'value':'Administration','text':'Administration'}, {'value':'Business Correspondence','text':'Business Correspondence'}, {'value':'Client Relations','text':'Client Relations'}, {'value':'Communication','text':'Communication'},
+                  {'value':'Crowd Control','text':'Crowd Control'}, {'value':'Crime & Safety','text':'Crime & Safety'}, {'value':'Customer Service','text':'Customer Service'}, {'value':'Clerical','text':'Clerical'}, {'value':'Document Management','text':'Document Management'}, {'value':'Disaster Relief','text':'Disaster Relief'}, 
+                  {'value':'Document Management','text':'Document Management'}, {'value':'Event Coordination','text':'Event Coordination'}, {'value':'Employee Relations','text':'Employee Relations'}, {'value':'Legal Familiarity','text':'Legal Familiarity'}, {'value':'Meeting Planning','text':'Meeting Planning'}, {'value':'Office Administration','text':'Office Administration'},
+                  {'value':'Organizational Skills','text':'Organizational Skills'}, {'value':'Public Relations','text':'Public Relations'}, {'value':'Public Speaking','text':'Public Speaking'}, {'value':'People Management','text':'People Management'}, {'value':'Receptionist','text':'Receptionist'}, {'value':'Stenography','text':'Stenography'}, 
+                  {'value':'Travel Arrangements','text':'Travel Arrangements'}, {'value':'Word Processing','text':'Word Processing'}, {'value':'Written Communication','text':'Written Communication'}];
 $('#skill-tag').tagsinput({
+  itemValue: 'value',
+  itemText: 'text',
   typeahead: {
     source: skills_set,
     sorter: function (items) {
         return items.sort();
     }
-  }
+  },
 });
+/*Adding method to prevent enter from being click*/
+$("#skill-tag").next().children('input').attr("onkeypress", "doNothing()");
 
 function updateValueSkillCheck(){
-  var listOfSkill = [];
+  var listOfSkill = [], listofSkillsObject = {};
   for( i=1 ; i <= 27 ; i++){
     if($("#skill" + i +"").is(":checked")){
-     listOfSkill.push($("#skill" + i +"").val());
+      listofSkillsObject = {'text' : ' ', 'value' : ' '};
+      //getting current node elements
+      currentnode = $("#skill" + i +"").val();
+      listofSkillsObject.text = currentnode;
+      listofSkillsObject.value = currentnode;
+      console.log(listofSkillsObject);
+      listOfSkill.push(listofSkillsObject);
     }
   }
   $('#skill-tag').tagsinput('removeAll');
@@ -710,13 +722,23 @@ function updateValueSkillCheck(){
   }
   $("#skill-tag").next().children('input').attr("placeholder", " ");
 }
+//Adding input tag from dropdown
+$('#skill-tag').on('itemAdded', function(event) {
+   var lengthInputTag = $("#skill-tag").next().children().length;
+    if (lengthInputTag == 1){
+        $("#skill-tag").next().children('input').attr("placeholder", "Add Skills");   
+    } else if (lengthInputTag > 1){
+      $("#skill-tag").next().children('input').attr("placeholder", " ");
+    }
+  // event.item: contains the item
+});
 
 /* On Removing tags */
 $('#skill-tag').on('itemRemoved', function(event) {
   var lengthInputTag = $("#skill-tag").next().children().length;
   if (lengthInputTag == 1){
       $("#skill-tag").next().children('input').attr("placeholder", "Add Skills");   
-  }
+  } 
 });
 
 function updateValueSkillText(){
@@ -724,7 +746,6 @@ function updateValueSkillText(){
   $("#skill-tag").tagsinput("refresh");
   var tagsValue = $("#skill-tag").val();
   var tagsList = tagsValue.split(",");
-  console.log(tagsList);
   for( i=1 ; i <= 27 ; i++){
         $("#skill" + i + "").prop("checked", false);
   }
@@ -951,3 +972,17 @@ function addressLocationShow(){
   }
 }
 
+//Stop enter from being execute.
+function doNothing() {  
+var keyCode = event.keyCode ? event.keyCode : event.which ? event.which : event.charCode;
+    if( keyCode == 13 ) {
+      if(!e) var e = window.event;
+        e.cancelBubble = true;
+        e.returnValue = false;
+
+      if (e.stopPropagation) {
+        e.stopPropagation();
+        e.preventDefault();
+      }
+    }
+}
