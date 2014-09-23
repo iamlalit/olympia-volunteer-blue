@@ -259,6 +259,11 @@ landingController.controller('landingPage', ['$scope', function ($scope) {
 	        $scope.school = {};
 	        $scope.school.startDate = 0;
 	        $scope.school.endDate = 0;
+            //sorting using start date
+            $scope.listOfSchools = $scope.listOfSchools.sort(function(obj1, obj2) {
+                // Descending: first startdate less than the previous
+                return obj2.startDate - obj1.startDate;
+            });
         }
         if(check == 1 && !errorList.children('li').length > 0){
         	$('#addSchool').modal('hide');
@@ -623,6 +628,18 @@ landingController.controller('landingPage', ['$scope', function ($scope) {
             $scope.job.month2 = 0;
             $scope.setCurrentDate = false;
             $scope.job.country = 'Netherlands';
+
+            //sorting using start date
+            $scope.listOfJobs = $scope.listOfJobs.sort(function(obj1, obj2) {
+                // Ascending: first startDate less than the previous
+                if(obj2.startDate == obj1.startDate) {
+                    return (obj2.startDate + obj2.month1) - (obj1.startDate + obj1.month1);
+                }else{
+                    return obj2.startDate - obj1.startDate;    
+                }
+                
+            });
+            $scope.listOfJobs
         }
         if(check == 1 && !(errorList1.children('li').length > 0)){
             $('#addJob').modal('hide');
