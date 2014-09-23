@@ -758,11 +758,13 @@ function updateValueSkillText(){
   }
 }
 
-var diploma_set = ['First Aid Diploma', 'Football Referee License', 'Active Volunteering', 'Training and Assessmement', 
-                  'Program Coordination', 'Community Service Coordination', 'Effective Communication', 'Negotiation', 
-                  'Customer Service', 'Risk Management']
+var diploma_set = [{'value':'First Aid Diploma','text':'First Aid Diploma'}, {'value':'Football Referee License','text':'Football Referee License'}, {'value':'Active Volunteering','text':'Active Volunteering'}, {'value':'Training and Assessmement','text':'Training and Assessmement'}, 
+                  {'value':'Program Coordination','text':'Program Coordination'}, {'value':'Community Service Coordination','text':'Community Service Coordination'}, {'value':'Effective Communication','text':'Effective Communication'} , {'value':'Negotiation','text':'Negotiation'}, 
+                  {'value':'Customer Service','text':'Customer Service'}, {'value':'Risk Management','text':'Risk Management'}]
 
 $('#diploma-tag').tagsinput({
+  itemValue: 'value',
+  itemText: 'text',
   typeahead: {
     source: diploma_set,
     sorter: function (items) {
@@ -771,14 +773,22 @@ $('#diploma-tag').tagsinput({
   }
 });
 
+/*Adding method to prevent enter from being click*/
+$("#diploma-tag").next().children('input').attr("onkeypress", "doNothing()");
+
 function updateValueDiplomaCheck(){
-  var listOfDiploma = [];
+  var listOfDiploma = [], listofDiplomaObject = {}; 
   for( i=1 ; i <= 10 ; i++){
     if($("#diploma" + i +"").is(":checked")){
-     listOfDiploma.push($("#diploma" + i +"").val());
+      listofDiplomaObject = {'text' : ' ', 'value' : ' '};
+      //getting current node elements
+      currentnode = $("#skill" + i +"").val();
+      listofDiplomaObject.text = currentnode;
+      listofDiplomaObject.value = currentnode;
+      listOfDiploma.push(listofDiplomaObject);
     }
   }
-  console.log(listOfDiploma);
+  
   $('#diploma-tag').tagsinput('removeAll');
   $("#diploma-tag").tagsinput("refresh");
   for(i = 0 ; i < listOfDiploma.length ; i++){
@@ -786,6 +796,17 @@ function updateValueDiplomaCheck(){
   }
   $("#diploma-tag").next().children('input').attr("placeholder", " ");
 }
+
+//Adding input tag from dropdown
+$('#diploma-tag').on('itemAdded', function(event) {
+   var lengthInputTag = $("#diploma-tag").next().children().length;
+    if (lengthInputTag == 1){
+        $("#diploma-tag").next().children('input').attr("placeholder", "Add diploma/certificate");   
+    } else if (lengthInputTag > 1){
+      $("#diploma-tag").next().children('input').attr("placeholder", " ");
+    }
+  // event.item: contains the item
+});
 
 /* On Removing tags */
 $('#diploma-tag').on('itemRemoved', function(event) {
