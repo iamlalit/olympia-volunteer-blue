@@ -1,17 +1,32 @@
+var areaoffocus_set = [{'value ':'Immigration','text':'Immigration'}, {'value':'Education','text':'Education'}, 
+                {'value':'Job and Workplace','text':'Job and Workplace'}, {'value':'Conflict resolution','text':'Conflict resolution'}, 
+                {'value':'Consumer protection','text':'Consumer protection'}, {'value':'Crime & Safety','text':'Crime & Safety'},
+                {'value':'Civic engagement','text':'Civic engagement'}, {'value':'Risk Management','text':'Risk Management'}];
+
 $('#areaofFocusVolunteer').tagsinput({
-  typeahead: {
-    source: ["Immigration", "Education", "Job and Workplace", "Conflict resolution", "Consumer protection", "Crime & Safety", "Civic engagement", "Risk Management"],
-    sorter: function (items) {
-        return items.sort();
+    itemValue: 'value',
+    itemText: 'text',
+    typeahead: {
+        source: areaoffocus_set,
+        sorter: function (items) {
+            return items.sort();
+        }
     }
-  }
 });
 
+/*Adding method to prevent enter from being click*/
+$("#areaofFocusVolunteer").next().children('input').attr("onkeypress", "doNothing()");
+
 function updateValueAOFCheck(){
-  var listOfLan = [];
+    var listOfLan = [], listofLanObject = {};
   for( i=1 ; i <= 52 ; i++){
     if($("#areaOfFocus" + i +"").is(":checked")){
-     listOfLan.push($("#areaOfFocus" + i +"").val());
+     listofLanObject = {'text' : ' ', 'value' : ' '};
+      //getting current node elements
+      currentnode = $("#areaOfFocus" + i +"").val();
+      listofLanObject.text = currentnode;
+      listofLanObject.value = currentnode;
+      listOfLan.push(listofLanObject);
     }
   }
   $('#areaofFocusVolunteer').tagsinput('removeAll');
@@ -20,8 +35,27 @@ function updateValueAOFCheck(){
     $("#areaofFocusVolunteer").tagsinput('add', listOfLan[i]);
   }
 }
+
+//Adding input tag from dropdown
+$('#areaofFocusVolunteer').on('itemAdded', function(event) {
+   var lengthInputTag = $("#areaofFocusVolunteer").next().children().length;
+    if (lengthInputTag == 1){
+        $("#areaofFocusVolunteer").next().children('input').attr("placeholder", "Add area of focus");   
+    } else if (lengthInputTag > 1){
+      $("#areaofFocusVolunteer").next().children('input').attr("placeholder", " ");
+    }
+  // event.item: contains the item
+});
+
+/* On Removing tags */
+$('#areaofFocusVolunteer').on('itemRemoved', function(event) {
+  var lengthInputTag = $("#areaofFocusVolunteer").next().children().length;
+  if (lengthInputTag == 1){
+      $("#areaofFocusVolunteer").next().children('input').attr("placeholder", "Add area of focus");   
+  } 
+});
+
 function updateValueAOFText(){
-  
   $("#areaofFocusVolunteer").tagsinput("refresh");
   var tagsValue = $("#areaofFocusVolunteer").val();
   var tagsList = tagsValue.split(",");
@@ -179,6 +213,22 @@ function addNewAddress(){
 function closeAddress(){
  $("#address div:last-child").remove(); 
 }
+
+//Stop enter from being execute.
+function doNothing() {  
+var keyCode = event.keyCode ? event.keyCode : event.which ? event.which : event.charCode;
+    if( keyCode == 13 ) {
+      if(!e) var e = window.event;
+        e.cancelBubble = true;
+        e.returnValue = false;
+
+      if (e.stopPropagation) {
+        e.stopPropagation();
+        e.preventDefault();
+      }
+    }
+}
+
 
 $(document).ready(function () {
   $('#errorMsg').hide();
