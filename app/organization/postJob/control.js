@@ -941,6 +941,9 @@ function closeTextScreening(){
     remove = $(this).closest("#divTextTag").remove();
   });
 }
+
+$("#screening-tag").attr("onkeypress", "doNothing()");
+
 function updateValueScreeningText(){
   for( i=0 ; i <= 10 ; i++){
     $("#screening" + i + "").prop("checked", false);
