@@ -623,64 +623,85 @@ function updateValueLanText(){
 
 
 //Source for Days of week
-var skills_set = [{'value':'All Weekdays - Full day','text':'All Weekdays - Full day'}, {'value':'Weekends - Full day','text':'Weekends - Full day'}, {'value':'Monday - Full day','text':'Monday - Full day'}, {'value':'Tuesday - Full day','text':'Tuesday - Full day'}, {'value':'Wednesday - Full day','text':'Wednesday - Full day'}, {'value':'Thursday - Full day','text':'Thursday - Full day'},
+var dowtag_set = [{'value':'All Weekdays - Full day','text':'All Weekdays - Full day'}, {'value':'Weekends - Full day','text':'Weekends - Full day'}, {'value':'Monday - Full day','text':'Monday - Full day'}, {'value':'Tuesday - Full day','text':'Tuesday - Full day'}, {'value':'Wednesday - Full day','text':'Wednesday - Full day'}, {'value':'Thursday - Full day','text':'Thursday - Full day'},
                   {'value':'Friday - Full day','text':'Friday - Full day'}, {'value':'Saturday - Full day','text':'Saturday - Full day'}, {'value':'Sunday - Full day','text':'Sunday - Full day'}, {'value':'All Weekdays - Morning','text':'All Weekdays - Morning'}, {'value':'Weekends - Morning','text':'Weekends - Morning'}, {'value':'Monday - Morning','text':'Monday - Morning'}, 
-                  {'value':'Tuesday - Morning','text':'Tuesday - Morning'}, {'value':'Wednesday - Morning','text':'Wednesday - Morning'}, {'value':'Thursday - Morning','text':'Thursday - Morning'}, {'value':'Legal Familiarity','text':'Legal Familiarity'}, {'value':'Meeting Planning','text':'Meeting Planning'}, {'value':'Office Administration','text':'Office Administration'},
-                  {'value':'Organizational Skills','text':'Organizational Skills'}, {'value':'Public Relations','text':'Public Relations'}, {'value':'Public Speaking','text':'Public Speaking'}, {'value':'People Management','text':'People Management'}, {'value':'Receptionist','text':'Receptionist'}, {'value':'Stenography','text':'Stenography'}, 
-                  {'value':'Travel Arrangements','text':'Travel Arrangements'}, {'value':'Word Processing','text':'Word Processing'}, {'value':'Written Communication','text':'Written Communication'}];
+                  {'value':'Tuesday - Morning','text':'Tuesday - Morning'}, {'value':'Wednesday - Morning','text':'Wednesday - Morning'}, {'value':'Thursday - Morning','text':'Thursday - Morning'}, {'value':'Friday - Morning','text':'Friday - Morning'}, {'value':'Saturday - Morning','text':'Saturday - Morning'}, {'value':'Sunday - Morning','text':'Sunday - Morning'},
+                  {'value':'All Weekdays - Afternoon','text':'All Weekdays - Afternoon'}, {'value':'Weekends - Afternoon','text':'Weekends - Afternoon'}, {'value':'Monday - Afternoon','text':'Monday - Afternoon'}, {'value':'Tuesday - Afternoon','text':'Tuesday - Afternoon'}, {'value':'Wednesday - Afternoon','text':'Wednesday - Afternoon'}, {'value':'Thursday - Afternoon','text':'Thursday - Afternoon'}, 
+                  {'value':'Friday - Afternoon','text':'Friday - Afternoon'}, {'value':'Saturday - Afternoon','text':'Saturday - Afternoon'}, 
+                  {'value':'Sunday - Afternoon','text':'Sunday - Afternoon'}, {'value':'All Weekdays - Evening','text':'All Weekdays - Evening'}, 
+                  {'value':'Weekends - Evening','text':'Weekends - Evening'}, {'value':'Monday - Evening','text':'Monday - Evening'},
+                  {'value':'Tuesday - Evening','text':'Tuesday - Evening'}, {'value':'Wednesday - Evening','text':'Wednesday - Evening'},
+                  {'value':'Thursday - Evening','text':'Thursday - Evening'}, {'value':'Friday - Evening','text':'Friday - Evening'},
+                  {'value':'Saturday - Evening','text':'Saturday - Evening'}, {'value':'Saturday - Evening','text':'Saturday - Evening'},
+                  {'value':'Sunday - Evening','text':'Sunday - Evening'}, {'value':'All Weekdays - Late Night','text':'All Weekdays - Late Night'},
+                  {'value':'Weekends - Late Night','text':'Weekends - Late Night'}, {'value':'Monday - Late Night','text':'Monday - Late Night'},                  
+                  {'value':'Tuesday - Late Night','text':'Tuesday - Late Night'}, {'value':'Wednesday - Late Night','text':'Wednesday - Late Night'},
+                  {'value':'Thursday - Late Night','text':'Thursday - Late Night'}, {'value':'Friday - Late Night','text':'Friday - Late Night'},
+                  {'value':'Saturday - Late Night','text':'Saturday - Late Night'}, {'value':'Sunday - Evening','text':'Sunday - Evening'}
+                  ];
 
 $('#dow-tag').tagsinput({
+  itemValue: 'value',
+  itemText: 'text',
   typeahead: {
-    source: ['','', '', '','', '', '', '', '',
-             '','', '', '','', '', 'Friday - Morning', 'Saturday - Morning', 'Sunday - Morning',
-             'All Weekdays - Afternoon','Weekends - Afternoon', 'Monday - Afternoon', 'Tuesday - Afternoon','Wednesday - Afternoon', 'Thursday - Afternoon', 'Friday - Afternoon', 'Saturday - Afternoon', 'Sunday - Afternoon',
-             'All Weekdays - Evening','Weekends - Evening', 'Monday - Evening', 'Tuesday - Evening','Wednesday - Evening', 'Thursday - Evening', 'Friday - Evening', 'Saturday - Evening', 'Sunday - Evening',
-             'All Weekdays - Late Night','Weekends - Late Night', 'Monday - Late Night', 'Tuesday - Late Night','Wednesday - Late Night', 'Thursday - Late Night', 'Friday - Late Night', 'Saturday - Late Night', 'Sunday - Evening'],
+    source: dowtag_set,
     sorter: function (items) {
         return items.sort();
     }
   }
 });
 
+/*Adding method to prevent enter from being click*/
+$("#dow-tag").next().children('input').attr("onkeypress", "doNothing()");
+
 function updateValueDowCheck(){
-  var listOfDow = [];
-  for( i=1 ; i <= 9 ; i++){
+  var listOfDow = [], listofDowObject = {};
+  for( i=1 ; i <= 49 ; i++){
     if($("#dow" + i +"").is(":checked")){
-     listOfDow.push($("#dow" + i +"").val());
+      listofDowObject = {'text' : ' ', 'value' : ' '};
+      //getting current node elements
+      currentnode = $("#dow" + i +"").val();
+      listofDowObject.text = currentnode;
+      listofDowObject.value = currentnode;
+      listOfDow.push(listofDowObject);
     }
   }
-  for( i=11 ; i <= 19 ; i++){
-    if($("#dow" + i +"").is(":checked")){
-     listOfDow.push($("#dow" + i +"").val());
-    }
-  }
-  for( i=21 ; i <= 29 ; i++){
-    if($("#dow" + i +"").is(":checked")){
-     listOfDow.push($("#dow" + i +"").val());
-    }
-  }
-  for( i=31 ; i <= 39 ; i++){
-    if($("#dow" + i +"").is(":checked")){
-     listOfDow.push($("#dow" + i +"").val());
-    }
-  }
-  console.log(listOfDow);
+  
   $('#dow-tag').tagsinput('removeAll');
   $("#dow-tag").tagsinput("refresh");
-  for(i = 0 ; i < listOfDow.length ; i++){
+  for(i = 0; i < listOfDow.length ; i++){
     $("#dow-tag").tagsinput('add', listOfDow[i]);
   }
+   $("#dow-tag").next().children('input').attr("placeholder", " ");
 }
+
+//Adding input tag from dropdown
+$('#dow-tag').on('itemAdded', function(event) {
+   var lengthInputTag = $("#dow-tag").next().children().length;
+    if (lengthInputTag == 1){
+        $("#dow-tag").next().children('input').attr("placeholder", "Add days of the week");   
+    } else if (lengthInputTag > 1){
+      $("#dow-tag").next().children('input').attr("placeholder", " ");
+    }
+});
+
+/* On Removing tags */
+$('#dow-tag').on('itemRemoved', function(event) {
+  var lengthInputTag = $("#dow-tag").next().children().length;
+  if (lengthInputTag == 1){
+      $("#dow-tag").next().children('input').attr("placeholder", "Add days of the week");   
+  } 
+});
 
 function updateValueDowText(){
   $("#dow-tag").tagsinput("refresh");
   var tagsValue = $("#dow-tag").val();
   var tagsList = tagsValue.split(",");
   console.log(tagsList);
-  for( i=1 ; i <= 36 ; i++){
+  for( i=1 ; i <= 49 ; i++){
         $("#dow" + i + "").prop("checked", false);
   }
-  for( i=1 ; i <= 36 ; i++){
+  for( i=1 ; i <= 49 ; i++){
     for( j = 0 ; j < tagsList.length ; j++ ){
       if($("#dow" + i + "").val() === tagsList[j]){
         $("#dow" + i + "").prop("checked", true);
@@ -789,7 +810,7 @@ function updateValueDiplomaCheck(){
     if($("#diploma" + i +"").is(":checked")){
       listofDiplomaObject = {'text' : ' ', 'value' : ' '};
       //getting current node elements
-      currentnode = $("#skill" + i +"").val();
+      currentnode = $("#diploma" + i +"").val();
       listofDiplomaObject.text = currentnode;
       listofDiplomaObject.value = currentnode;
       listOfDiploma.push(listofDiplomaObject);
