@@ -621,10 +621,18 @@ function updateValueLanText(){
   }
 }
 
+
+//Source for Days of week
+var skills_set = [{'value':'All Weekdays - Full day','text':'All Weekdays - Full day'}, {'value':'Weekends - Full day','text':'Weekends - Full day'}, {'value':'Monday - Full day','text':'Monday - Full day'}, {'value':'Tuesday - Full day','text':'Tuesday - Full day'}, {'value':'Wednesday - Full day','text':'Wednesday - Full day'}, {'value':'Thursday - Full day','text':'Thursday - Full day'},
+                  {'value':'Friday - Full day','text':'Friday - Full day'}, {'value':'Saturday - Full day','text':'Saturday - Full day'}, {'value':'Sunday - Full day','text':'Sunday - Full day'}, {'value':'All Weekdays - Morning','text':'All Weekdays - Morning'}, {'value':'Weekends - Morning','text':'Weekends - Morning'}, {'value':'Monday - Morning','text':'Monday - Morning'}, 
+                  {'value':'Tuesday - Morning','text':'Tuesday - Morning'}, {'value':'Wednesday - Morning','text':'Wednesday - Morning'}, {'value':'Thursday - Morning','text':'Thursday - Morning'}, {'value':'Legal Familiarity','text':'Legal Familiarity'}, {'value':'Meeting Planning','text':'Meeting Planning'}, {'value':'Office Administration','text':'Office Administration'},
+                  {'value':'Organizational Skills','text':'Organizational Skills'}, {'value':'Public Relations','text':'Public Relations'}, {'value':'Public Speaking','text':'Public Speaking'}, {'value':'People Management','text':'People Management'}, {'value':'Receptionist','text':'Receptionist'}, {'value':'Stenography','text':'Stenography'}, 
+                  {'value':'Travel Arrangements','text':'Travel Arrangements'}, {'value':'Word Processing','text':'Word Processing'}, {'value':'Written Communication','text':'Written Communication'}];
+
 $('#dow-tag').tagsinput({
   typeahead: {
-    source: ['All Weekdays - Full day','Weekends - Full day', 'Monday - Full day', 'Tuesday - Full day','Wednesday - Full day', 'Thursday - Full day', 'Friday - Full day', 'Saturday - Full day', 'Sunday - Full day',
-             'All Weekdays - Morning','Weekends - Morning', 'Monday - Morning', 'Tuesday - Morning','Wednesday - Morning', 'Thursday - Morning', 'Friday - Morning', 'Saturday - Morning', 'Sunday - Morning',
+    source: ['','', '', '','', '', '', '', '',
+             '','', '', '','', '', 'Friday - Morning', 'Saturday - Morning', 'Sunday - Morning',
              'All Weekdays - Afternoon','Weekends - Afternoon', 'Monday - Afternoon', 'Tuesday - Afternoon','Wednesday - Afternoon', 'Thursday - Afternoon', 'Friday - Afternoon', 'Saturday - Afternoon', 'Sunday - Afternoon',
              'All Weekdays - Evening','Weekends - Evening', 'Monday - Evening', 'Tuesday - Evening','Wednesday - Evening', 'Thursday - Evening', 'Friday - Evening', 'Saturday - Evening', 'Sunday - Evening',
              'All Weekdays - Late Night','Weekends - Late Night', 'Monday - Late Night', 'Tuesday - Late Night','Wednesday - Late Night', 'Thursday - Late Night', 'Friday - Late Night', 'Saturday - Late Night', 'Sunday - Evening'],
@@ -665,7 +673,6 @@ function updateValueDowCheck(){
 }
 
 function updateValueDowText(){
-  
   $("#dow-tag").tagsinput("refresh");
   var tagsValue = $("#dow-tag").val();
   var tagsList = tagsValue.split(",");
