@@ -19,18 +19,24 @@
             width: 1008px;
             margin: 0 auto;
         }
+        .navbar-default .navbar-brand img {
+            position: relative;
+            top: -32px;
+            height: 90px;
+            min-width: 100px;
+        }
     </style>
 </head>
 
 <body ng-controller="jobDetails" ng-style="{'background-color': colorBackground, 'background-image' : 'none', 'color': colorBodyText, 'font-family': fontFace, 'font-size': bodySize}">
     <!-- Page Header Section Start-->
     <header>
-        <div class="navbar navbar-default" role="navigation" ng-style="{'background-color': topBar, 'border-color': topBar}" style="height: 90px;">
+        <div class="navbar navbar-default" role="navigation" ng-style="{'background-color': topBar, 'border-color': topBar}" style="height: 110px;">
             <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
                     <a class="navbar-brand" href="{{headerImageLink}}" ng-if="clientImage == 'undefined' || clientImage == ''"><img src="../../img/logo.png"></a>
-                    <a class="navbar-brand padding-bottom-20" href="http://{{headerImageLink}}" ng-if="clientImage !== ''"><img ng-src="{{clientImage}}" width="64" height="55"></a>
+                    <a class="navbar-brand padding-bottom-20" href="http://{{headerImageLink}}" ng-if="clientImage !== ''"><img ng-src="{{clientImage}}"></a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -119,7 +125,7 @@
                     <h5 class="bold" ng-style="{'color': colorHeading, 'font-size': subHeadingSize}">Organization</h5>
                     <div class="row">
                         <div class="col-sm-2">
-                            <img src="../../img/redCross.jpg" height="50" width="50">
+                            <img src="{{clientImage}}" height="50" width="50">
                         </div>
                         <div class="col-sm-10">
                             <span><a href="../../organization/organizationpcms/organizationpcms.html?organizationName=Red Cross NL">Red Cross NL</a></span>
