@@ -22,7 +22,7 @@ app.controller('jobDetails', ['$scope', function ($scope) {
   $scope.jobDate = getParameterByName('jobDate');
   //parameters for theming
 
-  $scope.jobName = 'Student Activist Coordinator';
+  $scope.jobName = 'Student Community worker:';
   $scope.jobDate = 'About 1 hour ago';
   $scope.topBar = "#" + getParameterByName('topBar');
   $scope.clientImage = getParameterByName('clientImage');
