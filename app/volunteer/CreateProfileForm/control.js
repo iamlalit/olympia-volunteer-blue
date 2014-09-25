@@ -1049,11 +1049,19 @@ function updateValueDiplomaText() {
     }
 }
 
+
+
 //volunteer work value
-var volunteer_work_set = ['Unskilled volunteering', 'Environmental volunteering', 'Skills-based volunteering', 'Volunteering in an emergency',
-                          'Volunteering in developing countries', 'Volunteering in schools', 'Virtual Volunteering', 'Corporate volunteering',
-                          'Micro-volunteering', 'Community voluntary work', 'International work-camps'];
+var volunteer_work_set = [{'value':'Unskilled volunteering','text':'Unskilled volunteering'}, {'value':'Environmental volunteering','text':'Environmental volunteering'}, 
+                  {'value':'Skills-based volunteering','text':'Skills-based volunteering'}, {'value':'Volunteering in an emergency','text':'Volunteering in an emergency'}, 
+                  {'value':'Volunteering in developing countries','text':'Volunteering in developing countries'}, {'value':'Volunteering in schools','text':'Volunteering in schools'}, 
+                  {'value':'Virtual Volunteering','text':'Virtual Volunteering'} , {'value':'Corporate volunteering','text':'Corporate volunteering'}, 
+                  {'value':'Micro-volunteering','text':'Micro-volunteering'}, {'value':'Community voluntary work','text':'Community voluntary work'},
+                  {'value':'International work-camps','text':'International work-camps'}]
+
 $('#volunteer-work-tag').tagsinput({
+  itemValue: 'value',
+  itemText: 'text',
   typeahead: {
     source: volunteer_work_set,
     sorter: function (items) {
@@ -1062,15 +1070,21 @@ $('#volunteer-work-tag').tagsinput({
   }
 });
 
+/*Adding method to prevent enter from being click*/
+$("#volunteer-work-tag").next().children('input').attr("onkeypress", "doNothing()");
+
 function updateValueVolunteerWork() {
-    var listOfVolunteerWork = [];
+    var listOfVolunteerWork = [], listOfVolunteerWorkObject = {};
     for (i = 1 ; i <= 12 ; i++) {
         if ($("#volunteerWrk" + i + "").is(":checked")) {
-            console.log($("#volunteerWrk" + i + "").val());
-            listOfVolunteerWork.push($("#volunteerWrk" + i + "").val());
+          listOfVolunteerWorkObject = {'text' : ' ', 'value' : ' '};
+          //getting current node elements
+          currentnode = $("#volunteerWrk" + i +"").val();
+          listOfVolunteerWorkObject.text = currentnode;
+          listOfVolunteerWorkObject.value = currentnode;
+          listOfVolunteerWork.push(listOfVolunteerWorkObject);
         }
     }
-    console.log($("#volunteerWrk11").val());
     $('#volunteer-work-tag').tagsinput('removeAll');
     $("#volunteer-work-tag").tagsinput("refresh");
     for (i = 0 ; i < listOfVolunteerWork.length ; i++) {
@@ -1078,6 +1092,18 @@ function updateValueVolunteerWork() {
     }
     $("#volunteer-work-tag").next().children('input').attr("placeholder", " ");
 }
+
+//Adding input tag from dropdown
+$('#volunteer-work-tag').on('itemAdded', function(event) {
+   var lengthInputTag = $("#volunteer-work-tag").next().children().length;
+    if (lengthInputTag == 1){
+        $("#volunteer-work-tag").next().children('input').attr("placeholder", "Add categories");   
+    } else if (lengthInputTag > 1){
+      $("#volunteer-work-tag").next().children('input').attr("placeholder", " ");
+    }
+  // event.item: contains the item
+});
+
 
 /* On Removing tags placeholder should fill up */
 $('#volunteer-work-tag').on('itemRemoved', function(event) {
@@ -1168,5 +1194,20 @@ function updateValueVolunteerInterestText(){
       }
     }
   }
+}
+
+//Stop enter from being execute.
+function doNothing() {  
+var keyCode = event.keyCode ? event.keyCode : event.which ? event.which : event.charCode;
+    if( keyCode == 13 ) {
+      if(!e) var e = window.event;
+        e.cancelBubble = true;
+        e.returnValue = false;
+
+      if (e.stopPropagation) {
+        e.stopPropagation();
+        e.preventDefault();
+      }
+    }
 }
 
