@@ -575,26 +575,48 @@ $(".dropdown-menu li a").click(function(){
 
 
 
+var language_set = [{'value':'Afrikaans','text':'Afrikaans'}, {'value':'Albanian','text':'Albanian'}, {'value':'Arabic','text':'Arabic'}, 
+                  {'value':'Armenian','text':'Armenian'}, {'value':'Azerbaijani','text':'Azerbaijani'}, {'value':'Basque','text':'Basque'},
+                  {'value':'Belarusian','text':'Belarusian'}, {'value':'Bengali','text':'Bengali'}, {'value':'Bosnian','text':'Bosnian'}, 
+                  {'value':'Bulgarian','text':'Bulgarian'}, {'value':'Catalan','text':'Catalan'}, {'value':'Cebuano','text':'Cebuano'}, 
+                  {'value':'Chinese','text':'Chinese'}, {'value':'Danish','text':'Danish'}, {'value':'Dutch','text':'Dutch'}, 
+                  {'value':'English','text':'English'}, {'value':'Esperanto','text':'Esperanto'}, {'value':'Estonian','text':'Estonian'},
+                  {'value':'Filipino','text':'Filipino'}, {'value':'French','text':'French'}, {'value':'Georgian','text':'Georgian'}, 
+                  {'value':'German','text':'German'}, {'value':'Greek','text':'Greek'}, {'value':'Hausa','text':'Hausa'}, 
+                  {'value':'Hebrew','text':'Hebrew'}, {'value':'Hindi','text':'Hindi'}, {'value':'Hungarian','text':'Hungarian'},
+                  {'value':'Indonesian','text':'Indonesian'}, {'value':'Irish','text':'Irish'}, {'value':'Italian','text':'Italian'},
+                  {'value':'Japanese','text':'Japanese'}, {'value':'Korean','text':'Korean'}, {'value':'Lao','text':'Lao'},
+                  {'value':'Latin','text':'Latin'}, {'value':'Mongolian','text':'Mongolian'}, {'value':'Norwegian','text':'Norwegian'},
+                  {'value':'Persian','text':'Persian'}, {'value':'Portuguese','text':'Portuguese'}, {'value':'Punjabi','text':'Punjabi'},
+                  {'value':'Romanian','text':'Romanian'}, {'value':'Russian','text':'Russian'}, {'value':'Serbian','text':'Serbian'},
+                  {'value':'Spanish','text':'Spanish'}, {'value':'Swedish','text':'Swedish'}, {'value':'Thai','text':'Thai'},
+                  {'value':'Turkish','text':'Turkish'}, {'value':'Ukrainian','text':'Ukrainian'}, {'value':'Urdu','text':'Urdu'},
+                  {'value':'Vietnamese','text':'Vietnamese'}, {'value':'Welsh','text':'Welsh'}, {'value':'Yoruba','text':'Yoruba'},
+                  {'value':'Zulu','text':'Zulu'}];
+
 $('#language-tag').tagsinput({
+  itemValue: 'value',
+  itemText: 'text',
   typeahead: {
-    source: ['Afrikaans','Albanian', 'Arabic', 'Armenian', 'Azerbaijani', 'Basque', 'Belarusian', 'Bengali', 'Bosnian', 'Bulgarian', 
-            'Catalan', 'Cebuano', 'Chinese', 'Danish', 'Dutch', 'English', 'Esperanto', 'Estonian', 'Filipino', 'French', 'Georgian', 
-            'German', 'Greek', 'Hausa', 'Hebrew', 'Hindi', 'Hungarian', 'Indonesian', 'Irish', 'Italian', 'Japanese', 
-            'Korean', 'Lao', 'Latin', 'Mongolian', 'Norwegian', 'Persian', 'Portuguese', 'Punjabi', 'Romanian', 'Russian', 'Serbian', 
-            'Spanish',  'Swedish', 'Thai', 'Turkish', 'Ukrainian', 'Urdu', 'Vietnamese', 'Welsh', 'Yoruba',
-             'Zulu'],
+    source: language_set,
     sorter: function (items) {
         return items.sort();
     }
   }
 });
 
+$("#language-tag").next().children('input').attr("onkeypress", "doNothing()");
 
 function updateValueLanCheck(){
-  var listOfLan = [];
+  var listOfLan = [], listofLanObject = {};
   for( i=1 ; i <= 52 ; i++){
     if($("#lan" + i +"").is(":checked")){
-     listOfLan.push($("#lan" + i +"").val());
+      listofLanObject = {'text' : ' ', 'value' : ' '};
+      //getting current node elements
+      currentnode = $("#lan" + i +"").val();
+      listofLanObject.text = currentnode;
+      listofLanObject.value = currentnode;
+      listOfLan.push(listofLanObject);
     }
   }
   $('#language-tag').tagsinput('removeAll');
@@ -602,9 +624,27 @@ function updateValueLanCheck(){
   for(i = 0 ; i < listOfLan.length ; i++){
     $("#language-tag").tagsinput('add', listOfLan[i]);
   }
+  $("#language-tag").next().children('input').attr("placeholder", " ");
 }
-function updateValueLanText(){
-  
+
+//Adding input tag from dropdown
+$('#language-tag').on('itemAdded', function(event) {
+   var lengthInputTag = $("#language-tag").next().children().length;
+    if (lengthInputTag == 1){
+        $("#language-tag").next().children('input').attr("placeholder", "Add language");   
+    } else if (lengthInputTag > 1){
+      $("#language-tag").next().children('input').attr("placeholder", " ");
+    }
+});
+
+$('#language-tag').on('itemRemoved', function(event) {
+  var lengthInputTag = $("#language-tag").next().children().length;
+  if (lengthInputTag == 1){
+      $("#language-tag").next().children('input').attr("placeholder", "Add language");   
+  } 
+});
+
+function updateValueLanText(){  
   $("#language-tag").tagsinput("refresh");
   var tagsValue = $("#language-tag").val();
   var tagsList = tagsValue.split(",");
@@ -901,6 +941,9 @@ function closeTextScreening(){
     remove = $(this).closest("#divTextTag").remove();
   });
 }
+
+$("#screening-tag").attr("onkeypress", "doNothing()");
+
 function updateValueScreeningText(){
   for( i=0 ; i <= 10 ; i++){
     $("#screening" + i + "").prop("checked", false);

@@ -699,53 +699,76 @@ function updateValueLanText(){
   }
 }
 
+//Source for Days of week
+var dowtag_set = [{'value':'All Weekdays - Full day','text':'All Weekdays - Full day'}, {'value':'Weekends - Full day','text':'Weekends - Full day'}, {'value':'Monday - Full day','text':'Monday - Full day'}, {'value':'Tuesday - Full day','text':'Tuesday - Full day'}, {'value':'Wednesday - Full day','text':'Wednesday - Full day'}, {'value':'Thursday - Full day','text':'Thursday - Full day'},
+                  {'value':'Friday - Full day','text':'Friday - Full day'}, {'value':'Saturday - Full day','text':'Saturday - Full day'}, {'value':'Sunday - Full day','text':'Sunday - Full day'}, {'value':'All Weekdays - Morning','text':'All Weekdays - Morning'}, {'value':'Weekends - Morning','text':'Weekends - Morning'}, {'value':'Monday - Morning','text':'Monday - Morning'}, 
+                  {'value':'Tuesday - Morning','text':'Tuesday - Morning'}, {'value':'Wednesday - Morning','text':'Wednesday - Morning'}, {'value':'Thursday - Morning','text':'Thursday - Morning'}, {'value':'Friday - Morning','text':'Friday - Morning'}, {'value':'Saturday - Morning','text':'Saturday - Morning'}, {'value':'Sunday - Morning','text':'Sunday - Morning'},
+                  {'value':'All Weekdays - Afternoon','text':'All Weekdays - Afternoon'}, {'value':'Weekends - Afternoon','text':'Weekends - Afternoon'}, {'value':'Monday - Afternoon','text':'Monday - Afternoon'}, {'value':'Tuesday - Afternoon','text':'Tuesday - Afternoon'}, {'value':'Wednesday - Afternoon','text':'Wednesday - Afternoon'}, {'value':'Thursday - Afternoon','text':'Thursday - Afternoon'}, 
+                  {'value':'Friday - Afternoon','text':'Friday - Afternoon'}, {'value':'Saturday - Afternoon','text':'Saturday - Afternoon'}, 
+                  {'value':'Sunday - Afternoon','text':'Sunday - Afternoon'}, {'value':'All Weekdays - Evening','text':'All Weekdays - Evening'}, 
+                  {'value':'Weekends - Evening','text':'Weekends - Evening'}, {'value':'Monday - Evening','text':'Monday - Evening'},
+                  {'value':'Tuesday - Evening','text':'Tuesday - Evening'}, {'value':'Wednesday - Evening','text':'Wednesday - Evening'},
+                  {'value':'Thursday - Evening','text':'Thursday - Evening'}, {'value':'Friday - Evening','text':'Friday - Evening'},
+                  {'value':'Saturday - Evening','text':'Saturday - Evening'}, {'value':'Saturday - Evening','text':'Saturday - Evening'},
+                  {'value':'Sunday - Evening','text':'Sunday - Evening'}, {'value':'All Weekdays - Late Night','text':'All Weekdays - Late Night'},
+                  {'value':'Weekends - Late Night','text':'Weekends - Late Night'}, {'value':'Monday - Late Night','text':'Monday - Late Night'},                  
+                  {'value':'Tuesday - Late Night','text':'Tuesday - Late Night'}, {'value':'Wednesday - Late Night','text':'Wednesday - Late Night'},
+                  {'value':'Thursday - Late Night','text':'Thursday - Late Night'}, {'value':'Friday - Late Night','text':'Friday - Late Night'},
+                  {'value':'Saturday - Late Night','text':'Saturday - Late Night'}, {'value':'Sunday - Evening','text':'Sunday - Evening'}
+                  ];
+
 $('#dow-tag').tagsinput({
+  itemValue: 'value',
+  itemText: 'text',
   typeahead: {
-    source: ['All Weekdays - Full day','Weekends - Full day', 'Monday - Full day', 'Tuesday - Full day','Wednesday - Full day', 'Thursday - Full day', 'Friday - Full day', 'Saturday - Full day', 'Sunday - Full day',
-             'All Weekdays - Morning','Weekends - Morning', 'Monday - Morning', 'Tuesday - Morning','Wednesday - Morning', 'Thursday - Morning', 'Friday - Morning', 'Saturday - Morning', 'Sunday - Morning',
-             'All Weekdays - Afternoon','Weekends - Afternoon', 'Monday - Afternoon', 'Tuesday - Afternoon','Wednesday - Afternoon', 'Thursday - Afternoon', 'Friday - Afternoon', 'Saturday - Afternoon', 'Sunday - Afternoon',
-             'All Weekdays - Evening','Weekends - Evening', 'Monday - Evening', 'Tuesday - Evening','Wednesday - Evening', 'Thursday - Evening', 'Friday - Evening', 'Saturday - Evening', 'Sunday - Evening',
-             'All Weekdays - Late Night','Weekends - Late Night', 'Monday - Late Night', 'Tuesday - Late Night','Wednesday - Late Night', 'Thursday - Late Night', 'Friday - Late Night', 'Saturday - Late Night', 'Sunday - Evening'],
+    source: dowtag_set,
     sorter: function (items) {
         return items.sort();
     }
   }
 });
 
+/*Adding method to prevent enter from being click*/
+$("#dow-tag").next().children('input').attr("onkeypress", "doNothing()");
+
 function updateValueDowCheck(){
-  var listOfDow = [];
-  for( i=1 ; i <= 9 ; i++){
+  var listOfDow = [], listofDowObject = {};
+  for( i=1 ; i <= 49 ; i++){
     if($("#dow" + i +"").is(":checked")){
-     listOfDow.push($("#dow" + i +"").val());
+      listofDowObject = {'text' : ' ', 'value' : ' '};
+      //getting current node elements
+      currentnode = $("#dow" + i +"").val();
+      listofDowObject.text = currentnode;
+      listofDowObject.value = currentnode;
+      listOfDow.push(listofDowObject);
     }
   }
-  for( i=11 ; i <= 19 ; i++){
-    if($("#dow" + i +"").is(":checked")){
-     listOfDow.push($("#dow" + i +"").val());
-    }
-  }
-  for( i=21 ; i <= 29 ; i++){
-    if($("#dow" + i +"").is(":checked")){
-     listOfDow.push($("#dow" + i +"").val());
-    }
-  }
-  for( i=31 ; i <= 39 ; i++){
-    if($("#dow" + i +"").is(":checked")){
-     listOfDow.push($("#dow" + i +"").val());
-    }
-  }
-  for( i=41 ; i <= 49 ; i++){
-    if($("#dow" + i +"").is(":checked")){
-     listOfDow.push($("#dow" + i +"").val());
-    }
-  }
-  console.log(listOfDow);
+  
   $('#dow-tag').tagsinput('removeAll');
   $("#dow-tag").tagsinput("refresh");
-  for(i = 0 ; i < listOfDow.length ; i++){
+  for(i = 0; i < listOfDow.length ; i++){
     $("#dow-tag").tagsinput('add', listOfDow[i]);
   }
+   $("#dow-tag").next().children('input').attr("placeholder", " ");
 }
+
+//Adding input tag from dropdown
+$('#dow-tag').on('itemAdded', function(event) {
+   var lengthInputTag = $("#dow-tag").next().children().length;
+    if (lengthInputTag == 1){
+        $("#dow-tag").next().children('input').attr("placeholder", "Add days of the week");   
+    } else if (lengthInputTag > 1){
+      $("#dow-tag").next().children('input').attr("placeholder", " ");
+    }
+});
+
+/* On Removing tags */
+$('#dow-tag').on('itemRemoved', function(event) {
+  var lengthInputTag = $("#dow-tag").next().children().length;
+  if (lengthInputTag == 1){
+      $("#dow-tag").next().children('input').attr("placeholder", "Add days of the week");   
+  } 
+});
 
 function updateValueDowText(){
   
@@ -765,9 +788,25 @@ function updateValueDowText(){
   }
 }
 
-var skills_set = ['Accounting', 'Communication',
-                  'Crowd Control', 'Crime & Safety', 'Disaster Relief', 'People Management', 'Administration', 'Teamwork', 'Problem solving'];
+var skills_set = [{'value':'Answering Telephones','text':'Answering Telephones'}, {'value':'Accounting','text':'Accounting'}, 
+                  {'value':'Crowd Control','text':'Crowd Control'}, {'value':'Crime & Safety','text':'Crime & Safety'}, 
+                  {'value':'Administration','text':'Administration'}, {'value':'Business Correspondence','text':'Business Correspondence'}, 
+                  {'value':'Client Relations','text':'Client Relations'} , {'value':'Communication','text':'Communication'}, 
+                  {'value':'Crowd Control','text':'Crowd Control'} , {'value':'Crime & Safety','text':'Crime & Safety'},
+                  {'value':'Customer Service','text':'Customer Service'} , {'value':'Clerical','text':'Clerical'},
+                  {'value':'Document Management','text':'Document Management'} , {'value':'Disaster Relief','text':'Disaster Relief'},
+                  {'value':'Document Management','text':'Document Management'} , {'value':'Event Coordination','text':'Event Coordination'},
+                  {'value':'Employee Relations','text':'Employee Relations'} , {'value':'Legal Familiarity','text':'Legal Familiarity'},
+                  {'value':'Meeting Planning','text':'Meeting Planning'} , {'value':'Office Administration','text':'Office Administration'},
+                  {'value':'Organizational Skills','text':'Organizational Skills'} , {'value':'Public Relations','text':'Public Relations'},
+                  {'value':'Public Speaking','text':'Public Speaking'} , {'value':'People Management','text':'People Management'},
+                  {'value':'Receptionist','text':'Receptionist'} , {'value':'Stenography','text':'Stenography'},
+                  {'value':'Travel Arrangements','text':'Travel Arrangements'} , {'value':'Word Processing','text':'Word Processing'},
+                  {'value':'Written Communication','text':'Written Communication'}];
+
 $('#skill-tag').tagsinput({
+  itemValue: 'value',
+  itemText: 'text',
   typeahead: {
     source: skills_set,
     sorter: function (items) {
@@ -777,10 +816,16 @@ $('#skill-tag').tagsinput({
 });
 
 function updateValueSkillCheck() {
-  var listOfSkill = [];
+  var listOfSkill = [], listOfSkillObject = {};
   for( i=1 ; i <= 27 ; i++){
     if($("#skill" + i +"").is(":checked")){
-     listOfSkill.push($("#skill" + i +"").val());
+      listOfSkillObject = {'text' : ' ', 'value' : ' '};
+      //getting current node elements
+      currentnode = $("#skill" + i +"").val();
+      console.log(currentnode);
+      listOfSkillObject.text = currentnode;
+      listOfSkillObject.value = currentnode;
+      listOfSkill.push(listOfSkillObject);
     }
   }
   console.log(listOfSkill);
@@ -789,7 +834,28 @@ function updateValueSkillCheck() {
   for(i = 0 ; i < listOfSkill.length ; i++){
     $("#skill-tag").tagsinput('add', listOfSkill[i]);
   }
+  $("#skill-tag").next().children('input').attr("placeholder", " ");
 }
+
+//Adding input tag from dropdown
+$('#skill-tag').on('itemAdded', function(event) {
+   var lengthInputTag = $("#skill-tag").next().children().length;
+    if (lengthInputTag == 1){
+        $("#skill-tag").next().children('input').attr("placeholder", "Add skills");   
+    } else if (lengthInputTag > 1){
+      $("#skill-tag").next().children('input').attr("placeholder", " ");
+    }
+  // event.item: contains the item
+});
+
+/* On Removing tags */
+$('#skill-tag').on('itemRemoved', function(event) {
+  var lengthInputTag = $("#skill-tag").next().children().length;
+  if (lengthInputTag == 1){
+      $("#skill-tag").next().children('input').attr("placeholder", "Add skills");   
+  }
+});
+
 
 function updateValueSkillText(){
   
@@ -943,31 +1009,6 @@ $('#category-tag').on('itemRemoved', function(event) {
 });
 
 
-function updateValueSkillCheck() {
-    var listOfSkill = [];
-    for (i = 1 ; i <= 27 ; i++) {
-        if ($("#skill" + i + "").is(":checked")) {
-            listOfSkill.push($("#skill" + i + "").val());
-        }
-    }
-    console.log(listOfSkill);
-    $('#skill-tag').tagsinput('removeAll');
-    $("#skill-tag").tagsinput("refresh");
-    for (i = 0 ; i < listOfSkill.length ; i++) {
-        $("#skill-tag").tagsinput('add', listOfSkill[i]);
-    }
-    $("#skill-tag").next().children('input').attr("placeholder", " ");
-}
-
-/* On Removing tags */
-$('#skill-tag').on('itemRemoved', function(event) {
-  var lengthInputTag = $("#skill-tag").next().children().length;
-  if (lengthInputTag == 1){
-      $("#skill-tag").next().children('input').attr("placeholder", "Add skills");   
-  }
-});
-
-
 //Function that update the skill input tag from pop up values
 function updateValueSkillNewCheck() {
     var listOfSkill = [];
@@ -996,11 +1037,13 @@ function updateValueSkillNewText() {
 }
 
 //Volunteer deploma
-var diploma_set = ['First Aid Diploma', 'Football Referee License', 'Active Volunteering', 'Training and Assessmement',
-                  'Program Coordination', 'Community Service Coordination', 'Effective Communication', 'Negotiation',
-                  'Customer Service', 'Risk Management']
+var diploma_set = [{'value':'First Aid Diploma','text':'First Aid Diploma'}, {'value':'Football Referee License','text':'Football Referee License'}, {'value':'Active Volunteering','text':'Active Volunteering'}, {'value':'Training and Assessmement','text':'Training and Assessmement'}, 
+                  {'value':'Program Coordination','text':'Program Coordination'}, {'value':'Community Service Coordination','text':'Community Service Coordination'}, {'value':'Effective Communication','text':'Effective Communication'} , {'value':'Negotiation','text':'Negotiation'}, 
+                  {'value':'Customer Service','text':'Customer Service'}, {'value':'Risk Management','text':'Risk Management'}]
 
 $('#diploma-tag').tagsinput({
+    itemValue: 'value',
+    itemText: 'text',
     typeahead: {
         source: diploma_set,
         sorter: function (items) {
@@ -1009,11 +1052,19 @@ $('#diploma-tag').tagsinput({
     }
 });
 
+/*Adding method to prevent enter from being click*/
+$("#diploma-tag").next().children('input').attr("onkeypress", "doNothing()");
+
 function updateValueDiplomaCheck() {
-    var listOfDiploma = [];
+    var listOfDiploma = [], listofDiplomaObject = {}; 
     for (i = 1 ; i <= 10 ; i++) {
         if ($("#diploma" + i + "").is(":checked")) {
-            listOfDiploma.push($("#diploma" + i + "").val());
+            listofDiplomaObject = {'text' : ' ', 'value' : ' '};
+            //getting current node elements
+            currentnode = $("#diploma" + i +"").val();
+            listofDiplomaObject.text = currentnode;
+            listofDiplomaObject.value = currentnode;
+            listOfDiploma.push(listofDiplomaObject);
         }
     }
     $('#diploma-tag').tagsinput('removeAll');
@@ -1023,6 +1074,17 @@ function updateValueDiplomaCheck() {
     }
     $("#diploma-tag").next().children('input').attr("placeholder", " ");   
 }
+
+//Adding input tag from dropdown
+$('#diploma-tag').on('itemAdded', function(event) {
+   var lengthInputTag = $("#diploma-tag").next().children().length;
+    if (lengthInputTag == 1){
+        $("#diploma-tag").next().children('input').attr("placeholder", "Add diploma/certificate");   
+    } else if (lengthInputTag > 1){
+      $("#diploma-tag").next().children('input').attr("placeholder", " ");
+    }
+  // event.item: contains the item
+});
 
 /* On Removing tags */
 $('#diploma-tag').on('itemRemoved', function(event) {
@@ -1049,11 +1111,19 @@ function updateValueDiplomaText() {
     }
 }
 
+
+
 //volunteer work value
-var volunteer_work_set = ['Unskilled volunteering', 'Environmental volunteering', 'Skills-based volunteering', 'Volunteering in an emergency',
-                          'Volunteering in developing countries', 'Volunteering in schools', 'Virtual Volunteering', 'Corporate volunteering',
-                          'Micro-volunteering', 'Community voluntary work', 'International work-camps'];
+var volunteer_work_set = [{'value':'Unskilled volunteering','text':'Unskilled volunteering'}, {'value':'Environmental volunteering','text':'Environmental volunteering'}, 
+                  {'value':'Skills-based volunteering','text':'Skills-based volunteering'}, {'value':'Volunteering in an emergency','text':'Volunteering in an emergency'}, 
+                  {'value':'Volunteering in developing countries','text':'Volunteering in developing countries'}, {'value':'Volunteering in schools','text':'Volunteering in schools'}, 
+                  {'value':'Virtual Volunteering','text':'Virtual Volunteering'} , {'value':'Corporate volunteering','text':'Corporate volunteering'}, 
+                  {'value':'Micro-volunteering','text':'Micro-volunteering'}, {'value':'Community voluntary work','text':'Community voluntary work'},
+                  {'value':'International work-camps','text':'International work-camps'}]
+
 $('#volunteer-work-tag').tagsinput({
+  itemValue: 'value',
+  itemText: 'text',
   typeahead: {
     source: volunteer_work_set,
     sorter: function (items) {
@@ -1062,15 +1132,21 @@ $('#volunteer-work-tag').tagsinput({
   }
 });
 
+/*Adding method to prevent enter from being click*/
+$("#volunteer-work-tag").next().children('input').attr("onkeypress", "doNothing()");
+
 function updateValueVolunteerWork() {
-    var listOfVolunteerWork = [];
+    var listOfVolunteerWork = [], listOfVolunteerWorkObject = {};
     for (i = 1 ; i <= 12 ; i++) {
         if ($("#volunteerWrk" + i + "").is(":checked")) {
-            console.log($("#volunteerWrk" + i + "").val());
-            listOfVolunteerWork.push($("#volunteerWrk" + i + "").val());
+          listOfVolunteerWorkObject = {'text' : ' ', 'value' : ' '};
+          //getting current node elements
+          currentnode = $("#volunteerWrk" + i +"").val();
+          listOfVolunteerWorkObject.text = currentnode;
+          listOfVolunteerWorkObject.value = currentnode;
+          listOfVolunteerWork.push(listOfVolunteerWorkObject);
         }
     }
-    console.log($("#volunteerWrk11").val());
     $('#volunteer-work-tag').tagsinput('removeAll');
     $("#volunteer-work-tag").tagsinput("refresh");
     for (i = 0 ; i < listOfVolunteerWork.length ; i++) {
@@ -1078,6 +1154,18 @@ function updateValueVolunteerWork() {
     }
     $("#volunteer-work-tag").next().children('input').attr("placeholder", " ");
 }
+
+//Adding input tag from dropdown
+$('#volunteer-work-tag').on('itemAdded', function(event) {
+   var lengthInputTag = $("#volunteer-work-tag").next().children().length;
+    if (lengthInputTag == 1){
+        $("#volunteer-work-tag").next().children('input').attr("placeholder", "Add categories");   
+    } else if (lengthInputTag > 1){
+      $("#volunteer-work-tag").next().children('input').attr("placeholder", " ");
+    }
+  // event.item: contains the item
+});
+
 
 /* On Removing tags placeholder should fill up */
 $('#volunteer-work-tag').on('itemRemoved', function(event) {
@@ -1168,5 +1256,20 @@ function updateValueVolunteerInterestText(){
       }
     }
   }
+}
+
+//Stop enter from being execute.
+function doNothing() {  
+var keyCode = event.keyCode ? event.keyCode : event.which ? event.which : event.charCode;
+    if( keyCode == 13 ) {
+      if(!e) var e = window.event;
+        e.cancelBubble = true;
+        e.returnValue = false;
+
+      if (e.stopPropagation) {
+        e.stopPropagation();
+        e.preventDefault();
+      }
+    }
 }
 
