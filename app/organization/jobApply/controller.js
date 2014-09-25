@@ -19,6 +19,8 @@ app.controller('jobDetails', ['$scope', function ($scope) {
       return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
     }
 
+  $scope.jobName = 'Student Community worker:';
+  $scope.jobDate = 'About 1 hour ago';
   $scope.topBar = "#" + getParameterByName('topBar');
   $scope.clientImage = getParameterByName('clientImage');
   $scope.topBarText = "#" + getParameterByName('topBarText');
@@ -34,11 +36,25 @@ app.controller('jobDetails', ['$scope', function ($scope) {
   $scope.headingSize  = getParameterByName('headingSize') + "px";
   $scope.subHeadingSize  = getParameterByName('subHeadingSize') + "px";
   $scope.bodySize  = getParameterByName('bodySize') + "px";
+  $scope.headerImageLink  = getParameterByName('headerImageLink');
   $scope.fontFace  = getParameterByName('fontFace');
-
-  $scope.jobName = getParameterByName('jobName');
-  $scope.jobDate = getParameterByName('jobDate')
+  $scope.fontFaceH3  = getParameterByName('fontFaceH3');
+  $scope.fontFaceH2  = getParameterByName('fontFaceH2');
+  $scope.fontFaceH1  = getParameterByName('fontFaceH1');
+  //show and hide feature
+  $scope.showApplyButton  = getParameterByName('showApplyButton');
+  $scope.showJobLocation  = getParameterByName('showJobLocation');
+  $scope.showOrgADDDetails  = getParameterByName('showOrgADDDetails');
+  $scope.showOrgDetails = getParameterByName('showOrgDetails');
+  var messageInstruction  = getParameterByName('messageInstruction');
+  
+  if(messageInstruction == 'undefined') {
+    $scope.messageInstruction = '';  
+  }else{
+    $scope.messageInstruction = messageInstruction;
+  }
+  $scope.SITV  = getParameterByName('SITV');
 
   $scope.hideHeaderFooter = 'true';
-  $scope.jobApplyPageURL = "../job/job.html?jobName=" + $scope.jobName +"&jobDate=" + $scope.jobDate + "&topBar=" + $scope.topBar.replace("#", "") +"&clientImage=" + $scope.clientImage + "&topBarText=" + $scope.topBarText.replace("#", "") + "&buttonBackColor=" + $scope.buttonBackColor.replace("#", "") + "&buttonColor=" + $scope.buttonColor.replace("#", "") + "&bottomBarText=" + $scope.bottomBarText.replace("#", "") + "&bottomBar=" + $scope.bottomBar.replace("#", "") + "&colorBackground=" + $scope.colorBackground.replace("#", "") + "&colorHeading=" + $scope.colorHeading.replace("#", "") + "&colorBodyText=" + $scope.colorBodyText.replace("#", "") + "&headingSize=" + $scope.headingSize + "&subHeadingSize=" + $scope.subHeadingSize + "&bodySize=" + $scope.bodySize + "&fontFace=" + $scope.fontFace;
+  $scope.jobApplyPageURL = "../job/job.html?topBar=" + $scope.topBar.replace("#", "") +"&clientImage=" + $scope.clientImage + "&topBarText=" + $scope.topBarText.replace("#", "") + "&buttonBackColor=" + $scope.buttonBackColor.replace("#", "") + "&buttonColor=" + $scope.buttonColor.replace("#", "") + "&bottomBarText=" + $scope.bottomBarText.replace("#", "") + "&bottomBar=" + $scope.bottomBar.replace("#", "") + "&colorBackground=" + $scope.colorBackground.replace("#", "") + "&colorHeading=" + $scope.colorHeading.replace("#", "") + "&colorBodyText=" + $scope.colorBodyText.replace("#", "") + "&headingSize=" + $scope.headingSize.replace("px", "") + "&subHeadingSize=" + $scope.subHeadingSize.replace("px", "") + "&bodySize=" + $scope.bodySize.replace("px", "") + "&fontFace=" + $scope.fontFace + "&headerImageLink=" + $scope.headerImageLink + "&fontFaceH1=" + $scope.fontFaceH1 + "&fontFaceH2=" + $scope.fontFaceH2 + "&fontFaceH2=" + $scope.fontFaceH3 + "&showOrgDetails=" + $scope.showOrgDetails + "&showOrgADDDetails=" + $scope.showOrgADDDetails + "&showJobLocation=" + $scope.showJobLocation + "&showApplyButton=" + $scope.showApplyButton + "&messageInstruction=" + $scope.messageInstruction + "&SITV=" + $scope.SITV;
 }]);
