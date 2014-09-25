@@ -765,9 +765,25 @@ function updateValueDowText(){
   }
 }
 
-var skills_set = ['Accounting', 'Communication',
-                  'Crowd Control', 'Crime & Safety', 'Disaster Relief', 'People Management', 'Administration', 'Teamwork', 'Problem solving'];
+var skills_set = [{'value':'Answering Telephones','text':'Answering Telephones'}, {'value':'Accounting','text':'Accounting'}, 
+                  {'value':'Crowd Control','text':'Crowd Control'}, {'value':'Crime & Safety','text':'Crime & Safety'}, 
+                  {'value':'Administration','text':'Administration'}, {'value':'Business Correspondence','text':'Business Correspondence'}, 
+                  {'value':'Client Relations','text':'Client Relations'} , {'value':'Communication','text':'Communication'}, 
+                  {'value':'Crowd Control','text':'Crowd Control'} , {'value':'Crime & Safety','text':'Crime & Safety'},
+                  {'value':'Customer Service','text':'Customer Service'} , {'value':'Clerical','text':'Clerical'},
+                  {'value':'Document Management','text':'Document Management'} , {'value':'Disaster Relief','text':'Disaster Relief'},
+                  {'value':'Document Management','text':'Document Management'} , {'value':'Event Coordination','text':'Event Coordination'},
+                  {'value':'Employee Relations','text':'Employee Relations'} , {'value':'Legal Familiarity','text':'Legal Familiarity'},
+                  {'value':'Meeting Planning','text':'Meeting Planning'} , {'value':'Office Administration','text':'Office Administration'},
+                  {'value':'Organizational Skills','text':'Organizational Skills'} , {'value':'Public Relations','text':'Public Relations'},
+                  {'value':'Public Speaking','text':'Public Speaking'} , {'value':'People Management','text':'People Management'},
+                  {'value':'Receptionist','text':'Receptionist'} , {'value':'Stenography','text':'Stenography'},
+                  {'value':'Travel Arrangements','text':'Travel Arrangements'} , {'value':'Word Processing','text':'Word Processing'},
+                  {'value':'Written Communication','text':'Written Communication'}];
+
 $('#skill-tag').tagsinput({
+  itemValue: 'value',
+  itemText: 'text',
   typeahead: {
     source: skills_set,
     sorter: function (items) {
@@ -777,10 +793,16 @@ $('#skill-tag').tagsinput({
 });
 
 function updateValueSkillCheck() {
-  var listOfSkill = [];
+  var listOfSkill = [], listOfSkillObject = {};
   for( i=1 ; i <= 27 ; i++){
     if($("#skill" + i +"").is(":checked")){
-     listOfSkill.push($("#skill" + i +"").val());
+      listOfSkillObject = {'text' : ' ', 'value' : ' '};
+      //getting current node elements
+      currentnode = $("#skill" + i +"").val();
+      console.log(currentnode);
+      listOfSkillObject.text = currentnode;
+      listOfSkillObject.value = currentnode;
+      listOfSkill.push(listOfSkillObject);
     }
   }
   console.log(listOfSkill);
@@ -789,7 +811,28 @@ function updateValueSkillCheck() {
   for(i = 0 ; i < listOfSkill.length ; i++){
     $("#skill-tag").tagsinput('add', listOfSkill[i]);
   }
+  $("#skill-tag").next().children('input').attr("placeholder", " ");
 }
+
+//Adding input tag from dropdown
+$('#skill-tag').on('itemAdded', function(event) {
+   var lengthInputTag = $("#skill-tag").next().children().length;
+    if (lengthInputTag == 1){
+        $("#skill-tag").next().children('input').attr("placeholder", "Add skills");   
+    } else if (lengthInputTag > 1){
+      $("#skill-tag").next().children('input').attr("placeholder", " ");
+    }
+  // event.item: contains the item
+});
+
+/* On Removing tags */
+$('#skill-tag').on('itemRemoved', function(event) {
+  var lengthInputTag = $("#skill-tag").next().children().length;
+  if (lengthInputTag == 1){
+      $("#skill-tag").next().children('input').attr("placeholder", "Add skills");   
+  }
+});
+
 
 function updateValueSkillText(){
   
@@ -939,31 +982,6 @@ $('#category-tag').on('itemRemoved', function(event) {
   var lengthInputTag = $("#category-tag").next().children().length;
   if (lengthInputTag == 1){
       $("#category-tag").next().children('input').attr("placeholder", "Add categories");   
-  }
-});
-
-
-function updateValueSkillCheck() {
-    var listOfSkill = [];
-    for (i = 1 ; i <= 27 ; i++) {
-        if ($("#skill" + i + "").is(":checked")) {
-            listOfSkill.push($("#skill" + i + "").val());
-        }
-    }
-    console.log(listOfSkill);
-    $('#skill-tag').tagsinput('removeAll');
-    $("#skill-tag").tagsinput("refresh");
-    for (i = 0 ; i < listOfSkill.length ; i++) {
-        $("#skill-tag").tagsinput('add', listOfSkill[i]);
-    }
-    $("#skill-tag").next().children('input').attr("placeholder", " ");
-}
-
-/* On Removing tags */
-$('#skill-tag').on('itemRemoved', function(event) {
-  var lengthInputTag = $("#skill-tag").next().children().length;
-  if (lengthInputTag == 1){
-      $("#skill-tag").next().children('input').attr("placeholder", "Add skills");   
   }
 });
 
