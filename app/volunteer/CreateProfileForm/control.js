@@ -1192,17 +1192,39 @@ function updateValueVolunteerWorkText(){
     }
   }
 }
-//volunteer work area
-var volunteer_set = ['Agriculture', 'Animals', 'Arts', 'Civic engegement', 'Communications access', 'Community development', 'Conflict resolution',
-                      'Consumer protection', 'Crime & Safety', 'Disability', 'Disaster relief', 'Drug abuse', 'Economic development', 'Education',
-                      'Energy conservation', 'Environment', 'Family', 'Government reform', 'Health & Medicine', 'Housing and homelessness', 
-                      'Human rights', 'Human services', 'Immigration', 'International cooperation', 'International relations', 
-                      'Job & workplace', 'Legal assistance', 'LGBT', 'Library or resource center', 'Media', 'Men', 'Mental health', 'Microedit', 
-                      'Multi-service agency', 'Museums and history', 'Network of nonprofits', 'Personal finance', 'Philanthropy', 'Politics', 
-                      'Poverty and hunger', 'Prison reform', 'Professional association', 'Race and ethnicity', 'Religion and spirituality', 
-                      'Research and science', 'Rural', 'Social enterprise', 'Sports and recreation', 'Technology', 
-                      'Travel and transportation', 'Urban', 'Veterans', 'Victim support', 'Volunteering', 'Women', 'Youth'];
+
+//volunteer work value
+var volunteer_set = [{'value':'Agriculture','text':'Agriculture'}, {'value':'Animals','text':'Animals'}, 
+                  {'value':'Arts','text':'Arts'}, {'value':'Civic engegement','text':'Civic engegement'}, 
+                  {'value':'Communications access','text':'Communications access'}, {'value':'Community development','text':'Community development'}, 
+                  {'value':'Conflict resolution','text':'Conflict resolution'} , {'value':'Consumer protection','text':'Consumer protection'}, 
+                  {'value':'Crime & Safety','text':'Crime & Safety'}, {'value':'Disability','text':'Disability'}, {'value':'Disaster relief','text':'Disaster relief'}, 
+                  {'value':'Drug abuse','text':'Drug abuse'}, {'value':'Economic development','text':'Economic development'}, 
+                  {'value':'Education','text':'Education'}, {'value':'Energy conservation','text':'Energy conservation'}, 
+                  {'value':'Environment','text':'Environment'}, {'value':'Family','text':'Family'}, 
+                  {'value':'Government reform','text':'Government reform'}, {'value':'Health & Medicine','text':'Health & Medicine'},
+                  {'value':'Housing and homelessness','text':'Housing and homelessness'}, {'value':'Human rights','text':'Human rights'},
+                  {'value':'Human services','text':'Human services'}, {'value':'Immigration','text':'Immigration'},
+                  {'value':'International cooperation','text':'International cooperation'}, {'value':'International relations','text':'International relations'}, 
+                  {'value':'Job & workplace','text':'Job & workplace'}, {'value':'Legal assistance','text':'Legal assistance'},
+                  {'value':'LGBT','text':'LGBT'},{'value':'Library or resource center','text':'Library or resource center'},
+                  {'value':'Media','text':'Media'},{'value':'Men','text':'Men'},
+                  {'value':'Mental health','text':'Mental health'},{'value':'Microedit','text':'Microedit'},
+                  {'value':'Multi-service agency','text':'Multi-service agency'},{'value':'Museums and history','text':'Museums and history'},
+                  {'value':'Network of nonprofits','text':'Network of nonprofits'},{'value':'Personal finance','text':'Personal finance'},
+                  {'value':'Philanthropy','text':'Philanthropy'},{'value':'Politics','text':'Politics'},
+                  {'value':'Poverty and hunger','text':'Poverty and hunger'},{'value':'Prison reform','text':'Prison reform'},
+                  {'value':'Professional association','text':'Professional association'},{'value':'Race and ethnicity','text':'Race and ethnicity'},
+                  {'value':'Religion and spirituality','text':'Religion and spirituality'},{'value':'Research and science','text':'Research and science'},
+                  {'value':'Rural','text':'Rural'},{'value':'Social enterprise','text':'Social enterprise'},
+                  {'value':'Sports and recreation','text':'Sports and recreation'},{'value':'Technology','text':'Technology'},
+                  {'value':'Travel and transportation','text':'Travel and transportation'},{'value':'Urban','text':'Urban'},
+                  {'value':'Veterans','text':'Veterans'},{'value':'Victim support','text':'Victim support'},
+                  {'value':'Volunteering','text':'Volunteering'},{'value':'Women','text':'Women'},
+                  {'value':'Youth','text':'Youth'}];
 $('#volunteer-tag').tagsinput({
+  itemValue: 'value',
+  itemText: 'text',
   typeahead: {
     source: volunteer_set,
     sorter: function (items) {
@@ -1211,13 +1233,18 @@ $('#volunteer-tag').tagsinput({
   }
 });
 function updateValueVolunteerInterest() {
-    var listOfVolunteerWork = [];
+    var listOfVolunteerWork = [], listOfVolunteerWorkObject = {};
     for (i = 1 ; i <= 56 ; i++) {
         var target = $("#desiredWork" + i).children("span");
         tickCheck=target[0].className.indexOf("tick");
         if(tickCheck>-1){
-          var nextElement = $("#desiredWork" + i).children("label").text();
-          listOfVolunteerWork.push(nextElement);
+          listOfVolunteerWorkObject = {'text' : ' ', 'value' : ' '};
+          //getting current node elements
+          var currentnode = $("#desiredWork" + i).children("label").text();
+          listOfVolunteerWorkObject.text = currentnode;
+          listOfVolunteerWorkObject.value = currentnode;
+          listOfVolunteerWork.push(listOfVolunteerWorkObject);
+          
         }
     }
     $('#volunteer-tag').tagsinput('removeAll');
