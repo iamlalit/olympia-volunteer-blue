@@ -55,7 +55,9 @@
 	border-top:3px solid rgba(0,0,0,0.2);
 }
 
-/* Mange recommendation */
+/*###################################*/
+/* Mange recommendation section start*/
+/*###################################*/
 .recommendation-title{
 	font-size:20px;
 	line-height: 28px;
@@ -65,3 +67,23 @@
 	font-size:12px;
 	line-height: normal;
 }
+/*###################################*/
+ /* Mange recommendation section end*/
+/*###################################*/
+
+/*###################################*/
+/* Given recommendation section start*/
+/*###################################*/
+
+/*###################################*/
+ /* Given recommendation section end*/
+/*###################################*/
+
+
+/*###################################*/
+ /* Ask recommendation section start*/
+/*###################################*/
+
+/*###################################*/
+  /* Ask recommendation section end*/
+/*###################################*/
