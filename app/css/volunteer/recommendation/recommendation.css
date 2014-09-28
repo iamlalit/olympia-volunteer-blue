@@ -74,6 +74,38 @@
 /*###################################*/
 /* Given recommendation section start*/
 /*###################################*/
+.show-list{
+	width:100%;
+}
+.show-list ul{
+	float:left;
+	width:100%;
+	list-style: none;
+}
+.show-list ul li{
+	float:left;
+}
+.show-list ul li a{
+	padding:5px 3px;
+	color:#444;
+	display: block;
+}
+.show-list ul li.active a{
+	color:#1489be;
+}
+.show-list ul li:hover a{
+	color:#1489be;
+}
+.show-list ul li:nth-child(1) a{
+	color:#444;
+	padding-left:0;
+}
+.show-list ul li:nth-child(1):hover a{
+	text-decoration: none;
+	cursor: default;
+}
+
+
 
 /*###################################*/
  /* Given recommendation section end*/
