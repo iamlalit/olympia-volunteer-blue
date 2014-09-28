@@ -10,6 +10,9 @@ ul{
 .red{
 	color:red;
 }
+.grey-disable{
+  color:#d2d2d2;
+}
 span a{
 	color:#1489be;
 	cursor: pointer;

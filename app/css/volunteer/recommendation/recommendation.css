@@ -54,3 +54,14 @@
 	color:#616161;
 	border-top:3px solid rgba(0,0,0,0.2);
 }
+
+/* Mange recommendation */
+.recommendation-title{
+	font-size:20px;
+	line-height: 28px;
+	font-weight:600;
+}
+.recommendation-title p{
+	font-size:12px;
+	line-height: normal;
+}
