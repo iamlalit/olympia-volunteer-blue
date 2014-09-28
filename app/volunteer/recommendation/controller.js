@@ -1,5 +1,5 @@
-﻿var landingController = angular.module('landingController', []);
-landingController.controller('landingPage', ['$scope', function ($scope) {
+﻿var landingController = angular.module('recommendationController', []);
+landingController.controller('recommendationPage', ['$scope', function ($scope) {
 
 
 //ask for recommendation dummy data
@@ -19,5 +19,12 @@ $scope.jobs.push({'name': 'Red Cross NL',
 				'startDate': '2010',
 				'month2': '9',
 				'endDate': '2014'});
+$scope.owner = [];
+$scope.owner.push({'email': 'sander_mrborwn@email.com'});
+$scope.owner.push({'email': 'mrborwn@email.com'})
 
+$scope.modalMessage = "Hello, \n\n"+
+              "I'm sending this to ask you for a brief recommendation of my work/school that I can include in my Volunteer profile. If you have any questions, let me know. \n\n"+
+              "Thanks in advance for helping me out. \n\n" +
+              "sander_mrborwn";
 }]);

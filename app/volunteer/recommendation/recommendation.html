@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html ng-app="landingController">
+<html ng-app="recommendationController">
 <head>
     <meta charset="utf-8">
     <title>OLYMPIA</title>
@@ -25,7 +25,7 @@
     </style>
 </head>
 
-<body ng-controller="landingPage">
+<body ng-controller="recommendationPage">
     <!-- Page Header Section Start-->
     <header>
         <div class="navbar navbar-default" role="navigation">
@@ -268,17 +268,48 @@
 
                         <div  id='connections' class="inline-block margin-left-10">
                             <input type="text" style="width:600px;" id='connection-tag' placeholder="Add connections" />
-                        </div>
-                        <div class="inline-block margin-left-10">
-                            <span>
-                                <a href="#" id="zoomTextarea"id="modal-dow" onclick="updateValueConnectionText()" title="Click to add connection" data-toggle="modal" data-target="#dowBox">abc</a>
-                            </span>
-                        </div>
+                        </div>  
                     </div>
                 </div>
                 <div class="row margin-rl-0 margin-top-10">
                     <div class="number-circle">3</div>
                     <label class="font-size-15 line-height-15">Create your message</label>
+                </div>
+                <div class="row margin-rl-0 margin-top-10">
+                    <div class="col-sm-1">
+                    </div>
+                    <label class="col-sm-1 padding-top-7">From: </label>
+                    <span> Sander_mrbrown</span>
+
+                    <select class="select-option float-none margin-left-10">
+                        <option ng-repeat="own in owner">{{own.email}}</option>
+                    </select>
+                </div>
+
+                <div class="row margin-rl-0 margin-top-10">
+                    <div class="col-sm-1">
+                    </div>
+                    <label class="col-sm-1 padding-rl-0 padding-top-7">Subject: </label> 
+                    <input type="text" class="col-sm-8 padding-rl-0" value="Can you recommend me?" />
+                </div>
+                <div class="row margin-rl-0 margin-top-10">
+                    <div class="col-sm-1">&nbsp;</div>
+                    <div class="col-sm-11 padding-rl-0">
+                        <textarea class="text-area" cols="100" rows="9" ng-model="modalMessage"></textarea>
+                    </div>
+                </div>
+                <div class="row margin-rl-0">
+                    <div class="col-sm-1">
+                    </div>
+                    <span id='optional-text'><strong>Note: </strong>Each recipient will receive an individual email. This will not be sent as a group email.</span>
+                </div>
+                <div class="row margin-rl-0 margin-bottom-20">
+                    <div class="col-sm-1">
+                    </div>
+                    <div class="col-sm-11 padding-rl-0 margin-top-30">
+                        <button class="btn btn-success" type="submit">Send</button>
+                        <button class="btn btn-danger" type="button">Cancel</button>
+                    </div>
                 </div>
             </div>
         </div>

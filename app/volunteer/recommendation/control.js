@@ -1284,19 +1284,3 @@ function updateValueVolunteerInterestText(){
     }
   }
 }
-
-//Stop enter from being execute.
-function doNothing() {  
-var keyCode = event.keyCode ? event.keyCode : event.which ? event.which : event.charCode;
-    if( keyCode == 13 ) {
-      if(!e) var e = window.event;
-        e.cancelBubble = true;
-        e.returnValue = false;
-
-      if (e.stopPropagation) {
-        e.stopPropagation();
-        e.preventDefault();
-      }
-    }
-}
-
