@@ -91,7 +91,7 @@
         <div  class="row margin-rl-0">
             <div class="col-lg-12 margin-top-10 main-border1 padding-left-0 recommendation-wrapper">
                 <h3>Recommendations</h3>
-                <div class="tabs-recommendation" ng-init="received.flag=false; given.flag=true; askrecommendation.flag=false">
+                <div class="tabs-recommendation" ng-init="received.flag=false; given.flag=false; askrecommendation.flag=true">
                     <ul>
                         <li ng-class="{active : received.flag==true}"><a href="#" ng-click="received.flag=true; given.flag=false; askrecommendation.flag=false">Received</a></li>
                         <li ng-class="{active : given.flag==true}"><a href="#" ng-click="received.flag=false; given.flag=true; askrecommendation.flag=false">Given</a></li>
@@ -234,12 +234,55 @@
         <!-- Received Section Start -->
         <div class="row margin-rl-0" ng-if="askrecommendation.flag==true">
             <div class="col-lg-12 margin-top-10 main-border1 padding-left-0">
-                <div class="recommendation-title">
-                    <span>Ask recommendation</span>
-                    <p>(Looking for recommendations you've made? <a href="#">Click here</a>)</p>
+                <div class="row margin-rl-0">
+                    <div class="recommendation-title">
+                        <span>Ask your connections to recommend you</span>
+                    </div>
+                </div>
+                <div class="row margin-rl-0 margin-top-20">
+                    <div class="number-circle">1</div>
+                    <label class="font-size-15 line-height-15">What do you want to be recommended for?</label>
+                </div>
+                <div class="row margin-rl-0 margin-top-10">
+                    <div class="col-lg-1">&nbsp;</div>
+                    <div class="col-lg-11 padding-rl-0">
+                        <select class="col-lg-12 select-option float-none">
+                            <option>Choose...</option>
+                            <option value="{{school.name}}" ng-repeat="school in schools">Student at {{school.name}}</option>
+                            <option value="{{job.name}}" ng-repeat="job in jobs" >{{job.title}} at {{job.name}}</option>
+                        </select>
+                        <span class="margin-left-10">Add a <a>job</a> or <a>school</a></span>
+                    </div>
+                </div>
+                <div class="row margin-rl-0 margin-top-20">
+                    <div class="number-circle">2</div>
+                    <label class="font-size-15 line-height-15">Who do you want to ask?</label>
+                </div>
+                <div class="row margin-rl-0 margin-top-10">
+                    <div class="col-lg-1">&nbsp;</div>
+                    <div class="col-lg-11 padding-rl-0">
+                        <span>Your connections: </span>
+                        <!-- <label id='form-component-arrangement-label'>Days of the Week</label>
+                        <span id="optional-text">(optional) </span>
+                         -->
+
+                        <div  id='connections' class="inline-block margin-left-10">
+                            <input type="text" style="width:600px;" id='connection-tag' placeholder="Add connections" />
+                        </div>
+                        <div class="inline-block margin-left-10">
+                            <span>
+                                <a href="#" id="zoomTextarea"id="modal-dow" onclick="updateValueConnectionText()" title="Click to add connection" data-toggle="modal" data-target="#dowBox">abc</a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row margin-rl-0 margin-top-10">
+                    <div class="number-circle">3</div>
+                    <label class="font-size-15 line-height-15">Create your message</label>
                 </div>
             </div>
         </div>
+
         <!-- Received Section Start -->
 
     </div>
