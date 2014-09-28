@@ -91,16 +91,18 @@
         <div  class="row margin-rl-0">
             <div class="col-lg-12 margin-top-10 main-border1 padding-left-0 recommendation-wrapper">
                 <h3>Recommendations</h3>
-                <div class="tabs-recommendation">
+                <div class="tabs-recommendation" ng-init="received.flag=true; given.flag=false; askrecommendation.flag=false">
                     <ul>
-                        <li class="active"><a href="#">Received</a></li>
-                        <li><a href="#">Given</a></li>
-                        <li><a href="#">Ask for recommendations</a></li>
+                        <li ng-class="{active : received.flag==true}"><a href="#" ng-click="received.flag=true; given.flag=false; askrecommendation.flag=false">Received</a></li>
+                        <li ng-class="{active : given.flag==true}"><a href="#" ng-click="received.flag=false; given.flag=true; askrecommendation.flag=false">Given</a></li>
+                        <li ng-class="{active : askrecommendation.flag==true}"><a href="#" ng-click="received.flag=false; given.flag=false; askrecommendation.flag=true">Ask for recommendations</a></li>
                     </ul>
                 </div>
             </div>
         </div>
-        <div class="row margin-rl-0">
+
+        <!-- Received Section Start -->
+        <div class="row margin-rl-0" ng-if="received.flag==true;">
             <div class="col-lg-12 margin-top-10 main-border1 padding-left-0">
                 <div class="recommendation-title">
                     <span>Manage recommendations you've received</span>
@@ -203,6 +205,29 @@
                 </div>
             </div>
         </div>
+        <!-- Received Section Start -->
+
+        <!-- Received Section Start -->
+        <div class="row margin-rl-0" ng-if="given.flag==true;">
+            <div class="col-lg-12 margin-top-10 main-border1 padding-left-0">
+                <div class="recommendation-title">
+                    <span>Given recommendation</span>
+                    <p>(Looking for recommendations you've made? <a href="#">Click here</a>)</p>
+                </div>
+            </div>
+        </div>
+        <!-- Received Section Start -->
+
+        <!-- Received Section Start -->
+        <div class="row margin-rl-0" ng-if="askrecommendation.flag==true">
+            <div class="col-lg-12 margin-top-10 main-border1 padding-left-0">
+                <div class="recommendation-title">
+                    <span>Ask recommendation</span>
+                    <p>(Looking for recommendations you've made? <a href="#">Click here</a>)</p>
+                </div>
+            </div>
+        </div>
+        <!-- Received Section Start -->
 
     </div>
 
