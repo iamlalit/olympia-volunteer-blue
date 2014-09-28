@@ -817,3 +817,14 @@ padding: 15px 12px;
   background-size:29px;
 }
 
+/* Table section */
+.accrd_table{
+  border-raidus:3px;
+  position:relative;
+  width:100%;
+  float:left;
+  border:1px solid #e2e6e9;
+}
+table thead{
+  background:#eee;
+}
