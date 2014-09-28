@@ -1,0 +1,56 @@
+﻿/* Tabs */
+.recommendation-wrapper{
+	padding:0;
+}
+.recommendation-wrapper h3{
+	margin-top:15px;
+	margin-left:15px;
+	padding:0;
+}
+
+.tabs-recommendation{
+	width:100%;
+	float:left;
+	background:rgba(0,0,0,0.1);
+	border-bottom-left-radius:7px;
+	border-bottom-right-radius:7px;
+	border-top:1px solid rgba(0,0,0,0.1);
+	border-left:1px solid rgba(0,0,0,0.04);
+	border-right:1px solid rgba(0,0,0,0.04);
+	border-bottom:1px solid rgba(0,0,0,0.04);
+}
+.tabs-recommendation ul{
+	list-style:none;
+	position: relative;
+	float:left;
+	width:100%;
+}
+.tabs-recommendation ul li{
+	float:left;
+	padding:0 10px;
+	text-align: center;
+	min-width:50px;
+	-webkit-transition: all 1s ease;
+}
+.tabs-recommendation ul li.active a{
+	text-decoration: none;
+	color:#616161;
+	border-top:3px solid #1489be;
+}
+.tabs-recommendation ul li a{
+	display: inline-block;
+	border-top:3px solid #e5e5e5;
+	padding:8px 12px 9px 12px;
+	color:#858583;
+	-webkit-transition: all 1s ease;
+}
+
+/* Hover states */
+.tabs-recommendation ul li:hover{
+	display: block;
+}
+.tabs-recommendation ul li:hover a{
+	text-decoration: none;
+	color:#616161;
+	border-top:3px solid rgba(0,0,0,0.2);
+}
