@@ -149,3 +149,11 @@ border-radius:10px;
 .small-pill {
 	background-color: #cccccc !important;
 }
+.background-dgrey1{
+	background-color: #ccc;
+	margin: 0 -15px 0 -15px;
+}
+.image-logo-organozation{
+	max-width:95px;
+	min-height: 57px;
+}
