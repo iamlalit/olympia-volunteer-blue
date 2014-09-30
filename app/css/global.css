@@ -530,6 +530,10 @@ position: relative;
 .float-left{
 	float: left;
 }
+
+.float-right{
+  float: right;
+}
 .list-style-disc{
 	list-style-type: disc;
 }

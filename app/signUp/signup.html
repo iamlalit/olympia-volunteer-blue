@@ -23,7 +23,7 @@
             <div class="collapse navbar-collapse">
                 <div class="wrap-login-text navbar-right">
                     <span ng-show="volunteer">Already have a account?</span>
-                    <span ng-show="organisation">Already have a account?</span>
+                    <span ng-show="Organization">Already have a account?</span>
                     <span class="text-bold"><a href="../login/login.html">Log In</a></span>
                 </div>
             </div><!--/.nav-collapse -->
@@ -36,13 +36,13 @@
                 <div class="col-lg-12 wrapper-form sign-up-form">
                     <div class="look-Hire" ng-show="volunteer">
                         <p>Looking to hire?</p>
-                        <a ng-click="organisationToggle()" href="#">Sign up as an Organisation</a>
+                        <a ng-click="OrganizationToggle()" href="#">Sign up as an Organization</a>
                     </div>
-                    <div class="look-Hire" ng-show="organisation">
+                    <div class="look-Hire" ng-show="Organization">
                         <p>Looking for job?</p>
                         <a ng-click="volunteerToggle()" href="#">Sign up as a Volunteer</a>
                     </div>
-                    <h2 class="font-size-26" ng-show="organisation">Create a Free Organisation Account</h2>
+                    <h2 class="font-size-26" ng-show="Organization">Create a Free Organization Account</h2>
                     <h2 class="font-size-26" ng-show="volunteer">Create a Free Volunteer Account</h2>
                     <p class="social-text">You can also sign up with <span class="fa fa-facebook-square"></span><a href="">Facebook</a>, <span class="fa fa-linkedin-square"></span> <a href="#">LinkedIn</a> or<span class="fa fa-google-plus-square"></span><a href="">Google</a></p>
                     <!-- Error Placeholder-->
@@ -777,9 +777,9 @@
                                     <label>City</label>
                                     <input type="text" name="city" id="city" class="form-control" placeholder="City">
                                 </div>
-                                <div class="form-group" ng-if="organisation">
-                                    <label>Organisation Name</label>
-                                    <input type="text" name="Organisation" id="Organisation" class="form-control" placeholder="Organisation Name">
+                                <div class="form-group" ng-if="Organization">
+                                    <label>Organization Name</label>
+                                    <input type="text" name="Organization" id="Organization" class="form-control" placeholder="Organization Name">
                                 </div>
                                 <div class="form-group">
                                     <label>Username</label>
@@ -894,7 +894,7 @@
                         </a>
                     </div>
                     <span class="footer-copyrights" id='footer-copyrights' style="padding-right:60px">
-                        <span>&#169;&nbsp;Olympia Volunteer Corporation</span>
+                        <span>&#169;&nbsp;Volunteer Corporation</span>
                     </span>
                 </div>
             </div>
