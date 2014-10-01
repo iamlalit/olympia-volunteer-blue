@@ -1,0 +1,22 @@
+﻿
+.organization{
+    color: #1489be;
+}
+.volunteer{
+    color: #ed6623;
+}
+.volunteer + ul{
+    text-align: left;
+}
+.organization + ul
+{
+    text-align: left;
+}
+.image-icon{
+    display: inline-block;
+    vertical-align: sub;
+    width: 25px;
+}
+ul.integration-left{
+    padding-right: 170px;
+}

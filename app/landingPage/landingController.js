@@ -1,6 +1,6 @@
 ﻿var landingController = angular.module('landingController', []);
 landingController.controller('landingPage', ['$scope', function ($scope) {
-    $scope.organisationMenu = false;
+    $scope.OrganizationMenu = false;
     $scope.volunteerMenu = false;
     $scope.profileModel = [
         {
@@ -68,7 +68,7 @@ landingController.controller('landingPage', ['$scope', function ($scope) {
     var formType = urlParams.form;
     $scope.typeOfOwner = userType;
     if (userType == 'organization') {
-        $scope.organisationMenu = true;
+        $scope.OrganizationMenu = true;
     }
     if (userType == 'volunteer') {
         $scope.volunteerMenu = true;

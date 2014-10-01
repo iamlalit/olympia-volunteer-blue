@@ -1,26 +1,26 @@
 ﻿var signUp = angular.module('signUp', []);
 signUp.controller("signupController", ['$scope', function ($scope) {
-    $scope.organisation = 'false';
+    $scope.Organization = 'false';
     $scope.volunteer = 'false';
-    var organisationValue, volunteerValue;
+    var OrganizationValue, volunteerValue;
     var sPageURL = document.location.search.substring(1);
     var sURLVariables = sPageURL.split('&');
     var sParameterName = sURLVariables[0].split('=');
     var nameTarget = sParameterName[1];
-    if (nameTarget == 'organisation') {
-        organisationValue = 'true';
-        $scope.organisation = 'true';
+    if (nameTarget == 'Organization') {
+        OrganizationValue = 'true';
+        $scope.Organization = 'true';
     } else if (nameTarget == 'volunteer') {
         volunteerValue = 'true';
         $scope.volunteer = 'true';
     }
-    $scope.organisationToggle = function () {
-        $scope.organisation = 'true';
+    $scope.OrganizationToggle = function () {
+        $scope.Organization = 'true';
         $scope.volunteer = 'false';
     }
     $scope.volunteerToggle = function () {
         $scope.volunteer = 'true';
-        $scope.organisation = 'false';
+        $scope.Organization = 'false';
     }
     $scope.signupForm = function () {
         
@@ -40,7 +40,7 @@ signUp.controller("signupController", ['$scope', function ($scope) {
         firstname = $('input[name="firstname"]'),
         lastname = $('input[name="lastname"]'),
         city = $('input[name="city"]'),
-        Organisation = $('input[name="Organisation"]'),
+        Organization = $('input[name="Organization"]'),
         username = $('input[name="username"]'),
         captcha = $('input[name="captcha"]'),
         //gender = $('input[name="Gaslachet"]'),
@@ -204,27 +204,27 @@ signUp.controller("signupController", ['$scope', function ($scope) {
                 }
             }
 
-            // Organisation
-            if (organisationValue == 'true') {
-                if (Organisation.val() == '' || Organisation.val() == null) {
-                    if (errorList.find('.errormessage-Organisation').length == 0) {
-                        $('<li />', { html: 'Organisation Name required !', class: 'col-sm-6 errormessage-Organisation' })
+            // Organization
+            if (OrganizationValue == 'true') {
+                if (Organization.val() == '' || Organization.val() == null) {
+                    if (errorList.find('.errormessage-Organization').length == 0) {
+                        $('<li />', { html: 'Organization Name required !', class: 'col-sm-6 errormessage-Organization' })
                         .appendTo(errorList)
                         .click(function () {
                             $('html, body').animate({
-                                scrollTop: Organisation.offset().top - 100
+                                scrollTop: Organization.offset().top - 100
                             }, 500);
                             city.focus();
                         });
                         //$('#errorMsg').show();
-                        Organisation.parent().addClass('has-error');
+                        Organization.parent().addClass('has-error');
                     }
                 } else {
-                    if (Organisation.parent().hasClass('has-error')) {
-                        Organisation.parent().removeClass('has-error')
+                    if (Organization.parent().hasClass('has-error')) {
+                        Organization.parent().removeClass('has-error')
                     };
-                    if (errorList.find('.errormessage-Organisation').length > 0) {
-                        errorList.find('.errormessage-Organisation').remove();
+                    if (errorList.find('.errormessage-Organization').length > 0) {
+                        errorList.find('.errormessage-Organization').remove();
                         //$('#errorMsg').hide();
                     }
                 }
@@ -313,9 +313,9 @@ signUp.controller("signupController", ['$scope', function ($scope) {
                     //window.location.href = '../langinPage/landing.html' + '?form=signup&fname=' + firstname.val() + '&user=volunteer'
                     window.location.href = '../langinPage/landing.html' + '?form=signup&owner=volunteer&fname=' + firstname.val() + '&lname=' + lastname.val() + '&email=' + email.val();
                 }
-                if (organisationValue == 'true') {
-                    //window.location.href = '../langinPage/landing.html' + '?form=signup&fname=' + firstname.val() + '&user=organisation'
-                    window.location.href = '../organization/search/searchVol.html' + '?form=signup&owner=organisation&fname=' + firstname.val() + '&lname=' + lastname.val() + '&email=' + email.val();
+                if (OrganizationValue == 'true') {
+                    //window.location.href = '../langinPage/landing.html' + '?form=signup&fname=' + firstname.val() + '&user=Organization'
+                    window.location.href = '../organization/search/searchVol.html' + '?form=signup&owner=Organization&fname=' + firstname.val() + '&lname=' + lastname.val() + '&email=' + email.val();
                 }                
             }
 
