@@ -109,6 +109,11 @@
 	margin-left:10px;
 
 }
+.recommend-given textarea{
+	font-size:12px;
+	line-height: normal;
+
+}
 .recommend-given.display-section{
 	padding-left:10%;
 }

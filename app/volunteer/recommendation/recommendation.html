@@ -219,14 +219,26 @@
                         </div>
                         <div class="col-lg-6 padding-rl-0 recommend-given">
                             <label class="margin-bottom-10">Marleen Bosch</label>
-                            <p> <i class="fa fa-quote-left"></i>
+                            <p ng-if="showMode" class="paraFirst"> <i class="fa fa-quote-left"></i>
                                 I worked with Sandeep on couple of projects.. he is best technical personal, always +ve, team player, best technical leader and always assist QA team to deliver the quality products. I always look forward to work with Sandeep.
                             </p>
-                            <label class="date">Jan 9 2012</label>
-                            <span class="link">
-                                <a href="#" class="linkIcon"><i class="fa fa-pencil"></i>Edit</a>|
+                            <label ng-if="showMode" class="date">Jan 9 2012</label>
+                            <span ng-if="showMode" class="link">
+                                <a class="linkIcon" ng-click="updateValue();"><i class="fa fa-pencil"></i>Edit</a>|
                                 <a href="#">Remove</a>
                             </span>
+                            <div class="fullWidth" ng-if="editMode">
+                                <textarea rows="4" ng-model="displayText" class="textarea fullWidth">                                    
+                                </textarea>
+                                <p> Write a message to Marleen Bosch to send with your recommendation.</p>
+                                <textarea rows="4" ng-model="displayText2" class="textarea fullWidth">
+                                </textarea>
+                                <p><b>Note: </b> &nbsp;Marleen Bosch will be asked to aprrove your changes to this recommendation</p>
+                                <div class="col-sm-6">
+                                <a ng-click="editValue();" class="btn btn-default btn-danger" >Send</a>
+                                <a ng-click="editValue();" class="btn btn-success" >Cancel </a>
+                            </div>
+                            </div>
                         </div>
                         <div class="col-lg-4 recommend-given display-section">
                             <label>Display on your profile to:</label>
@@ -238,7 +250,7 @@
                                 </li>
                                 <li class="radio">
                                     <label class="ng-binding">
-                                      <input type="radio" value="Everyone" name="display"> Everyone
+                                      <input type="radio" value="Everyone" checked name="display"> Everyone
                                     </label>
                                 </li>
                                 <li class="radio">
@@ -255,7 +267,7 @@
                             <img src="../../img/name14.png" class="img-responsive">
                         </div>
                         <div class="col-lg-6 padding-rl-0 recommend-given">
-                            <label class="margin-bottom-10">Marleen Bosch</label>
+                            <label class="margin-bottom-10">Geertruda Brouwer</label>
                             <p> <i class="fa fa-quote-left"></i>
                                 I worked with Sandeep on couple of projects.. he is best technical personal, always +ve, team player, best technical leader and always assist QA team to deliver the quality products. I always look forward to work with Sandeep.
                             </p>
@@ -269,18 +281,18 @@
                             <label>Display on your profile to:</label>
                             <ul>
                                 <li class="radio">
-                                    <label class="ng-binding">
-                                      <input type="radio" value="Your Connections" name="display"> Your Connections
+                                    <label>
+                                      <input type="radio" value="Your Connections" name="display1"> Your Connections
                                     </label>
                                 </li>
                                 <li class="radio">
-                                    <label class="ng-binding">
-                                      <input type="radio" value="Everyone" name="display"> Everyone
+                                    <label>
+                                      <input type="radio" value="Everyone" checked name="display1"> Everyone
                                     </label>
                                 </li>
                                 <li class="radio">
-                                    <label class="ng-binding">
-                                      <input type="radio" value="No one" name="display"> No one
+                                    <label>
+                                      <input type="radio" value="No one" name="display1"> No one
                                     </label>
                                 </li>
                             </ul>
