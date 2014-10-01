@@ -91,7 +91,7 @@
         <div  class="row margin-rl-0">
             <div class="col-lg-12 margin-top-10 main-border1 padding-left-0 recommendation-wrapper">
                 <h3>Recommendations</h3>
-                <div class="tabs-recommendation" ng-init="received.flag=false; given.flag=false; askrecommendation.flag=true">
+                <div class="tabs-recommendation" ng-init="received.flag=false; given.flag=true; askrecommendation.flag=false">
                     <ul>
                         <li ng-class="{active : received.flag==true}"><a href="#" ng-click="received.flag=true; given.flag=false; askrecommendation.flag=false">Received</a></li>
                         <li ng-class="{active : given.flag==true}"><a href="#" ng-click="received.flag=false; given.flag=true; askrecommendation.flag=false">Given</a></li>
@@ -211,66 +211,25 @@
         <div class="row margin-rl-0" ng-if="given.flag==true;">
             <div class="col-lg-12 margin-top-10 main-border1 padding-left-0">
                 <div class="recommendation-title">
-                    <span>Manage recommendations you've sent</span>
-                </div>
-                <div class="show-list">
-                    <ul>
-                        <li><a href="#">Show:</a></li>
-                        <li><a href="#">All (1)</a></li>
-                        <li><a href="#">|</a></li>
-                        <li class="active"><a href="#">Colleagues (1)</a></li>
-                        <li><a href="#">|</a></li>
-                        <li><a href="#">Service Providers (0)</a></li>
-                        <li><a href="#">|</a></li>
-                        <li><a href="#">Business Partners (0)</a></li>
-                        <li><a href="#">|</a></li>
-                        <li><a href="#">Students</a></li>
-                    </ul>
-                </div>
-                <div class="row margin-rl-0">
-                    <div class="col-sm-12">
-                        <section class=" accrd_table">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th width="50%">Recommendation Details</th>
-                                        <th >Display on my profile to:</th>
-                                        <th width="10%">Date</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td width="50%">Josper Boer as usablilty & web design at Thomas Cook Nederland B.V.</td>
-                                        <td>
-                                            <select>
-                                                <option>Everyone</option>
-                                                <option>Everyone</option>
-                                                <option>Everyone</option>
-                                            </select>
-                                        </td>
-                                        <td width="10%"> 11/22/2013</td>
-                                    </tr>
-                                    <tr>
-                                        <td width="50%"></td>
-                                        <td>
-                                            <div>Change all to :</div>
-                                            <select>
-                                                <option>Everyone</option>
-                                                <option>Everyone</option>
-                                                <option>Everyone</option>
-                                            </select>
-                                        </td>
-                                        <td width="10%"> 11/22/2013</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </section>
-                    </div>
-                </div>
-                <div class="row margin-rl-0 margin-top-20">
-                    <div class="col-sm-12 padding-rl-0">
-                        <div class="border-heading">
-                            <label class="font-size-16" style="vertical-align:middle;">Make a recommendation</label>
+                    <span>Manage recommendations you've given</span>
+                    <hr style="height:1px; background-color:#DDDDDD;">
+                    <div class="row margin-rl-0">
+                        <div class="col-lg-2">
+                            <img src="../../img/name1.png">
+                        </div>
+                        <div class="col-lg-6 padding-rl-0 recommend-given">
+                            <label>Marleen Bosch</label>
+                            <p> <i class="fa fa-quote-left"></i>
+                                I worked with Sandeep on couple of projects.. he is best technical personal, always +ve, team player, best technical leader and always assist QA team to deliver the quality products. I always look forward to work with Sandeep.
+                            </p>
+                            <label class="date">Jan 9 2012</label>
+                            <span class="link">
+                                <a href="#" class="linkIcon">Edit</a>|
+                                <a href="#">Remove</a>
+                            </span>
+                        </div>
+                        <div class="col-lg-4 padding-rl-0">
+
                         </div>
                     </div>
                 </div>
