@@ -23,7 +23,6 @@
     left: 3px;
 }
 .pill{
-    border-radius: 20px;
     padding: 5px 5px 5px 30px;
     background-color: #ffffff;
 }
@@ -41,12 +40,15 @@
 .main-border1.padding-15{
     padding-bottom:30px;
     padding-top:15px;
-    border-top: 0;
-    margin-top: 20px;
-    border: 2px solid #dddddd;
-    -webkit-box-shadow: inset 0px -1px 0px 1px rgba(119 ,119 ,119, 0.4);
-    -moz-box-shadow:    inset 0px -1px 0px 1px rgba(119 ,119 ,119, 0.4);
-    box-shadow:         inset 0px -1px 0px 1px rgba(119 ,119 ,119, 0.4);
+    border: 1px solid #ffffff;
+    border-top: 3px solid #ffffff;
+    position: relative;
+    top: -10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0; 
+    -webkit-box-shadow: 0px 3px 2px 2px #ccc;
+    -moz-box-shadow: 0px 3px 2px 2px #ccc;
+    box-shadow: 0px 3px 2px 2px #ccc;
 }
 
 .small-pill.border-black{
