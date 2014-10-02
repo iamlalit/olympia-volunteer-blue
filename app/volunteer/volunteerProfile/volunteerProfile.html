@@ -153,7 +153,7 @@
                         </div>
                         <div class="col-sm-12 padding-rl-0">
                             <label>Phone number:</label>
-                            <span>+44-9765456711</span>
+                            <span>&nbsp;&nbsp;&nbsp;+44-9765456711</span>
                         </div>
                         <div class="row margin-bottom-0">
                             &nbsp;
@@ -169,24 +169,23 @@
                         <h4 class="margin-top-0 margin-bottom-0 bold">About Volunteer</h4>
                         <p>I am four-year student in Biology working towards a Master's degree. I have fundamental basis in Ecology, Plant physiology and development and i have ever done several research projects in laboratories working on Evolutionary Biology.</p>
                         <p>I am really interested in environment protection and wild life conservation. I have also a French Activity leader Certificate and I am a coordinator in summer camps. I really like to spend time with children.
-                            <span ng-click="showMoreLess = !showMoreLess" ng-show="showMoreLess == false"><a href="">more&gt;&gt;</a></span>
+                            <span ng-click="showMoreLess = !showMoreLess" ng-show="showMoreLess == false"><a href="">more</a></span>
                         </p>
                         
                         <p ng-show="showMoreLess == true">I have a good command of English. I'm an eco-friendly person conerned about the environmental issues. I'm a loving caring person. I'm serious about evrything. I'm looking for an oppurtunity to help othersin a different way and experience a colourful life.
-                            <span ng-click="showMoreLess = !showMoreLess" ng-show="showMoreLess == true"><a href="">less&lt;&lt;</a></span>
+                            <span ng-click="showMoreLess = !showMoreLess" ng-show="showMoreLess == true"><a href="">less</a></span>
                         </p>
-
-                        <hr class="user-hr">
-
-                        <h4 class="margin-top-0 margin-bottom-0 bold">Employment/Volunteering job history</h4>
+                    </div>
+                    <div class="main-border1 background-white">
+                        <h4 class="margin-top-0 bold">Employment/Volunteering job history</h4>
                         
                         <div ng-repeat="job in listOfJobs track by $index">
-                            <div class='padding-rl-0'>
-                                <span class="margin-right-15"><a href="" ng-bind="job.name"></a></span>
+                            <div class='padding-rl-0 margin-bottom-5'>
+                                <span><a href="../jobDetails/jobDetails.html?jobName={{job.name}}&jobDate=About%201%20hour%20ago" ng-bind="job.name"></a></span>
                             </div>
-                            <p class="margin-bottom-0"><label class="margin-bottom-0">Organization - </label>&nbsp;<span ng-bind="job.organization"></span></p>
-                            <p class="margin-bottom-0"><label class="margin-bottom-0">From - </label>&nbsp;<span ng-bind="job.startDate"></span>&nbsp;&nbsp;<label class="margin-bottom-0">To - </label>&nbsp;<span ng-bind="job.endDate"></span></p>
-                            <p class="margin-bottom-0"><label class="margin-bottom-0">Description - </label>&nbsp;<span ng-bind="job.description"></span></p>
+                            <p class="margin-bottom-1"><label class="margin-bottom-0">Organization - </label>&nbsp;<span ng-bind="job.organization"></span></p>
+                            <p class="margin-bottom-1"><label class="margin-bottom-0">From - </label>&nbsp;<span ng-bind="job.startDate"></span>&nbsp;&nbsp;<label class="margin-bottom-0">To - </label>&nbsp;<span ng-bind="job.endDate"></span></p>
+                            <p class="margin-bottom-1"><label class="margin-bottom-0">Description - </label>&nbsp;<span ng-bind="job.description"></span></p>
                             <div class="image-scroller" ng-if="$index==0">
                                 <div class="icon-left">
                                     <i class="fa fa-angle-left" id="left"></i>
@@ -202,25 +201,25 @@
                                     <i class="fa fa-angle-right" id="right"></i>
                                 </div>
                             </div>
-                            <div class="row" ng-if="$index !== lengthOfJobs-1">
+                            <div class="row margin-top-10 margin-bottom-10" ng-if="$index !== lengthOfJobs-1">
                                 <div class="col-sm-12 padding-right-5">
                                     <div class="hr1"></div>
                                 </div>  
                             </div>
                         </div>
+                    </div>
+                    <div class="main-border1 background-white">
 
-                        <hr class="user-hr" style="margin-top:20px">
-
-                        <h4 class="margin-top-0 margin-bottom-0 bold">Schools</h4>
+                        <h4 class="margin-top-0 bold">Schools</h4>
                         
                         <div ng-repeat="school in listOfSchools track by $index">
-                            <div class='padding-rl-0'>
+                            <div class='padding-rl-0 margin-bottom-5'>
                                 <span class="margin-right-15"><a href="" ng-bind="school.name"></a></span>
                             </div>
-                            <p class="margin-bottom-0"><label class="margin-bottom-0">Degree - </label>&nbsp;<span ng-bind="school.degree"></span></p>
-                            <p class="margin-bottom-0"><label class="margin-bottom-0">Area Of Study - </label>&nbsp;<span ng-bind="school.areaOfStudy"></span></p>
-                            <p class="margin-bottom-0"><label class="margin-bottom-0">From - </label>&nbsp;<span ng-bind="school.startDate"></span>&nbsp;&nbsp;<label class="margin-bottom-0">To - </label>&nbsp;<span ng-bind="school.endDate"></span></p>
-                            <div class="row" ng-if="$index !== lengthOfSchools-1">
+                            <p class="margin-bottom-1"><label class="margin-bottom-0">Degree - </label>&nbsp;<span ng-bind="school.degree"></span></p>
+                            <p class="margin-bottom-1"><label class="margin-bottom-0">Area Of Study - </label>&nbsp;<span ng-bind="school.areaOfStudy"></span></p>
+                            <p class="margin-bottom-1"><label class="margin-bottom-0">From - </label>&nbsp;<span ng-bind="school.startDate"></span>&nbsp;&nbsp;<label class="margin-bottom-0">To - </label>&nbsp;<span ng-bind="school.endDate"></span></p>
+                            <div class="row margin-top-10 margin-bottom-10" ng-if="$index !== lengthOfSchools-1">
                                 <div class="col-sm-12 padding-right-5">
                                     <div class="hr1"></div>
                                 </div>  
