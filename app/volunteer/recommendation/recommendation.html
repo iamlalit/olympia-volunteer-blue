@@ -91,7 +91,7 @@
         <div  class="row margin-rl-0">
             <div class="col-lg-12 margin-top-10 main-border1 padding-left-0 recommendation-wrapper">
                 <h3>Recommendations</h3>
-                <div class="tabs-recommendation" ng-init="received.flag=false; given.flag=false; askrecommendation.flag=true">
+                <div class="tabs-recommendation" ng-init="received.flag=false; given.flag=true; askrecommendation.flag=false">
                     <ul>
                         <li ng-class="{active : received.flag==true}"><a href="#" ng-click="received.flag=true; given.flag=false; askrecommendation.flag=false">Received</a></li>
                         <li ng-class="{active : given.flag==true}"><a href="#" ng-click="received.flag=false; given.flag=true; askrecommendation.flag=false">Given</a></li>
@@ -211,66 +211,103 @@
         <div class="row margin-rl-0" ng-if="given.flag==true;">
             <div class="col-lg-12 margin-top-10 main-border1 padding-left-0">
                 <div class="recommendation-title">
-                    <span>Manage recommendations you've sent</span>
-                </div>
-                <div class="show-list">
-                    <ul>
-                        <li><a href="#">Show:</a></li>
-                        <li><a href="#">All (1)</a></li>
-                        <li><a href="#">|</a></li>
-                        <li class="active"><a href="#">Colleagues (1)</a></li>
-                        <li><a href="#">|</a></li>
-                        <li><a href="#">Service Providers (0)</a></li>
-                        <li><a href="#">|</a></li>
-                        <li><a href="#">Business Partners (0)</a></li>
-                        <li><a href="#">|</a></li>
-                        <li><a href="#">Students</a></li>
-                    </ul>
-                </div>
-                <div class="row margin-rl-0">
-                    <div class="col-sm-12">
-                        <section class=" accrd_table">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th width="50%">Recommendation Details</th>
-                                        <th >Display on my profile to:</th>
-                                        <th width="10%">Date</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td width="50%">Josper Boer as usablilty & web design at Thomas Cook Nederland B.V.</td>
-                                        <td>
-                                            <select>
-                                                <option>Everyone</option>
-                                                <option>Everyone</option>
-                                                <option>Everyone</option>
-                                            </select>
-                                        </td>
-                                        <td width="10%"> 11/22/2013</td>
-                                    </tr>
-                                    <tr>
-                                        <td width="50%"></td>
-                                        <td>
-                                            <div>Change all to :</div>
-                                            <select>
-                                                <option>Everyone</option>
-                                                <option>Everyone</option>
-                                                <option>Everyone</option>
-                                            </select>
-                                        </td>
-                                        <td width="10%"> 11/22/2013</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </section>
+                    <span>Manage recommendations you've given</span>
+                    <hr style="height:1px; background-color:#DDDDDD;">
+                    <div class="row margin-rl-0">
+                        <div class="col-lg-2">
+                            <img src="../../img/name13.png" class="img-responsive">
+                        </div>
+                        <div class="col-lg-6 padding-rl-0 recommend-given">
+                            <label class="margin-bottom-10">Marleen Bosch</label>
+                            <p ng-if="showMode" class="paraFirst"> <i class="fa fa-quote-left"></i>
+                                I worked with Sandeep on couple of projects.. he is best technical personal, always +ve, team player, best technical leader and always assist QA team to deliver the quality products. I always look forward to work with Sandeep.
+                            </p>
+                            <label ng-if="showMode" class="date">Jan 9 2012</label>
+                            <span ng-if="showMode" class="link">
+                                <a class="linkIcon" ng-click="updateValue();"><i class="fa fa-pencil"></i>Edit</a>|
+                                <a href="#">Remove</a>
+                            </span>
+                            <div class="fullWidth" ng-if="editMode">
+                                <textarea rows="4" ng-model="displayText" class="textarea fullWidth">
+                                </textarea>
+                                <p> Write a message to Marleen Bosch to send with your recommendation.</p>
+                                <textarea rows="4" ng-model="displayText2" class="textarea fullWidth">
+                                </textarea>
+                                <p><b>Note: </b> &nbsp;Marleen Bosch will be asked to aprrove your changes to this recommendation</p>
+                                <div class="col-sm-6">
+                                    <a ng-click="editValue();" class="btn btn-default btn-danger" >Send</a>
+                                    <a ng-click="editValue();" class="btn btn-success" >Cancel </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 recommend-given display-section">
+                            <label>Display on your profile to:</label>
+                            <ul>
+                                <li class="radio">
+                                    <label class="ng-binding">
+                                      <input type="radio" value="Your Connections" name="display"> Your Connections
+                                    </label>
+                                </li>
+                                <li class="radio">
+                                    <label class="ng-binding">
+                                      <input type="radio" value="Everyone" checked name="display"> Everyone
+                                    </label>
+                                </li>
+                                <li class="radio">
+                                    <label class="ng-binding">
+                                      <input type="radio" value="No one" name="display"> No one
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                <div class="row margin-rl-0 margin-top-20">
-                    <div class="col-sm-12 padding-rl-0">
-                        <div class="border-heading">
-                            <label class="font-size-16" style="vertical-align:middle;">Make a recommendation</label>
+                    <hr style="height:1px; background-color:#DDDDDD;">
+                    <div class="row margin-rl-0">
+                        <div class="col-lg-2">
+                            <img src="../../img/name14.png" class="img-responsive">
+                        </div>
+                        <div class="col-lg-6 padding-rl-0 recommend-given">
+                            <label class="margin-bottom-10">Geertruda Brouwer</label>
+                            <p ng-if="showMode1" class="paraOne"> <i class="fa fa-quote-left"></i>
+                                I worked with Sandeep on couple of projects.. he is best technical personal, always +ve, team player, best technical leader and always assist QA team to deliver the quality products. I always look forward to work with Sandeep.
+                            </p>
+                            <label ng-if="showMode1" class="date">Jan 9 2012</label>
+                            <span ng-if="showMode1" class="link">
+                                <a ng-click="updateValue1();" class="linkIcon"><i class="fa fa-pencil"></i>Edit</a>|
+                                <a href="#">Remove</a>
+                            </span>
+                            <div class="fullWidth" ng-if="editMode1">
+                                <textarea rows="4" ng-model="displayText" class="textarea fullWidth">
+                                </textarea>
+                                <p> Write a message to Geertruda Brouwer to send with your recommendation.</p>
+                                <textarea rows="4" ng-model="displayText2" class="textarea fullWidth">
+                                </textarea>
+                                <p><b>Note: </b> &nbsp;Geertruda Brouwer will be asked to aprrove your changes to this recommendation</p>
+                                <div class="col-sm-6">
+                                    <a ng-click="editValue1();" class="btn btn-default btn-danger" >Send</a>
+                                    <a ng-click="editValue1();" class="btn btn-success" >Cancel </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 recommend-given display-section">
+                            <label>Display on your profile to:</label>
+                            <ul>
+                                <li class="radio">
+                                    <label>
+                                      <input type="radio" value="Your Connections" name="display1"> Your Connections
+                                    </label>
+                                </li>
+                                <li class="radio">
+                                    <label>
+                                      <input type="radio" value="Everyone" checked name="display1"> Everyone
+                                    </label>
+                                </li>
+                                <li class="radio">
+                                    <label>
+                                      <input type="radio" value="No one" name="display1"> No one
+                                    </label>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>

@@ -70,10 +70,70 @@
 /*###################################*/
  /* Mange recommendation section end*/
 /*###################################*/
-
 /*###################################*/
 /* Given recommendation section start*/
 /*###################################*/
+
+.recommend-given{
+
+}
+.recommend-given p{
+	font-size:13px;
+}
+
+.recommend-given label{
+	font-size:14px;
+	line-height: normal
+}
+.recommend-given label.date{
+	font-size:11px;
+	display:block;
+	color:#A8A8A8;
+}
+.recommend-given p i{
+	color:#e2e2e2;
+	font-size:15px;
+}
+.recommend-given span.link{
+	display:block;
+	font-size:12px;
+}
+.recommend-given span.link a.linkIcon{
+	margin-right:10px;
+	margin-left:0;
+}
+.recommend-given span.link a.linkIcon i{
+	margin-right:5px;
+}
+.recommend-given span.link a{
+	margin-left:10px;
+
+}
+.recommend-given textarea{
+	font-size:12px;
+	line-height: normal;
+
+}
+.recommend-given.display-section{
+	padding-left:10%;
+}
+.recommend-given.display-section ul{
+	list-style: none;
+}
+.recommend-given.display-section ul li{
+	line-height: normal;
+}
+.recommend-given.display-section ul li.radio{
+	margin-top:2px;
+	margin-bottom:2px;
+	line-height: 16px;
+}
+.recommend-given.display-section ul li label{
+	font-size:12px;
+}
+
+
+
 .show-list{
 	width:100%;
 }
