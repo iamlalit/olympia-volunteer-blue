@@ -1,4 +1,7 @@
 ﻿/* Tabs */
+a:hover{
+	cursor: pointer;
+}
 .recommendation-wrapper{
 	padding:0;
 }

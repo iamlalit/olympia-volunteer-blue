@@ -1,5 +1,6 @@
 ﻿var landingController = angular.module('recommendationController', []);
 landingController.controller('recommendationPage', ['$scope', function ($scope) {
+    $scope.currentPosition = "default";
     $scope.showMode = true;$scope.editMode=false;
     $scope.showMode1 = true;$scope.editMode1=false;
     $scope.displayText2 = "Hi Marleen Bosch, " +
@@ -27,5 +28,10 @@ landingController.controller('recommendationPage', ['$scope', function ($scope) 
     $scope.editValue1 =  function(){
         $scope.showMode1 = true;
         $scope.editMode1 = false;
+    }
+    $scope.getLabeValue = function($event){
+        var currentElementPosition = $($event.currentTarget).parent().parent().siblings('.col-sm-6').children('label').text();
+        $scope.currentPosition = currentElementPosition;
+        console.log(currentElementPosition);
     }
 }]);

@@ -91,11 +91,12 @@
         <div  class="row margin-rl-0">
             <div class="col-lg-12 margin-top-10 main-border1 padding-left-0 recommendation-wrapper">
                 <h3>Recommendations</h3>
-                <div class="tabs-recommendation" ng-init="received.flag=false; given.flag=true; askrecommendation.flag=false">
+                <div class="tabs-recommendation" ng-init="received.flag=true; given.flag=false; askrecommendation.flag=false; giverecommendation.flag=false">
                     <ul>
-                        <li ng-class="{active : received.flag==true}"><a href="#" ng-click="received.flag=true; given.flag=false; askrecommendation.flag=false">Received</a></li>
-                        <li ng-class="{active : given.flag==true}"><a href="#" ng-click="received.flag=false; given.flag=true; askrecommendation.flag=false">Given</a></li>
-                        <li ng-class="{active : askrecommendation.flag==true}"><a href="#" ng-click="received.flag=false; given.flag=false; askrecommendation.flag=true">Ask for recommendations</a></li>
+                        <li ng-class="{active : received.flag==true}"><a href="#" ng-click="received.flag=true; given.flag=false; askrecommendation.flag=false; giverecommendation.flag=false;">Received</a></li>
+                        <li ng-class="{active : given.flag==true}"><a href="#" ng-click="received.flag=false; given.flag=true; askrecommendation.flag=false; giverecommendation.flag=false;">Given</a></li>
+                        <li ng-class="{active : askrecommendation.flag==true}"><a href="#" ng-click="received.flag=false; given.flag=false; askrecommendation.flag=true; giverecommendation.flag=false; currentPosition = 'default'">Ask for recommendations</a></li>
+                        <li ng-class="{active : giverecommendation.flag==true}"><a href="#" ng-click="received.flag=false; given.flag=false; askrecommendation.flag=false; giverecommendation.flag=true; currentPosition = 'default'">Give recommendations</a></li>
                     </ul>
                 </div>
             </div>
@@ -122,7 +123,7 @@
                                 You have <b>1 recommendation</b> for this position (0 visible, 1 hidden).
                             </span>
                             <div class="link-wrapper">
-                                [ <a href="#">Manage</a> | <a href="#">Ask to be recommended</a> ]
+                                [ <a>Manage</a> | <a ng-click="received.flag=false; given.flag=false; askrecommendation.flag=true; getLabeValue($event)">Ask to be recommended</a> ]
                             </div>
                         </div>
                     </div>
@@ -141,7 +142,7 @@
                                 You have <b>no recommendation</b> for this position.
                             </span>
                             <div class="link-wrapper">
-                                [ <a href="#">Ask to be recommended</a> ]
+                                [ <a ng-click="received.flag=false; given.flag=false; askrecommendation.flag=true;getLabeValue($event)">Ask to be recommended</a> ]
                             </div>
                         </div>
                     </div>
@@ -160,7 +161,7 @@
                                 You have <b>1 recommendation</b> for this position (0 visible, 1 hidden).
                             </span>
                             <div class="link-wrapper">
-                                [ <a href="#">Manage</a> | <a href="#">Ask to be recommended</a> ]
+                                [ <a>Manage</a> | <a ng-click="received.flag=false; given.flag=false; askrecommendation.flag=true;getLabeValue($event)">Ask to be recommended</a> ]
                             </div>
                         </div>
                     </div>
@@ -179,7 +180,7 @@
                                 You have <b>no recommendation</b> for this position.
                             </span>
                             <div class="link-wrapper">
-                                [ <a href="#">Ask to be recommended</a> ]
+                                [ <a ng-click="received.flag=false; given.flag=false; askrecommendation.flag=true;getLabeValue($event)">Ask to be recommended</a> ]
                             </div>
                         </div>
                     </div>
@@ -198,7 +199,7 @@
                                 You have <b>no recommendation</b> for this position (0 visible, 1 hidden).
                             </span>
                             <div class="link-wrapper">
-                                [ <a href="#">Ask to be recommended</a> ]
+                                [ <a ng-click="received.flag=false; given.flag=false; askrecommendation.flag=true;getLabeValue($event)">Ask to be recommended</a> ]
                             </div>
                         </div>
                     </div>
@@ -330,12 +331,18 @@
                 <div class="row margin-rl-0 margin-top-10">
                     <div class="col-lg-1">&nbsp;</div>
                     <div class="col-lg-11 padding-rl-0">
-                        <select class="col-lg-12 select-option float-none">
-                            <option>Choose...</option>
-                            <option value="{{school.name}}" ng-repeat="school in listOfSchools">Student at {{school.name}}</option>
-                            <option value="{{job.name}}" ng-repeat="job in listOfJobs" >{{job.title}} at {{job.name}}</option>
+                        <select class="col-lg-12 select-option float-none" ng-model="currentPosition">
+                            <option value="default">Choose...</option>
+                            <!-- <option value="{{school.name}}" ng-repeat="school in listOfSchools">Student at {{school.name}}</ option> 
+                            <option value="{{job.name}}" ng-repeat="job in listOfJobs" >{{job.title}} at {{job.name}}</option>-->
+                            {{currentPosition== 'Product Manager at Thomas Cook'}}
+                            <option value="Product Manager at Thomas Cook">Product Manager at Thomas Cook</option>
+                            <option value="New Business Manager at Thomas Cook">New Business Manager at Thomas Cook</option>
+                            <option value="E-Commerce Manager at NH Hotels">E-Commerce Manager at NH hotels</option>
+                            <option value="Revenue Manager at NH Hotels">Revenue Manager at NH hotels</option>
+                            <option value="Revenue Manager at Van der Valk">Revenue Manager at Van der Valk</option>
                         </select>
-                        <span class="margin-left-10">Add a <a href="#" id="zoomTextarea1" title="Click to add Job" data-toggle="modal" data-target="#addJob" ng-click="jobCancel()">job</a> or <a href="#" title="Click to add school" data-toggle="modal" data-target="#addSchool" ng-click="schoolCancel()">school</a></span>
+                        <!-- <span class="margin-left-10">Add a <a href="#" id="zoomTextarea1" title="Click to add Job" data-toggle="modal" data-target="#addJob" ng-click="jobCancel()">job</a> or <a href="#" title="Click to add school" data-toggle="modal" data-target="#addSchool" ng-click="schoolCancel()">school</a></span> -->
                     </div>
                 </div>
                 <div class="row margin-rl-0 margin-top-20">
@@ -399,6 +406,116 @@
         </div>
 
         <!-- Ask Section Start -->
+
+        <!-- Given Section Start -->
+        <div class="row margin-rl-0" ng-if="giverecommendation.flag==true">
+            <div class="col-lg-12 margin-top-10 main-border1 padding-left-0">
+                <div class="row margin-rl-0">
+                    <div class="recommendation-title">
+                        <span>Give a recommendation</span>
+                    </div>
+                </div>
+                <div class="row margin-rl-0 margin-top-20">
+                    <div class="number-circle">1</div>
+                    <label class="font-size-15 line-height-15">Who do you want to be recommended?</label>
+                </div>
+                <div class="row margin-rl-0 margin-top-10">
+                    <div class="col-lg-1">&nbsp;</div>
+                    <div class="col-lg-10 padding-rl-0">
+                        <input type="text" class="col-lg-11" placeholder="Enter Connection Name" value="Marleen Bosch">
+                        <!--
+                        <select class="col-lg-12 select-option float-none" ng-model="currentPosition">
+                            <option value="default">Choose...</option>
+                                 <option value="{{school.name}}" ng-repeat="school in listOfSchools">Student at {{school.name}}</ option> 
+                            <option value="{{job.name}}" ng-repeat="job in listOfJobs" >{{job.title}} at {{job.name}}</option>-->
+                          <!--  {{currentPosition== 'Product Manager at Thomas Cook'}}
+                            <option value="Product Manager at Thomas Cook">Product Manager at Thomas Cook</option>
+                            <option value="New Business Manager at Thomas Cook">New Business Manager at Thomas Cook</option>
+                            <option value="E-Commerce Manager at NH Hotels">E-Commerce Manager at NH hotels</option>
+                            <option value="Revenue Manager at NH Hotels">Revenue Manager at NH hotels</option>
+                            <option value="Revenue Manager at Van der Valk">Revenue Manager at Van der Valk</option>
+                        </select> -->
+
+                        <!-- <span class="margin-left-10">Add a <a href="#" id="zoomTextarea1" title="Click to add Job" data-toggle="modal" data-target="#addJob" ng-click="jobCancel()">job</a> or <a href="#" title="Click to add school" data-toggle="modal" data-target="#addSchool" ng-click="schoolCancel()">school</a></span> -->
+                    </div>
+                </div>
+                <div class="row margin-rl-0 margin-top-20">
+                    <div class="number-circle">2</div>
+                    <label class="font-size-15 line-height-15">What's your relationship? </label>
+                </div>
+                <div class="row margin-rl-0 margin-top-10">
+                    <div class="col-lg-1">&nbsp;</div>
+                    <div class="col-lg-11 padding-rl-0">
+                        <!-- <label id='form-component-arrangement-label'>Days of the Week</label>
+                        <span id="optional-text">(optional) </span>
+                         -->
+                        <select>
+                            <option selected="">Choose...</option>
+                            <optgroup label="Professional">
+                                <option value="RME">You managed Marleen Bosch directly</option>
+                                <option value="RRE">You reported directly to Marleen Bosch</option>
+                                <option value="RSE">You were senior to Marleen Bosch but didn't manage directly</option>
+                                <option value="ESR">Marleen Bosch was senior to you but didn't manage directly</option>
+                                <option value="WSG">You worked with Marleen Bosch in the same group</option>
+                                <option value="WDG">You worked with Marleen Bosch in different groups</option>
+                                <option value="WDC">You worked with Marleen Bosch but at different companies</option>
+                                <option value="ECR">Marleen Bosch was a client of yours</option>
+                                <option value="RCE">You were a client of Marleen Bosch's</option>
+                            </optgroup>
+                            <optgroup label="Education">
+                                <option value="RTE">You were Marleen Bosch's teacher</option>
+                                <option value="RAE">You were Marleen Bosch's mentor</option>
+                                <option value="RUE">You were Marleen Bosch together</option>
+                            </optgroup>
+                        </select> 
+                    </div>
+                </div>
+                <div class="row margin-rl-0 margin-top-20">
+                    <div class="number-circle">3</div>
+                    <label class="font-size-15 line-height-15">Write a recommendation</label>
+                </div>
+
+                <div class="row margin-rl-0 margin-top-10">
+                    <div class="col-sm-1">
+                    </div>
+                    <p>If needed, you can make changes or delete it even after you send it.</p>
+                </div>
+                <div class="row margin-rl-0">
+                    <div class="col-sm-1">&nbsp;</div>
+                    <div class="col-sm-11 padding-rl-0">
+                        <textarea class="text-area" cols="100" rows="9" ng-model="modalMessage"></textarea>
+                    </div>
+                </div>
+                <div class="row margin-rl-0">
+                    <div class="col-sm-1">&nbsp;</div>
+                    <div class="col-sm-11 padding-rl-0 margin-top-15 margin-bottom-5">
+                        <label class="font-size-15 line-height-15">Your Message to Marleen Bosch</label>
+                    </div>
+                </div>
+                <div class="row margin-rl-0">
+                    <div class="col-sm-1">&nbsp;</div>
+                    <div class="col-sm-11 padding-rl-0">
+                        <p>You can personalize this message if you'd like.</p>
+                    </div>
+                </div>
+                <div class="row margin-rl-0">
+                    <div class="col-sm-1">&nbsp;</div>
+                    <div class="col-sm-11 padding-rl-0">
+                        <textarea class="text-area" cols="100" rows="9" ng-model="modalMessage"></textarea>
+                    </div>
+                </div>
+                <div class="row margin-rl-0 margin-bottom-20">
+                    <div class="col-sm-1">
+                    </div>
+                    <div class="col-sm-11 padding-rl-0 margin-top-30">
+                        <button class="btn btn-success" type="submit">Send</button>
+                        <button class="btn btn-danger" type="button">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Given Section Start -->
 
     </div>
 
