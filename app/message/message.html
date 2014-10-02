@@ -55,7 +55,7 @@
                     <ul class="nav navbar-nav" ng-if="typeOfOwner == 'volunteer'">
                         <li><a href="../Volunteer/searchJob/searchJob.html" class='menu-interval'>Search Job</a></li>
                         <li><a href="../Volunteer/jobApplication/jobApplication.html" class='menu-interval'>Job Applications</a></li>
-                        <li><a href="../recommendation/recommendation.html" class='menu-interval'>Recommendations</a></li>
+                        <li><a href="../volunteer/recommendation/recommendation.html" class='menu-interval'>Recommendations</a></li>
                         <li class="active"><a href="#" class='menu-interval'>Messages</a></li>
                     </ul>
                     <!-- Volunteer Menu end here-->
@@ -88,7 +88,8 @@
                                 </li>
                                 <li role="presentation" class="divider"></li>
                                 <li role="presentation">
-                                    <a role="menuitem" href="../notificationSettings/notificationSettings.html?owner=organization">&nbsp;<i class='fa fa-bell'></i> &nbsp;Notification Settings</a>
+                                    <a role="menuitem" ng-if="typeOfOwner == 'organization'" href="../notificationSettings/notificationSettings.html?owner=organization">&nbsp;<i class='fa fa-bell'></i> &nbsp;Notification Settings</a>
+                                    <a role="menuitem" ng-if="typeOfOwner == 'volunteer'" href="../notificationSettings/notificationSettings.html?owner=volunteer">&nbsp;<i class='fa fa-bell'></i> &nbsp;Notification Settings</a>
                                 </li>
                                 <li role="presentation" class="divider" ng-if="typeOfOwner == 'organization'"></li>
                                 <li role="presentation" ng-if="typeOfOwner == 'organization'">
