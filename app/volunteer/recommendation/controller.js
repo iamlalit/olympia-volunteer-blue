@@ -20,13 +20,13 @@ $scope.listOfJobs.push({'name': 'Red Cross NL',
 				'month2': '9',
 				'endDate': '2014'});
 $scope.owner = [];
-$scope.owner.push({'email': 'sander_mrborwn@email.com'});
+$scope.owner.push({'email': 'hans.klevenbeek@email.com'});
 $scope.owner.push({'email': 'mrborwn@email.com'})
 
 $scope.modalMessage = "Hello, \n\n"+
               "I'm sending this to ask you for a brief recommendation of my work/school that I can include in my Volunteer profile. If you have any questions, let me know. \n\n"+
               "Thanks in advance for helping me out. \n\n" +
-              "sander_mrborwn";
+              "Hans Klevenbeek";
 
 //volunteer school and job functionality
     $scope.lengthOfSchools = $scope.listOfSchools.length;
