@@ -20,14 +20,14 @@ $scope.listOfJobs.push({'name': 'Red Cross NL',
 				'endDate': '2014'});
 $scope.owner = [];
 $scope.owner.push({'email': 'hans.klevenbeek@email.com'});
-$scope.owner.push({'email': 'mrborwn@email.com'})
+$scope.owner.push({'email': 'mrborwn@email.com'});
 
 $scope.modalMessage = "Hello, \n\n"+
               "I'm sending this to ask you for a brief recommendation of my work/school that I can include in my Volunteer profile. If you have any questions, let me know. \n\n"+
               "Thanks in advance for helping me out. \n\n" +
               "Hans Klevenbeek";
 
-//volunteer school and job functionality
+// //volunteer school and job functionality
     $scope.lengthOfSchools = $scope.listOfSchools.length;
     var
 	errorDiv = $('#errorMsg'),
@@ -165,7 +165,7 @@ $scope.modalMessage = "Hello, \n\n"+
                 }
         }
 
-        
+    };
 
         schoolAns1.change(function() {
             if(schoolAns1.val() == '' || schoolAns1.val() == null){
@@ -230,27 +230,8 @@ $scope.modalMessage = "Hello, \n\n"+
             }
         });
 
-        if (errorList.children('li').length > 0) {
-            $('#errorMsg').show();
-        } else {
-            $('#errorMsg').hide();
-            $scope.listOfSchools.push(obj);
-	        $scope.lengthOfSchools = $scope.listOfSchools.length;
-	        $scope.school = {};
-	        $scope.school.startDate = 0;
-	        $scope.school.endDate = 0;
-            //sorting using start date
-            $scope.listOfSchools = $scope.listOfSchools.sort(function(obj1, obj2) {
-                // Descending: first startdate less than the previous
-                return obj2.startDate - obj1.startDate;
-            });
-        }
-        if(check == 1 && !errorList.children('li').length > 0){
-        	$('#addSchool').modal('hide');
-        }
-        if(check == 2){
-            console.log($scope.listOfSchools[index].name);
-        }
+    $scope.currentPosition = "default";
+
     $scope.showMode = true;$scope.editMode=false;
     $scope.showMode1 = true;$scope.editMode1=false;
     $scope.displayText2 = "Hi Marleen Bosch, " +
@@ -278,5 +259,10 @@ $scope.modalMessage = "Hello, \n\n"+
     $scope.editValue1 =  function(){
         $scope.showMode1 = true;
         $scope.editMode1 = false;
+    }
+    $scope.getLabeValue = function($event){
+        var currentElementPosition = $($event.currentTarget).parent().parent().siblings('.col-sm-6').children('label').text();
+        $scope.currentPosition = currentElementPosition;
+        console.log(currentElementPosition);
     }
 }]);
