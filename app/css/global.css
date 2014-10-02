@@ -320,6 +320,7 @@ vertical-align: top;
 .containerA,
 .container1,
 .container,
+.superContainer,
 .container-body{
 min-height: 100%;
 position:relative;
@@ -698,8 +699,13 @@ Header Search Box
   appearance: none;
   border-radius: 0;
   border: 2px solid #eeeeee;
-  background-color: #1489be;
+  background-color: #bbbbbb;
   color: #ffffff;
+  outline: 0;
+}
+.select-search option {
+    background: #ffffff;
+    color: #000000; 
 }
 /* Uploading files */
 
@@ -841,4 +847,16 @@ padding: 15px 12px;
 }
 table thead{
   background:#eee;
+}
+
+.prototype-scheme{
+  text-align: center;
+  font-size: 24px;
+  position: relative;
+  top: 12px;
+  color: #AAA;
+  display: block;
+  word-wrap: break-word;
+  width: 23px;
+  margin: 0 auto;
 }

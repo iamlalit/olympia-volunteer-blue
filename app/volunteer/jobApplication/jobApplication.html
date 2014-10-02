@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>OLYMPIA</title>
 
-    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,100,700&subset=latin,cyrillic-ext,greek-ext,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
+    
     <!-- font for main content -->
     <link href="//fonts.googleapis.com/css?family=PT+Sans:400italic,400,700italic,700"/>
     <link href="../../img/olympia-fav.ico" rel="shortcut icon" type="image/x-icon" />
@@ -18,11 +18,21 @@
     <link href="../../css/global.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../../css/header/header.css">
     <style type="text/css">
-        .containerA{
-            width: 1008px;
+        .superContainer{
+            width: 1349px;
             margin: 0 auto;
         }
+        .containerA{
+            width: 1008px;
+            display: inline-block;
+        }
+        .containerB{
+            width: 164px;
+            display: inline-block;
+            vertical-align: top;
+        }
     </style>
+
 </head>
 <body ng-controller='jobAPPlicationCtrl'>
         <!-- Page Header Section Start-->
@@ -87,56 +97,64 @@
     </header>
     <!-- Page Header Section End-->
 
-    <div class="containerA">
-        
-        <div class="main-border1 min-height-500">
-            <div class="row margin-rl-0">
-                <div class="col-sm-3">
-                    <div class="panel-title">
-                        <span>Job Applications</span>
+    <div class="superContainer">
+        <div class="containerB">
+            <span class="prototype-scheme">PROTOTYPE</span>
+        </div>
+        <div class="containerA">
+            
+            <div class="main-border1 min-height-500">
+                <div class="row margin-rl-0">
+                    <div class="col-sm-3">
+                        <div class="panel-title">
+                            <span>Job Applications</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-5"></div>
+                    <div class="col-sm-4 align-right">
+                        <span>
+                            Show: 
+                        </span>
+                        <select class='form-control' style="width:120px;display:inline" ng-model="statusShow.status" ng-init="statusShow.status = ''" ng-change="callUpdateStatus()">
+                            <option value="">All</option>
+                            <option value="Active">Active</option>
+                            <option value="Archived">Archived</option>
+                            <option value="Hired">Hired</option>
+                            <option value="Sent">Sent</option>
+                            <option value="Invited">Invited</option>
+                        </select>
                     </div>
                 </div>
-                <div class="col-sm-5"></div>
-                <div class="col-sm-4 align-right">
-                    <span>
-                        Show: 
-                    </span>
-                    <select class='form-control' style="width:120px;display:inline" ng-model="statusShow.status" ng-init="statusShow.status = ''" ng-change="callUpdateStatus()">
-                        <option value="">All</option>
-                        <option value="Active">Active</option>
-                        <option value="Archived">Archived</option>
-                        <option value="Hired">Hired</option>
-                        <option value="Sent">Sent</option>
-                        <option value="Invited">Invited</option>
-                    </select>
+                <p style="margin:0px">&nbsp;</p>
+                <div class="row margin-rl-0">
+                    <div class="col-sm-12">
+                        <section class=" accrd_table">
+                            <table ng-table="tableParams" class="table">
+                            <tr ng-repeat="user in $data | filter:statusShow.status">
+                                <td data-title="'Job'" sortable="'jobTitle'">
+                                    <span><a href="../jobDetails/jobDetails.html?jobName={{user.jobTitle}}&jobDate={{user.date}}">{{user.jobTitle}}</a></span><br/>
+                                </td>
+                                <td data-title="'Date'" sortable="'date'" class="text-center" >
+                                    <span>{{user.date}}</span>
+                                </td>
+                                <td data-title="'Status'"  sortable="'status'">
+                                    <span class="padding-left-42">{{user.status}}</span>
+                                </td>
+                                <td data-title="'Client'" sortable="'client'">
+                                    <span class="padding-left-25"><a href="../../organization/organizationpcms/organizationpcms.html?organizationName={{user.client}}">{{user.client}}</a></span>
+                                </td>
+                                <td data-title="'Reason'" sortable="'reason'" class="width-236" >
+                                    <span class="padding-left-42">{{user.reason}}</span>
+                                </td>
+                            </tr>
+                            </table>
+                        </section>
+                    </div>
                 </div>
             </div>
-            <p style="margin:0px">&nbsp;</p>
-            <div class="row margin-rl-0">
-                <div class="col-sm-12">
-                    <section class=" accrd_table">
-                        <table ng-table="tableParams" class="table">
-                        <tr ng-repeat="user in $data | filter:statusShow.status">
-                            <td data-title="'Job'" sortable="'jobTitle'">
-                                <span><a href="../jobDetails/jobDetails.html?jobName={{user.jobTitle}}&jobDate={{user.date}}">{{user.jobTitle}}</a></span><br/>
-                            </td>
-                            <td data-title="'Date'" sortable="'date'" class="text-center" >
-                                <span>{{user.date}}</span>
-                            </td>
-                            <td data-title="'Status'"  sortable="'status'">
-                                <span class="padding-left-42">{{user.status}}</span>
-                            </td>
-                            <td data-title="'Client'" sortable="'client'">
-                                <span class="padding-left-25"><a href="../../organization/organizationpcms/organizationpcms.html?organizationName={{user.client}}">{{user.client}}</a></span>
-                            </td>
-                            <td data-title="'Reason'" sortable="'reason'" class="width-236" >
-                                <span class="padding-left-42">{{user.reason}}</span>
-                            </td>
-                        </tr>
-                        </table>
-                    </section>
-                </div>
-            </div>
+        </div>
+        <div class="containerB">
+            <span class="prototype-scheme">PROTOTYPE</span>
         </div>
     </div>
     <footer>

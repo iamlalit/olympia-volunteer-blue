@@ -10,16 +10,26 @@
     <link href="../../css/font-awesome.css" rel="stylesheet">
     <link rel="stylesheet" href="../../css/organization/postJob/postJob.css"/>
     <link href="../../css/organization/viewApp/viewApp.css" rel="stylesheet">
-    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,100,700&subset=latin,cyrillic-ext,greek-ext,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
+    
     <link href="../../css/volunteer/jobDetails/jobDetails.css" rel="stylesheet">
     <link href="../../css/global.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../../css/header/header.css">
     <style type="text/css">
-        .containerA{
-            width: 1008px;
+        .superContainer{
+            width: 1349px;
             margin: 0 auto;
         }
+        .containerA{
+            width: 1008px;
+            display: inline-block;
+        }
+        .containerB{
+            width: 164px;
+            display: inline-block;
+            vertical-align: top;
+        }
     </style>
+
 </head>
 
 <body ng-controller="jobDetails" ng-cloak>
@@ -84,33 +94,41 @@
         </div>
     </header>
 
-    <div class="containerA" ng-cloak>
-        
-        <div class="main-border1">
-            <div class='row' style="margin-left:0px;">
-                <span class="text-center" id='heading-form' >Success! Your job application is submitted.</span>
-            </div>
-            <hr >
-            <label>NOTE:</label><span class="italic"> Your Job application is sent successfully, As soon as it is reviewed by the client, based on your availability and your capability you will be called.</span>
-            <div class="row margin-rl-0">
-                <div class="col-sm-12 padding-rl-0">
-                    <div class="pill margin-top-20 background-grey padding-left-15">
-                        <h5><strong>Similar Jobs on Volunteer</strong></h5>
-                    </div>                
-                    <ul class="margin-top-10 margin-left-15">
-                        <li><span><a>Middle School Tutor</a></span></li>
-                        <li><span><a>GED Social Studies Co-Teacher</a></span></li>
-                        <li><span><a>Research Assistant - Green Sea Turtle Programme</a></span></li>
-                        <li><span><a>It's National Mentoring Month - Become a mentor and change a life!</a></span></li>
-                        <li><span><a>Resource Development Committee</a></span></li>
-                    </ul>
+    <div class="superContainer">
+        <div class="containerB">
+            <span class="prototype-scheme">PROTOTYPE</span>
+        </div>
+        <div class="containerA" ng-cloak>
+            
+            <div class="main-border1">
+                <div class='row' style="margin-left:0px;">
+                    <span class="text-center" id='heading-form' >Success! Your job application is submitted.</span>
                 </div>
+                <hr >
+                <label>NOTE:</label><span class="italic"> Your Job application is sent successfully, As soon as it is reviewed by the client, based on your availability and your capability you will be called.</span>
+                <div class="row margin-rl-0">
+                    <div class="col-sm-12 padding-rl-0">
+                        <div class="pill margin-top-20 background-grey padding-left-15">
+                            <h5><strong>Similar Jobs on Volunteer</strong></h5>
+                        </div>                
+                        <ul class="margin-top-10 margin-left-15">
+                            <li><span><a>Middle School Tutor</a></span></li>
+                            <li><span><a>GED Social Studies Co-Teacher</a></span></li>
+                            <li><span><a>Research Assistant - Green Sea Turtle Programme</a></span></li>
+                            <li><span><a>It's National Mentoring Month - Become a mentor and change a life!</a></span></li>
+                            <li><span><a>Resource Development Committee</a></span></li>
+                        </ul>
+                    </div>
+                </div>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
             </div>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
+        </div>
+        <div class="containerB">
+            <span class="prototype-scheme">PROTOTYPE</span>
         </div>
     </div>
 

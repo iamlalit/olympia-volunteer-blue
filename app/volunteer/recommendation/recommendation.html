@@ -14,15 +14,25 @@
     <link rel="stylesheet" href="../../css/organization/postJob/postJob.css"/>
     <link href="../../css/global.css" rel="stylesheet">
     <link href="../../css/organization/viewApp/viewApp.css" rel="stylesheet">
-    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,100,700&subset=latin,cyrillic-ext,greek-ext,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
+    
     <link href="../../css/volunteer/recommendation/recommendation.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="../../css/header/header.css">
     <style type="text/css">
-        .containerA{
-            width: 1008px;
+        .superContainer{
+            width: 1349px;
             margin: 0 auto;
         }
+        .containerA{
+            width: 1008px;
+            display: inline-block;
+        }
+        .containerB{
+            width: 164px;
+            display: inline-block;
+            vertical-align: top;
+        }
     </style>
+
 </head>
 
 <body ng-controller="recommendationPage">
@@ -86,320 +96,327 @@
             </div><!-- /.container-fluid -->
         </div>
     </header>
-
-    <div class="containerA">
-        <div  class="row margin-rl-0">
-            <div class="col-lg-12 margin-top-10 main-border1 padding-left-0 recommendation-wrapper">
-                <h3>Recommendations</h3>
-                <div class="tabs-recommendation" ng-init="received.flag=false; given.flag=true; askrecommendation.flag=false">
-                    <ul>
-                        <li ng-class="{active : received.flag==true}"><a href="#" ng-click="received.flag=true; given.flag=false; askrecommendation.flag=false">Received</a></li>
-                        <li ng-class="{active : given.flag==true}"><a href="#" ng-click="received.flag=false; given.flag=true; askrecommendation.flag=false">Given</a></li>
-                        <li ng-class="{active : askrecommendation.flag==true}"><a href="#" ng-click="received.flag=false; given.flag=false; askrecommendation.flag=true">Ask for recommendations</a></li>
-                    </ul>
-                </div>
-            </div>
+    <div class="superContainer">
+        <div class="containerB">
+            <span class="prototype-scheme">PROTOTYPE</span>
         </div>
-
-        <!-- Received Section Start -->
-        <div class="row margin-rl-0" ng-if="received.flag==true;">
-            <div class="col-lg-12 margin-top-10 main-border1 padding-left-0">
-                <div class="recommendation-title">
-                    <span>Manage recommendations you've received</span>
-                    <p>(Looking for recommendations you've made? <a href="#">Click here</a>)</p>
-                </div>
-                <hr style="height:1px; background-color:#DDDDDD;">
-                <div class="row margin-rl-0">
-                    <div class="col-sm-11 padding-rl-0">
-                        <div class="col-sm-1  font-size-4 ">
-                            <span class="fa fa-thumbs-o-up"></span>                  
-                        </div>
-                        <div class="col-sm-6">
-                            <label class="font-size-15">Product Manager at Thomas Cook</label>
-                        </div>
-                        <div class="col-sm-11">
-                            <span>
-                                You have <b>1 recommendation</b> for this position (0 visible, 1 hidden).
-                            </span>
-                            <div class="link-wrapper">
-                                [ <a href="#">Manage</a> | <a href="#">Ask to be recommended</a> ]
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr style="height:1px; background-color:#DDDDDD;">
-                <div class="row margin-rl-0">
-                    <div class="col-sm-11 padding-rl-0">
-                        <div class="col-sm-1  font-size-4 ">
-                            <span class="fa fa-thumbs-o-up grey-disable"></span>                  
-                        </div>
-                        <div class="col-sm-6">
-                            <label class="font-size-15">New Business Manager at Thomas Cook</label>
-                        </div>
-                        <div class="col-sm-11">
-                            <span>
-                                You have <b>no recommendation</b> for this position.
-                            </span>
-                            <div class="link-wrapper">
-                                [ <a href="#">Ask to be recommended</a> ]
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr style="height:1px; background-color:#DDDDDD;">
-                <div class="row margin-rl-0">
-                    <div class="col-sm-11 padding-rl-0">
-                        <div class="col-sm-1  font-size-4 ">
-                            <span class="fa fa-thumbs-o-up"></span>                  
-                        </div>
-                        <div class="col-sm-6">
-                            <label class="font-size-15">E-Commerce Manager at NH Hotels</label>
-                        </div>
-                        <div class="col-sm-11">
-                            <span>
-                                You have <b>1 recommendation</b> for this position (0 visible, 1 hidden).
-                            </span>
-                            <div class="link-wrapper">
-                                [ <a href="#">Manage</a> | <a href="#">Ask to be recommended</a> ]
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr style="height:1px; background-color:#DDDDDD;">
-                <div class="row margin-rl-0">
-                    <div class="col-sm-11 padding-rl-0">
-                        <div class="col-sm-1  font-size-4 ">
-                            <span class="fa fa-thumbs-o-up grey-disable"></span>                  
-                        </div>
-                        <div class="col-sm-6">
-                            <label class="font-size-15">Revenue Manager at NH Hotels</label>
-                        </div>
-                        <div class="col-sm-11">
-                            <span>
-                                You have <b>no recommendation</b> for this position.
-                            </span>
-                            <div class="link-wrapper">
-                                [ <a href="#">Ask to be recommended</a> ]
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr style="height:1px; background-color:#DDDDDD;">
-                <div class="row margin-rl-0">
-                    <div class="col-sm-11 padding-rl-0">
-                        <div class="col-sm-1  font-size-4 ">
-                            <span class="fa fa-thumbs-o-up grey-disable"></span>                  
-                        </div>
-                        <div class="col-sm-6">
-                            <label class="font-size-15">Revenue Manager at Van der Valk</label>
-                        </div>
-                        <div class="col-sm-11">
-                            <span>
-                                You have <b>no recommendation</b> for this position (0 visible, 1 hidden).
-                            </span>
-                            <div class="link-wrapper">
-                                [ <a href="#">Ask to be recommended</a> ]
-                            </div>
-                        </div>
+        <div class="containerA">
+            <div  class="row margin-rl-0">
+                <div class="col-lg-12 margin-top-10 main-border1 padding-left-0 recommendation-wrapper">
+                    <h3>Recommendations</h3>
+                    <div class="tabs-recommendation" ng-init="received.flag=false; given.flag=true; askrecommendation.flag=false">
+                        <ul>
+                            <li ng-class="{active : received.flag==true}"><a href="#" ng-click="received.flag=true; given.flag=false; askrecommendation.flag=false">Received</a></li>
+                            <li ng-class="{active : given.flag==true}"><a href="#" ng-click="received.flag=false; given.flag=true; askrecommendation.flag=false">Given</a></li>
+                            <li ng-class="{active : askrecommendation.flag==true}"><a href="#" ng-click="received.flag=false; given.flag=false; askrecommendation.flag=true">Ask for recommendations</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- Received Section Start -->
 
-        <!-- Given Section Start -->
-        <div class="row margin-rl-0" ng-if="given.flag==true;">
-            <div class="col-lg-12 margin-top-10 main-border1 padding-left-0">
-                <div class="recommendation-title">
-                    <span>Manage recommendations you've given</span>
-                    <hr style="height:1px; background-color:#DDDDDD;">
-                    <div class="row margin-rl-0">
-                        <div class="col-lg-2">
-                            <img src="../../img/name13.png" class="img-responsive">
-                        </div>
-                        <div class="col-lg-6 padding-rl-0 recommend-given">
-                            <label class="margin-bottom-10">Marleen Bosch</label>
-                            <p ng-if="showMode" class="paraFirst"> <i class="fa fa-quote-left"></i>
-                                I worked with Sandeep on couple of projects.. he is best technical personal, always +ve, team player, best technical leader and always assist QA team to deliver the quality products. I always look forward to work with Sandeep.
-                            </p>
-                            <label ng-if="showMode" class="date">Jan 9 2012</label>
-                            <span ng-if="showMode" class="link">
-                                <a class="linkIcon" ng-click="updateValue();"><i class="fa fa-pencil"></i>Edit</a>|
-                                <a href="#">Remove</a>
-                            </span>
-                            <div class="fullWidth" ng-if="editMode">
-                                <textarea rows="4" ng-model="displayText" class="textarea fullWidth">
-                                </textarea>
-                                <p> Write a message to Marleen Bosch to send with your recommendation.</p>
-                                <textarea rows="4" ng-model="displayText2" class="textarea fullWidth">
-                                </textarea>
-                                <p><b>Note: </b> &nbsp;Marleen Bosch will be asked to aprrove your changes to this recommendation</p>
-                                <div class="col-sm-6">
-                                    <a ng-click="editValue();" class="btn btn-default btn-danger" >Send</a>
-                                    <a ng-click="editValue();" class="btn btn-success" >Cancel </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 recommend-given display-section">
-                            <label>Display on your profile to:</label>
-                            <ul>
-                                <li class="radio">
-                                    <label class="ng-binding">
-                                      <input type="radio" value="Your Connections" name="display"> Your Connections
-                                    </label>
-                                </li>
-                                <li class="radio">
-                                    <label class="ng-binding">
-                                      <input type="radio" value="Everyone" checked name="display"> Everyone
-                                    </label>
-                                </li>
-                                <li class="radio">
-                                    <label class="ng-binding">
-                                      <input type="radio" value="No one" name="display"> No one
-                                    </label>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <hr style="height:1px; background-color:#DDDDDD;">
-                    <div class="row margin-rl-0">
-                        <div class="col-lg-2">
-                            <img src="../../img/name14.png" class="img-responsive">
-                        </div>
-                        <div class="col-lg-6 padding-rl-0 recommend-given">
-                            <label class="margin-bottom-10">Geertruda Brouwer</label>
-                            <p ng-if="showMode1" class="paraOne"> <i class="fa fa-quote-left"></i>
-                                I worked with Sandeep on couple of projects.. he is best technical personal, always +ve, team player, best technical leader and always assist QA team to deliver the quality products. I always look forward to work with Sandeep.
-                            </p>
-                            <label ng-if="showMode1" class="date">Jan 9 2012</label>
-                            <span ng-if="showMode1" class="link">
-                                <a ng-click="updateValue1();" class="linkIcon"><i class="fa fa-pencil"></i>Edit</a>|
-                                <a href="#">Remove</a>
-                            </span>
-                            <div class="fullWidth" ng-if="editMode1">
-                                <textarea rows="4" ng-model="displayText" class="textarea fullWidth">
-                                </textarea>
-                                <p> Write a message to Geertruda Brouwer to send with your recommendation.</p>
-                                <textarea rows="4" ng-model="displayText2" class="textarea fullWidth">
-                                </textarea>
-                                <p><b>Note: </b> &nbsp;Geertruda Brouwer will be asked to aprrove your changes to this recommendation</p>
-                                <div class="col-sm-6">
-                                    <a ng-click="editValue1();" class="btn btn-default btn-danger" >Send</a>
-                                    <a ng-click="editValue1();" class="btn btn-success" >Cancel </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 recommend-given display-section">
-                            <label>Display on your profile to:</label>
-                            <ul>
-                                <li class="radio">
-                                    <label>
-                                      <input type="radio" value="Your Connections" name="display1"> Your Connections
-                                    </label>
-                                </li>
-                                <li class="radio">
-                                    <label>
-                                      <input type="radio" value="Everyone" checked name="display1"> Everyone
-                                    </label>
-                                </li>
-                                <li class="radio">
-                                    <label>
-                                      <input type="radio" value="No one" name="display1"> No one
-                                    </label>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Given Section Start -->
-
-        <!-- Ask Section Start -->
-        <div class="row margin-rl-0" ng-if="askrecommendation.flag==true">
-            <div class="col-lg-12 margin-top-10 main-border1 padding-left-0">
-                <div class="row margin-rl-0">
+            <!-- Received Section Start -->
+            <div class="row margin-rl-0" ng-if="received.flag==true;">
+                <div class="col-lg-12 margin-top-10 main-border1 padding-left-0">
                     <div class="recommendation-title">
-                        <span>Ask your connections to recommend you</span>
+                        <span>Manage recommendations you've received</span>
+                        <p>(Looking for recommendations you've made? <a href="#">Click here</a>)</p>
                     </div>
-                </div>
-                <div class="row margin-rl-0 margin-top-20">
-                    <div class="number-circle">1</div>
-                    <label class="font-size-15 line-height-15">What do you want to be recommended for?</label>
-                </div>
-                <div class="row margin-rl-0 margin-top-10">
-                    <div class="col-lg-1">&nbsp;</div>
-                    <div class="col-lg-11 padding-rl-0">
-                        <select class="col-lg-12 select-option float-none">
-                            <option>Choose...</option>
-                            <option value="{{school.name}}" ng-repeat="school in listOfSchools">Student at {{school.name}}</option>
-                            <option value="{{job.name}}" ng-repeat="job in listOfJobs" >{{job.title}} at {{job.name}}</option>
-                        </select>
-                        <span class="margin-left-10">Add a <a href="#" id="zoomTextarea1" title="Click to add Job" data-toggle="modal" data-target="#addJob" ng-click="jobCancel()">job</a> or <a href="#" title="Click to add school" data-toggle="modal" data-target="#addSchool" ng-click="schoolCancel()">school</a></span>
+                    <hr style="height:1px; background-color:#DDDDDD;">
+                    <div class="row margin-rl-0">
+                        <div class="col-sm-11 padding-rl-0">
+                            <div class="col-sm-1  font-size-4 ">
+                                <span class="fa fa-thumbs-o-up"></span>                  
+                            </div>
+                            <div class="col-sm-6">
+                                <label class="font-size-15">Product Manager at Thomas Cook</label>
+                            </div>
+                            <div class="col-sm-11">
+                                <span>
+                                    You have <b>1 recommendation</b> for this position (0 visible, 1 hidden).
+                                </span>
+                                <div class="link-wrapper">
+                                    [ <a href="#">Manage</a> | <a href="#">Ask to be recommended</a> ]
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="row margin-rl-0 margin-top-20">
-                    <div class="number-circle">2</div>
-                    <label class="font-size-15 line-height-15">Who do you want to ask?</label>
-                </div>
-                <div class="row margin-rl-0 margin-top-10">
-                    <div class="col-lg-1">&nbsp;</div>
-                    <div class="col-lg-11 padding-rl-0">
-                        <span>Your connections: </span>
-                        <!-- <label id='form-component-arrangement-label'>Days of the Week</label>
-                        <span id="optional-text">(optional) </span>
-                         -->
-
-                        <div  id='connections' class="inline-block margin-left-10">
-                            <input type="text" style="width:614px;" id='connection-tag' placeholder="Add connections" />
-                        </div>  
+                    <hr style="height:1px; background-color:#DDDDDD;">
+                    <div class="row margin-rl-0">
+                        <div class="col-sm-11 padding-rl-0">
+                            <div class="col-sm-1  font-size-4 ">
+                                <span class="fa fa-thumbs-o-up grey-disable"></span>                  
+                            </div>
+                            <div class="col-sm-6">
+                                <label class="font-size-15">New Business Manager at Thomas Cook</label>
+                            </div>
+                            <div class="col-sm-11">
+                                <span>
+                                    You have <b>no recommendation</b> for this position.
+                                </span>
+                                <div class="link-wrapper">
+                                    [ <a href="#">Ask to be recommended</a> ]
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="row margin-rl-0 margin-top-20">
-                    <div class="number-circle">3</div>
-                    <label class="font-size-15 line-height-15">Create your message</label>
-                </div>
-                <div class="row margin-rl-0 margin-top-10">
-                    <div class="col-sm-1">
+                    <hr style="height:1px; background-color:#DDDDDD;">
+                    <div class="row margin-rl-0">
+                        <div class="col-sm-11 padding-rl-0">
+                            <div class="col-sm-1  font-size-4 ">
+                                <span class="fa fa-thumbs-o-up"></span>                  
+                            </div>
+                            <div class="col-sm-6">
+                                <label class="font-size-15">E-Commerce Manager at NH Hotels</label>
+                            </div>
+                            <div class="col-sm-11">
+                                <span>
+                                    You have <b>1 recommendation</b> for this position (0 visible, 1 hidden).
+                                </span>
+                                <div class="link-wrapper">
+                                    [ <a href="#">Manage</a> | <a href="#">Ask to be recommended</a> ]
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <label class="col-sm-1 padding-top-7">From: </label>
-                    <span> hans.klevenbeek</span>
-
-                    <select class="select-option float-none margin-left-10">
-                        <option ng-repeat="own in owner">{{own.email}}</option>
-                    </select>
-                </div>
-
-                <div class="row margin-rl-0 margin-top-10">
-                    <div class="col-sm-1">
+                    <hr style="height:1px; background-color:#DDDDDD;">
+                    <div class="row margin-rl-0">
+                        <div class="col-sm-11 padding-rl-0">
+                            <div class="col-sm-1  font-size-4 ">
+                                <span class="fa fa-thumbs-o-up grey-disable"></span>                  
+                            </div>
+                            <div class="col-sm-6">
+                                <label class="font-size-15">Revenue Manager at NH Hotels</label>
+                            </div>
+                            <div class="col-sm-11">
+                                <span>
+                                    You have <b>no recommendation</b> for this position.
+                                </span>
+                                <div class="link-wrapper">
+                                    [ <a href="#">Ask to be recommended</a> ]
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <label class="col-sm-1 padding-rl-0 padding-top-7">Subject: </label> 
-                    <input type="text" class="col-sm-8 padding-rl-0" value="  Can you recommend me?" />
-                </div>
-                <div class="row margin-rl-0 margin-top-10">
-                    <div class="col-sm-1">&nbsp;</div>
-                    <div class="col-sm-11 padding-rl-0">
-                        <textarea class="text-area" cols="100" rows="9" ng-model="modalMessage"></textarea>
-                    </div>
-                </div>
-                <div class="row margin-rl-0">
-                    <div class="col-sm-1">
-                    </div>
-                    <span id='optional-text'><strong>Note: </strong>Each recipient will receive an individual email. This will not be sent as a group email.</span>
-                </div>
-                <div class="row margin-rl-0 margin-bottom-20">
-                    <div class="col-sm-1">
-                    </div>
-                    <div class="col-sm-11 padding-rl-0 margin-top-30">
-                        <button class="btn btn-success" type="submit">Send</button>
-                        <button class="btn btn-danger" type="button">Cancel</button>
+                    <hr style="height:1px; background-color:#DDDDDD;">
+                    <div class="row margin-rl-0">
+                        <div class="col-sm-11 padding-rl-0">
+                            <div class="col-sm-1  font-size-4 ">
+                                <span class="fa fa-thumbs-o-up grey-disable"></span>                  
+                            </div>
+                            <div class="col-sm-6">
+                                <label class="font-size-15">Revenue Manager at Van der Valk</label>
+                            </div>
+                            <div class="col-sm-11">
+                                <span>
+                                    You have <b>no recommendation</b> for this position (0 visible, 1 hidden).
+                                </span>
+                                <div class="link-wrapper">
+                                    [ <a href="#">Ask to be recommended</a> ]
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+            <!-- Received Section Start -->
+
+            <!-- Given Section Start -->
+            <div class="row margin-rl-0" ng-if="given.flag==true;">
+                <div class="col-lg-12 margin-top-10 main-border1 padding-left-0">
+                    <div class="recommendation-title">
+                        <span>Manage recommendations you've given</span>
+                        <hr style="height:1px; background-color:#DDDDDD;">
+                        <div class="row margin-rl-0">
+                            <div class="col-lg-2">
+                                <img src="../../img/name13.png" class="img-responsive">
+                            </div>
+                            <div class="col-lg-6 padding-rl-0 recommend-given">
+                                <label class="margin-bottom-10">Marleen Bosch</label>
+                                <p ng-if="showMode" class="paraFirst"> <i class="fa fa-quote-left"></i>
+                                    I worked with Sandeep on couple of projects.. he is best technical personal, always +ve, team player, best technical leader and always assist QA team to deliver the quality products. I always look forward to work with Sandeep.
+                                </p>
+                                <label ng-if="showMode" class="date">Jan 9 2012</label>
+                                <span ng-if="showMode" class="link">
+                                    <a class="linkIcon" ng-click="updateValue();"><i class="fa fa-pencil"></i>Edit</a>|
+                                    <a href="#">Remove</a>
+                                </span>
+                                <div class="fullWidth" ng-if="editMode">
+                                    <textarea rows="4" ng-model="displayText" class="textarea fullWidth">
+                                    </textarea>
+                                    <p> Write a message to Marleen Bosch to send with your recommendation.</p>
+                                    <textarea rows="4" ng-model="displayText2" class="textarea fullWidth">
+                                    </textarea>
+                                    <p><b>Note: </b> &nbsp;Marleen Bosch will be asked to aprrove your changes to this recommendation</p>
+                                    <div class="col-sm-6">
+                                        <a ng-click="editValue();" class="btn btn-default btn-danger" >Send</a>
+                                        <a ng-click="editValue();" class="btn btn-success" >Cancel </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 recommend-given display-section">
+                                <label>Display on your profile to:</label>
+                                <ul>
+                                    <li class="radio">
+                                        <label class="ng-binding">
+                                          <input type="radio" value="Your Connections" name="display"> Your Connections
+                                        </label>
+                                    </li>
+                                    <li class="radio">
+                                        <label class="ng-binding">
+                                          <input type="radio" value="Everyone" checked name="display"> Everyone
+                                        </label>
+                                    </li>
+                                    <li class="radio">
+                                        <label class="ng-binding">
+                                          <input type="radio" value="No one" name="display"> No one
+                                        </label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <hr style="height:1px; background-color:#DDDDDD;">
+                        <div class="row margin-rl-0">
+                            <div class="col-lg-2">
+                                <img src="../../img/name14.png" class="img-responsive">
+                            </div>
+                            <div class="col-lg-6 padding-rl-0 recommend-given">
+                                <label class="margin-bottom-10">Geertruda Brouwer</label>
+                                <p ng-if="showMode1" class="paraOne"> <i class="fa fa-quote-left"></i>
+                                    I worked with Sandeep on couple of projects.. he is best technical personal, always +ve, team player, best technical leader and always assist QA team to deliver the quality products. I always look forward to work with Sandeep.
+                                </p>
+                                <label ng-if="showMode1" class="date">Jan 9 2012</label>
+                                <span ng-if="showMode1" class="link">
+                                    <a ng-click="updateValue1();" class="linkIcon"><i class="fa fa-pencil"></i>Edit</a>|
+                                    <a href="#">Remove</a>
+                                </span>
+                                <div class="fullWidth" ng-if="editMode1">
+                                    <textarea rows="4" ng-model="displayText" class="textarea fullWidth">
+                                    </textarea>
+                                    <p> Write a message to Geertruda Brouwer to send with your recommendation.</p>
+                                    <textarea rows="4" ng-model="displayText2" class="textarea fullWidth">
+                                    </textarea>
+                                    <p><b>Note: </b> &nbsp;Geertruda Brouwer will be asked to aprrove your changes to this recommendation</p>
+                                    <div class="col-sm-6">
+                                        <a ng-click="editValue1();" class="btn btn-default btn-danger" >Send</a>
+                                        <a ng-click="editValue1();" class="btn btn-success" >Cancel </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 recommend-given display-section">
+                                <label>Display on your profile to:</label>
+                                <ul>
+                                    <li class="radio">
+                                        <label>
+                                          <input type="radio" value="Your Connections" name="display1"> Your Connections
+                                        </label>
+                                    </li>
+                                    <li class="radio">
+                                        <label>
+                                          <input type="radio" value="Everyone" checked name="display1"> Everyone
+                                        </label>
+                                    </li>
+                                    <li class="radio">
+                                        <label>
+                                          <input type="radio" value="No one" name="display1"> No one
+                                        </label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Given Section Start -->
+
+            <!-- Ask Section Start -->
+            <div class="row margin-rl-0" ng-if="askrecommendation.flag==true">
+                <div class="col-lg-12 margin-top-10 main-border1 padding-left-0">
+                    <div class="row margin-rl-0">
+                        <div class="recommendation-title">
+                            <span>Ask your connections to recommend you</span>
+                        </div>
+                    </div>
+                    <div class="row margin-rl-0 margin-top-20">
+                        <div class="number-circle">1</div>
+                        <label class="font-size-15 line-height-15">What do you want to be recommended for?</label>
+                    </div>
+                    <div class="row margin-rl-0 margin-top-10">
+                        <div class="col-lg-1">&nbsp;</div>
+                        <div class="col-lg-11 padding-rl-0">
+                            <select class="col-lg-12 select-option float-none">
+                                <option>Choose...</option>
+                                <option value="{{school.name}}" ng-repeat="school in listOfSchools">Student at {{school.name}}</option>
+                                <option value="{{job.name}}" ng-repeat="job in listOfJobs" >{{job.title}} at {{job.name}}</option>
+                            </select>
+                            <span class="margin-left-10">Add a <a href="#" id="zoomTextarea1" title="Click to add Job" data-toggle="modal" data-target="#addJob" ng-click="jobCancel()">job</a> or <a href="#" title="Click to add school" data-toggle="modal" data-target="#addSchool" ng-click="schoolCancel()">school</a></span>
+                        </div>
+                    </div>
+                    <div class="row margin-rl-0 margin-top-20">
+                        <div class="number-circle">2</div>
+                        <label class="font-size-15 line-height-15">Who do you want to ask?</label>
+                    </div>
+                    <div class="row margin-rl-0 margin-top-10">
+                        <div class="col-lg-1">&nbsp;</div>
+                        <div class="col-lg-11 padding-rl-0">
+                            <span>Your connections: </span>
+                            <!-- <label id='form-component-arrangement-label'>Days of the Week</label>
+                            <span id="optional-text">(optional) </span>
+                             -->
+
+                            <div  id='connections' class="inline-block margin-left-10">
+                                <input type="text" style="width:614px;" id='connection-tag' placeholder="Add connections" />
+                            </div>  
+                        </div>
+                    </div>
+                    <div class="row margin-rl-0 margin-top-20">
+                        <div class="number-circle">3</div>
+                        <label class="font-size-15 line-height-15">Create your message</label>
+                    </div>
+                    <div class="row margin-rl-0 margin-top-10">
+                        <div class="col-sm-1">
+                        </div>
+                        <label class="col-sm-1 padding-top-7">From: </label>
+                        <span> hans.klevenbeek</span>
+
+                        <select class="select-option float-none margin-left-10">
+                            <option ng-repeat="own in owner">{{own.email}}</option>
+                        </select>
+                    </div>
+
+                    <div class="row margin-rl-0 margin-top-10">
+                        <div class="col-sm-1">
+                        </div>
+                        <label class="col-sm-1 padding-rl-0 padding-top-7">Subject: </label> 
+                        <input type="text" class="col-sm-8 padding-rl-0" value="  Can you recommend me?" />
+                    </div>
+                    <div class="row margin-rl-0 margin-top-10">
+                        <div class="col-sm-1">&nbsp;</div>
+                        <div class="col-sm-11 padding-rl-0">
+                            <textarea class="text-area" cols="100" rows="9" ng-model="modalMessage"></textarea>
+                        </div>
+                    </div>
+                    <div class="row margin-rl-0">
+                        <div class="col-sm-1">
+                        </div>
+                        <span id='optional-text'><strong>Note: </strong>Each recipient will receive an individual email. This will not be sent as a group email.</span>
+                    </div>
+                    <div class="row margin-rl-0 margin-bottom-20">
+                        <div class="col-sm-1">
+                        </div>
+                        <div class="col-sm-11 padding-rl-0 margin-top-30">
+                            <button class="btn btn-success" type="submit">Send</button>
+                            <button class="btn btn-danger" type="button">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ask Section Start -->
+
         </div>
-
-        <!-- Ask Section Start -->
-
+        <div class="containerB">
+            <span class="prototype-scheme">PROTOTYPE</span>
+        </div>
     </div>
 
     <footer>

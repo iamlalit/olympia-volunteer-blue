@@ -11,14 +11,23 @@
     <link rel="stylesheet" href="../../css/organization/postJob/postJob.css"/>
     <link href="../../css/global.css" rel="stylesheet">
     <link href="../../css/organization/viewApp/viewApp.css" rel="stylesheet">
-    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,100,700&subset=latin,cyrillic-ext,greek-ext,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
+    
     <link href="../../css/volunteer/jobDetails/jobDetails.css" rel="stylesheet">
     <link href="../../css/slider/slider.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="../../css/header/header.css">
     <style type="text/css">
+        .superContainer{
+            width: 1349px;
+            margin: 0 auto;
+        }
         .containerA{
             width: 1008px;
-            margin: 0 auto;
+            display: inline-block;
+        }
+        .containerB{
+            width: 164px;
+            display: inline-block;
+            vertical-align: top;
         }
     </style>
 
@@ -88,139 +97,147 @@
           </div><!-- /.container-fluid -->
         </nav>
     </header>
-    <div class="containerA">
-
-        <div class="row margin-rl-0">
-            <div class="col-sm-12 padding-rl-0">
-                <!-- Navigation back to page-->
-                <span>
-                    <a href="../search/searchVol.html">
-                        <i class="fa fa-chevron-left black-arrow"></i>Back to search results
-                    </a>
-                </span>
-            </div>
+    <div class="superContainer">
+        <div class="containerB">
+            <span class="prototype-scheme">PROTOTYPE</span>
         </div>
-        <div class="row margin-rl-0">
-            <div class="col-sm-8 padding-rl-0">
-                <div class="main-border1">
-                    <img src="../../img/VV_Icon_OrganizationLogo.png" width="70" height="70"/>
-                    <div class="inline-block valign-top">
-                        <div class="panel-title padding-left-0 inline-block">
-                            <span ng-bind="organizationName"></span>
-                        </div>
-                        <br>
-                        <label id="optional-text" >Non-profit organization</label>
-                    </div>
-                    <h4 class="bold">
-                        About <span ng-bind="organizationName"></span>
-                    </h4>
-                    <p>Monarch Staffing is a local grassroots-oriented company. We are deeply networked throughout the region, continually cultivating through job fairs, professional associations, local events, colleges and universities. We give back to our community - our team is frequently out in the field, helping out-of-work citizens and their marketability through career development workshops, seminars and more. We also provide our clients and networks with interviewing skills training and professional development workshops.</p>
-                    <br />
-                    <div class="image-scroller">
-                        <div class="icon-left">
-                            <i class="fa fa-angle-left" id="left"></i>
-                        </div>
-                        <div id="slides">
-                            <img src="../../img/scrolling1.jpg" width="200" height="140" alt="smile" id="image0"/>
-                            <img src="../../img/scrolling2.jpg" width="200" height="140" alt="smile" id="image1"/>
-                            <img src="../../img/scrolling3.png" width="200" height="140" alt="smile" id="image2"/> 
-                            <img src="../../img/scrolling1.jpg" width="200" height="140" alt="smile" id="image3"/> 
-                            <img src="../../img/scrolling2.jpg" width="200" height="140" alt="smile" id="image4"/> 
-                        </div>
-                        <div class="icon-right">
-                            <i class="fa fa-angle-right" id="right"></i>
-                        </div>
-                    </div>
-                    <h5 class="margin-bottom-30"><strong>Organization recent job postings</strong></h5>
+        <div class="containerA">
 
-                    <div class="row job margin-rl-0" ng-repeat="job in jobPost">
-
-                        <span>
-                            <a href="../../volunteer/jobDetails/jobDetails.html?jobName={{job.jobTitle}}&jobDate={{job.jobDate}}" ng-bind="job.jobTitle">
-                            </a>
-                        </span>
-                        <span ng-bind="job.jobDate" class="pull-right"></span>
-                    </div>
+            <div class="row margin-rl-0">
+                <div class="col-sm-12 padding-rl-0">
+                    <!-- Navigation back to page-->
+                    <span>
+                        <a href="../search/searchVol.html">
+                            <i class="fa fa-chevron-left black-arrow"></i>Back to search results
+                        </a>
+                    </span>
                 </div>
-                
             </div>
-            <div class="col-sm-4 padding-right-0">
-                <div class="main-border1">
-                    <div class="row margin-rl-0">
-                        <label class="margin-bottom-0">E-mail address:</label>
-                        <span class="margin-bottom-0 pull-right">
-                            <a href="#">
-                                service@redcross.nl
-                            </a>
-                        </span>
-                    </div>
-                    <div class="row margin-rl-0">
-                        <label class="margin-bottom-0">Website:</label>
-                        <span class="margin-bottom-0 pull-right">
-                            <a href="http://www.rodekruis.nl">
-                                www.rodekruis.nl
-                            </a>
-                        </span>
-                    </div>
-                    <div class="row margin-rl-0">
-                        <label class="margin-bottom-0">Telephone:</label>
-                        <span class="margin-bottom-0 pull-right">
-                            +31(0)70-4455678 
-                        </span>
-                    </div>
-                    <div class="row margin-rl-0">
-                        <label class="margin-bottom-0">Fax:</label>
-                        <span class="margin-bottom-0 pull-right">
-                            +31(0)70-4455678 
-                        </span>
-                    </div>
-                    <div class="row margin-rl-0">
-                        <label class="margin-bottom-0">Address:</label>
-                        <span class="margin-bottom-0 pull-right">
-                            Leeghwaterplein 27
-                        </span>
-                        <span class="margin-bottom-0 pull-right">
-                            2521 CV Den Haag
-                        </span>
-                    </div>
-                    <div class="row margin-rl-0">
-                        <a href="" class="pull-right" ng-click="hideMap = true" ng-show="!hideMap">Hide map</a>
-                        <a href="" class="pull-right" ng-click="hideMap = false" ng-show="hideMap">Show map</a>
-                        <div class="grid" ng-if="!hideMap">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d156001.6947562717!2d4.9696984!3d52.3427359!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c60955504f6de5%3A0x2ed08c58d2758077!2sRode+Kruislaan%2C+1111+Diemen%2C+The+Netherlands!5e0!3m2!1sen!2sin!4v1408821023776" width="290" height="200" frameborder="0" style="border:0"></iframe>
+            <div class="row margin-rl-0">
+                <div class="col-sm-8 padding-rl-0">
+                    <div class="main-border1">
+                        <img src="../../img/VV_Icon_OrganizationLogo.png" width="70" height="70"/>
+                        <div class="inline-block valign-top">
+                            <div class="panel-title padding-left-0 inline-block">
+                                <span ng-bind="organizationName"></span>
+                            </div>
+                            <br>
+                            <label id="optional-text" >Non-profit organization</label>
                         </div>
-                    </div>
-                </div>
-
-                <div class="main-border1">
-                    <label class="margin-bottom-0">Organizations focus categories:</label>
-                    <div class="row margin-rl-0 margin-bottom-15 margin-top--3">
-                        <span class="small-pill" ng-repeat="category in organizationCategories">{{category}}</span>
-                    </div>
-                </div>
-                <div class="main-border1">
-                    <label class="margin-bottom-10">{{organizationName}} Team</label>
-                    <div  ng-repeat="member in members">
-                        <div class="row margin-rl-0">
-                            <div class="col-sm-3">
-                                <img src="{{member.image}}" width="30" height="30">
-                            </div>      
-                            <div class="col-sm-9">
-                                <span>
-                                    <a href="../../volunteer/volunteerProfile/volunteerProfile.html?name={{member.name}}&city=Amsterdam,%20Noord%20Holland&image={{member.image}}" ng-bind="member.name">
-                                    </a>
-                                </span>
-                                    <br>
-                                <span>
-                                    Amsterdam, Noord Holland
-                                </span>
+                        <h4 class="bold">
+                            About <span ng-bind="organizationName"></span>
+                        </h4>
+                        <p>Monarch Staffing is a local grassroots-oriented company. We are deeply networked throughout the region, continually cultivating through job fairs, professional associations, local events, colleges and universities. We give back to our community - our team is frequently out in the field, helping out-of-work citizens and their marketability through career development workshops, seminars and more. We also provide our clients and networks with interviewing skills training and professional development workshops.</p>
+                        <br />
+                        <div class="image-scroller">
+                            <div class="icon-left">
+                                <i class="fa fa-angle-left" id="left"></i>
+                            </div>
+                            <div id="slides">
+                                <img src="../../img/scrolling1.jpg" width="200" height="140" alt="smile" id="image0"/>
+                                <img src="../../img/scrolling2.jpg" width="200" height="140" alt="smile" id="image1"/>
+                                <img src="../../img/scrolling3.png" width="200" height="140" alt="smile" id="image2"/> 
+                                <img src="../../img/scrolling1.jpg" width="200" height="140" alt="smile" id="image3"/> 
+                                <img src="../../img/scrolling2.jpg" width="200" height="140" alt="smile" id="image4"/> 
+                            </div>
+                            <div class="icon-right">
+                                <i class="fa fa-angle-right" id="right"></i>
                             </div>
                         </div>
-                    <hr class="user-hr" ng-if="$index !== members.length-1">
-                </div>
-                </div>
+                        <h5 class="margin-bottom-30"><strong>Organization recent job postings</strong></h5>
 
+                        <div class="row job margin-rl-0" ng-repeat="job in jobPost">
+
+                            <span>
+                                <a href="../../volunteer/jobDetails/jobDetails.html?jobName={{job.jobTitle}}&jobDate={{job.jobDate}}" ng-bind="job.jobTitle">
+                                </a>
+                            </span>
+                            <span ng-bind="job.jobDate" class="pull-right"></span>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="col-sm-4 padding-right-0">
+                    <div class="main-border1">
+                        <div class="row margin-rl-0">
+                            <label class="margin-bottom-0">E-mail address:</label>
+                            <span class="margin-bottom-0 pull-right">
+                                <a href="#">
+                                    service@redcross.nl
+                                </a>
+                            </span>
+                        </div>
+                        <div class="row margin-rl-0">
+                            <label class="margin-bottom-0">Website:</label>
+                            <span class="margin-bottom-0 pull-right">
+                                <a href="http://www.rodekruis.nl">
+                                    www.rodekruis.nl
+                                </a>
+                            </span>
+                        </div>
+                        <div class="row margin-rl-0">
+                            <label class="margin-bottom-0">Telephone:</label>
+                            <span class="margin-bottom-0 pull-right">
+                                +31(0)70-4455678 
+                            </span>
+                        </div>
+                        <div class="row margin-rl-0">
+                            <label class="margin-bottom-0">Fax:</label>
+                            <span class="margin-bottom-0 pull-right">
+                                +31(0)70-4455678 
+                            </span>
+                        </div>
+                        <div class="row margin-rl-0">
+                            <label class="margin-bottom-0">Address:</label>
+                            <span class="margin-bottom-0 pull-right">
+                                Leeghwaterplein 27
+                            </span>
+                            <span class="margin-bottom-0 pull-right">
+                                2521 CV Den Haag
+                            </span>
+                        </div>
+                        <div class="row margin-rl-0">
+                            <a href="" class="pull-right" ng-click="hideMap = true" ng-show="!hideMap">Hide map</a>
+                            <a href="" class="pull-right" ng-click="hideMap = false" ng-show="hideMap">Show map</a>
+                            <div class="grid" ng-if="!hideMap">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d156001.6947562717!2d4.9696984!3d52.3427359!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c60955504f6de5%3A0x2ed08c58d2758077!2sRode+Kruislaan%2C+1111+Diemen%2C+The+Netherlands!5e0!3m2!1sen!2sin!4v1408821023776" width="290" height="200" frameborder="0" style="border:0"></iframe>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="main-border1">
+                        <label class="margin-bottom-0">Organizations focus categories:</label>
+                        <div class="row margin-rl-0 margin-bottom-15 margin-top--3">
+                            <span class="small-pill" ng-repeat="category in organizationCategories">{{category}}</span>
+                        </div>
+                    </div>
+                    <div class="main-border1">
+                        <label class="margin-bottom-10">{{organizationName}} Team</label>
+                        <div  ng-repeat="member in members">
+                            <div class="row margin-rl-0">
+                                <div class="col-sm-3">
+                                    <img src="{{member.image}}" width="30" height="30">
+                                </div>      
+                                <div class="col-sm-9">
+                                    <span>
+                                        <a href="../../volunteer/volunteerProfile/volunteerProfile.html?name={{member.name}}&city=Amsterdam,%20Noord%20Holland&image={{member.image}}" ng-bind="member.name">
+                                        </a>
+                                    </span>
+                                        <br>
+                                    <span>
+                                        Amsterdam, Noord Holland
+                                    </span>
+                                </div>
+                            </div>
+                        <hr class="user-hr" ng-if="$index !== members.length-1">
+                    </div>
+                    </div>
+
+                </div>
             </div>
+        </div>
+        <div class="containerB">
+            <span class="prototype-scheme">PROTOTYPE</span>
         </div>
     </div>
 

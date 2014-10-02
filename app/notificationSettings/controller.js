@@ -11,6 +11,7 @@
     }
     $scope.typeOfOwner = getParameterByName('owner');
 
+
 }]);
 
     

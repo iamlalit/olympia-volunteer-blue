@@ -5,7 +5,7 @@
     <title>Olympia</title>
     <link href="../img/olympia-fav.ico" rel="shortcut icon" type="image/x-icon" />
 
-    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,100,700&subset=latin,cyrillic-ext,greek-ext,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
+    
     <!-- font for main content -->
     <link href="//fonts.googleapis.com/css?family=PT+Sans:400italic,400,700italic,700" />
     <link href="../../img/olympia-fav.ico" rel="shortcut icon" type="image/x-icon" />
@@ -18,9 +18,18 @@
     <link href="../css/message/message.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="../css/header/header.css">
     <style type="text/css">
+        .superContainer{
+            width: 1349px;
+            margin: 0 auto;
+        }
         .containerA{
             width: 1008px;
-            margin: 0 auto;
+            display: inline-block;
+        }
+        .containerB{
+            width: 164px;
+            display: inline-block;
+            vertical-align: top;
         }
     </style>
 </head>
@@ -83,7 +92,7 @@
                                 </li>
                                 <li role="presentation" class="divider" ng-if="typeOfOwner == 'organization'"></li>
                                 <li role="presentation" ng-if="typeOfOwner == 'organization'">
-                                    <a role="menuitem" href="#">&nbsp;<i class='fa fa-list-alt'></i> &nbsp;Integration Settings
+                                    <a role="menuitem" href="../integrationSettings/integrationSettings.html?owner=organization">&nbsp;<i class='fa fa-list-alt'></i> &nbsp;Integration Settings
                                     </a>
                                 </li>
                             </ul>
@@ -118,91 +127,174 @@
         </div>
     </header>
     <!-- Page Header Section End-->
-    <div class="containerA">
+    <div class="superContainer">
+        <div class="containerB">
+            <span class="prototype-scheme">PROTOTYPE</span>
+        </div>
+        <div class="containerA">
 
-        <div class="row margin-rl-0">
-            <div class="col-lg-2 margin-top-10 main-border1 padding-left-0">
-                <div class="">
+            <div class="row margin-rl-0">
+                <div class="col-lg-2 margin-top-10 main-border1 padding-left-0">
+                    <div class="">
+                        <div class="row-fluid">
+                            <div class="col-lg-12 margin-bottom-15 padding-right-0">
+                                <a href="" class="btn btn-primary active col-lg-12" ng-click="toggle(3);$parent.showMessage = false">New Message</a>
+                            </div>
+                        </div>
+                        <div class="row-fluid">
+                            <div class="col-lg-12 padding-right-0">
+                                <ul class="message-sidebar">
+                                    <li ng-repeat="row in messageSidebar"><a href="#" class="margin-top-10" name="row.name" ng-class="{selected: currentnode==$index}" ng-bind="row.name" ng-click="toggle($index);$parent.showMessage = true;"></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-10 margin-top-10 main-border1 padding-left-0" ng-init="toggle(0);showMessage = true" ng-show="showMessage">
                     <div class="row-fluid">
+                        <div class="col-lg-4 margin-bottom-15 padding-right-0">
+                            <div class="input-search-wrap">
+                                <input type="text" placeholder="search" />
+                                <span class="glyphicon glyphicon-search">
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-lg-8">
+                            &nbsp;
+                        </div>
+                    </div>
+                    <!--Compose a mail start-->
+                    <div class="row-fluid" ng-show="compose == true">
+                        <div class="col-lg-8">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Send to{{compose}}</label>
+                                <input type="email" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Subject</label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Message</label>
+                                <textarea rows="7" cols="30" class="form-control"></textarea>
+                            </div>
+                            <div class="form-group upload">
+                                <label for="exampleInputFile"><i class="glyphicon glyphicon-plus"></i>Attach a file</label>
+                            </div>
+                            <div class="form-group upload margin-top-20">
+                                <button type="submit" class="btn btn-success">Send</button><button type="submit" class="btn btn-cancel">Cancel</button>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">&nbsp;</div>
+                    </div>
+                    <!--Compose a mail end-->
+                    <!--Inbox start-->
+                    <div class="row-fluid" ng-show="inbox==true">
                         <div class="col-lg-12 margin-bottom-15 padding-right-0">
-                            <a href="" class="btn btn-primary active col-lg-12" ng-click="toggle(3);$parent.showMessage = false">New Message</a>
-                        </div>
-                    </div>
-                    <div class="row-fluid">
-                        <div class="col-lg-12 padding-right-0">
-                            <ul class="message-sidebar">
-                                <li ng-repeat="row in messageSidebar"><a href="#" class="margin-top-10" name="row.name" ng-class="{selected: currentnode==$index}" ng-bind="row.name" ng-click="toggle($index);$parent.showMessage = true;"></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-10 margin-top-10 main-border1 padding-left-0" ng-init="toggle(0);showMessage = true" ng-show="showMessage">
-                <div class="row-fluid">
-                    <div class="col-lg-4 margin-bottom-15 padding-right-0">
-                        <div class="input-search-wrap">
-                            <input type="text" placeholder="search" />
-                            <span class="glyphicon glyphicon-search">
-                            </span>
-                        </div>
-                    </div>
-                    <div class="col-lg-8">
-                        &nbsp;
-                    </div>
-                </div>
-                <!--Compose a mail start-->
-                <div class="row-fluid" ng-show="compose == true">
-                    <div class="col-lg-8">
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Send to{{compose}}</label>
-                            <input type="email" class="form-control" />
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Subject</label>
-                            <input type="text" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Message</label>
-                            <textarea rows="7" cols="30" class="form-control"></textarea>
-                        </div>
-                        <div class="form-group upload">
-                            <label for="exampleInputFile"><i class="glyphicon glyphicon-plus"></i>Attach a file</label>
-                        </div>
-                        <div class="form-group upload margin-top-20">
-                            <button type="submit" class="btn btn-success">Send</button><button type="submit" class="btn btn-cancel">Cancel</button>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">&nbsp;</div>
-                </div>
-                <!--Compose a mail end-->
-                <!--Inbox start-->
-                <div class="row-fluid" ng-show="inbox==true">
-                    <div class="col-lg-12 margin-bottom-15 padding-right-0">
-                        <div class="message-wrapper">
-                            <div class="message-wrapper-heading row-fluid">
-                                <div class="col-lg-2 padding-right-0">
-                                    <input type="checkbox" ng-model="checkall" ng-change="checkAll()"/>
+                            <div class="message-wrapper">
+                                <div class="message-wrapper-heading row-fluid">
+                                    <div class="col-lg-2 padding-right-0">
+                                        <input type="checkbox" ng-model="checkall" ng-change="checkAll()"/>
+                                    </div>
+                                    <div class="col-lg-10 align-left padding-rl-0">
+                                        <a href="#" class="btn btn-mark" ng-class="{selected: message.checkall==true}">Mark as read</a>
+                                        <a href="#" class="btn btn-mark" ng-class="{selected: message.checkall==true}">Mark as unread</a>
+                                        <a href="#" class="btn btn-mark" ng-class="{selected: message.checkall==true}" ng-click="moveMessage()"><i class="fa fa-archive"></i>Archive</a>
+                                    </div>
                                 </div>
-                                <div class="col-lg-10 align-left padding-rl-0">
-                                    <a href="#" class="btn btn-mark" ng-class="{selected: message.checkall==true}">Mark as read</a>
-                                    <a href="#" class="btn btn-mark" ng-class="{selected: message.checkall==true}">Mark as unread</a>
-                                    <a href="#" class="btn btn-mark" ng-class="{selected: message.checkall==true}" ng-click="moveMessage()"><i class="fa fa-archive"></i>Archive</a>
+                                <div class="message-wrapper-body">
+                                    <div class="row-fluid" ng-repeat="message in messageInbox">
+                                        <div class="col-lg-2 padding-right-0">
+                                            <input type="checkbox" ng-model="message.checked" />
+                                            <span class="margin-left-10" ng-click="passMessage(message);$parent.showMessage = !showMessage;toggle(3)">
+                                                <img src="../img/VV_Icon_Profile.png" width="30" height="30">
+                                            </span>
+                                        </div>
+                                        <div ng-click="passMessage(message);$parent.showMessage = false;toggle(3)">
+                                            <div class="col-lg-2 align-left padding-rl-0">
+                                                <label class="sender-name" ng-bind="message.name"></label>
+                                                <label class="sender-date" ng-bind="message.date"></label>
+                                            </div>
+                                            <div class="col-lg-8 align-left padding-rl-0">
+                                                <label class="message-title blue"  ng-bind="message.title"></label>
+                                                <label class="message-body"  ng-bind="message.content"></label>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="message-wrapper-body">
-                                <div class="row-fluid" ng-repeat="message in messageInbox">
+                        </div>
+                    </div>
+                    <!--Inbox end-->
+                    <!--Send start-->
+                    <div class="row-fluid" ng-show="send==true">
+                        <div class="col-lg-12 margin-bottom-15 padding-right-0">
+                            <div class="message-wrapper">
+                                <div class="message-wrapper-heading row-fluid">
                                     <div class="col-lg-2 padding-right-0">
-                                        <input type="checkbox" ng-model="message.checked" />
-                                        <span class="margin-left-10" ng-click="passMessage(message);$parent.showMessage = !showMessage;toggle(3)">
-                                            <img src="../img/VV_Icon_Profile.png" width="30" height="30">
-                                        </span>
+                                        <input type="checkbox" value="" ng-model="message.checkall" />
                                     </div>
-                                    <div ng-click="passMessage(message);$parent.showMessage = false;toggle(3)">
-                                        <div class="col-lg-2 align-left padding-rl-0">
+                                    <div class="col-lg-10 align-left padding-rl-0">
+                                        <a href="#" class="btn btn-mark" ng-class="{selected: message.checkall==true}">Mark as read</a>
+                                        <a href="#" class="btn btn-mark" ng-class="{selected: message.checkall==true}">Mark as unread</a>
+                                    </div>
+                                </div>
+                                <div class="message-wrapper-body">
+                                    <div class="row-fluid" ng-repeat="message in messageSent">
+                                        <div class="col-lg-2 padding-right-0">
+                                            <input type="checkbox" value="" />
+                                            <span class="margin-left-10"  ng-click="passMessage(message);$parent.showMessage = false;toggle(3)">
+                                                <img src="../img/VV_Icon_Profile.png" width="30" height="30">
+                                            </span>
+                                        </div>
+                                        <div class="col-lg-2 align-left padding-rl-0"  ng-click="passMessage(message);$parent.showMessage = false;toggle(3)">
                                             <label class="sender-name" ng-bind="message.name"></label>
                                             <label class="sender-date" ng-bind="message.date"></label>
                                         </div>
-                                        <div class="col-lg-8 align-left padding-rl-0">
+                                        <div class="col-lg-8 align-left padding-rl-0"  ng-click="passMessage(message);$parent.showMessage = false;toggle(3)">
+                                            <label class="message-title blue"  ng-bind="message.title"></label>
+                                            <label class="message-body"  ng-bind="message.content"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Send end-->
+                    <!--Archieve start-->
+                    <div class="row-fluid" ng-show="archive==true && lengthOfArchive == 0">
+                        <div class="col-lg-12 margin-bottom-15 padding-right-0">
+                            <h1 class="no-message">
+                                You have no archived messages
+                            </h1>
+                        </div>
+                    </div>
+                    <!--Archieve end-->
+                    <div class="row-fluid" ng-show="archive==true && lengthOfArchive != 0">
+                        <div class="col-lg-12 margin-bottom-15 padding-right-0">
+                            <div class="message-wrapper">
+                                <div class="message-wrapper-heading row-fluid">
+                                    <div class="col-lg-2 padding-right-0">
+                                        <input type="checkbox" ng-model="message.checkall"/>
+                                    </div>
+                                    <div class="col-lg-10 align-left padding-rl-0">
+                                        <a href="#" class="btn btn-mark" ng-class="{selected: message.checkall==true}">Mark as read</a>
+                                        <a href="#" class="btn btn-mark" ng-class="{selected: message.checkall==true}">Mark as unread</a>
+                                    </div>
+                                </div>
+                                <div class="message-wrapper-body">
+                                    <div class="row-fluid" ng-repeat="message in messageArchive">
+                                        <div class="col-lg-2 padding-right-0">
+                                            <input type="checkbox" ng-model="message.checked" />
+                                            <span class="margin-left-10"  ng-click="passMessage(message);$parent.showMessage = false;toggle(3)">
+                                                <img src="../img/VV_Icon_Profile.png" width="30" height="30">
+                                            </span>
+                                        </div>
+                                        <div class="col-lg-2 align-left padding-rl-0"  ng-click="passMessage(message);$parent.showMessage = false;toggle(3)">
+                                            <label class="sender-name" ng-bind="message.name"></label>
+                                            <label class="sender-date" ng-bind="message.date"></label>
+                                        </div>
+                                        <div class="col-lg-8 align-left padding-rl-0"  ng-click="passMessage(message);$parent.showMessage = false;toggle(3)">
                                             <label class="message-title blue"  ng-bind="message.title"></label>
                                             <label class="message-body"  ng-bind="message.content"></label>
                                         </div>
@@ -212,133 +304,58 @@
                         </div>
                     </div>
                 </div>
-                <!--Inbox end-->
-                <!--Send start-->
-                <div class="row-fluid" ng-show="send==true">
-                    <div class="col-lg-12 margin-bottom-15 padding-right-0">
-                        <div class="message-wrapper">
-                            <div class="message-wrapper-heading row-fluid">
-                                <div class="col-lg-2 padding-right-0">
-                                    <input type="checkbox" value="" ng-model="message.checkall" />
-                                </div>
-                                <div class="col-lg-10 align-left padding-rl-0">
-                                    <a href="#" class="btn btn-mark" ng-class="{selected: message.checkall==true}">Mark as read</a>
-                                    <a href="#" class="btn btn-mark" ng-class="{selected: message.checkall==true}">Mark as unread</a>
-                                </div>
-                            </div>
-                            <div class="message-wrapper-body">
-                                <div class="row-fluid" ng-repeat="message in messageSent">
-                                    <div class="col-lg-2 padding-right-0">
-                                        <input type="checkbox" value="" />
-                                        <span class="margin-left-10"  ng-click="passMessage(message);$parent.showMessage = false;toggle(3)">
-                                            <img src="../img/VV_Icon_Profile.png" width="30" height="30">
-                                        </span>
-                                    </div>
-                                    <div class="col-lg-2 align-left padding-rl-0"  ng-click="passMessage(message);$parent.showMessage = false;toggle(3)">
-                                        <label class="sender-name" ng-bind="message.name"></label>
-                                        <label class="sender-date" ng-bind="message.date"></label>
-                                    </div>
-                                    <div class="col-lg-8 align-left padding-rl-0"  ng-click="passMessage(message);$parent.showMessage = false;toggle(3)">
-                                        <label class="message-title blue"  ng-bind="message.title"></label>
-                                        <label class="message-body"  ng-bind="message.content"></label>
-                                    </div>
-                                </div>
+                <div class="col-lg-10 margin-top-10 main-border1 padding-left-0" ng-show="!showMessage">
+                    <div class="row margin-rl-0">
+                        <div class="col-lg-4 padding-right-0 margin-bottom-15">
+                            <div class="input-search-wrap">
+                                <input type="text" placeholder="search" />
+                                <span class="glyphicon glyphicon-search">
+                                </span>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <!--Send end-->
-                <!--Archieve start-->
-                <div class="row-fluid" ng-show="archive==true && lengthOfArchive == 0">
-                    <div class="col-lg-12 margin-bottom-15 padding-right-0">
-                        <h1 class="no-message">
-                            You have no archived messages
-                        </h1>
-                    </div>
-                </div>
-                <!--Archieve end-->
-                <div class="row-fluid" ng-show="archive==true && lengthOfArchive != 0">
-                    <div class="col-lg-12 margin-bottom-15 padding-right-0">
-                        <div class="message-wrapper">
-                            <div class="message-wrapper-heading row-fluid">
-                                <div class="col-lg-2 padding-right-0">
-                                    <input type="checkbox" ng-model="message.checkall"/>
-                                </div>
-                                <div class="col-lg-10 align-left padding-rl-0">
-                                    <a href="#" class="btn btn-mark" ng-class="{selected: message.checkall==true}">Mark as read</a>
-                                    <a href="#" class="btn btn-mark" ng-class="{selected: message.checkall==true}">Mark as unread</a>
-                                </div>
-                            </div>
-                            <div class="message-wrapper-body">
-                                <div class="row-fluid" ng-repeat="message in messageArchive">
-                                    <div class="col-lg-2 padding-right-0">
-                                        <input type="checkbox" ng-model="message.checked" />
-                                        <span class="margin-left-10"  ng-click="passMessage(message);$parent.showMessage = false;toggle(3)">
-                                            <img src="../img/VV_Icon_Profile.png" width="30" height="30">
-                                        </span>
-                                    </div>
-                                    <div class="col-lg-2 align-left padding-rl-0"  ng-click="passMessage(message);$parent.showMessage = false;toggle(3)">
-                                        <label class="sender-name" ng-bind="message.name"></label>
-                                        <label class="sender-date" ng-bind="message.date"></label>
-                                    </div>
-                                    <div class="col-lg-8 align-left padding-rl-0"  ng-click="passMessage(message);$parent.showMessage = false;toggle(3)">
-                                        <label class="message-title blue"  ng-bind="message.title"></label>
-                                        <label class="message-body"  ng-bind="message.content"></label>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="col-lg-8">
+                            &nbsp;
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-lg-10 margin-top-10 main-border1 padding-left-0" ng-show="!showMessage">
-                <div class="row margin-rl-0">
-                    <div class="col-lg-4 padding-right-0 margin-bottom-15">
-                        <div class="input-search-wrap">
-                            <input type="text" placeholder="search" />
-                            <span class="glyphicon glyphicon-search">
-                            </span>
-                        </div>
-                    </div>
-                    <div class="col-lg-8">
-                        &nbsp;
-                    </div>
-                </div>
-                <div class="row margin-rl-0">
-                    <div class="col-lg-9 padding-right-0">
-                        <div class="message-wrapper">
-                            <div class="message-wrapper-body row-fluid">
-                                <h4 ng-bind="passedMessaged.title" class="col-sm-12 padding-right-0"></h4>
+                    <div class="row margin-rl-0">
+                        <div class="col-lg-9 padding-right-0">
+                            <div class="message-wrapper">
+                                <div class="message-wrapper-body row-fluid">
+                                    <h4 ng-bind="passedMessaged.title" class="col-sm-12 padding-right-0"></h4>
+                                    <hr class="create-hr margin-top-0 col-sm-12 padding-rl-0">
+                                    <div class="col-lg-3 padding-right-0">
+                                        <label class="sender-name bold" ng-bind="passedMessaged.name"></label><br>
+                                        <span class="sender-date" ng-bind="passedMessaged.date"></span>
+                                    </div>
+                                    <div class="col-lg-9">
+                                        <p ng-bind="passedMessaged.content"></p>
+                                    </div>
+                                </div>
                                 <hr class="create-hr margin-top-0 col-sm-12 padding-rl-0">
-                                <div class="col-lg-3 padding-right-0">
-                                    <label class="sender-name bold" ng-bind="passedMessaged.name"></label><br>
-                                    <span class="sender-date" ng-bind="passedMessaged.date"></span>
+                                <label class="padding-left-15 col-sm-12">Reply to All</label>      
+                                <div class="padding-left-15">
+                                    <textarea class="text-area" cols="75" rows="8"></textarea>
                                 </div>
-                                <div class="col-lg-9">
-                                    <p ng-bind="passedMessaged.content"></p>
+                                <div class="form-group upload padding-left-15 padding-top-10">
+                                    <label for="exampleInputFile"><i class="glyphicon glyphicon-plus"></i>Attach a file</label>
                                 </div>
+                                <div class="form-group upload margin-top-20 padding-left-15">
+                                    <button type="submit" class="btn btn-success">Send</button>
+                                </div>                            
                             </div>
-                            <hr class="create-hr margin-top-0 col-sm-12 padding-rl-0">
-                            <label class="padding-left-15 col-sm-12">Reply to All</label>      
-                            <div class="padding-left-15">
-                                <textarea class="text-area" cols="75" rows="8"></textarea>
-                            </div>
-                            <div class="form-group upload padding-left-15 padding-top-10">
-                                <label for="exampleInputFile"><i class="glyphicon glyphicon-plus"></i>Attach a file</label>
-                            </div>
-                            <div class="form-group upload margin-top-20 padding-left-15">
-                                <button type="submit" class="btn btn-success">Send</button>
-                            </div>                            
                         </div>
-                    </div>
-                    <div class="col-lg-3 pull-right" ng-show="!showMessage">
-                        <span class="">
-                            <img src="../img/VV_Icon_Profile.png" width="30" height="30">
-                        </span>
-                        <label class="sender-name bold" ng-bind="passedMessaged.name"></label>
+                        <div class="col-lg-3 pull-right" ng-show="!showMessage">
+                            <span class="">
+                                <img src="../img/VV_Icon_Profile.png" width="30" height="30">
+                            </span>
+                            <label class="sender-name bold" ng-bind="passedMessaged.name"></label>
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="containerB">
+            <span class="prototype-scheme">PROTOTYPE</span>
         </div>
     </div>
     <footer>

@@ -7,7 +7,7 @@
     <link href="../css/font-awesome.css" rel="stylesheet" />
     <link href="../css/global.css" rel="stylesheet" />
     <!-- fornt for heading -->
-    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,100,700&subset=latin,cyrillic-ext,greek-ext,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
+    
     <!-- font for main content -->
     <link href="//fonts.googleapis.com/css?family=PT+Sans:400italic,400,700italic,700" />
     <link href="../css/organization/postJob/postjob.css" rel="stylesheet" />
@@ -15,9 +15,18 @@
     <link href="../css/global.css" rel="stylesheet" />
     <link href="../css/landing/landing.css" rel="stylesheet" />
     <style type="text/css">
-        .container{
-            width: 1041px;
+        .superContainer{
+            width: 1349px;
             margin: 0 auto;
+        }
+        .containerA{
+            width: 1008px;
+            display: inline-block;
+        }
+        .containerB{
+            width: 164px;
+            display: inline-block;
+            vertical-align: top;
         }
     </style>
 </head>
@@ -114,86 +123,94 @@
     </header>
 
     <!-- Page Header Section End-->
+    <div class="superContainer">
+        <div class="containerB">
+            <span class="prototype-scheme">PROTOTYPE</span>
+        </div>
+        <div class="containerA" ng-if="volunteerMenu">
+            <div class="main-border1">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h2 class="profile-heading">Create your Profile</h2>
+                        <p>
+                            A great profile is your key to getting hired. Highlights your strengths with an accurate description of your skills, work history, and education.
+                            Our staff will review for quality, so take time to fill your profile out completely and professional.
+                            <span><a href="#">Learn more about profiles</a></span>
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3 center-block">
+                        <div class="form-group complete-profile">
+                            <button onclick="window.location.href='../volunteer/CreateProfileForm/createProfile.html'" class="btn btn-primary active btn-site">Complete my Profile</button>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-lg-12">
+                        <p class="add-text">Looking for inspiration? Check out these successful volunteer profiles:</p>
+                    </div>
+                </div>
+                <div class="row" style="margin-left:0px;">
+                    <div style="padding-left:0px;display: inline-block" ng-repeat="profile in profileModel" ng-mouseenter="makeItBlue='rectangle-blue'; makeBlue='color-Blue'" ng-mouseleave="makeItBlue=''; makeBlue='';">
+                        <a href="../volunteer/volunteerProfile/volunteerProfile.html?name={{profile.name}}&city=Amsterdam,%20Noord%20Holland&image=../{{profile.imgLink}}">
+                            <div class="main-border" ng-class="makeItBlue">
+                                <img src="{{profile.imgLink}}" width="40" height="40">
+                                <div class="inline-block valign-top">
+                                <label ng-bind="profile.name" style="vertical-align:text-bottom" ng-class="makeBlue"></label>
+                                <p ng-bind="profile.skill"></p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="containerA" ng-if="OrganizationMenu">
+            <div class="main-border1">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h2 class="profile-heading">Create your Profile</h2>
+                        <p>
+                            A great profile is your key to get good volunteers get hired. Highlights your organization strengths with an accurate description of the skills required. Specify the mission of your organization.
+                            <span><a href="#">Learn more about profiles</a></span>
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3 center-block">
+                        <div class="form-group complete-profile">
+                            <button onclick="window.location.href='../organization/organizationProfile/organizationProfile.html'" class="btn btn-primary active btn-site">Complete my Profile</button>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-lg-12">
+                        <p class="add-text">Looking for inspiration? Check out these successful Organization profiles:</p>
+                    </div>
+                </div>
+                <div class="row" style="margin-left:0px;">
+                    <div style="padding-left:0px;display: inline-block" ng-repeat="profile in profileModelOrganization" ng-mouseenter="makeItBlue='rectangle-blue'; makeBlue='color-Blue'" ng-mouseleave="makeItBlue=''; makeBlue='';">
+                        <a href="../organization/organizationpcms/organizationpcms.html?organizationName={{profile.name}}">
+                            <div class="main-border" ng-class="makeItBlue">
+                                <img src="../img/VV_Icon_OrganizationLogo.png" width="40" height="40">
+                                <div class="inline-block valign-top">
+                                <label ng-bind="profile.name" style="vertical-align:text-bottom" ng-class="makeBlue"></label>
+                                <p ng-bind="profile.type"></p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="containerB">
+            <span class="prototype-scheme">PROTOTYPE</span>
+        </div>
+    </div>
 
-    <div class="container" ng-if="volunteerMenu">
-        <div class="main-border1">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h2 class="profile-heading">Create your Profile</h2>
-                    <p>
-                        A great profile is your key to getting hired. Highlights your strengths with an accurate description of your skills, work history, and education.
-                        Our staff will review for quality, so take time to fill your profile out completely and professional.
-                        <span><a href="#">Learn more about profiles</a></span>
-                    </p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-3 center-block">
-                    <div class="form-group complete-profile">
-                        <button onclick="window.location.href='../volunteer/CreateProfileForm/createProfile.html'" class="btn btn-primary active btn-site">Complete my Profile</button>
-                    </div>
-                </div>
-            </div>
-            <hr />
-            <div class="row">
-                <div class="col-lg-12">
-                    <p class="add-text">Looking for inspiration? Check out these successful volunteer profiles:</p>
-                </div>
-            </div>
-            <div class="row" style="margin-left:0px;">
-                <div style="padding-left:0px;display: inline-block" ng-repeat="profile in profileModel" ng-mouseenter="makeItBlue='rectangle-blue'; makeBlue='color-Blue'" ng-mouseleave="makeItBlue=''; makeBlue='';">
-                    <a href="../volunteer/volunteerProfile/volunteerProfile.html?name={{profile.name}}&city=Amsterdam,%20Noord%20Holland&image=../{{profile.imgLink}}">
-                        <div class="main-border" ng-class="makeItBlue">
-                            <img src="{{profile.imgLink}}" width="40" height="40">
-                            <div class="inline-block valign-top">
-                            <label ng-bind="profile.name" style="vertical-align:text-bottom" ng-class="makeBlue"></label>
-                            <p ng-bind="profile.skill"></p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container" ng-if="OrganizationMenu">
-        <div class="main-border1">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h2 class="profile-heading">Create your Profile</h2>
-                    <p>
-                        A great profile is your key to get good volunteers get hired. Highlights your organization strengths with an accurate description of the skills required. Specify the mission of your organization.
-                        <span><a href="#">Learn more about profiles</a></span>
-                    </p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-3 center-block">
-                    <div class="form-group complete-profile">
-                        <button onclick="window.location.href='../organization/organizationProfile/organizationProfile.html'" class="btn btn-primary active btn-site">Complete my Profile</button>
-                    </div>
-                </div>
-            </div>
-            <hr />
-            <div class="row">
-                <div class="col-lg-12">
-                    <p class="add-text">Looking for inspiration? Check out these successful Organization profiles:</p>
-                </div>
-            </div>
-            <div class="row" style="margin-left:0px;">
-                <div style="padding-left:0px;display: inline-block" ng-repeat="profile in profileModelOrganization" ng-mouseenter="makeItBlue='rectangle-blue'; makeBlue='color-Blue'" ng-mouseleave="makeItBlue=''; makeBlue='';">
-                    <a href="../organization/organizationpcms/organizationpcms.html?organizationName={{profile.name}}">
-                        <div class="main-border" ng-class="makeItBlue">
-                            <img src="../img/VV_Icon_OrganizationLogo.png" width="40" height="40">
-                            <div class="inline-block valign-top">
-                            <label ng-bind="profile.name" style="vertical-align:text-bottom" ng-class="makeBlue"></label>
-                            <p ng-bind="profile.type"></p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
     <footer>
         <div class="container1">
             <div class="row">

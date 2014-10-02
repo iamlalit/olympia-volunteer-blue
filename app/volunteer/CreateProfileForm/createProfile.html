@@ -14,15 +14,25 @@
     <link rel="stylesheet" href="../../css/organization/postJob/postJob.css"/>
     <link href="../../css/global.css" rel="stylesheet">
     <link href="../../css/organization/viewApp/viewApp.css" rel="stylesheet">
-    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,100,700&subset=latin,cyrillic-ext,greek-ext,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
+    
     <link href="../../css/volunteer/createProfileForm/createProfileForm.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="../../css/header/header.css">
     <style type="text/css">
-        .containerA{
-            width: 1008px;
+        .superContainer{
+            width: 1349px;
             margin: 0 auto;
         }
+        .containerA{
+            width: 1008px;
+            display: inline-block;
+        }
+        .containerB{
+            width: 164px;
+            display: inline-block;
+            vertical-align: top;
+        }
     </style>
+
 </head>
 
 <body ng-controller="landingPage">
@@ -87,465 +97,473 @@
         </div>
     </header>
 
-    <div class="containerA">
-        
-        <div class="main-border1">
-        <div class="row margin-rl-0">
-            <div class="col-lg-12 padding-rl-0">
-                <div class="panel-title">
-                    <span>Create your profile</span>
-                </div>
-                <p>
-                    Create your volunteer profile so we can show you the best matching jobs.
-                </p>
-            </div>
+    <div class="superContainer">
+        <div class="containerB">
+            <span class="prototype-scheme">PROTOTYPE</span>
         </div>
-        <div class="row margin-rl-0">
-            <div class="col-sm-12 padding-rl-0">
-                <div class="pill margin-top-10 ishidden">
-                    <h5 class="font-size-16"><strong>Basic information</strong></h5>
-                </div> 
-                <div class="row margin-rl-0 margin-top-10">
-                    <div class="col-sm-1 ">
-                        <img src="../../img/VV_Icon_Profile.png" width="70" height="70"/>
+        <div class="containerA">
+            
+            <div class="main-border1">
+            <div class="row margin-rl-0">
+                <div class="col-lg-12 padding-rl-0">
+                    <div class="panel-title">
+                        <span>Create your profile</span>
                     </div>
-                    <div class="col-sm-3 ">
-                        <div>
-                            <i class="glyphicon glyphicon-pencil pointer"></i>
-                            <h4 class="inline-block padding-left-5 bold">Sandy Noteborn</h4>
+                    <p>
+                        Create your volunteer profile so we can show you the best matching jobs.
+                    </p>
+                </div>
+            </div>
+            <div class="row margin-rl-0">
+                <div class="col-sm-12 padding-rl-0">
+                    <div class="pill margin-top-10 ishidden">
+                        <h5 class="font-size-16"><strong>Basic information</strong></h5>
+                    </div> 
+                    <div class="row margin-rl-0 margin-top-10">
+                        <div class="col-sm-1 ">
+                            <img src="../../img/VV_Icon_Profile.png" width="70" height="70"/>
                         </div>
-                        <div>
-                            <i class="glyphicon glyphicon-pencil pointer"></i>
-                            <span class="padding-left-5">Amsterdam, Noord Holland</span>
+                        <div class="col-sm-3 ">
+                            <div>
+                                <i class="glyphicon glyphicon-pencil pointer"></i>
+                                <h4 class="inline-block padding-left-5 bold">Hans Klevenbeek</h4>
+                            </div>
+                            <div>
+                                <i class="glyphicon glyphicon-pencil pointer"></i>
+                                <span class="padding-left-5">Amsterdam, Noord Holland</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="row  margin-rl-0 margin-top-5">
-                    <div class="circle-green pointer">
-                        <i class="fa fa-plus icon-white-plus" title="Add a image"> </i>
+                    <div class="row  margin-rl-0 margin-top-5">
+                        <div class="circle-green pointer">
+                            <i class="fa fa-plus icon-white-plus" title="Add a image"> </i>
+                        </div>
+                        <span title="Add a image"><a href="#">Add photo</a></span>
                     </div>
-                    <span title="Add a image"><a href="#">Add photo</a></span>
-                </div>
-                <div class="col-sm-8 padding-rl-0">
-                    <div class="row margin-rl-0">
-                        <label class="bold">About me</label>
+                    <div class="col-sm-8 padding-rl-0">
+                        <div class="row margin-rl-0">
+                            <label class="bold">About me</label>
+                        </div>
+                        <textarea class="text-area" cols="89" rows="7" maxlength="5000" id="question1" placeholder="Write a brief description of yourself. Include a short summary of your volunteer goals and relevant experience. This is your oppotunity to sell yourself."></textarea>
+                        <p id="optional-text" class="number-max">5000 characters left</p>
+                        
                     </div>
-                    <textarea class="text-area" cols="89" rows="7" maxlength="5000" id="question1" placeholder="Write a brief description of yourself. Include a short summary of your volunteer goals and relevant experience. This is your oppotunity to sell yourself."></textarea>
-                    <p id="optional-text" class="number-max">5000 characters left</p>
-                    
-                </div>
-                <div class="col-sm-8 padding-rl-0">
-                    <div class="row margin-rl-0">
-                        <label class="bold">I'm looking for</label>
+                    <div class="col-sm-8 padding-rl-0">
+                        <div class="row margin-rl-0">
+                            <label class="bold">I'm looking for</label>
+                        </div>
+                        <textarea class="text-area" cols="89" rows="7" maxlength="5000" id="question1" placeholder="Say a bit about your availability, willingness to travel, skills etc"></textarea>
+                        <p id="optional-text" class="pull-right">5000 characters left</p>
                     </div>
-                    <textarea class="text-area" cols="89" rows="7" maxlength="5000" id="question1" placeholder="Say a bit about your availability, willingness to travel, skills etc"></textarea>
-                    <p id="optional-text" class="pull-right">5000 characters left</p>
                 </div>
             </div>
-        </div>
-        <div class="row margin-rl-0">
-            <div class="col-sm-12 padding-rl-0">
-                <div class="pill margin-top-10">
-                    <h5 class="font-size-16"><strong>Customise your profile</strong></h5>
-                </div> 
+            <div class="row margin-rl-0">
+                <div class="col-sm-12 padding-rl-0">
+                    <div class="pill margin-top-10">
+                        <h5 class="font-size-16"><strong>Customise your profile</strong></h5>
+                    </div> 
+                </div>
             </div>
-        </div>
-        <div class="row margin-rl-0">
-            <div class="col-sm-12 padding-rl-0">
-                <hr style="height:1px; background-color:#DDDDDD;">
-            </div>  
-        </div>
-        <div class="row margin-rl-0">
-            <div class="col-sm-11 padding-rl-0">
-                <div class='col-sm-1  font-size-4 '>
-                    <span class="fa fa-cogs"></span>                  
-                </div>
-                <div class="col-sm-6">
-                    <label class="font-size-15">Your work interests</label>
-                </div>
-                <div class='col-sm-11'>
-                    <span>
-                        Specify your work interests, work categories and desired location or vicinity.
-                    </span>
+            <div class="row margin-rl-0">
+                <div class="col-sm-12 padding-rl-0">
+                    <hr style="height:1px; background-color:#DDDDDD;">
+                </div>  
+            </div>
+            <div class="row margin-rl-0">
+                <div class="col-sm-11 padding-rl-0">
+                    <div class='col-sm-1  font-size-4 '>
+                        <span class="fa fa-cogs"></span>                  
+                    </div>
+                    <div class="col-sm-6">
+                        <label class="font-size-15">Your work interests</label>
+                    </div>
+                    <div class='col-sm-11'>
+                        <span>
+                            Specify your work interests, work categories and desired location or vicinity.
+                        </span>
 
-                    <div class='row'>
-                        <div class='margin-top-10'>
+                        <div class='row'>
+                            <div class='margin-top-10'>
+                            </div>
                         </div>
-                    </div>
-                    <button type="button"  class="btn btn-primary active" id="work">Add work interests</button>
-                     <ul class="ishidden" id="group-skills">
-                        <!-- <li style="list-style-type:none; padding-bottom:30px;" id="skills-popover"> -->
-                        <li style="list-style-type:none; padding-bottom:30px;">                             
-                            <label >What categories best fit your skills?</label>
-                            <span id="optional-text">(optional) </span>
-                            <div  id='form-component-arrangement-input'>
-                                <input type="text" class='form-control' id='volunteer-work-tag' placeholder="Add categories" />
-                            </div>
-                            <div class="col-sm-12">
-                                <span style="margin-left:-13px;"><a href="#" id="zoomTextarea" id="modal-skill" onclick="updateValueVolunteerWorkText()" title="Click to Zoom" data-toggle="modal" data-target="#VolunteerWork">Add categories</a>
-                                </span>
-                            </div>
-                        </li>
-                        <!-- <li style="list-style-type:none" id="diploma-popover"> -->
-                        <li style="list-style-type:none">
-                            <label >What is your desired work area?</label>
-                            <span id="optional-text">(optional) </span>
-                            <div  id='form-component-arrangement-input'>
-                                <input type="text" class='input-text' id='volunteer-tag' placeholder="Add volunteer work area" />
-                            </div>
-                            <div class="col-sm-12">
-                                <span style="margin-left:-13px;"><a href="#" id="zoomTextarea" id="modal-diploma" onclick="updateValueVolunteerInterestText()" title="Click to Zoom" data-toggle="modal" data-target="#VolunteerWorkBox">Add your work area</a>
-                                </span>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="row margin-rl-0">
-            <div class="col-sm-12 padding-rl-0">
-                <hr style="height:1px; background-color:#DDDDDD;">
-            </div>  
-        </div>
-        <div class="row margin-top-10 margin-rl-0">
-            <div class="col-sm-11 padding-rl-0">
-                <div class='col-sm-1  font-size-4 '>
-                    <span class="glyphicon glyphicon-list-alt"></span>                  
-                </div>
-                <div class="col-sm-6">
-                    <label class="font-size-15">Preferred skills and diplomas</label>
-                </div>
-                <div class='col-sm-11' >
-                    <span>
-                        Specify your skills and diplomas/certificates.
-                    </span>
-
-                    <div class='row'>
-                        <div class='margin-top-10'>
-                        </div>
-                    </div>
-                    <button class="btn btn-primary active" type="button" id="skills" value="Add Skills / Certificates" name="Add Skills / Certificates">Add skills / certificates</button>
-                    <ul class="ishidden" id="group-skills">
-                        <!-- <li style="list-style-type:none; padding-bottom:30px;" id="skills-popover"> -->
-                        <li style="list-style-type:none; padding-bottom:30px;">                             
-                            <label >Add skills you would like to offer</label>
-                            <span id="optional-text">(optional) </span>
-                            <div  id='form-component-arrangement-input'>
-                                <input type="text" class='form-control' id='skill-tag' placeholder="Add skills" />
-                            </div>
-                            <div class="col-sm-12">
-                                <span style="margin-left:-13px;"><a href="#" id="zoomTextarea" id="modal-skill" onclick="updateValueSkillText()" title="Click to Zoom" data-toggle="modal" data-target="#skillBox">Add skills</a>
-                                </span>
-                            </div>
-                        </li>
-                        <!-- <li style="list-style-type:none" id="diploma-popover"> -->
-                        <li style="list-style-type:none">
-                            <label >Add diploma/certificates to your profile</label>
-                            <span id="optional-text">(optional) </span>
-                            <div  id='form-component-arrangement-input'>
-                                <input type="text" class='input-text' id='diploma-tag' placeholder="Add Diploma/Certificates" />
-                            </div>
-                            <div class="col-sm-12">
-                                <span style="margin-left:-13px;"><a href="#" id="zoomTextarea" id="modal-diploma" onclick="updateValueDiplomaText()" title="Click to Zoom" data-toggle="modal" data-target="#diplomaBox">Add diploma/certificates</a>
-                                </span>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="row margin-rl-0">
-            <div class="col-sm-12 padding-rl-0">
-                <hr style="height:1px; background-color:#DDDDDD;">
-            </div>  
-        </div>
-        <div class="row margin-rl-0">
-            <div class="col-sm-11 padding-rl-0">
-                <div class='col-sm-1  font-size-4'>
-                    <span class="glyphicon glyphicon-time"></span>                  
-                </div>
-                <div class="col-sm-6">
-                    <label class="font-size-15">Time preferences</label>
-                </div>
-                <div class='col-sm-11' >
-                    <span>
-                        Specify your time preferences and your availability.
-                    </span>
-
-                    <div class='row'>
-                        <div class='margin-top-10'>
-                        </div>
-                    </div>
-                    <button type="button"  class="btn btn-primary active" id="time">Add time preferences</button>
-                    <ul class="ishidden" id="group-skills">
-                    
-                        <li style="list-style-type:none" class="check-label">
-                            <div class="row">
-                                <label class="margin-left-28">Time preferences</label>
-                                <a>
-                                    <i class="glyphicon glyphicon-question-sign blue" id="time-checkbox"></i>
-                                </a>
+                        <button type="button"  class="btn btn-primary active" id="work">Add work interests</button>
+                         <ul class="ishidden" id="group-skills">
+                            <!-- <li style="list-style-type:none; padding-bottom:30px;" id="skills-popover"> -->
+                            <li style="list-style-type:none; padding-bottom:30px;">                             
+                                <label >What categories best fit your skills?</label>
                                 <span id="optional-text">(optional) </span>
+                                <div  id='form-component-arrangement-input'>
+                                    <input type="text" class='form-control' id='volunteer-work-tag' placeholder="Add categories" />
+                                </div>
+                                <div class="col-sm-12">
+                                    <span style="margin-left:-13px;"><a href="#" id="zoomTextarea" id="modal-skill" onclick="updateValueVolunteerWorkText()" title="Click to Zoom" data-toggle="modal" data-target="#VolunteerWork">Add categories</a>
+                                    </span>
+                                </div>
+                            </li>
+                            <!-- <li style="list-style-type:none" id="diploma-popover"> -->
+                            <li style="list-style-type:none">
+                                <label >What is your desired work area?</label>
+                                <span id="optional-text">(optional) </span>
+                                <div  id='form-component-arrangement-input'>
+                                    <input type="text" class='input-text' id='volunteer-tag' placeholder="Add volunteer work area" />
+                                </div>
+                                <div class="col-sm-12">
+                                    <span style="margin-left:-13px;"><a href="#" id="zoomTextarea" id="modal-diploma" onclick="updateValueVolunteerInterestText()" title="Click to Zoom" data-toggle="modal" data-target="#VolunteerWorkBox">Add your work area</a>
+                                    </span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row margin-rl-0">
+                <div class="col-sm-12 padding-rl-0">
+                    <hr style="height:1px; background-color:#DDDDDD;">
+                </div>  
+            </div>
+            <div class="row margin-top-10 margin-rl-0">
+                <div class="col-sm-11 padding-rl-0">
+                    <div class='col-sm-1  font-size-4 '>
+                        <span class="glyphicon glyphicon-list-alt"></span>                  
+                    </div>
+                    <div class="col-sm-6">
+                        <label class="font-size-15">Preferred skills and diplomas</label>
+                    </div>
+                    <div class='col-sm-11' >
+                        <span>
+                            Specify your skills and diplomas/certificates.
+                        </span>
+
+                        <div class='row'>
+                            <div class='margin-top-10'>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary active" type="button" id="skills" value="Add Skills / Certificates" name="Add Skills / Certificates">Add skills / certificates</button>
+                        <ul class="ishidden" id="group-skills">
+                            <!-- <li style="list-style-type:none; padding-bottom:30px;" id="skills-popover"> -->
+                            <li style="list-style-type:none; padding-bottom:30px;">                             
+                                <label >Add skills you would like to offer</label>
+                                <span id="optional-text">(optional) </span>
+                                <div  id='form-component-arrangement-input'>
+                                    <input type="text" class='form-control' id='skill-tag' placeholder="Add skills" />
+                                </div>
+                                <div class="col-sm-12">
+                                    <span style="margin-left:-13px;"><a href="#" id="zoomTextarea" id="modal-skill" onclick="updateValueSkillText()" title="Click to Zoom" data-toggle="modal" data-target="#skillBox">Add skills</a>
+                                    </span>
+                                </div>
+                            </li>
+                            <!-- <li style="list-style-type:none" id="diploma-popover"> -->
+                            <li style="list-style-type:none">
+                                <label >Add diploma/certificates to your profile</label>
+                                <span id="optional-text">(optional) </span>
+                                <div  id='form-component-arrangement-input'>
+                                    <input type="text" class='input-text' id='diploma-tag' placeholder="Add Diploma/Certificates" />
+                                </div>
+                                <div class="col-sm-12">
+                                    <span style="margin-left:-13px;"><a href="#" id="zoomTextarea" id="modal-diploma" onclick="updateValueDiplomaText()" title="Click to Zoom" data-toggle="modal" data-target="#diplomaBox">Add diploma/certificates</a>
+                                    </span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row margin-rl-0">
+                <div class="col-sm-12 padding-rl-0">
+                    <hr style="height:1px; background-color:#DDDDDD;">
+                </div>  
+            </div>
+            <div class="row margin-rl-0">
+                <div class="col-sm-11 padding-rl-0">
+                    <div class='col-sm-1  font-size-4'>
+                        <span class="glyphicon glyphicon-time"></span>                  
+                    </div>
+                    <div class="col-sm-6">
+                        <label class="font-size-15">Time preferences</label>
+                    </div>
+                    <div class='col-sm-11' >
+                        <span>
+                            Specify your time preferences and your availability.
+                        </span>
+
+                        <div class='row'>
+                            <div class='margin-top-10'>
+                            </div>
+                        </div>
+                        <button type="button"  class="btn btn-primary active" id="time">Add time preferences</button>
+                        <ul class="ishidden" id="group-skills">
+                        
+                            <li style="list-style-type:none" class="check-label">
+                                <div class="row">
+                                    <label class="margin-left-28">Time preferences</label>
+                                    <a>
+                                        <i class="glyphicon glyphicon-question-sign blue" id="time-checkbox"></i>
+                                    </a>
+                                    <span id="optional-text">(optional) </span>
+                                    
+                                </div>
+                                <!-- <label class="margin">Time Comittment</label> -->
+                                <div class="col-sm-6 ">
+
+                                    <div class="checkbox">
+                                        <label>
+                                          <input type="checkbox" id="wt1" value="All Weekdays - Late Night"> Occasional(weekly or monthly)
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                          <input type="checkbox" id="wt2" value="All Weekdays - Late Night"> Part-time(10+ hours/week)
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                          <input type="checkbox" id="wt3" value="All Weekdays - Late Night"> Full time(30-40 hours/week)
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="checkbox">
+                                        <label>
+                                          <input type="checkbox" id="wt4" value="All Weekdays - Late Night"> One day or evening (a few hours or less)
+                                        </label>
+                                    </div>
+                                    <div class="checkbox invisible ">
+                                        <label>
+                                          <input type="checkbox" id="wt5" value="All Weekdays - Late Night"> For few hours
+                                        </label>
+                                    </div>
+                                    <div class="checkbox invisible">
+                                        <label>
+                                          <input type="checkbox" id="wt6" value="All Weekdays - Late Night"> Less than 1 hour
+                                        </label>
+                                    </div>
+                                    
+                                </div>
+                            </li>
+                            <li style="list-style-type:none">
+                                <label id='form-component-arrangement-label'>Days of the Week</label>
+                                <span id="optional-text">(optional) </span>
+                                <div  id='form-component-arrangement-input' style="margin-bottom:-10px;">
+                                    <input type="text" class='form-control' id='dow-tag' placeholder="Add days of the week" />
+                                </div>
+                                <div class="col-sm-12">
+                                    <span style="margin-left:-13px;"><a href="#" id="zoomTextarea1" onclick="updateValueDowText()" title="Click to Zoom" data-toggle="modal" data-target="#dowBox">Add preferred days of the week to your profile</a>
+                                    </span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row margin-rl-0">
+                <div class="col-sm-12 padding-rl-0">
+                    <hr style="height:1px; background-color:#DDDDDD;">
+                </div>  
+            </div>
+
+            <div class="row margin-top-10 margin-rl-0" ng-init="showSocialAccount=true">
+                <div class="col-sm-11 padding-rl-0">
+                    <div class='col-sm-1 padding-right-0 padding-left-25  font-size-4 '>
+                        <span class="fa fa-linkedin-square vertical-align-top"></span>                  
+                    </div>
+                    <div class="col-sm-6">
+                        <label class="font-size-15">Your social networks</label>
+                    </div>
+                    <div class='col-sm-11' >
+                        <span>
+                            Add your social accounts.
+                        </span>
+
+                        <div class='row'>
+                            <div class='margin-top-10'>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary active" type="button" ng-click="showSocialAccount = !showSocialAccount" ng-show="showSocialAccount">Add social account</button>
+                        <button class="btn btn-danger" type="button"  ng-click="showSocialAccount = !showSocialAccount" ng-hide="showSocialAccount">Hide social account</button>
+                        <ul id="group-skills" ng-show="!showSocialAccount">
+                            <!-- <li style="list-style-type:none; padding-bottom:30px;" id="skills-popover"> -->
+                            <li style="list-style-type:none; padding-bottom:10px;">                             
+                                <div class="row">
+                                    <div class='col-sm-1 align-right'>
+                                        <span class="fa fa-facebook font-size-2"></span>  
+                                    </div>
+                                    <div class="col-sm-2 padding-right-0">
+                                        <span><a href="" class="font-size-20">facebook</a></label>
+                                    </div>
+                                    <div class='col-sm-9 padding-rl-0'><i class="glyphicon glyphicon-pencil pointer pencil-icon"></i></div>
+                                </div>
+                                <div class="row">
+                                    <div class='col-sm-1 align-right'>
+                                        <span class="fa fa-linkedin font-size-2"></span>  
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <span><a href="" class="font-size-20">linkedin</a></label>
+                                    </div>
+                                    <div class='col-sm-9 padding-rl-0'><i class="glyphicon glyphicon-pencil pointer pencil-icon"></i></div>
+                                </div>
+                                <div class="row">
+                                    <div class='col-sm-1 align-right'>
+                                        <span class="fa fa-twitter font-size-2"></span>  
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <span><a href="" class="font-size-20">twitter</a></label>
+                                    </div>
+                                    <div class='col-sm-9 padding-rl-0'><i class="glyphicon glyphicon-pencil pointer pencil-icon"></i></div>
+                                </div>      
+
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row margin-rl-0">
+                <div class="col-sm-12 padding-rl-0">
+                    <hr style="height:1px; background-color:#DDDDDD;">
+                </div>  
+            </div>
+            <div class="row margin-top-10 margin-rl-0" ng-init="showSocialAccount=true">
+                <div class='col-sm-1 padding-right-0 padding-left-25 font-size-4 '>
+                        <span class="fa fa-eye-slash vertical-align-top"></span>                  
+                    </div>
+                    <div class="col-sm-6">
+                        <label class="font-size-15">Profile visibility</label>
+                    </div>
+                    <div class='col-sm-11' >
+                        <span>
+                            Specify who can view your profile.
+                        </span>
+                        <ul>
+                            <!-- <li style="list-style-type:none; padding-bottom:30px;" id="skills-popover"> -->
+                            <li style="list-style-type:none; padding-bottom:10px;">                             
+                                <div class="radio">
+                                    <label>
+                                      <input type="radio" id="rv1" name="profileVisibility" checked=""> &nbsp;Everyone - Anyone can see your profile.
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                      <input type="radio" id="rv2" name="profileVisibility"> &nbsp;Volunteers only - Only users who are logged in can see your profile.
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                      <input type="radio" id="rv3" name="profileVisibility"> &nbsp;Hidden - Organizations can see your profile only if you have applied to their openings.
+                                    </label>
+                                </div>
+                            </li>
+                    </div>
+            </div>
+            <!-- Part 2-->
+            <div class="row margin-rl-0">
+                <div class="col-sm-12 padding-rl-0">
+                    <div class="pill margin-top-10">
+                        <h5 class="font-size-16"><strong>School information</strong></h5>
+                    </div> 
+                </div>
+            </div>
+            <div class="row margin-rl-0">
+                <div class="col-sm-12 margin-top-20 padding-rl-0">
+                    <div class="main-border1 margin-bottom-5">
+                        <div ng-if="lengthOfSchools == 0">
+                            <p class="align-center bold italic">No school information has been added yet</p>
+                            <p class="align-center italic">Please click on "add school" to add information about your school/education</p>
+                        </div>
+                        
+                        <div ng-if="lengthOfSchools != 0">
+                            <div ng-repeat="school in listOfSchools track by $index">
+                                <div class='padding-rl-0'>
+                                    <label ng-bind="school.name" class="margin-right-15"></label>
+                                    <span ng-click="openSchoolModel(school, $index)" class="margin-right-15">
+                                        <i class="glyphicon glyphicon-pencil pointer"></i>
+                                        <a href="">Edit</a>
+                                    </span>
+                                    <span ng-click="deleteSchool(school, $index)">
+                                        <i class="fa fa-times pointer"></i>
+                                        <a href="">Delete</a>
+                                    </span>
+                                </div>
+                                <p class="margin-bottom-0"><label class="margin-bottom-0">Degree - </label>&nbsp;<span ng-bind="school.degree"></span></p>
+                                <p class="margin-bottom-0"><label class="margin-bottom-0">Area of study - </label>&nbsp;<span ng-bind="school.areaOfStudy"></span></p>
+                                <p class="margin-bottom-0"><label class="margin-bottom-0">From - </label>&nbsp;<span ng-bind="school.startDate"></span>&nbsp;&nbsp;<label class="margin-bottom-0">To - </label>&nbsp;<span ng-bind="school.endDate"></span></p>
+                                <div class="row" ng-if="$index !== lengthOfSchools-1">
+                                    <div class="col-sm-12 padding-right-5">
+                                        <div class="hr1"></div>
+                                    </div>  
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row margin-rl-0">
+                <div class="col-sm-12 padding-rl-0">
+                    <span><a href="#" id="zoomTextarea1" title="Click to add school" data-toggle="modal" data-target="#addSchool" ng-click="schoolCancel()">add school</a></span>
+                </div>
+            </div>
+
+            <!-- Part 3-->
+            <div class="row margin-rl-0">
+                <div class="col-sm-12 padding-rl-0">
+                    <div class="pill margin-top-10">
+                        <h5 class="font-size-16"><strong>Job information</strong></h5>
+                    </div> 
+                </div>
+            </div>
+            <div class="row margin-rl-0">
+                <div class="col-sm-12 margin-top-20 padding-rl-0">
+                    <div class="main-border1 margin-bottom-5">
+                        <div ng-if="lengthOfJobs == 0">
+                            <p class="align-center bold italic">No job/volunteer experience has been shared yet</p>
+                            <p class="align-center italic">Please click on "add volunteer experience" to add information about specific work you've taken on </p>
+                        </div>
+
+                        <div ng-if="lengthOfJobs != 0">
+                            <div ng-repeat="job in listOfJobs track by $index">
+                                <div class='padding-rl-0'>
+                                    <label ng-bind="job.title" class="margin-right-15"></label>
+                                    <span ng-click="openJobModel(job, $index)" class="margin-right-15">
+                                        <i class="glyphicon glyphicon-pencil pointer"></i>
+                                        <a href="">Edit</a>
+                                    </span>
+                                    <span ng-click="deletejob(job, $index)">
+                                        <i class="fa fa-times pointer"></i>
+                                        <a href="">Delete</a>
+                                    </span>
+                                </div>
                                 
-                            </div>
-                            <!-- <label class="margin">Time Comittment</label> -->
-                            <div class="col-sm-6 ">
-
-                                <div class="checkbox">
-                                    <label>
-                                      <input type="checkbox" id="wt1" value="All Weekdays - Late Night"> Occasional(weekly or monthly)
-                                    </label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                      <input type="checkbox" id="wt2" value="All Weekdays - Late Night"> Part-time(10+ hours/week)
-                                    </label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                      <input type="checkbox" id="wt3" value="All Weekdays - Late Night"> Full time(30-40 hours/week)
-                                    </label>
+                                <p class="margin-bottom-0"><label class="margin-bottom-0">Organization - </label>&nbsp;<span ng-bind="job.name"></span></p>
+                                <p class="margin-bottom-0"><label class="margin-bottom-0">Location - </label>&nbsp;<span ng-bind="job.city"></span> &nbsp;<span ng-bind="job.country"></span></p>
+                                <p class="margin-bottom-0"><label class="margin-bottom-0">From - </label>&nbsp;<span ng-bind="job.month1"></span>, &nbsp;<span ng-bind="job.startDate"></span>&nbsp;&nbsp;<label class="margin-bottom-0">To - </label>&nbsp;<span ng-bind="job.month2"></span>, &nbsp;<span ng-bind="job.endDate"></span></p>
+                                <div class="row" ng-if="$index !== lengthOfJobs-1">
+                                    <div class="col-sm-12 padding-right-5">
+                                        <div class="hr1"></div>
+                                    </div>  
                                 </div>
                             </div>
-                            <div class="col-sm-6">
-                                <div class="checkbox">
-                                    <label>
-                                      <input type="checkbox" id="wt4" value="All Weekdays - Late Night"> One day or evening (a few hours or less)
-                                    </label>
-                                </div>
-                                <div class="checkbox invisible ">
-                                    <label>
-                                      <input type="checkbox" id="wt5" value="All Weekdays - Late Night"> For few hours
-                                    </label>
-                                </div>
-                                <div class="checkbox invisible">
-                                    <label>
-                                      <input type="checkbox" id="wt6" value="All Weekdays - Late Night"> Less than 1 hour
-                                    </label>
-                                </div>
-                                
-                            </div>
-                        </li>
-                        <li style="list-style-type:none">
-                            <label id='form-component-arrangement-label'>Days of the Week</label>
-                            <span id="optional-text">(optional) </span>
-                            <div  id='form-component-arrangement-input' style="margin-bottom:-10px;">
-                                <input type="text" class='form-control' id='dow-tag' placeholder="Add days of the week" />
-                            </div>
-                            <div class="col-sm-12">
-                                <span style="margin-left:-13px;"><a href="#" id="zoomTextarea1" onclick="updateValueDowText()" title="Click to Zoom" data-toggle="modal" data-target="#dowBox">Add preferred days of the week to your profile</a>
-                                </span>
-                            </div>
-                        </li>
-                    </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        
-        <div class="row margin-rl-0">
-            <div class="col-sm-12 padding-rl-0">
-                <hr style="height:1px; background-color:#DDDDDD;">
+            <div class="row margin-rl-0">
+                <div class="col-sm-12 padding-rl-0">
+                    <span><a href="#" id="zoomTextarea1" title="Click to add Job" data-toggle="modal" data-target="#addJob" ng-click="jobCancel()">add volunteer experience</a></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12 margin-top-30">
+                    <div class="col-sm-4"></div>
+                    <div class="form-group col-sm-5 complete-profile">
+                        <button class="btn btn-success" onclick="window.location.href = '../volunteerProfile/volunteerProfile.html'">Save profile and continue</button>
+                        <button class="btn btn-danger" >Cancel</button>
+                    </div>
+                </div>
             </div>  
-        </div>
-
-        <div class="row margin-top-10 margin-rl-0" ng-init="showSocialAccount=true">
-            <div class="col-sm-11 padding-rl-0">
-                <div class='col-sm-1 padding-right-0 padding-left-25  font-size-4 '>
-                    <span class="fa fa-linkedin-square vertical-align-top"></span>                  
-                </div>
-                <div class="col-sm-6">
-                    <label class="font-size-15">Your social networks</label>
-                </div>
-                <div class='col-sm-11' >
-                    <span>
-                        Add your social accounts.
-                    </span>
-
-                    <div class='row'>
-                        <div class='margin-top-10'>
-                        </div>
-                    </div>
-                    <button class="btn btn-primary active" type="button" ng-click="showSocialAccount = !showSocialAccount" ng-show="showSocialAccount">Add social account</button>
-                    <button class="btn btn-danger" type="button"  ng-click="showSocialAccount = !showSocialAccount" ng-hide="showSocialAccount">Hide social account</button>
-                    <ul id="group-skills" ng-show="!showSocialAccount">
-                        <!-- <li style="list-style-type:none; padding-bottom:30px;" id="skills-popover"> -->
-                        <li style="list-style-type:none; padding-bottom:10px;">                             
-                            <div class="row">
-                                <div class='col-sm-1 align-right'>
-                                    <span class="fa fa-facebook font-size-2"></span>  
-                                </div>
-                                <div class="col-sm-2 padding-right-0">
-                                    <span><a href="" class="font-size-20">facebook</a></label>
-                                </div>
-                                <div class='col-sm-9 padding-rl-0'><i class="glyphicon glyphicon-pencil pointer pencil-icon"></i></div>
-                            </div>
-                            <div class="row">
-                                <div class='col-sm-1 align-right'>
-                                    <span class="fa fa-linkedin font-size-2"></span>  
-                                </div>
-                                <div class="col-sm-2">
-                                    <span><a href="" class="font-size-20">linkedin</a></label>
-                                </div>
-                                <div class='col-sm-9 padding-rl-0'><i class="glyphicon glyphicon-pencil pointer pencil-icon"></i></div>
-                            </div>
-                            <div class="row">
-                                <div class='col-sm-1 align-right'>
-                                    <span class="fa fa-twitter font-size-2"></span>  
-                                </div>
-                                <div class="col-sm-2">
-                                    <span><a href="" class="font-size-20">twitter</a></label>
-                                </div>
-                                <div class='col-sm-9 padding-rl-0'><i class="glyphicon glyphicon-pencil pointer pencil-icon"></i></div>
-                            </div>      
-
-                        </li>
-                    </ul>
-                </div>
             </div>
         </div>
-        <div class="row margin-rl-0">
-            <div class="col-sm-12 padding-rl-0">
-                <hr style="height:1px; background-color:#DDDDDD;">
-            </div>  
-        </div>
-        <div class="row margin-top-10 margin-rl-0" ng-init="showSocialAccount=true">
-            <div class='col-sm-1 padding-right-0 padding-left-25 font-size-4 '>
-                    <span class="fa fa-eye-slash vertical-align-top"></span>                  
-                </div>
-                <div class="col-sm-6">
-                    <label class="font-size-15">Profile visibility</label>
-                </div>
-                <div class='col-sm-11' >
-                    <span>
-                        Specify who can view your profile.
-                    </span>
-                    <ul>
-                        <!-- <li style="list-style-type:none; padding-bottom:30px;" id="skills-popover"> -->
-                        <li style="list-style-type:none; padding-bottom:10px;">                             
-                            <div class="radio">
-                                <label>
-                                  <input type="radio" id="rv1" name="profileVisibility" checked=""> &nbsp;Everyone - Anyone can see your profile.
-                                </label>
-                            </div>
-                            <div class="radio">
-                                <label>
-                                  <input type="radio" id="rv2" name="profileVisibility"> &nbsp;Volunteers only - Only users who are logged in can see your profile.
-                                </label>
-                            </div>
-                            <div class="radio">
-                                <label>
-                                  <input type="radio" id="rv3" name="profileVisibility"> &nbsp;Hidden - Organizations can see your profile only if you have applied to their openings.
-                                </label>
-                            </div>
-                        </li>
-                </div>
-        </div>
-        <!-- Part 2-->
-        <div class="row margin-rl-0">
-            <div class="col-sm-12 padding-rl-0">
-                <div class="pill margin-top-10">
-                    <h5 class="font-size-16"><strong>School information</strong></h5>
-                </div> 
-            </div>
-        </div>
-        <div class="row margin-rl-0">
-            <div class="col-sm-12 margin-top-20 padding-rl-0">
-                <div class="main-border1 margin-bottom-5">
-                    <div ng-if="lengthOfSchools == 0">
-                        <p class="align-center bold italic">No school information has been added yet</p>
-                        <p class="align-center italic">Please click on "add school" to add information about your school/education</p>
-                    </div>
-                    
-                    <div ng-if="lengthOfSchools != 0">
-                        <div ng-repeat="school in listOfSchools track by $index">
-                            <div class='padding-rl-0'>
-                                <label ng-bind="school.name" class="margin-right-15"></label>
-                                <span ng-click="openSchoolModel(school, $index)" class="margin-right-15">
-                                    <i class="glyphicon glyphicon-pencil pointer"></i>
-                                    <a href="">Edit</a>
-                                </span>
-                                <span ng-click="deleteSchool(school, $index)">
-                                    <i class="fa fa-times pointer"></i>
-                                    <a href="">Delete</a>
-                                </span>
-                            </div>
-                            <p class="margin-bottom-0"><label class="margin-bottom-0">Degree - </label>&nbsp;<span ng-bind="school.degree"></span></p>
-                            <p class="margin-bottom-0"><label class="margin-bottom-0">Area of study - </label>&nbsp;<span ng-bind="school.areaOfStudy"></span></p>
-                            <p class="margin-bottom-0"><label class="margin-bottom-0">From - </label>&nbsp;<span ng-bind="school.startDate"></span>&nbsp;&nbsp;<label class="margin-bottom-0">To - </label>&nbsp;<span ng-bind="school.endDate"></span></p>
-                            <div class="row" ng-if="$index !== lengthOfSchools-1">
-                                <div class="col-sm-12 padding-right-5">
-                                    <div class="hr1"></div>
-                                </div>  
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row margin-rl-0">
-            <div class="col-sm-12 padding-rl-0">
-                <span><a href="#" id="zoomTextarea1" title="Click to add school" data-toggle="modal" data-target="#addSchool" ng-click="schoolCancel()">add school</a></span>
-            </div>
-        </div>
-
-        <!-- Part 3-->
-        <div class="row margin-rl-0">
-            <div class="col-sm-12 padding-rl-0">
-                <div class="pill margin-top-10">
-                    <h5 class="font-size-16"><strong>Job information</strong></h5>
-                </div> 
-            </div>
-        </div>
-        <div class="row margin-rl-0">
-            <div class="col-sm-12 margin-top-20 padding-rl-0">
-                <div class="main-border1 margin-bottom-5">
-                    <div ng-if="lengthOfJobs == 0">
-                        <p class="align-center bold italic">No job/volunteer experience has been shared yet</p>
-                        <p class="align-center italic">Please click on "add volunteer experience" to add information about specific work you've taken on </p>
-                    </div>
-
-                    <div ng-if="lengthOfJobs != 0">
-                        <div ng-repeat="job in listOfJobs track by $index">
-                            <div class='padding-rl-0'>
-                                <label ng-bind="job.title" class="margin-right-15"></label>
-                                <span ng-click="openJobModel(job, $index)" class="margin-right-15">
-                                    <i class="glyphicon glyphicon-pencil pointer"></i>
-                                    <a href="">Edit</a>
-                                </span>
-                                <span ng-click="deletejob(job, $index)">
-                                    <i class="fa fa-times pointer"></i>
-                                    <a href="">Delete</a>
-                                </span>
-                            </div>
-                            
-                            <p class="margin-bottom-0"><label class="margin-bottom-0">Organization - </label>&nbsp;<span ng-bind="job.name"></span></p>
-                            <p class="margin-bottom-0"><label class="margin-bottom-0">Location - </label>&nbsp;<span ng-bind="job.city"></span> &nbsp;<span ng-bind="job.country"></span></p>
-                            <p class="margin-bottom-0"><label class="margin-bottom-0">From - </label>&nbsp;<span ng-bind="job.month1"></span>, &nbsp;<span ng-bind="job.startDate"></span>&nbsp;&nbsp;<label class="margin-bottom-0">To - </label>&nbsp;<span ng-bind="job.month2"></span>, &nbsp;<span ng-bind="job.endDate"></span></p>
-                            <div class="row" ng-if="$index !== lengthOfJobs-1">
-                                <div class="col-sm-12 padding-right-5">
-                                    <div class="hr1"></div>
-                                </div>  
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row margin-rl-0">
-            <div class="col-sm-12 padding-rl-0">
-                <span><a href="#" id="zoomTextarea1" title="Click to add Job" data-toggle="modal" data-target="#addJob" ng-click="jobCancel()">add volunteer experience</a></span>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-sm-12 margin-top-30">
-                <div class="col-sm-4"></div>
-                <div class="form-group col-sm-5 complete-profile">
-                    <button class="btn btn-success" onclick="window.location.href = '../volunteerProfile/volunteerProfile.html'">Save profile and continue</button>
-                    <button class="btn btn-danger" >Cancel</button>
-                </div>
-            </div>
-        </div>  
+        <div class="containerB">
+            <span class="prototype-scheme">PROTOTYPE</span>
         </div>
     </div>
 

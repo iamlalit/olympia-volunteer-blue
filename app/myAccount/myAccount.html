@@ -10,12 +10,21 @@
     <link href="../css/font-awesome.css" rel="stylesheet">
     <link href="../css/organization/postJob/postJob.css" rel="stylesheet"/>
     <link href="../css/organization/viewApp/viewApp.css" rel="stylesheet">
-    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,100,700&subset=latin,cyrillic-ext,greek-ext,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
+    
     <link href="../css/global.css" rel="stylesheet">
     <style type="text/css">
+        .superContainer{
+            width: 1349px;
+            margin: 0 auto;
+        }
         .containerA{
             width: 1008px;
-            margin: 0 auto;
+            display: inline-block;
+        }
+        .containerB{
+            width: 164px;
+            display: inline-block;
+            vertical-align: top;
         }
     </style>
 </head>
@@ -111,67 +120,74 @@
             </div><!-- /.container-fluid -->
         </div>
     </header>
-
-     <div class="containerA">
-
-        <div class="row main-border1 margin-rl-0">
-            <div class="col-sm-12 padding-rl-0">
-                <div class="row margin-rl-0">
-                    <div class="margin-top-20">
-                        <span class="panel-title">My Account</span>
-                    </div> 
-                </div>
-                <p>&nbsp;</p>
-                <div class="row margin-rl-0">
-                    <label>User ID</label>
-                </div>
-                <div class="row margin-rl-0">
-                    <span>hans.klevenbeek</span>
-                </div>
-                <div class="row  margin-rl-0 margin-top-15">
-                    <label>Email</label>
-                </div>
-                <div class="row margin-rl-0">
-                    <input type="text" placeholder="e.g. abc@email.com" class="col-sm-6" maxlength="14" minlength="8" ng-model="account.email" id="password2">
-                </div>
-                <div class="row margin-rl-0 margin-top-15">
-                    <label>Phone</label><span id="optional-text">&nbsp;(optional)</span>
-                </div>
-                <div class="row margin-rl-0">
-                    <input type="text" placeholder="Phone number" class="col-sm-6" maxlength="14" minlength="8" ng-model="account.phone" id="password3">
-                </div>
-                <div class="row margin-rl-0 margin-top-15">
-                    <label>Date of Birth</label><span id="optional-text">&nbsp;(optional)</span>
-                </div>
-                <div class="row margin-rl-0">
-                    <div class='col-sm-3 padding-rl-0'>
-                        <div class="form-group" >
-                            <div class='input-group date' id='datetimepicker8'>
-                                <input type='text' id='datepicker1' style="width:210px;border-top-right-radius: 0;border-bottom-right-radius: 0;"/>
-                                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
-                                </span>
+    <div class="superContainer">
+        <div class="containerB">
+            <span class="prototype-scheme">PROTOTYPE</span>
+        </div>
+    
+        <div class="containerA">
+            <div class="row main-border1 margin-rl-0">
+                <div class="col-sm-12 padding-rl-0">
+                    <div class="row margin-rl-0">
+                        <div class="margin-top-20">
+                            <span class="panel-title">My Account</span>
+                        </div> 
+                    </div>
+                    <p>&nbsp;</p>
+                    <div class="row margin-rl-0">
+                        <label>User ID</label>
+                    </div>
+                    <div class="row margin-rl-0">
+                        <span>hans.klevenbeek</span>
+                    </div>
+                    <div class="row  margin-rl-0 margin-top-15">
+                        <label>Email</label>
+                    </div>
+                    <div class="row margin-rl-0">
+                        <input type="text" placeholder="e.g. abc@email.com" class="col-sm-6" maxlength="14" minlength="8" ng-model="account.email" id="password2">
+                    </div>
+                    <div class="row margin-rl-0 margin-top-15">
+                        <label>Phone</label><span id="optional-text">&nbsp;(optional)</span>
+                    </div>
+                    <div class="row margin-rl-0">
+                        <input type="text" placeholder="Phone number" class="col-sm-6" maxlength="14" minlength="8" ng-model="account.phone" id="password3">
+                    </div>
+                    <div class="row margin-rl-0 margin-top-15">
+                        <label>Date of Birth</label><span id="optional-text">&nbsp;(optional)</span>
+                    </div>
+                    <div class="row margin-rl-0">
+                        <div class='col-sm-3 padding-rl-0'>
+                            <div class="form-group" >
+                                <div class='input-group date' id='datetimepicker8'>
+                                    <input type='text' id='datepicker1' style="width:210px;border-top-right-radius: 0;border-bottom-right-radius: 0;"/>
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-7">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" id="public"> make it public on volunteer page?
+                                </label>
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-7">
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" id="public"> make it public on volunteer page?
-                            </label>
+                    <div class="row margin-rl-0">
+                        <div class="margin-top-20 col-sm-12 padding-rl-0">
+                            <button class="btn btn-success" type="submit" ng-click="">Update</button>
+                            <button class="btn btn-danger" type="button" ng-click="cancel()">Cancel</button>
                         </div>
                     </div>
+                    <div class="rowmargin-top-20">&nbsp;</div>
                 </div>
-                <div class="row margin-rl-0">
-                    <div class="margin-top-20 col-sm-12 padding-rl-0">
-                        <button class="btn btn-success" type="submit" ng-click="">Update</button>
-                        <button class="btn btn-danger" type="button" ng-click="cancel()">Cancel</button>
-                    </div>
-                </div>
-                <div class="rowmargin-top-20">&nbsp;</div>
             </div>
         </div>
+        <div class="containerB">
+            <span class="prototype-scheme">PROTOTYPE</span>
+        </div>
     </div>
-
+    
 
     <footer>
         <div class="container1">
