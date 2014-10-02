@@ -99,45 +99,43 @@
             <span class="prototype-scheme">PROTOTYPE</span>
         </div>
         <div class="containerA" ng-init="showrecent = true;hideIt = false" >
-            <div class="row">
-                <div class="header-box">
-                    <div class="row margin-rl-0">
+            <div class="header-box">
+                <div class="row margin-rl-0">
 
-                        <div class="col-lg-3 padding-rl-0">
-                            <select class="form-control select-option">
-                                <option value="Volunteers">Volunteers</option>
-                                <option value="Organizations">Organizations</option>
-                                <option value="Volunteer Organizations">Volunteer Organizations</option>
-                                <option value="Jobs">Jobs</option>
+                    <div class="col-lg-3 padding-rl-0">
+                        <select class="form-control select-option">
+                            <option value="Volunteers">Volunteers</option>
+                            <option value="Organizations">Organizations</option>
+                            <option value="Volunteer Organizations">Volunteer Organizations</option>
+                            <option value="Jobs">Jobs</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-4 padding-rl-0">
+                        <span class="search-txt">what&nbsp;</span>
+                        <input type="text" placeholder="Keywords (e.g. name, interests or skills)" class="wat-text"/>
+                    </div>
+
+                    <div class="col-lg-3 padding-rl-0">
+                        <span class="search-txt">where&nbsp;</span>
+                        <input type="text" placeholder="City or post code" class="waar-text"/>
+                    </div>
+                    <div class="col-lg-1 padding-rl-0">
+                            <select class="select-search">
+                                <option value="5 km">5 km</option>
+                                <option value="10 km">10 km</option>
+                                <option value="15 km">15 km</option>
+                                <option value="20 km">20 km</option>
+                                <option value="25 km">25 km</option>
+                                <option value="30 km" selected="selected">30 km</option>
+                                <option value="35 km">35 km</option>
+                                <option value="40 km">40 km</option>
+                                <option value="45 km">45 km</option>
+                                <option value="50 km">50 km</option>
                             </select>
-                        </div>
-                        <div class="col-lg-4 padding-rl-0">
-                            <span class="search-txt">what&nbsp;</span>
-                            <input type="text" placeholder="Keywords (e.g. name, interests or skills)" class="wat-text"/>
-                        </div>
+                    </div>
 
-                        <div class="col-lg-3 padding-rl-0">
-                            <span class="search-txt">where&nbsp;</span>
-                            <input type="text" placeholder="City or post code" class="waar-text"/>
-                        </div>
-                        <div class="col-lg-1 padding-rl-0">
-                                <select class="select-search">
-                                    <option value="5 km">5 km</option>
-                                    <option value="10 km">10 km</option>
-                                    <option value="15 km">15 km</option>
-                                    <option value="20 km">20 km</option>
-                                    <option value="25 km">25 km</option>
-                                    <option value="30 km" selected="selected">30 km</option>
-                                    <option value="35 km">35 km</option>
-                                    <option value="40 km">40 km</option>
-                                    <option value="45 km">45 km</option>
-                                    <option value="50 km">50 km</option>
-                                </select>
-                        </div>
-
-                        <div class="col-lg-1 padding-rl-0" >
-                            <button type="button" class="btn btn-primary pull-right small-btn active"><span class="fa fa-search"></span>&nbsp;Search</button>
-                        </div>
+                    <div class="col-lg-1 padding-rl-0" >
+                        <button type="button" class="btn btn-primary pull-right small-btn active"><span class="fa fa-search"></span>&nbsp;Search</button>
                     </div>
                 </div>
             </div>
@@ -212,179 +210,182 @@
                         </div>
                     </div>
                 </div>
-                <div class="row margin-rl-0" style="margin-right:-20px">
-                    <div class="main-border padding-top-0 padding-bottom-0">
-                        <div class="row background-dgrey1">
-                            <div class="col-sm-5 padding-top-10">
-                                <span class="text-center" id='heading-form' >Search Job</span>
+                <div class="col-sm-9 padding-rl-0">
+                    <div class="row margin-rl-0">
+                        <div class="main-border1 width-auto border-main-border1 padding-top-0 padding-bottom-0">
+                            <div class="row background-dgrey">
+                                <div class="col-sm-5 padding-top-10">
+                                    <span class="text-center" id='heading-form' >Search Job</span>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row background-dgrey1">
-                            <div class="col-sm-4">
-                                <span class="clear-search">
-                                    <b ng-show="showrecent">{{lengthOfJobs}}</b> 
-                                    <b ng-show="showfavourite">{{lengthOfFavouriteJobs}}</b> 
-                                    Jobs found &nbsp;&nbsp;<a href="" title="Clear Search" ng-click="showrecent = true; showfavourite = false">Clear Search</a>
-                                </span>
+                            <div class="row background-dgrey">
+                                <div class="col-sm-4">
+                                    <span class="clear-search">
+                                        <b ng-show="showrecent">{{lengthOfJobs}}</b> 
+                                        <b ng-show="showfavourite">{{lengthOfFavouriteJobs}}</b> 
+                                        Jobs found &nbsp;&nbsp;<a href="" title="Clear Search" ng-click="showrecent = true; showfavourite = false">Clear Search</a>
+                                    </span>
+                                </div>
+                                <div class="col-sm-4 align-center">
+                                    &nbsp;
+                                </div>
+                                <div class="col-sm-4 padding-left-0  align-right">
+                                    &nbsp;
+                                </div>
                             </div>
-                            <div class="col-sm-4 align-center">
-                                &nbsp;
+                            <div class="row background-dgrey padding-top-15">
+                                
+                                <div class="col-sm-4">
+                                    <span>
+                                        <label>Sort By: </label>
+                                        <select class="form-control select-option">
+                                            <option value="values" ng-repeat="values in sortByList" ng-bind="values"></option>
+                                        </select>
+                                    </span>
+                                </div>
+                                <div class="col-sm-4">
+                                    &nbsp;
+                                </div>
+                                <div class="col-sm-4 padding-left-0 padding-right-22 align-right">
+                                    <ul class="pagination" ng-hide="showfavourite == true && lengthOfFavouriteJobs == 0">
+                                        <li ng-class="{disabled: currentPage == 0}"><span ng-click="prevPage()"> Previous </span></li>
+                                        <li ng-repeat="n in range(pagedItems.length)" ng-class="{active: n == currentPage}" ng-click="setPage()"><span>{{n+1}}</span></li>
+                                        <li ng-class="{disabled: currentPage == pagedItems.length - 1}"><span ng-click="nextPage()"> Next </span></li>
+                                     </ul>
+                                </div>
                             </div>
-                            <div class="col-sm-4 padding-left-0  align-right">
-                                &nbsp;
+                            <div class="margin-bottom-20 background-dgrey">&nbsp;</div>
+                            <div class="applicants" ng-repeat="Job in pagedItems[currentPage]" ng-init="autoScroll = false" ng-if="showrecent == true">
+                                <div class="row margin-rl-0">
+                                    <div class="col-sm-2 padding-rl-0" ng-cloak>
+                                        <img src="{{Job.image}}" class="image-logo-organozation">
+                                    </div>
+                                    <div class="col-sm-6 padding-rl-0">
+                                        <a style="color:#1489be" href="" ng-click="CreateObject(Job)"><label ng-bind="Job.Name"></label></a>
+                                        <div style="padding-top:1px"></div>
+                                        <div class="row margin-rl-0">
+                                            <span>Volunteer Job posted by </span>
+                                            <span><a ng-bind="Job.company" href="../../organization/organizationpcms/organizationpcms.html?organizationName={{Job.company}}"></a> </span>
+                                            <div style="padding-top:1px"></div>
+                                            <span class="color-999999">{{Job.about}}</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-2 pull-right padding-rl-0 padding-top-33">
+                                        <span>
+                                            <a id="removeIconHover" ng-if="!(Job.value)" title="mark as favourite">
+                                                <div class="pull-right star-icon" ng-click="copyJob(Job, Jobs, favouriteJobs)">
+                                                    <span class="fa fa-heart font-size-1-5 icon-attr color-grey"></i>
+                                                </div>
+                                            </a>
+                                            <a id="removeIconHover" ng-if="Job.value" title="remove from favourite" ng-click="copyJob(Job, Jobs, favouriteJobs)" >
+                                                <div class="pull-right star-icon">
+                                                    <span class="fa fa-heart font-size-1-5 icon-attr star-yellow"> </i>
+                                                </div>
+                                            </a>
+                                            <span ng-if="Job.selected" class="small-pill pull-right background-green color-ffffff"><i class="fa fa-check"></i> Applied</span>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="row margin-rl-0 margin-top-10" ng-init="more = true;letterLimit = 160">
+                                    <span class="margin-top-10">
+                                        {{Job.bodyText | limitTo:letterLimit}}
+                                        <span ng-show="more">...
+                                            <a ng-click="letterLimit = 500;more = !more">more</a>
+                                        </span>
+                                        <span ng-show="!more">
+                                            <a ng-click="letterLimit = 160;more = !more">less</a>
+                                        </span>
+                                    </span>
+                                    <div style="padding-top:20px;margin-right: 0px;margin-left: 0px;"></div> 
+                                    <hr class="user-hr" ng-if="$index !== lengthOfJobsPerPage - 1" />
+                                </div>
                             </div>
-                        </div>
-                        <div class="row background-dgrey1 padding-top-15">
+                            <div class="row background-dgrey padding-top-10" ng-if="showrecent == true">
+                               
+                                <div class="col-sm-4 padding-left-0">
+                                    &nbsp;
+                                </div>
+                                <div class="col-sm-4 align-center">
+                                    &nbsp;
+                                </div>
+                                <div class="col-sm-4 padding-left-0 padding-right-22 align-right">
+                                    <ul class="pagination">
+                                        <li ng-class="{disabled: currentPage == 0}"><span ng-click="prevPage()"> Previous </span></li>
+                                        <li ng-repeat="n in range(pagedItems.length)" ng-class="{active: n == currentPage}" ng-click="setPage()"><span>{{n+1}}</span></li>
+                                        <li ng-class="{disabled: currentPage == pagedItems.length - 1}"><span ng-click="nextPage()"> Next </span></li>
+                                     </ul>
+                                </div>
+                            </div>
+                            <div class="margin-top-0 background-dgrey" ng-if="showrecent == true">&nbsp;</div>
                             
-                            <div class="col-sm-4">
-                                <span>
-                                    <label>Sort By: </label>
-                                    <select class="form-control select-option">
-                                        <option value="values" ng-repeat="values in sortByList" ng-bind="values"></option>
-                                    </select>
-                                </span>
-                            </div>
-                            <div class="col-sm-4">
-                                &nbsp;
-                            </div>
-                            <div class="col-sm-4 padding-left-0  align-right">
-                                <ul class="pagination" ng-hide="showfavourite == true && lengthOfFavouriteJobs == 0">
-                                    <li ng-class="{disabled: currentPage == 0}"><span ng-click="prevPage()"> Previous </span></li>
-                                    <li ng-repeat="n in range(pagedItems.length)" ng-class="{active: n == currentPage}" ng-click="setPage()"><span>{{n+1}}</span></li>
-                                    <li ng-class="{disabled: currentPage == pagedItems.length - 1}"><span ng-click="nextPage()"> Next </span></li>
-                                 </ul>
-                            </div>
-                        </div>
-                        <div class="margin-bottom-20 background-dgrey1">&nbsp;</div>
-                        <div class="applicants" ng-repeat="Job in pagedItems[currentPage]" ng-init="autoScroll = false" ng-if="showrecent == true">
-                            <div class="row margin-rl-0">
-                                <div class="col-sm-2 padding-rl-0" ng-cloak>
-                                    <img src="{{Job.image}}" class="image-logo-organozation">
-                                </div>
-                                <div class="col-sm-8 padding-rl-0 padding-top-10">
-                                    <a style="color:#1489be" href="" ng-click="CreateObject(Job)"><label ng-bind="Job.Name"></label></a>
-                                    <div style="padding-top:1px"></div>
-                                    <div class="row margin-rl-0">
-                                        <span class="color-999999">Volunteer Job posted by </span>
-                                        <span><a ng-bind="Job.company" href="../../organization/organizationpcms/organizationpcms.html?organizationName={{Job.company}}"></a> </span>
-                                        <span class="color-999999"> - {{Job.about}}</span>
+                            <div class="applicants" ng-repeat="Job in favouriteJobs" ng-init="autoScroll = false" ng-if="showfavourite == true">
+                                <div class="row margin-rl-0">
+                                    <div class="col-sm-2 padding-rl-0" ng-cloak>
+                                        <img src="../../img/redCross.jpg" class="image-logo-organozation" />
+                                    </div>
+                                    <div class="col-sm-8 padding-rl-0">
+                                        <a style="color:#1489be" href="" ng-click="CreateObject(Job)"><label ng-bind="Job.Name"></label></a>
+                                        <div style="padding-top:1px"></div>
+                                        <div class="row margin-rl-0">
+                                            <span class="color-999999">Volunteer Job posted by </span>
+                                            <span><a ng-bind="Job.company" href="../../organization/organizationpcms/organizationpcms.html?organizationName={{Job.company}}"></a> </span>
+                                            <span class="color-999999"> - {{Job.about}}</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-2 pull-right padding-rl-0">
+                                        <span>
+                                            <a id="removeIconHover" ng-if="!(Job.value)" title="mark as favourite">
+                                                <div class="pull-right star-icon" ng-click="copyJob(Job, Jobs, favouriteJobs)">
+                                                    <span class="fa fa-heart font-size-1-5 icon-attr color-grey"></i>
+                                                </div>
+                                            </a>
+                                            <a id="removeIconHover" ng-if="Job.value" title="remove from favourite" ng-click="copyJob(Job, Jobs, favouriteJobs)" >
+                                                <div class="pull-right star-icon">
+                                                    <span class="fa fa-heart font-size-1-5 icon-attr star-yellow"> </i>
+                                                </div>
+                                            </a>
+                                            <span ng-if="Job.selected" class="small-pill pull-right background-green color-ffffff"><i class="fa fa-check"></i> Applied</span>
+                                        </span>
                                     </div>
                                 </div>
 
-                                <div class="col-sm-2 pull-right padding-rl-0">
-                                    <span>
-                                        <a id="removeIconHover" ng-if="!(Job.value)" title="mark as favourite">
-                                            <div class="pull-right star-icon" ng-click="copyJob(Job, Jobs, favouriteJobs)">
-                                                <span class="fa fa-heart font-size-1-5 icon-attr color-grey"></i>
-                                            </div>
-                                        </a>
-                                        <a id="removeIconHover" ng-if="Job.value" title="remove from favourite" ng-click="copyJob(Job, Jobs, favouriteJobs)" >
-                                            <div class="pull-right star-icon">
-                                                <span class="fa fa-heart font-size-1-5 icon-attr star-yellow"> </i>
-                                            </div>
-                                        </a>
-                                        <span ng-if="Job.selected" class="small-pill pull-right background-green color-ffffff"><i class="fa fa-check"></i> Applied</span>
+                                <div class="row margin-rl-0 margin-top-15" ng-init="moreF = true;letterLimit = 160">
+                                    <span class="padding-top-5">
+                                        {{Job.bodyText | limitTo:letterLimit}}
+                                        <span ng-show="moreF">...
+                                            <a ng-click="letterLimit = 500;moreF = !moreF">more</a>
+                                        </span>
+                                        <span ng-show="!moreF">
+                                            <a ng-click="letterLimit = 160;moreF = !moreF">less</a>
+                                        </span>
                                     </span>
+                                    <div style="padding-top:20px;margin-right: 0px;margin-left: 0px;"></div> 
+                                    <hr class="user-hr" ng-if="$index !== lengthOfFavouriteJobs - 1" />
                                 </div>
                             </div>
-
-                            <div class="row margin-rl-0 margin-top-15" ng-init="more = true;letterLimit = 160">
-                                <span class="margin-top-10">
-                                    {{Job.bodyText | limitTo:letterLimit}}
-                                    <span ng-show="more">...
-                                        <a ng-click="letterLimit = 500;more = !more">more</a>
-                                    </span>
-                                    <span ng-show="!more">
-                                        <a ng-click="letterLimit = 160;more = !more">less</a>
-                                    </span>
-                                </span>
-                                <div style="padding-top:20px;margin-right: 0px;margin-left: 0px;"></div> 
-                                <hr class="user-hr" ng-if="$index !== lengthOfJobsPerPage - 1" />
+                            <div class="align-center show-clear" ng-show="lengthOfFavouriteJobs == 0 && showfavourite == true">
+                                <label>No favourite job available{{lengthOfFavouriteJobs > 0}}</label>
                             </div>
-                        </div>
-                        <div class="row background-dgrey1 padding-top-10" ng-if="showrecent == true">
-                           
-                            <div class="col-sm-4 padding-left-0">
-                                &nbsp;
-                            </div>
-                            <div class="col-sm-4 align-center">
-                                &nbsp;
-                            </div>
-                            <div class="col-sm-4 padding-left-0  align-right">
-                                <ul class="pagination">
-                                    <li ng-class="{disabled: currentPage == 0}"><span ng-click="prevPage()"> Previous </span></li>
-                                    <li ng-repeat="n in range(pagedItems.length)" ng-class="{active: n == currentPage}" ng-click="setPage()"><span>{{n+1}}</span></li>
-                                    <li ng-class="{disabled: currentPage == pagedItems.length - 1}"><span ng-click="nextPage()"> Next </span></li>
-                                 </ul>
-                            </div>
-                        </div>
-                        <div class="margin-top-0 background-dgrey1" ng-if="showrecent == true">&nbsp;</div>
-                        
-                        <div class="applicants" ng-repeat="Job in favouriteJobs" ng-init="autoScroll = false" ng-if="showfavourite == true">
-                            <div class="row margin-rl-0">
-                                <div class="col-sm-2 padding-rl-0" ng-cloak>
-                                    <img src="../../img/redCross.jpg" class="image-logo-organozation" />
+                            <div class="row background-dgrey padding-top-10" ng-if="showfavourite == true && lengthOfFavouriteJobs > 0">
+                                <div class="col-sm-4 padding-left-0">
+                                    &nbsp;
                                 </div>
-                                <div class="col-sm-8 padding-rl-0 padding-top-10">
-                                    <a style="color:#1489be" href="" ng-click="CreateObject(Job)"><label ng-bind="Job.Name"></label></a>
-                                    <div style="padding-top:1px"></div>
-                                    <div class="row margin-rl-0">
-                                        <span class="color-999999">Volunteer Job posted by </span>
-                                        <span><a ng-bind="Job.company" href="../../organization/organizationpcms/organizationpcms.html?organizationName={{Job.company}}"></a> </span>
-                                        <span class="color-999999"> - {{Job.about}}</span>
-                                    </div>
+                                <div class="col-sm-4 align-center">
+                                    &nbsp;
                                 </div>
-
-                                <div class="col-sm-2 pull-right padding-rl-0">
-                                    <span>
-                                        <a id="removeIconHover" ng-if="!(Job.value)" title="mark as favourite">
-                                            <div class="pull-right star-icon" ng-click="copyJob(Job, Jobs, favouriteJobs)">
-                                                <span class="fa fa-heart font-size-1-5 icon-attr color-grey"></i>
-                                            </div>
-                                        </a>
-                                        <a id="removeIconHover" ng-if="Job.value" title="remove from favourite" ng-click="copyJob(Job, Jobs, favouriteJobs)" >
-                                            <div class="pull-right star-icon">
-                                                <span class="fa fa-heart font-size-1-5 icon-attr star-yellow"> </i>
-                                            </div>
-                                        </a>
-                                        <span ng-if="Job.selected" class="small-pill pull-right background-green color-ffffff"><i class="fa fa-check"></i> Applied</span>
-                                    </span>
+                                <div class="col-sm-4 padding-left-0 padding-right-22 align-right">
+                                    <ul class="pagination" >
+                                        <li ng-class="{disabled: currentPage == 0}"><span ng-click="prevPage()"> Previous </span></li>
+                                        <li ng-repeat="n in range(pagedItems.length)" ng-class="{active: n == currentPage}" ng-click="setPage()"><span>{{n+1}}</span></li>
+                                        <li ng-class="{disabled: currentPage == pagedItems.length - 1}"><span ng-click="nextPage()"> Next </span></li>
+                                     </ul>
                                 </div>
                             </div>
-
-                            <div class="row margin-rl-0 margin-top-15" ng-init="moreF = true;letterLimit = 160">
-                                <span class="padding-top-5">
-                                    {{Job.bodyText | limitTo:letterLimit}}
-                                    <span ng-show="moreF">...
-                                        <a ng-click="letterLimit = 500;moreF = !moreF">more</a>
-                                    </span>
-                                    <span ng-show="!moreF">
-                                        <a ng-click="letterLimit = 160;moreF = !moreF">less</a>
-                                    </span>
-                                </span>
-                                <div style="padding-top:20px;margin-right: 0px;margin-left: 0px;"></div> 
-                                <hr class="user-hr" ng-if="$index !== lengthOfFavouriteJobs - 1" />
-                            </div>
+                            <div class="margin-top-0 background-dgrey" ng-if="showfavourite == true && lengthOfFavouriteJobs > 0">&nbsp;</div>
                         </div>
-                        <div class="align-center show-clear" ng-show="lengthOfFavouriteJobs == 0 && showfavourite == true">
-                            <label>No favourite job available{{lengthOfFavouriteJobs > 0}}</label>
-                        </div>
-                        <div class="row background-dgrey1 padding-top-10" ng-if="showfavourite == true && lengthOfFavouriteJobs > 0">
-                            <div class="col-sm-4 padding-left-0">
-                                &nbsp;
-                            </div>
-                            <div class="col-sm-4 align-center">
-                                &nbsp;
-                            </div>
-                            <div class="col-sm-4 padding-left-0  align-right">
-                                <ul class="pagination" >
-                                    <li ng-class="{disabled: currentPage == 0}"><span ng-click="prevPage()"> Previous </span></li>
-                                    <li ng-repeat="n in range(pagedItems.length)" ng-class="{active: n == currentPage}" ng-click="setPage()"><span>{{n+1}}</span></li>
-                                    <li ng-class="{disabled: currentPage == pagedItems.length - 1}"><span ng-click="nextPage()"> Next </span></li>
-                                 </ul>
-                            </div>
-                        </div>
-                        <div class="margin-top-0 background-dgrey1" ng-if="showfavourite == true && lengthOfFavouriteJobs > 0">&nbsp;</div>
                     </div>
                 </div>
             </div>

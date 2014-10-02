@@ -280,6 +280,12 @@ vertical-align: top;
 .color-ffffff{
 	color: #ffffff;
 }
+.border-main-border1{
+  border: 3px solid #ffffff !important;
+}
+.width-auto{
+  width: auto;
+}
 .font-size-14{
 	font-size:14px;	
 }
@@ -386,6 +392,9 @@ position: relative;
 .padding-top-15 {
   padding-top: 15px;
 }
+.padding-top-33{
+  padding-top: 33px;
+}
 .padding-top-47 {
   padding-top: 47px;
 }
@@ -409,6 +418,9 @@ position: relative;
 }
 .padding-right-40{
   padding-right: 40px;
+}
+.padding-right-65{
+  padding-right: 65px;
 }
 .padding-container-12{
 	padding: 12px;
@@ -655,7 +667,7 @@ Header Search Box
   margin: 0 auto;
   margin-bottom: 15px;
   color: #ffffff;
-  width: 999px;
+  width: 1008px;
   font-size: 16px;
   font-weight: normal;
   padding: 25px 20px;
