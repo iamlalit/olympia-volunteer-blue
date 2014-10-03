@@ -571,11 +571,11 @@
                             <div ng-repeat="project in listOfProjects track by $index">
                                 <div class='padding-rl-0'>
                                     <label ng-bind="project.name" class="margin-right-15"></label>
-                                    <span ng-click="openJobModel(job, $index)" class="margin-right-15">
+                                    <span ng-click="openProjectModel(project, $index)" class="margin-right-15">
                                         <i class="glyphicon glyphicon-pencil pointer"></i>
                                         <a href="">Edit</a>
                                     </span>
-                                    <span ng-click="deletejob(job, $index)">
+                                    <span ng-click="deleteProject(project, $index)">
                                         <i class="fa fa-times pointer"></i>
                                         <a href="">Delete</a>
                                     </span>

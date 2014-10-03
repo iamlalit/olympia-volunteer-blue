@@ -1175,5 +1175,30 @@ landingController.controller('landingPage', ['$scope', function ($scope) {
         $scope.project.description = '';
     }
 
+    //edit functionality to open the modal with the desired data
+    $scope.openProjectModel = function(project, index) {
+        $('#addProject').modal('show');
+        $scope.project.name = project.name;
+        $scope.project.organisation = project.organisation;
+        $scope.project.url = project.url;
+        $scope.project.members = project.members;
+        
+        $scope.project.month1 = project.month1;
+        $scope.project.startDate = project.startDate;
+        $scope.project.month2 = project.month2;
+        $scope.project.endDate = project.endDate;
+
+        $scope.globalJobIndex = index;
+    }
+
+    //delete the clicked job
+    $scope.deleteProject = function(project, $index) {
+        var idx = $scope.listOfProjects.indexOf(project);
+        if (idx != -1) {
+              $scope.listOfProjects.splice(idx, 1);
+        }
+        $scope.lengthOfProjects = $scope.listOfProjects.length;
+    }
+
 
 }]);
