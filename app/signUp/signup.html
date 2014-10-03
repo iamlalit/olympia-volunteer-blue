@@ -851,7 +851,132 @@
                                 </form>
                             </div>
                         </div>
+                        <!-- creating-organizations starts-->
+                        <div>
+                            <div class="row margin-top-30">
+                                <div class="col-lg-7 center-block">
+                                    <h2 class="font-size-26 align-center" ng-show="Organization">Creating an Organization</h2>
+                                </div>
+                            </div>
 
+                            <div class="row">
+                                <div class="col-lg-5 center-block">
+                                    <div class="form-group">
+                                        <label>Name organization</label>
+                                        <input type="text" name="organizationName" id="organizationName" class="form-control" placeholder="Name organization">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-5 center-block">
+                                    <div class="form-group">
+                                        <label>Nick name organization</label>
+                                        <input type="text" name="nickname" id="nickname" class="form-control" placeholder="Nick name organization">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-5 center-block">
+                                    <div class="form-group">
+                                        <label>Are you creating a registered organization?</label>
+                                        <div class="radio margin-top-0">
+                                            <label>
+                                                <input type="radio" ng-model="registered" value="yes"> Yes
+                                            </label>
+                                        </div>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" ng-model="registered" value="no" > No
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="row">
+                                    <div class="col-lg-5 center-block">
+                                        <div class="form-group">
+                                            <label>Please enter the number your organization is registered under</label>
+                                            <input type="text" name="registrationNumber" id="registrationNumber" class="form-control" placeholder=" Registration Number">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-5 center-block">
+                                        <div class="form-group">
+                                            <label>Select what type of organization you are creating:</label>
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="radio margin-top-0">
+                                                        <label>
+                                                            <input type="radio" ng-model="typeOfOrganization" value="Company"> Company
+                                                        </label>
+                                                    </div>
+                                                    <div class="radio">
+                                                        <label>
+                                                            <input type="radio" ng-model="typeOfOrganization" value="Social entreprise" > Social entreprise
+                                                        </label>
+                                                    </div>
+                                                    <div class="radio">
+                                                        <label>
+                                                            <input type="radio" ng-model="typeOfOrganization" value="Governement" > Governement
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="radio margin-top-0">
+                                                        <label>
+                                                            <input type="radio" ng-model="typeOfOrganization" value="Non-profit" > Non-profit
+                                                        </label>
+                                                    </div>
+                                                    <div class="radio">
+                                                        <label>
+                                                            <input type="radio" ng-model="typeOfOrganization" value="Volunteer organization" > Volunteer organization
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="row">
+                                    <div class="col-lg-5 center-block">
+                                        <div class="form-group">
+                                            <p>Our volunteer platform strives to create stronger, thriving communities. The aim of this platform is to enable an effortless connection between caring people and facilitate the coordination of services and volunteers. In order to maintain this service and what it provides, we need the support of sponsors who want to be a part of this exciting initiative. [MAIN SPONSOR] is committed to making this platform a success, and the potential for growth is tremendous. Any business or organization that chooses to sponsor this website is a true team member, to the benefit of all parties.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" ng-if="typeOfOrganization == 'Company' || typeOfOrganization == 'Governement'">
+                                    <div class="col-lg-5 center-block">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox">We hereby accept the <a>terms and conditions</a> of this platform.
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" ng-if="typeOfOrganization == 'Non-profit' || typeOfOrganization == 'Volunteer organization' || typeOfOrganization == 'Social entreprise' ">
+                                    <div class="col-lg-5 center-block" >
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox">We hereby accept the <a>terms and conditions</a> of this platform and its services with a sponsorship contribution from our organization. This <a>sponsorship</a> entails full access to the volunteer platform and the volunteer community, help desk support, integration with your site and all volunteer recruitment tool sets the platform provides. We will acknowledge this contribution from [MAIN SPONSOR] on our organization's website.
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-5 center-block">
+                                            <p>Submit organization creation request.</p>
+                                            <p>Thank you for creating this organization, you will receive a message shortly. You are now able to edit your organizations profile, invite other members to become organization members, post jobs or create projects.</p>
+                                            <p>In the meanwhile our staff will review your organization request. We will respond within 48 hours. From that moment your organization page and activities will become public.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <!-- creating-organizations ends-->
                     </div>
                 </div>
             </div>
