@@ -422,7 +422,6 @@ $(document).ready(function(){
     });
     $( "#contact-replies1" ).mouseover(function(event) {
         $("#contact-replies1").popover('show');
-        alert("yahoo");
     });
     $( "#contact-replies1" ).mouseout(function() {
         $("#contact-replies1").popover('hide');
