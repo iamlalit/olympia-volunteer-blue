@@ -678,6 +678,7 @@ Header Search Box
   -webkit-box-shadow: inset 0px -1px 3px 1px rgba(24 , 65, 102, 0.8);
   -moz-box-shadow:    inset 0px -1px 3px 1px rgba(24 , 65, 102, 0.8);
   box-shadow:         inset 0px -1px 3px 1px rgba(24 , 65, 102, 0.8);
+  border-radius:7px;
 }
 .header-box .search-txt{
   display: inline-block;
@@ -874,4 +875,8 @@ table thead{
   word-wrap: break-word;
   width: 23px;
   margin: 0 auto;
+}
+
+.main-border1{
+  border-radius:7px !important;
 }
