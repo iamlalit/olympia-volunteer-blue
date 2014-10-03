@@ -42,6 +42,7 @@ app.controller('searchVolCtrl', function($scope){
             status: '2/4 diploma/certificate/skills',  
             image: '../../img/name1.png',
             statusColor: 'red',
+            contact: '1',
             NumbertoStart: 7,
             joined: 'Joined 1 year ago',
             lastActive: 'Last active: 1 day ago',
@@ -58,6 +59,7 @@ app.controller('searchVolCtrl', function($scope){
             status: '4/4 diploma/certificate/skills', 
             image: '../../img/name2.png',
             statusColor: 'green',    
+            contact: '2',
             joined: 'Joined 5 year ago',
             lastActive: 'Last active: 10 days ago',
             volunteerSkills: ['Cooking', 'First aid', 'Education', 'Caring for People', 'Communication'],
@@ -73,6 +75,7 @@ app.controller('searchVolCtrl', function($scope){
             status: '2/4 diploma/certificate/skills',     
             image: '../../img/name3.png',
             statusColor: 'red',
+            contact: '0',
             joined: 'Joined 3 months ago',
             lastActive: 'Last active: 1 month ago',
             volunteerSkills: ['Damage control', 'First aid', 'Caring for People', 'Communication'],
@@ -88,6 +91,7 @@ app.controller('searchVolCtrl', function($scope){
             status: '2/4 diploma/certificate/skills',     
             image: '../../img/name4.png',
             statusColor: 'red',
+            contact: '3',
             joined: 'Joined 1 day ago',
             lastActive: 'Last active: 1 day ago',
             volunteerSkills: ['Cooking', 'Caring for People', 'Communication'],
@@ -103,6 +107,7 @@ app.controller('searchVolCtrl', function($scope){
             status: '2/4 diploma/certificate/skills',     
             image: '../../img/name5.png',
             statusColor: 'red',
+            contact: '4',
             joined: 'Joined 6 months ago',
             lastActive: 'Last active: 6 days ago',
             volunteerSkills: ['Cooking', 'Education', 'Caring for People', 'Communication'],
@@ -118,6 +123,7 @@ app.controller('searchVolCtrl', function($scope){
             status: '2/4 diploma/certificate/skills',     
             image: '../../img/name6.png',
             statusColor: 'red',
+            contact: '5',
             joined: 'Joined 2 months ago',
             lastActive: 'Last active: 21 days ago',
             volunteerSkills: ['Cooking', 'Damage control', 'First aid', 'Communication', 'Caring for People', ],
@@ -134,6 +140,7 @@ app.controller('searchVolCtrl', function($scope){
             status: '2/4 diploma/certificate/skills',  
             image: '../../img/name7.png',
             statusColor: 'red',
+            contact: '6',
             joined: 'Joined 1 year ago',
             lastActive: 'Last active: 1 day ago',
             volunteerSkills: ['Cooking', 'Caring for People', 'Communication'],
@@ -149,6 +156,7 @@ app.controller('searchVolCtrl', function($scope){
             status: '4/4 diploma/certificate/skills', 
             image: '../../img/name8.png',
             statusColor: 'green',    
+            contact: '7',
             joined: 'Joined 5 year ago',
             lastActive: 'Last active: 16 days ago',
             volunteerSkills: ['Cooking', 'Education', 'Damage control', 'First aid'],
@@ -164,6 +172,7 @@ app.controller('searchVolCtrl', function($scope){
             status: '2/4 diploma/certificate/skills',     
             image: '../../img/name9.png',
             statusColor: 'red',
+            contact: '8',
             joined: 'Joined 3 months ago',
             lastActive: 'Last active: 9 days ago',
             volunteerSkills: ['Cooking', 'Damage control', 'First aid'],
@@ -179,6 +188,7 @@ app.controller('searchVolCtrl', function($scope){
             status: '2/4 diploma/certificate/skills',     
             image: '../../img/name10.png',
             statusColor: 'red',
+            contact: '9',
             joined: 'Joined 1 day ago',
             lastActive: 'Last active: 1 day ago',
             volunteerSkills: ['Cooking', 'Education', 'Crowd control', 'Damage control', 'First aid'],
@@ -194,6 +204,7 @@ app.controller('searchVolCtrl', function($scope){
             status: '2/4 diploma/certificate/skills',     
             image: '../../img/name11.png',
             statusColor: 'red',
+            contact: '10',
             joined: 'Joined 6 months ago',
             lastActive: 'Last active: 2 days ago',
             volunteerSkills: ['Damage control', 'First aid', 'Caring for People', 'Communication'],
@@ -209,6 +220,7 @@ app.controller('searchVolCtrl', function($scope){
             status: '2/4 diploma/certificate/skills',     
             image: '../../img/name12.png',
             statusColor: 'red',
+            contact: '11',
             joined: 'Joined 2 months ago',
             lastActive: 'Last active: 25 days ago',
             volunteerSkills: ['Crowd control', 'Damage control', 'First aid'],
@@ -327,6 +339,50 @@ app.controller('searchVolCtrl', function($scope){
        $scope.letterLimit = 150;
 
 
+       //CONTACT MODAL WNDOW
+       $scope.mouseover8 = function(){
+             $("#contact-replies8").popover({
+                      placement : 'top',
+                      trigger: "mouseover"
+                });      
+            $("#contact-replies8").popover('show');
+        }
+        $scope.mouseover8leave = function(){
+            $("#contact-replies8").popover('hide');   
+        }
+
+       $scope.mouseover9 = function(){
+             $("#contact-replies9").popover({
+                      placement : 'top',
+                      trigger: "mouseover"
+                });      
+            $("#contact-replies9").popover('show');
+        }
+        $scope.mouseover9leave = function(){
+            $("#contact-replies9").popover('hide');   
+        }
+
+       $scope.mouseover10 = function(){
+             $("#contact-replies10").popover({
+                      placement : 'top',
+                      trigger: "mouseover"
+                });      
+            $("#contact-replies10").popover('show');
+        }
+        $scope.mouseover10leave = function(){
+            $("#contact-replies10").popover('hide');   
+        }
+
+       $scope.mouseover11 = function(){
+             $("#contact-replies11").popover({
+                      placement : 'top',
+                      trigger: "mouseover"
+                });      
+            $("#contact-replies11").popover('show');
+        }
+        $scope.mouseover11leave = function(){
+            $("#contact-replies11").popover('hide');   
+        }
 });
 
 app.controller('modalVolCtrl', function($scope) {
@@ -359,5 +415,93 @@ $(document).ready(function(){
         event.preventDefault();
         $("#contact-replies").popover('hide');
         event.stopPropagation();
+    });
+    $("#contact-replies1").popover({
+          placement : 'top',
+          trigger: "mouseover"
+    });
+    $( "#contact-replies1" ).mouseover(function(event) {
+        $("#contact-replies1").popover('show');
+        alert("yahoo");
+    });
+    $( "#contact-replies1" ).mouseout(function() {
+        $("#contact-replies1").popover('hide');
+    });
+
+    $("#contact-replies2").popover({
+          placement : 'top',
+          trigger: "mouseover"
+    });
+    $( "#contact-replies2" ).mouseover(function(event) {
+        $("#contact-replies2").popover('show');
+    });
+    $( "#contact-replies2" ).mouseout(function() {
+        $("#contact-replies2").popover('hide');
+    });
+
+    $("#contact-replies3").popover({
+          placement : 'top',
+          trigger: "mouseover"
+    });
+    $( "#contact-replies3" ).mouseover(function(event) {
+        $("#contact-replies3").popover('show');
+    });
+    $( "#contact-replies3" ).mouseout(function() {
+        $("#contact-replies3").popover('hide');
+    });
+
+    $("#contact-replies4").popover({
+          placement : 'top',
+          trigger: "mouseover"
+    });
+    $( "#contact-replies4" ).mouseover(function(event) {
+        $("#contact-replies4").popover('show');
+    });
+    $( "#contact-replies4" ).mouseout(function() {
+        $("#contact-replies4").popover('hide');
+    });
+
+    $("#contact-replies5").popover({
+          placement : 'top',
+          trigger: "mouseover"
+    });
+    $( "#contact-replies5" ).mouseover(function(event) {
+        $("#contact-replies5").popover('show');
+    });
+    $( "#contact-replies5" ).mouseout(function() {
+        $("#contact-replies5").popover('hide');
+    });
+
+    $("#contact-replies6").popover({
+          placement : 'top',
+          trigger: "mouseover"
+    });
+    $( "#contact-replies6" ).mouseover(function(event) {
+        $("#contact-replies6").popover('show');
+    });
+    $( "#contact-replies6" ).mouseout(function() {
+        $("#contact-replies6").popover('hide');
+    });
+    $("#contact-replies7").popover({
+          placement : 'top',
+          trigger: "mouseover"
+    });
+    $( "#contact-replies7" ).mouseover(function(event) {
+        $("#contact-replies7").popover('show');
+    });
+    $( "#contact-replies7" ).mouseout(function() {
+        $("#contact-replies7").popover('hide');
+    });
+
+    $("#contact-replies8").popover({
+          placement : 'top',
+          trigger: "mouseover"
+    });
+    $( "#contact-replies8" ).mouseover(function(event) {
+        $("#contact-replies8").popover('show');
+
+    });
+    $( "#contact-replies8" ).mouseout(function() {
+        $("#contact-replies8").popover('hide');
     });
 });
