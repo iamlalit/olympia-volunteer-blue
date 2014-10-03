@@ -25,9 +25,24 @@ landingController.controller('landingPage', ['$scope', function ($scope) {
     $scope.listOfJobs = [];
     $scope.lengthOfJobs = $scope.listOfJobs.length;
 
+    $('#errorMsg2').hide();
+    var errorList2 = $('#errorList2');
+    var projAns1 = $("#projAns1");
+    var projAns2 = $("#projAns2");
+    var projAns3 = $("#projAns3");
+    var projAns4 = $("#projAns4");
+    var projAns5 = $("#projAns5");
+    var projAns6 = $("#projAns6");
+    var projAns7 = $("#projAns7");
+    var projAns8 = $("#projAns8");
+    $scope.listOfProjects = [];
+    $scope.lengthOfProjects = $scope.listOfProjects.length;
+
+
 
     var checkDateSchool = false;
     var checkDateJob = false;
+    var checkDateJob1 = false;
     $scope.updateSchoolDetails = function(obj, check, index){
         if(schoolAns1.val() == '' || schoolAns1.val() == null){
         	if (errorList.find('.errormessage-schoolAns1').length == 0) {
@@ -639,7 +654,7 @@ landingController.controller('landingPage', ['$scope', function ($scope) {
                 }
                 
             });
-            $scope.listOfJobs
+            //$scope.listOfJobs
         }
         if(check == 1 && !(errorList1.children('li').length > 0)){
             $('#addJob').modal('hide');
@@ -744,6 +759,420 @@ landingController.controller('landingPage', ['$scope', function ($scope) {
               $scope.listOfJobs.splice(idx, 1);
         }
         $scope.lengthOfJobs = $scope.listOfJobs.length;
+    }
+
+    //******************************
+    //volunteer Project information*
+    //******************************
+    $scope.volunteerProjectClose = function(){
+        $('#addProject').modal('hide');
+    }
+    $scope.updateProjectDetails = function(obj, check){
+        console.log(obj);
+        console.log(check);
+        /* Validation Check start */
+        /* Name Validation */
+        if(projAns1.val() == '' || projAns1.val() == null){
+            if (errorList2.find('.errormessage-projAns1').length == 0) {
+                $('<li />', { html: 'Name required !', class: 'col-sm-6 errormessage-projAns1' })
+                .appendTo(errorList2)
+                .click(function () {
+                    projAns1.focus();
+                })
+                $('#errorMsg2').show();
+                projAns1.parent().addClass('has-error');
+            }
+        }else {
+                if (projAns1.parent().hasClass('has-error')) {
+                    projAns1.parent().removeClass('has-error')
+                };
+                if (errorList2.find('.errormessage-projAns1').length > 0) {
+                    errorList2.find('.errormessage-projAns1').remove();
+                    $('#errorMsg2').hide();
+                }
+        }
+
+        /*Organisation Validation*/
+        if(projAns2.val() == '' || projAns2.val() == null){
+            if (errorList2.find('.errormessage-projAns2').length == 0) {
+                $('<li />', { html: 'Organization name required !', class: 'col-sm-6 errormessage-projAns2' })
+                .appendTo(errorList2)
+                .click(function () {
+                    projAns2.focus();
+                })
+                $('#errorMsg2').show();
+                projAns2.parent().addClass('has-error');
+            }
+        }else {
+                if (projAns2.parent().hasClass('has-error')) {
+                    projAns2.parent().removeClass('has-error')
+                };
+                if (errorList2.find('.errormessage-projAns2').length > 0) {
+                    errorList2.find('.errormessage-projAns2').remove();
+                    $('#errorMsg2').hide();
+                }
+        }
+
+        /* Period Validation */
+        if(parseInt($('#projAns3 option:selected').val()) == 0 || parseInt($('#projAns4 option:selected').val()) == 0 
+          || parseInt($('#projAns5 option:selected').val()) == 0 || parseInt($('#projAns6 option:selected').val()) == 0){
+            if (errorList2.find('.errormessage-projAns3').length == 0) {
+                $('<li />', { html: 'Period required !', class: 'col-sm-6 errormessage-projAns3' })
+                .appendTo(errorList2)
+                .click(function () {
+                    console.log("clicked");
+                    $("#projAns3").find('option:first').focus();
+                })
+                $('#errorMsg').show();
+                projAns3.parent().addClass('has-error');
+                projAns4.parent().addClass('has-error');
+                projAns5.parent().addClass('has-error');
+                projAns6.parent().addClass('has-error');
+                checkDateJob1 = false;  
+            }
+        }else {
+            if( (parseInt($('#projAns4 option:selected').val()) > parseInt($('#projAns6 option:selected').val())) || (parseInt($('#projAns4 option:selected').val()) == parseInt($('#projAns6 option:selected').val()) && parseInt($('#projAns3 option:selected').val()) >= parseInt($('#projAns5 option:selected').val()))){
+                if (errorList2.find('.errormessage-projAns6').length == 0) {
+                    $('<li />', { html: 'End date should be later then start date, please select the correct end date !', class: 'col-sm-6 errormessage-projAns6' })
+                    .appendTo(errorList2)
+                    .click(function () {
+                        console.log("clicked");
+                        $("#projAns3").find('option:first').focus();
+                    })
+                    $('#errorMsg').show();
+                    projAns3.parent().addClass('has-error');
+                    projAns4.parent().addClass('has-error');
+                    projAns5.parent().addClass('has-error');
+                    projAns6.parent().addClass('has-error');
+                    checkDateJob1 = true;       
+                }
+            }else {
+                if (projAns3.parent().hasClass('has-error') || projAns4.parent().hasClass('has-error') || projAns5.parent().hasClass('has-error') || projAns6.parent().hasClass('has-error')) {
+                    projAns3.parent().removeClass('has-error');
+                    projAns4.parent().removeClass('has-error');
+                    projAns5.parent().removeClass('has-error');
+                    projAns6.parent().removeClass('has-error');
+                };
+                if (errorList2.find('.errormessage-projAns6').length > 0) {
+                    errorList2.find('.errormessage-projAns6').remove();
+                    $('#errorMsg2').hide();
+                }         
+            }
+
+            if(!checkDateJob1){
+                if (projAns3.parent().hasClass('has-error') || projAns4.parent().hasClass('has-error') || projAns5.parent().hasClass('has-error') || projAns6.parent().hasClass('has-error')) {
+                    projAns3.parent().removeClass('has-error');
+                    projAns4.parent().removeClass('has-error');
+                    projAns5.parent().removeClass('has-error');
+                    projAns6.parent().removeClass('has-error');
+                };
+                if (errorList2.find('.errormessage-projAns3').length > 0) {
+                    errorList2.find('.errormessage-projAns3').remove();
+                    $('#errorMsg2').hide();
+                }
+            }              
+        }
+
+        /* Project Url Validation */
+        if(projAns7.val() == '' || projAns7.val() == null){
+            if (errorList2.find('.errormessage-projAns7').length == 0) {
+                $('<li />', { html: 'Project Url required !', class: 'col-sm-6 errormessage-projAns7' })
+                .appendTo(errorList2)
+                .click(function () {
+                    projAns7.focus();
+                })
+                $('#errorMsg2').show();
+                projAns7.parent().addClass('has-error');
+            }
+        }else {
+                if (projAns7.parent().hasClass('has-error')) {
+                    projAns7.parent().removeClass('has-error')
+                };
+                if (errorList2.find('.errormessage-projAns7').length > 0) {
+                    errorList2.find('.errormessage-projAns7').remove();
+                    $('#errorMsg2').hide();
+                }
+        }
+
+        /* Team Member Validation */
+        if(projAns8.val() == '' || projAns8.val() == null){
+            if (errorList2.find('.errormessage-projAns8').length == 0) {
+                $('<li />', { html: 'Team Member required !', class: 'col-sm-6 errormessage-projAns8' })
+                .appendTo(errorList2)
+                .click(function () {
+                    projAns8.focus();
+                })
+                $('#errorMsg2').show();
+                projAns8.parent().addClass('has-error');
+            }
+        }else {
+                if (projAns8.parent().hasClass('has-error')) {
+                    projAns8.parent().removeClass('has-error')
+                };
+                if (errorList2.find('.errormessage-projAns8').length > 0) {
+                    errorList2.find('.errormessage-projAns8').remove();
+                    $('#errorMsg2').hide();
+                }
+        }
+
+        
+        projAns1.change(function() {
+            if(projAns1.val() == '' || projAns1.val() == null){
+                if (errorList2.find('.errormessage-projAns1').length == 0) {
+                    $('<li />', { html: 'Name required !', class: 'col-sm-6 errormessage-projAns1' })
+                    .appendTo(errorList2)
+                    .click(function () {
+                        projAns1.focus();
+                    })
+                    $('#errorMsg2').show();
+                    projAns1.parent().addClass('has-error');
+                }
+            }else {
+                    if (projAns1.parent().hasClass('has-error')) {
+                        projAns1.parent().removeClass('has-error')
+                    };
+                    if (errorList2.find('.errormessage-projAns1').length > 0) {
+                        errorList2.find('.errormessage-projAns1').remove();
+                    }
+            }
+        
+        });
+
+        projAns2.change(function() {
+            if(projAns2.val() == '' || projAns2.val() == null){
+                if (errorList2.find('.errormessage-projAns2').length == 0) {
+                    $('<li />', { html: 'Organization required !', class: 'col-sm-6 errormessage-projAns2' })
+                    .appendTo(errorList2)
+                    .click(function () {
+                        projAns2.focus();
+                    })
+                    $('#errorMsg2').show();
+                    projAns2.parent().addClass('has-error');
+                }
+            }else {
+                    if (projAns2.parent().hasClass('has-error')) {
+                        projAns2.parent().removeClass('has-error')
+                    };
+                    if (errorList2.find('.errormessage-projAns2').length > 0) {
+                        errorList2.find('.errormessage-projAns2').remove();
+                    }
+            }
+        });
+
+        projAns3.change(function() { 
+
+           if(parseInt($('#projAns3 option:selected').val()) == 0 || parseInt($('#projAns4 option:selected').val()) == 0 
+              || parseInt($('#projAns5 option:selected').val()) == 0 || parseInt($('#projAns6 option:selected').val()) == 0){
+                if (errorList2.find('.errormessage-projAns3').length == 0) {
+                    $('<li />', { html: 'Period required !', class: 'col-sm-6 errormessage-projAns3' })
+                    .appendTo(errorList2)
+                    .click(function () {
+                        console.log("clicked");
+                        $("#projAns3").find('option:first').focus();
+                    })
+                    $('#errorMsg').show();
+                    projAns3.parent().addClass('has-error');
+                    projAns4.parent().addClass('has-error');
+                    projAns5.parent().addClass('has-error');
+                    projAns6.parent().addClass('has-error');
+                }
+            }else {
+                    if (projAns3.parent().hasClass('has-error') || projAns4.parent().hasClass('has-error') || projAns5.parent().hasClass('has-error') || projAns6.parent().hasClass('has-error')) {
+                        projAns3.parent().removeClass('has-error');
+                        projAns4.parent().removeClass('has-error');
+                        projAns5.parent().removeClass('has-error');
+                        projAns6.parent().removeClass('has-error');
+                    };
+                    if (errorList2.find('.errormessage-projAns3').length > 0) {
+                        errorList2.find('.errormessage-projAns3').remove();
+                    }
+            }
+        });
+
+        projAns4.change(function() { 
+            
+           if(parseInt($('#projAns3 option:selected').val()) == 0 || parseInt($('#projAns4 option:selected').val()) == 0 
+              || parseInt($('#projAns5 option:selected').val()) == 0 || parseInt($('#projAns6 option:selected').val()) == 0){
+                if (errorList2.find('.errormessage-projAns3').length == 0) {
+                    $('<li />', { html: 'Period required !', class: 'col-sm-6 errormessage-projAns3' })
+                    .appendTo(errorList2)
+                    .click(function () {
+                        console.log("clicked");
+                        $("#projAns3").find('option:first').focus();
+                    })
+                    $('#errorMsg').show();
+                    projAns3.parent().addClass('has-error');
+                    projAns4.parent().addClass('has-error');
+                    projAns5.parent().addClass('has-error');
+                    projAns6.parent().addClass('has-error');
+                }
+            }else {
+                    if (projAns3.parent().hasClass('has-error') || projAns4.parent().hasClass('has-error') || projAns5.parent().hasClass('has-error') || projAns6.parent().hasClass('has-error')) {
+                        projAns3.parent().removeClass('has-error');
+                        projAns4.parent().removeClass('has-error');
+                        projAns5.parent().removeClass('has-error');
+                        projAns6.parent().removeClass('has-error');
+                    };
+                    if (errorList2.find('.errormessage-projAns3').length > 0) {
+                        errorList2.find('.errormessage-projAns3').remove();
+                    }
+            }
+        });
+
+        projAns5.change(function() { 
+            
+           if(parseInt($('#projAns3 option:selected').val()) == 0 || parseInt($('#projAns4 option:selected').val()) == 0 
+              || parseInt($('#projAns5 option:selected').val()) == 0 || parseInt($('#projAns6 option:selected').val()) == 0){
+                if (errorList2.find('.errormessage-projAns3').length == 0) {
+                    $('<li />', { html: 'Period required !', class: 'col-sm-6 errormessage-projAns3' })
+                    .appendTo(errorList2)
+                    .click(function () {
+                        console.log("clicked");
+                        $("#projAns3").find('option:first').focus();
+                    })
+                    $('#errorMsg').show();
+                    projAns3.parent().addClass('has-error');
+                    projAns4.parent().addClass('has-error');
+                    projAns5.parent().addClass('has-error');
+                    projAns6.parent().addClass('has-error');
+                }
+            }else {
+                    if (projAns3.parent().hasClass('has-error') || projAns4.parent().hasClass('has-error') || projAns5.parent().hasClass('has-error') || projAns6.parent().hasClass('has-error')) {
+                        projAns3.parent().removeClass('has-error');
+                        projAns4.parent().removeClass('has-error');
+                        projAns5.parent().removeClass('has-error');
+                        projAns6.parent().removeClass('has-error');
+                    };
+                    if (errorList2.find('.errormessage-projAns3').length > 0) {
+                        errorList2.find('.errormessage-projAns3').remove();
+                    }
+            }
+        });
+
+        projAns6.change(function() {             
+           if(parseInt($('#projAns3 option:selected').val()) == 0 || parseInt($('#projAns4 option:selected').val()) == 0 
+              || parseInt($('#projAns5 option:selected').val()) == 0 || parseInt($('#projAns6 option:selected').val()) == 0){
+                if (errorList2.find('.errormessage-projAns3').length == 0) {
+                    $('<li />', { html: 'Period required !', class: 'col-sm-6 errormessage-projAns3' })
+                    .appendTo(errorList2)
+                    .click(function () {
+                        console.log("clicked");
+                        $("#projAns3").find('option:first').focus();
+                    })
+                    $('#errorMsg').show();
+                    projAns3.parent().addClass('has-error');
+                    projAns4.parent().addClass('has-error');
+                    projAns5.parent().addClass('has-error');
+                    projAns6.parent().addClass('has-error');
+                }
+            }else {
+                    if (projAns3.parent().hasClass('has-error') || projAns4.parent().hasClass('has-error') || projAns5.parent().hasClass('has-error') || projAns6.parent().hasClass('has-error')) {
+                        projAns3.parent().removeClass('has-error');
+                        projAns4.parent().removeClass('has-error');
+                        projAns5.parent().removeClass('has-error');
+                        projAns6.parent().removeClass('has-error');
+                    };
+                    if (errorList2.find('.errormessage-projAns3').length > 0) {
+                        errorList2.find('.errormessage-projAns3').remove();
+                    }
+            }
+        });
+
+        projAns7.change(function() {
+            if(projAns7.val() == '' || projAns7.val() == null){
+                if (errorList2.find('.errormessage-projAns7').length == 0) {
+                    $('<li />', { html: 'Project Url required !', class: 'col-sm-6 errormessage-projAns7' })
+                    .appendTo(errorList2)
+                    .click(function () {
+                        projAns7.focus();
+                    })
+                    $('#errorMsg2').show();
+                    projAns7.parent().addClass('has-error');
+                }
+            }else {
+                    if (projAns7.parent().hasClass('has-error')) {
+                        projAns7.parent().removeClass('has-error')
+                    };
+                    if (errorList2.find('.errormessage-projAns7').length > 0) {
+                        errorList2.find('.errormessage-projAns7').remove();
+                    }
+            }
+        });
+
+        projAns8.change(function() {
+            if(projAns8.val() == '' || projAns8.val() == null){
+                if (projAns8.find('.errormessage-projAns2').length == 0) {
+                    $('<li />', { html: ' Team Member required !', class: 'col-sm-6 errormessage-projAns8' })
+                    .appendTo(errorList2)
+                    .click(function () {
+                        projAns8.focus();
+                    })
+                    $('#errorMsg2').show();
+                    projAns8.parent().addClass('has-error');
+                }
+            }else {
+                    if (projAns8.parent().hasClass('has-error')) {
+                        projAns8.parent().removeClass('has-error')
+                    };
+                    if (errorList2.find('.errormessage-projAns8').length > 0) {
+                        errorList2.find('.errormessage-projAns8').remove();
+                    }
+            }
+        });
+        
+
+        if (errorList2.children('li').length > 0) {
+            $('#errorMsg2').show();
+        } else {
+            $('#errorMsg2').hide();
+            $scope.listOfProjects.push(obj);
+            $scope.lengthOfProjects = $scope.listOfProjects.length;
+            console.log($scope.listOfProjects);
+            $scope.project = {};
+            $scope.listOfProjects.startDate = 0;
+            $scope.listOfProjects.endDate = 0;
+            $scope.listOfProjects.month1 = 0;
+            $scope.listOfProjects.month2 = 0;
+            //$scope.setCurrentDate = false;
+            //$scope.job.country = 'Netherlands';
+
+            //sorting using start date
+            $scope.listOfProjects = $scope.listOfProjects.sort(function(obj1, obj2) {
+                // Ascending: first startDate less than the previous
+                if(obj2.startDate == obj1.startDate) {
+                    return (obj2.startDate + obj2.month1) - (obj1.startDate + obj1.month1);
+                }else{
+                    return obj2.startDate - obj1.startDate;    
+                }
+                
+            });
+        }
+        if(check == 1 && !(errorList2.children('li').length > 0)){
+            $('#addProject').modal('hide');
+        }
+
+        if(check == 2){
+            $('#addProject').modal('hide');
+        }
+    }
+    $scope.projectCancel = function(){
+        $('#errorMsg2').hide();
+        //$scope.lengthOfProjects = $scope.listOfProjects.length;
+        $scope.project = {};
+        $('#addProject').modal('hide');
+        projAns1.parent().removeClass('has-error');
+        projAns2.parent().removeClass('has-error');
+        projAns3.parent().removeClass('has-error');
+        projAns4.parent().removeClass('has-error');
+        projAns5.parent().removeClass('has-error');
+        projAns6.parent().removeClass('has-error');
+        projAns7.parent().removeClass('has-error');
+        projAns8.parent().removeClass('has-error');
+        $scope.project.startDate = 0;
+        $scope.project.endDate = 0;
+        $scope.project.month1 = 0;
+        $scope.project.month2 = 0;
+        $scope.project.description = '';
     }
 
 

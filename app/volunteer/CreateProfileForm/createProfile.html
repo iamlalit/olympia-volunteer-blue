@@ -562,15 +562,15 @@
             <div class="row margin-rl-0">
                 <div class="col-sm-12 margin-top-20 padding-rl-0">
                     <div class="main-border1 margin-bottom-5">
-                        <div ng-if="lengthOfJobs == 0">
+                        <div ng-if="lengthOfProjects == 0">
                             <p class="align-center bold italic">No volunteer project has been shared yet</p>
                             <p class="align-center italic">Please click on "add volunteer experience" to add information about specific work you've taken on </p>
                         </div>
 
-                        <div ng-if="lengthOfJobs != 0">
-                            <div ng-repeat="job in listOfJobs track by $index">
+                        <div ng-if="lengthOfProjects != 0">
+                            <div ng-repeat="project in listOfProjects track by $index">
                                 <div class='padding-rl-0'>
-                                    <label ng-bind="job.title" class="margin-right-15"></label>
+                                    <label ng-bind="project.name" class="margin-right-15"></label>
                                     <span ng-click="openJobModel(job, $index)" class="margin-right-15">
                                         <i class="glyphicon glyphicon-pencil pointer"></i>
                                         <a href="">Edit</a>
@@ -581,10 +581,9 @@
                                     </span>
                                 </div>
                                 
-                                <p class="margin-bottom-0"><label class="margin-bottom-0">Organization - </label>&nbsp;<span ng-bind="job.name"></span></p>
-                                <p class="margin-bottom-0"><label class="margin-bottom-0">Location - </label>&nbsp;<span ng-bind="job.city"></span> &nbsp;<span ng-bind="job.country"></span></p>
-                                <p class="margin-bottom-0"><label class="margin-bottom-0">From - </label>&nbsp;<span ng-bind="job.month1"></span>, &nbsp;<span ng-bind="job.startDate"></span>&nbsp;&nbsp;<label class="margin-bottom-0">To - </label>&nbsp;<span ng-bind="job.month2"></span>, &nbsp;<span ng-bind="job.endDate"></span></p>
-                                <div class="row" ng-if="$index !== lengthOfJobs-1">
+                                <p class="margin-bottom-0"><label class="margin-bottom-0">Organization - </label>&nbsp;<span ng-bind="project.organisation"></span></p>
+                                <p class="margin-bottom-0"><label class="margin-bottom-0">From - </label>&nbsp;<span ng-bind="project.month1"></span>, &nbsp;<span ng-bind="project.startDate"></span>&nbsp;&nbsp;<label class="margin-bottom-0">To - </label>&nbsp;<span ng-bind="project.month2"></span>, &nbsp;<span ng-bind="project.endDate"></span></p>
+                                <div class="row" ng-if="$index !== lengthOfProjects-1">
                                     <div class="col-sm-12 padding-right-5">
                                         <div class="hr1"></div>
                                     </div>  
@@ -2180,18 +2179,18 @@
         <div class="modal-dialog modal-md">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close big-close" ng-click="jobCancel()" aria-hidden="true">&times;</button>
+                    <button type="button" class="close big-close" ng-click="volunteerProjectClose()" aria-hidden="true">&times;</button>
                     <h2 class="modal-title" id="myModalLabel">Add Project</h2>
                 </div>
                 <form role="form" name="jobForm" id="jobForm" novalidate>
                     <div class="modal-body">
-                        <div class="row" id="errorMsg1">
+                        <div class="row" id="errorMsg2">
                             <div class="col-lg-12">
                                 <div class="col-sm-1"></div>
                                 <div class="alert alert-danger col-sm-10">
                                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                                     <h4 class="text-center margin-top-0">Please fix the following issues</h4>
-                                    <ul id="errorList1" class="errorList" style="margin-bottom:35px"></ul>
+                                    <ul id="errorList2" class="errorList" style="margin-bottom:35px"></ul>
                                 </div>
                                 <div class="col-sm-1"></div>
                             </div>
@@ -2201,19 +2200,19 @@
                                 <label>Name</label>
                             </div>
                             <div class="col-sm-12">
-                                <input type="text" class="col-sm-12" ng-model="project.name" id="jobAns1" ng-required/>
+                                <input type="text" class="col-sm-12" ng-model="project.name" id="projAns1" ng-required/>
                             </div>
                             <div class="col-sm-12 margin-top-10">
                                 <label>Organization</label>
                             </div>
                             <div class="col-sm-12">
-                                <input type="text" class="col-sm-12" ng-model="project.organisation" id="jobAns1" ng-required/>
+                                <input type="text" class="col-sm-12" ng-model="project.organisation" id="projAns2" ng-required/>
                             </div>
                             <div class="col-sm-12 margin-top-10">
                                 <label>Period</label>
                             </div>
                             <div class="col-sm-6 padding-right-0">
-                                <select class="col-sm-6"  id="jobAns4" ng-init="job.month1 = 0" ng-model="job.month1">
+                                <select class="col-sm-6"  id="projAns3" ng-init="project.month1 = 0" ng-model="project.month1">
                                     <option value="0" select="selected">Month</option>
                                     <option value="1">January</option>
                                     <option value="2">February</option>
@@ -2229,7 +2228,7 @@
                                     <option value="12">December</option>
                                 </select>
                                 <label class="pull-right"> &nbsp;&nbsp;&nbsp;_ </label>
-                                <select class="col-sm-5 pull-right" ng-model="job.startDate" ng-init="job.startDate = 0" id="jobAns5" ng-required>
+                                <select class="col-sm-5 pull-right" ng-model="project.startDate" ng-init="project.startDate = 0" id="projAns4" ng-required>
                                     <option value="0" select="selected">Year</option>
                                     <option value="2014">2014</option>
                                     <option value="2013">2013</option>
@@ -2309,7 +2308,7 @@
                                 </select>
                             </div>
                             <div class="col-sm-6">
-                                <select class="col-sm-6 width-140" id="jobAns6" ng-init="job.month2 = 0" ng-model="job.month2">
+                                <select class="col-sm-6 width-140" id="projAns5" ng-init="project.month2 = 0" ng-model="project.month2">
                                     <option value="0" select="selected">Month</option>
                                     <option value="1">January</option>
                                     <option value="2">February</option>
@@ -2324,7 +2323,7 @@
                                     <option value="11">November</option>
                                     <option value="12">December</option>
                                 </select>
-                                <select class="col-sm-5 pull-right width-121" ng-model="job.endDate" ng-init="job.endDate = 0" id="jobAns7" ng-required>
+                                <select class="col-sm-5 pull-right width-121" ng-model="project.endDate" ng-init="project.endDate = 0" id="projAns6" ng-required>
                                     <option value="0" select="selected">Year</option>
                                     <option value="2014">2014</option>
                                     <option value="2013">2013</option>
@@ -2407,13 +2406,13 @@
                                 <label>Project URL</label>
                             </div>
                             <div class="col-sm-12">
-                                <input type="text" class="col-sm-12" ng-model="project.url" id="jobAns1" ng-required/>
+                                <input type="text" class="col-sm-12" ng-model="project.url" id="projAns7" ng-required/>
                             </div>
                             <div class="col-sm-12 margin-top-10">
                                 <label>Team Member(s)</label>
                             </div>
                             <div class="col-sm-12">
-                                <input type="text" class="col-sm-12" ng-model="project.members" id="jobAns1" ng-required/>
+                                <input type="text" class="col-sm-12" ng-model="project.members" id="projAns8" ng-required/>
                             </div>                            
                             <div class="col-sm-12 margin-top-10 check-label">
                                 <label>Description</label>
@@ -2423,15 +2422,15 @@
                                 <span id="optional-text">(optional) </span> 
                             </div>
                             <div class="col-sm-12">
-                                <textarea class="col-sm-12 text-area" rows="5" cols="60" ng-model="job.description"></textarea>
+                                <textarea class="col-sm-12 text-area" rows="5" cols="60" ng-model="project.description"></textarea>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-3">&nbsp;</div>
                             <div class="col-sm-9">
-                                <button style="margin: 20px 10px 30px 0;" type="button" class="btn btn-default btn-danger" ng-click="jobCancel()" aria-hidden="true" >Cancel</button>
-                                <button style="margin: 20px 10px 30px 0;" type="submit" class="btn btn-success" ng-click="updateJobDetails(job, 0)">Save and Add More</button>
-                                <button style="margin: 20px 0 30px 0;" type="submit" class="btn btn-success" ng-click="updateJobDetails(job, 1)">Save</button>
+                                <button style="margin: 20px 10px 30px 0;" type="button" class="btn btn-default btn-danger" ng-click="projectCancel()" aria-hidden="true" >Cancel</button>
+                                <button style="margin: 20px 10px 30px 0;" type="submit" class="btn btn-success" ng-click="updateProjectDetails(project, 0)">Save and Add More</button>
+                                <button style="margin: 20px 0 30px 0;" type="submit" class="btn btn-success" ng-click="updateProjectDetails(project, 1)">Save</button>
                             </div>
                         </div>
                     </div>
