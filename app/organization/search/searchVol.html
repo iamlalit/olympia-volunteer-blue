@@ -225,7 +225,7 @@
                                         <b ng-show="showrecent">{{lengthOfApplicants}}</b> 
                                         <b ng-show="showfavourite">{{lengthOfFavouriteApplicants}}</b> 
                                         Volunteers found&nbsp;
-                                        <span><a href="" title="Clear Search" ng-click="showrecent = true; showfavourite = false">Clear Search</a>
+                                        <span><a href="" title="Clear Search" ng-click="showrecent = true; showfavourite = false">Clear search</a>
                                         </span>
                                     </span>
                                 </div>
@@ -262,7 +262,7 @@
                                         <img src="{{applicant.image}}" width="70" height="80">
                                     </div>
                                     <div class="col-sm-6 padding-rl-0">
-                                        <a style="color:#1489be" href="../../volunteer/volunteerProfile/volunteerProfile.html?name={{applicant.Name}}&city={{applicant.city}}&image={{applicant.image}}"><label ng-bind="applicant.Name"></label></a>
+                                        <a style="color:#1489be" href="../../volunteer/volunteerProfile/volunteerProfile.html?name={{applicant.Name}}&city={{applicant.city}}&image={{applicant.image}}"><label ng-bind="applicant.Name" class="font-size-15 line-height-15"></label></a>
                                         <div style="padding-top:1px"></div>
                                         <span ng-bind="applicant.city" class="city-detail"></span>
                                         <div style="padding-top:1px"></div>
@@ -273,8 +273,19 @@
 
                                     <div class="col-sm-4 pull-right padding-right-8 padding-top-47">
                                         <span id="contacts">
-                                            <button type="button" class="btn btn-primary pull-right small-btn" ng-model="shortlisted" ng-if="$index!==2" data-toggle="modal" data-target="#contactApplicantModal" ng-click="openModal(applicant)" title="click to contact the volunteer"><span class="fa fa-circle green-yellow"></span>&nbsp;Contact</button>
-                                            <button type="button" id="contact-replies" class="btn btn-primary pull-right small-btn active" ng-model="shortlisted" ng-if="$index==2" data-toggle="modal" data-target="#contactApplicantModal" ng-click="openModal(applicant)" title="Replies sometime"><span class="fa fa-circle green-yellow"></span>&nbsp;Contact</button>
+                                            <button type="button" id="contact-replies1" class="btn btn-primary pull-right small-btn" ng-model="shortlisted" ng-if="applicant.contact == 1" data-toggle="modal" data-target="#contactApplicantModal" ng-click="openModal(applicant)" title="Replies Rarely"><span class="fa fa-circle green-yellow"></span>&nbsp;Contact</button>
+                                            <button type="button" id="contact-replies2" class="btn btn-primary pull-right small-btn" ng-model="shortlisted" ng-if="applicant.contact == 2" data-toggle="modal" data-target="#contactApplicantModal" ng-click="openModal(applicant)" title="Replies Quickly"><span class="fa fa-circle green-yellow"></span>&nbsp;Contact</button>
+                                            <button type="button" id="contact-replies" class="btn btn-primary pull-right small-btn" ng-model="shortlisted" ng-if="applicant.contact == 0" data-toggle="modal" data-target="#contactApplicantModal" ng-click="openModal(applicant)" title="Replies Sometimes"><span class="fa fa-circle green-yellow"></span>&nbsp;Contact</button>
+                                            <button type="button" id="contact-replies3" class="btn btn-primary pull-right small-btn" ng-model="shortlisted" ng-if="applicant.contact == 3" data-toggle="modal" data-target="#contactApplicantModal" ng-click="openModal(applicant)" title="Replies Sometimes"><span class="fa fa-circle green-yellow"></span>&nbsp;Contact</button>
+                                            <button type="button" id="contact-replies4" class="btn btn-primary pull-right small-btn" ng-model="shortlisted" ng-if="applicant.contact == 4" data-toggle="modal" data-target="#contactApplicantModal" ng-click="openModal(applicant)" title="Replies Rarely"><span class="fa fa-circle green-yellow"></span>&nbsp;Contact</button>
+                                            <button type="button" id="contact-replies5" class="btn btn-primary pull-right small-btn" ng-model="shortlisted" ng-if="applicant.contact == 5" data-toggle="modal" data-target="#contactApplicantModal" ng-click="openModal(applicant)" title="Replies Quickly"><span class="fa fa-circle green-yellow"></span>&nbsp;Contact</button>
+                                            <button type="button" id="contact-replies6" class="btn btn-primary pull-right small-btn" ng-model="shortlisted" ng-if="applicant.contact == 6" data-toggle="modal" data-target="#contactApplicantModal" ng-click="openModal(applicant)" title="Replies Rarely"><span class="fa fa-circle green-yellow"></span>&nbsp;Contact</button>
+                                            <button type="button" id="contact-replies7" class="btn btn-primary pull-right small-btn" ng-model="shortlisted" ng-if="applicant.contact == 7" data-toggle="modal" data-target="#contactApplicantModal" ng-click="openModal(applicant)" title="Replies Sometimes"><span class="fa fa-circle green-yellow"></span>&nbsp;Contact</button>
+                                            <button type="button" id="contact-replies8" class="btn btn-primary pull-right small-btn" ng-model="shortlisted" ng-if="applicant.contact == 8" ng-mouseover="mouseover8()" ng-mouseleave="mouseover8leave()" data-toggle="modal" data-target="#contactApplicantModal" ng-click="openModal(applicant)" title="Replies Rarely"><span class="fa fa-circle green-yellow"></span>&nbsp;Contact</button>
+                                            <button type="button" id="contact-replies9" class="btn btn-primary pull-right small-btn" ng-model="shortlisted" ng-if="applicant.contact == 9" ng-mouseover="mouseover9()" ng-mouseleave="mouseover9leave()" data-toggle="modal" data-target="#contactApplicantModal" ng-click="openModal(applicant)" title="Replies Rarely"><span class="fa fa-circle green-yellow"></span>&nbsp;Contact</button>
+                                            <button type="button" id="contact-replies10" class="btn btn-primary pull-right small-btn" ng-model="shortlisted" ng-if="applicant.contact == 10" ng-mouseover="mouseover10()" ng-mouseleave="mouseover10leave()" data-toggle="modal" data-target="#contactApplicantModal" ng-click="openModal(applicant)" title="Replies Sometimes"><span class="fa fa-circle green-yellow"></span>&nbsp;Contact</button>
+                                            <button type="button" id="contact-replies11" class="btn btn-primary pull-right small-btn" ng-model="shortlisted" ng-if="applicant.contact == 11" ng-mouseover="mouseover11()" ng-mouseleave="mouseover11leave()" data-toggle="modal" data-target="#contactApplicantModal" ng-click="openModal(applicant)" title="Replies Quickly"><span class="fa fa-circle green-yellow"></span>&nbsp;Contact</button>
+
                                             <a id="removeIconHover" ng-if="!(applicant.selected || removeIt)" title="mark as favourite">
                                                 <div class="pull-right star-icon" ng-click="copyApplicant(applicant, Applicants, favouriteApplicants)">
                                                     <span class="fa fa-heart font-size-1-5 icon-attr color-grey"></i>

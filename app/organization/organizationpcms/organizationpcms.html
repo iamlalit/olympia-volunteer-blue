@@ -122,13 +122,12 @@
                                 <span ng-bind="organizationName"></span>
                             </div>
                             <br>
-                            <label id="optional-text" >Non-profit organization</label>
+                            <span>Non-profit organization</span>
                         </div>
                         <h4 class="bold">
                             About <span ng-bind="organizationName"></span>
                         </h4>
                         <p>Monarch Staffing is a local grassroots-oriented company. We are deeply networked throughout the region, continually cultivating through job fairs, professional associations, local events, colleges and universities. We give back to our community - our team is frequently out in the field, helping out-of-work citizens and their marketability through career development workshops, seminars and more. We also provide our clients and networks with interviewing skills training and professional development workshops.</p>
-                        <br />
                         <div class="image-scroller">
                             <div class="icon-left">
                                 <i class="fa fa-angle-left" id="left"></i>
@@ -144,6 +143,8 @@
                                 <i class="fa fa-angle-right" id="right"></i>
                             </div>
                         </div>
+                    </div>
+                    <div class="main-border1">
                         <h5 class="margin-bottom-30"><strong>Organization recent job postings</strong></h5>
 
                         <div class="row job margin-rl-0" ng-repeat="job in jobPost">
@@ -160,45 +161,45 @@
                 <div class="col-sm-4 padding-right-0">
                     <div class="main-border1">
                         <div class="row margin-rl-0">
-                            <label class="margin-bottom-0">E-mail address:</label>
-                            <span class="margin-bottom-0 pull-right">
+                            <label>E-mail address:</label>
+                            <span class="pull-right">
                                 <a href="#">
                                     service@redcross.nl
                                 </a>
                             </span>
                         </div>
                         <div class="row margin-rl-0">
-                            <label class="margin-bottom-0">Website:</label>
-                            <span class="margin-bottom-0 pull-right">
+                            <label>Website:</label>
+                            <span class="pull-right">
                                 <a href="http://www.rodekruis.nl">
                                     www.rodekruis.nl
                                 </a>
                             </span>
                         </div>
                         <div class="row margin-rl-0">
-                            <label class="margin-bottom-0">Telephone:</label>
-                            <span class="margin-bottom-0 pull-right">
+                            <label>Telephone:</label>
+                            <span class="pull-right">
                                 +31(0)70-4455678 
                             </span>
                         </div>
                         <div class="row margin-rl-0">
-                            <label class="margin-bottom-0">Fax:</label>
-                            <span class="margin-bottom-0 pull-right">
+                            <label>Fax:</label>
+                            <span class="pull-right">
                                 +31(0)70-4455678 
                             </span>
                         </div>
                         <div class="row margin-rl-0">
-                            <label class="margin-bottom-0">Address:</label>
-                            <span class="margin-bottom-0 pull-right">
+                            <label>Address:</label>
+                            <span class="pull-right">
                                 Leeghwaterplein 27
                             </span>
-                            <span class="margin-bottom-0 pull-right">
+                            <span class="pull-right">
                                 2521 CV Den Haag
                             </span>
                         </div>
                         <div class="row margin-rl-0">
-                            <a href="" class="pull-right" ng-click="hideMap = true" ng-show="!hideMap">Hide map</a>
-                            <a href="" class="pull-right" ng-click="hideMap = false" ng-show="hideMap">Show map</a>
+                            <a href="" class="pull-right margin-bottom-5" ng-click="hideMap = true" ng-show="!hideMap">Hide map</a>
+                            <a href="" class="pull-right margin-bottom-5" ng-click="hideMap = false" ng-show="hideMap">Show map</a>
                             <div class="grid" ng-if="!hideMap">
                                 <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d156001.6947562717!2d4.9696984!3d52.3427359!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c60955504f6de5%3A0x2ed08c58d2758077!2sRode+Kruislaan%2C+1111+Diemen%2C+The+Netherlands!5e0!3m2!1sen!2sin!4v1408821023776" width="290" height="200" frameborder="0" style="border:0"></iframe>
                             </div>
@@ -229,7 +230,7 @@
                                     </span>
                                 </div>
                             </div>
-                        <hr class="user-hr" ng-if="$index !== members.length-1">
+                        <hr class="user-hr" style="margin-top: 10px;margin-bottom: 10px;" ng-if="$index !== members.length-1">
                     </div>
                     </div>
 
