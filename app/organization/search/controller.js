@@ -344,3 +344,20 @@ app.controller('modalVolCtrl', function($scope) {
                   "Rob";
       $("#modalMessage").val(message);
 });
+
+$(document).ready(function(){
+    $("#contact-replies").popover({
+          placement : 'top',
+          trigger: "mouseover"
+    });
+    $( "#contact-replies" ).mouseover(function(event) {
+        event.preventDefault();
+        $("#contact-replies").popover('show');
+        event.stopPropagation();
+    });
+    $( "#contact-replies" ).mouseout(function() {
+        event.preventDefault();
+        $("#contact-replies").popover('hide');
+        event.stopPropagation();
+    });
+});

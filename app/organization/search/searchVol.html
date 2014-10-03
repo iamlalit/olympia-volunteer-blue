@@ -272,8 +272,9 @@
                                     </div>
 
                                     <div class="col-sm-4 pull-right padding-right-8 padding-top-47">
-                                        <span>
-                                            <button type="button" class="btn btn-primary pull-right small-btn" ng-model="shortlisted" ng-class="{active:$index==2}" data-toggle="modal" data-target="#contactApplicantModal" ng-click="openModal(applicant)" title="click to contact the applicant"><span class="fa fa-circle green-yellow"></span>&nbsp;Contact</button>
+                                        <span id="contacts">
+                                            <button type="button" class="btn btn-primary pull-right small-btn" ng-model="shortlisted" ng-if="$index!==2" data-toggle="modal" data-target="#contactApplicantModal" ng-click="openModal(applicant)" title="click to contact the volunteer"><span class="fa fa-circle green-yellow"></span>&nbsp;Contact</button>
+                                            <button type="button" id="contact-replies" class="btn btn-primary pull-right small-btn active" ng-model="shortlisted" ng-if="$index==2" data-toggle="modal" data-target="#contactApplicantModal" ng-click="openModal(applicant)" title="Replies sometime"><span class="fa fa-circle green-yellow"></span>&nbsp;Contact</button>
                                             <a id="removeIconHover" ng-if="!(applicant.selected || removeIt)" title="mark as favourite">
                                                 <div class="pull-right star-icon" ng-click="copyApplicant(applicant, Applicants, favouriteApplicants)">
                                                     <span class="fa fa-heart font-size-1-5 icon-attr color-grey"></i>
