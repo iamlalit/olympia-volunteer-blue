@@ -551,6 +551,55 @@
                 </div>
             </div>
 
+            <!-- Part 4 -->
+            <div class="row margin-rl-0">
+                <div class="col-sm-12 padding-rl-0">
+                    <div class="pill margin-top-10">
+                        <h5 class="font-size-16"><strong>Projects</strong></h5>
+                    </div> 
+                </div>
+            </div>
+            <div class="row margin-rl-0">
+                <div class="col-sm-12 margin-top-20 padding-rl-0">
+                    <div class="main-border1 margin-bottom-5">
+                        <div ng-if="lengthOfJobs == 0">
+                            <p class="align-center bold italic">No volunteer project has been shared yet</p>
+                            <p class="align-center italic">Please click on "add volunteer experience" to add information about specific work you've taken on </p>
+                        </div>
+
+                        <div ng-if="lengthOfJobs != 0">
+                            <div ng-repeat="job in listOfJobs track by $index">
+                                <div class='padding-rl-0'>
+                                    <label ng-bind="job.title" class="margin-right-15"></label>
+                                    <span ng-click="openJobModel(job, $index)" class="margin-right-15">
+                                        <i class="glyphicon glyphicon-pencil pointer"></i>
+                                        <a href="">Edit</a>
+                                    </span>
+                                    <span ng-click="deletejob(job, $index)">
+                                        <i class="fa fa-times pointer"></i>
+                                        <a href="">Delete</a>
+                                    </span>
+                                </div>
+                                
+                                <p class="margin-bottom-0"><label class="margin-bottom-0">Organization - </label>&nbsp;<span ng-bind="job.name"></span></p>
+                                <p class="margin-bottom-0"><label class="margin-bottom-0">Location - </label>&nbsp;<span ng-bind="job.city"></span> &nbsp;<span ng-bind="job.country"></span></p>
+                                <p class="margin-bottom-0"><label class="margin-bottom-0">From - </label>&nbsp;<span ng-bind="job.month1"></span>, &nbsp;<span ng-bind="job.startDate"></span>&nbsp;&nbsp;<label class="margin-bottom-0">To - </label>&nbsp;<span ng-bind="job.month2"></span>, &nbsp;<span ng-bind="job.endDate"></span></p>
+                                <div class="row" ng-if="$index !== lengthOfJobs-1">
+                                    <div class="col-sm-12 padding-right-5">
+                                        <div class="hr1"></div>
+                                    </div>  
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row margin-rl-0">
+                <div class="col-sm-12 padding-rl-0">
+                    <span><a href="#" id="zoomTextarea1" title="Click to add Projects" data-toggle="modal" data-target="#addProject" ng-click="jobCancel()">add volunteer projects</a></span>
+                </div>
+            </div>
+
             <div class="row">
                 <div class="col-sm-12 margin-top-30">
                     <div class="col-sm-4"></div>
@@ -2101,6 +2150,271 @@
                                 </div>
                             </div>
                             
+                            <div class="col-sm-12 margin-top-10 check-label">
+                                <label>Description</label>
+                                <a>
+                                    <i class="glyphicon glyphicon-question-sign blue pointer" id="descriptionSchool"></i>
+                                </a>
+                                <span id="optional-text">(optional) </span> 
+                            </div>
+                            <div class="col-sm-12">
+                                <textarea class="col-sm-12 text-area" rows="5" cols="60" ng-model="job.description"></textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3">&nbsp;</div>
+                            <div class="col-sm-9">
+                                <button style="margin: 20px 10px 30px 0;" type="button" class="btn btn-default btn-danger" ng-click="jobCancel()" aria-hidden="true" >Cancel</button>
+                                <button style="margin: 20px 10px 30px 0;" type="submit" class="btn btn-success" ng-click="updateJobDetails(job, 0)">Save and Add More</button>
+                                <button style="margin: 20px 0 30px 0;" type="submit" class="btn btn-success" ng-click="updateJobDetails(job, 1)">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Volunteer Project add Modal -->
+    <div class="modal fade" id="addProject" tabindex="-1" role="dialog" aria-labelledby="addProject" aria-hidden="true">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close big-close" ng-click="jobCancel()" aria-hidden="true">&times;</button>
+                    <h2 class="modal-title" id="myModalLabel">Add Project</h2>
+                </div>
+                <form role="form" name="jobForm" id="jobForm" novalidate>
+                    <div class="modal-body">
+                        <div class="row" id="errorMsg1">
+                            <div class="col-lg-12">
+                                <div class="col-sm-1"></div>
+                                <div class="alert alert-danger col-sm-10">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                    <h4 class="text-center margin-top-0">Please fix the following issues</h4>
+                                    <ul id="errorList1" class="errorList" style="margin-bottom:35px"></ul>
+                                </div>
+                                <div class="col-sm-1"></div>
+                            </div>
+                        </div>
+                        <div class="row margin-left--15">
+                            <div class="col-sm-12">
+                                <label>Name</label>
+                            </div>
+                            <div class="col-sm-12">
+                                <input type="text" class="col-sm-12" ng-model="project.name" id="jobAns1" ng-required/>
+                            </div>
+                            <div class="col-sm-12 margin-top-10">
+                                <label>Organization</label>
+                            </div>
+                            <div class="col-sm-12">
+                                <input type="text" class="col-sm-12" ng-model="project.organisation" id="jobAns1" ng-required/>
+                            </div>
+                            <div class="col-sm-12 margin-top-10">
+                                <label>Period</label>
+                            </div>
+                            <div class="col-sm-6 padding-right-0">
+                                <select class="col-sm-6"  id="jobAns4" ng-init="job.month1 = 0" ng-model="job.month1">
+                                    <option value="0" select="selected">Month</option>
+                                    <option value="1">January</option>
+                                    <option value="2">February</option>
+                                    <option value="3">March</option>
+                                    <option value="4">April</option>
+                                    <option value="5">May</option>
+                                    <option value="6">June</option>
+                                    <option value="7">July</option>
+                                    <option value="8">August</option>
+                                    <option value="9">September</option>
+                                    <option value="10">October</option>
+                                    <option value="11">November</option>
+                                    <option value="12">December</option>
+                                </select>
+                                <label class="pull-right"> &nbsp;&nbsp;&nbsp;_ </label>
+                                <select class="col-sm-5 pull-right" ng-model="job.startDate" ng-init="job.startDate = 0" id="jobAns5" ng-required>
+                                    <option value="0" select="selected">Year</option>
+                                    <option value="2014">2014</option>
+                                    <option value="2013">2013</option>
+                                    <option value="2012">2012</option>
+                                    <option value="2011">2011</option>
+                                    <option value="2010">2010</option>
+                                    <option value="2009">2009</option>
+                                    <option value="2008">2008</option>
+                                    <option value="2007">2007</option>
+                                    <option value="2006">2006</option>
+                                    <option value="2005">2005</option>
+                                    <option value="2004">2004</option>
+                                    <option value="2003">2003</option>
+                                    <option value="2002">2002</option>
+                                    <option value="2001">2001</option>
+                                    <option value="2000">2000</option>
+                                    <option value="1999">1999</option>
+                                    <option value="1998">1998</option>
+                                    <option value="1997">1997</option>
+                                    <option value="1996">1996</option>
+                                    <option value="1995">1995</option>
+                                    <option value="1994">1994</option>
+                                    <option value="1993">1993</option>
+                                    <option value="1992">1992</option>
+                                    <option value="1991">1991</option>
+                                    <option value="1990">1990</option>
+                                    <option value="1989">1989</option>
+                                    <option value="1988">1988</option>
+                                    <option value="1987">1987</option>
+                                    <option value="1986">1986</option>
+                                    <option value="1985">1985</option>
+                                    <option value="1984">1984</option>
+                                    <option value="1983">1983</option>
+                                    <option value="1982">1982</option>
+                                    <option value="1981">1981</option>
+                                    <option value="1980">1980</option>
+                                    <option value="1979">1979</option>
+                                    <option value="1978">1978</option>
+                                    <option value="1977">1977</option>
+                                    <option value="1976">1976</option>
+                                    <option value="1975">1975</option>
+                                    <option value="1974">1974</option>
+                                    <option value="1973">1973</option>
+                                    <option value="1972">1972</option>
+                                    <option value="1971">1971</option>
+                                    <option value="1970">1970</option>
+                                    <option value="1969">1969</option>
+                                    <option value="1968">1968</option>
+                                    <option value="1967">1967</option>
+                                    <option value="1966">1966</option>
+                                    <option value="1965">1965</option>
+                                    <option value="1964">1964</option>
+                                    <option value="1963">1963</option>
+                                    <option value="1962">1962</option>
+                                    <option value="1961">1961</option>
+                                    <option value="1960">1960</option>
+                                    <option value="1959">1959</option>
+                                    <option value="1958">1958</option>
+                                    <option value="1957">1957</option>
+                                    <option value="1956">1956</option>
+                                    <option value="1955">1955</option>
+                                    <option value="1954">1954</option>
+                                    <option value="1953">1953</option>
+                                    <option value="1952">1952</option>
+                                    <option value="1951">1951</option>
+                                    <option value="1950">1950</option>
+                                    <option value="1949">1949</option>
+                                    <option value="1948">1948</option>
+                                    <option value="1947">1947</option>
+                                    <option value="1946">1946</option>
+                                    <option value="1945">1945</option>
+                                    <option value="1944">1944</option>
+                                    <option value="1943">1943</option>
+                                    <option value="1942">1942</option>
+                                    <option value="1941">1941</option>
+                                    <option value="1940">1940</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-6">
+                                <select class="col-sm-6 width-140" id="jobAns6" ng-init="job.month2 = 0" ng-model="job.month2">
+                                    <option value="0" select="selected">Month</option>
+                                    <option value="1">January</option>
+                                    <option value="2">February</option>
+                                    <option value="3">March</option>
+                                    <option value="4">April</option>
+                                    <option value="5">May</option>
+                                    <option value="6">June</option>
+                                    <option value="7">July</option>
+                                    <option value="8">August</option>
+                                    <option value="9">September</option>
+                                    <option value="10">October</option>
+                                    <option value="11">November</option>
+                                    <option value="12">December</option>
+                                </select>
+                                <select class="col-sm-5 pull-right width-121" ng-model="job.endDate" ng-init="job.endDate = 0" id="jobAns7" ng-required>
+                                    <option value="0" select="selected">Year</option>
+                                    <option value="2014">2014</option>
+                                    <option value="2013">2013</option>
+                                    <option value="2012">2012</option>
+                                    <option value="2011">2011</option>
+                                    <option value="2010">2010</option>
+                                    <option value="2009">2009</option>
+                                    <option value="2008">2008</option>
+                                    <option value="2007">2007</option>
+                                    <option value="2006">2006</option>
+                                    <option value="2005">2005</option>
+                                    <option value="2004">2004</option>
+                                    <option value="2003">2003</option>
+                                    <option value="2002">2002</option>
+                                    <option value="2001">2001</option>
+                                    <option value="2000">2000</option>
+                                    <option value="1999">1999</option>
+                                    <option value="1998">1998</option>
+                                    <option value="1997">1997</option>
+                                    <option value="1996">1996</option>
+                                    <option value="1995">1995</option>
+                                    <option value="1994">1994</option>
+                                    <option value="1993">1993</option>
+                                    <option value="1992">1992</option>
+                                    <option value="1991">1991</option>
+                                    <option value="1990">1990</option>
+                                    <option value="1989">1989</option>
+                                    <option value="1988">1988</option>
+                                    <option value="1987">1987</option>
+                                    <option value="1986">1986</option>
+                                    <option value="1985">1985</option>
+                                    <option value="1984">1984</option>
+                                    <option value="1983">1983</option>
+                                    <option value="1982">1982</option>
+                                    <option value="1981">1981</option>
+                                    <option value="1980">1980</option>
+                                    <option value="1979">1979</option>
+                                    <option value="1978">1978</option>
+                                    <option value="1977">1977</option>
+                                    <option value="1976">1976</option>
+                                    <option value="1975">1975</option>
+                                    <option value="1974">1974</option>
+                                    <option value="1973">1973</option>
+                                    <option value="1972">1972</option>
+                                    <option value="1971">1971</option>
+                                    <option value="1970">1970</option>
+                                    <option value="1969">1969</option>
+                                    <option value="1968">1968</option>
+                                    <option value="1967">1967</option>
+                                    <option value="1966">1966</option>
+                                    <option value="1965">1965</option>
+                                    <option value="1964">1964</option>
+                                    <option value="1963">1963</option>
+                                    <option value="1962">1962</option>
+                                    <option value="1961">1961</option>
+                                    <option value="1960">1960</option>
+                                    <option value="1959">1959</option>
+                                    <option value="1958">1958</option>
+                                    <option value="1957">1957</option>
+                                    <option value="1956">1956</option>
+                                    <option value="1955">1955</option>
+                                    <option value="1954">1954</option>
+                                    <option value="1953">1953</option>
+                                    <option value="1952">1952</option>
+                                    <option value="1951">1951</option>
+                                    <option value="1950">1950</option>
+                                    <option value="1949">1949</option>
+                                    <option value="1948">1948</option>
+                                    <option value="1947">1947</option>
+                                    <option value="1946">1946</option>
+                                    <option value="1945">1945</option>
+                                    <option value="1944">1944</option>
+                                    <option value="1943">1943</option>
+                                    <option value="1942">1942</option>
+                                    <option value="1941">1941</option>
+                                    <option value="1940">1940</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-12 margin-top-10">
+                                <label>Project URL</label>
+                            </div>
+                            <div class="col-sm-12">
+                                <input type="text" class="col-sm-12" ng-model="project.url" id="jobAns1" ng-required/>
+                            </div>
+                            <div class="col-sm-12 margin-top-10">
+                                <label>Team Member(s)</label>
+                            </div>
+                            <div class="col-sm-12">
+                                <input type="text" class="col-sm-12" ng-model="project.members" id="jobAns1" ng-required/>
+                            </div>                            
                             <div class="col-sm-12 margin-top-10 check-label">
                                 <label>Description</label>
                                 <a>
