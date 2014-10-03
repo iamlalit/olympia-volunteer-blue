@@ -45,7 +45,7 @@ app.controller('searchVolCtrl', function($scope){
             NumbertoStart: 7,
             joined: 'Joined 1 year ago',
             lastActive: 'Last active: 1 day ago',
-            volunteerSkills: ['Education', 'Crowd control', 'Damage control', 'First aid'],
+            volunteerSkills: ['Education', 'Crowd control', 'Caring for People', 'Damage control', 'First aid'],
             invited: true,   
             selected: false,
             value: false
@@ -60,7 +60,7 @@ app.controller('searchVolCtrl', function($scope){
             statusColor: 'green',    
             joined: 'Joined 5 year ago',
             lastActive: 'Last active: 10 days ago',
-            volunteerSkills: ['Cooking', 'Education', 'Caring for People', 'Communication'],
+            volunteerSkills: ['Cooking', 'First aid', 'Education', 'Caring for People', 'Communication'],
             invited: false,
             selected: false,
             value: false
@@ -90,7 +90,7 @@ app.controller('searchVolCtrl', function($scope){
             statusColor: 'red',
             joined: 'Joined 1 day ago',
             lastActive: 'Last active: 1 day ago',
-            volunteerSkills: ['Cooking', 'Education', 'Caring for People', 'Communication'],
+            volunteerSkills: ['Cooking', 'Caring for People', 'Communication'],
             invited: true,
             selected: false,
             value: false      
@@ -120,7 +120,7 @@ app.controller('searchVolCtrl', function($scope){
             statusColor: 'red',
             joined: 'Joined 2 months ago',
             lastActive: 'Last active: 21 days ago',
-            volunteerSkills: ['Cooking', 'Damage control', 'First aid'],
+            volunteerSkills: ['Cooking', 'Damage control', 'First aid', 'Communication', 'Caring for People', ],
             invited: false,
             selected: false,      
             value: false
