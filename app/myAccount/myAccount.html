@@ -91,6 +91,11 @@
                                     <a role="menuitem" href="#">&nbsp;<i class='fa fa-list-alt'></i> &nbsp;Integration Settings
                                     </a>
                                 </li>
+                                <li role="presentation" class="divider" ng-if="typeOfOwner == 'organization'"></li>
+                                <li role="presentation" ng-if="typeOfOwner == 'organization'">
+                                    <a role="menuitem" href="../organization/socialMedia/socialMedia.html?owner=organization">&nbsp;<i class='fa fa-share-alt'></i> &nbsp;Publish to social media
+                                    </a>
+                                </li>
                             </ul>
                         </li>
                         <li class='pull-right'><a href="#" id="icons-header-right"><span class="fa fa-exclamation"></a></li>

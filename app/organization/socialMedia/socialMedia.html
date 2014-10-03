@@ -1,5 +1,5 @@
-﻿<!DOCTYPE html>
-<html ng-app="jobDetailsController">
+﻿<!doctype html>
+<html lang="en" ng-app="socialMediaController">
 <head>
     <meta charset="utf-8">
     <title>OLYMPIA</title>
@@ -9,11 +9,10 @@
     <link href="../../css/bootstrap-responsive.min.css" rel="stylesheet">
     <link href="../../css/font-awesome.css" rel="stylesheet">
     <link rel="stylesheet" href="../../css/organization/postJob/postJob.css"/>
+    <link rel="stylesheet" href="../../css/organization/searchVol/searchVol.css"/>
+    <link rel="stylesheet" href="../../css/volunteer/jobDetails/jobDetails.css"/>
     <link href="../../css/global.css" rel="stylesheet">
     <link href="../../css/organization/viewApp/viewApp.css" rel="stylesheet">
-    
-    <link href="../../css/volunteer/jobDetails/jobDetails.css" rel="stylesheet">
-    <link href="../../css/slider/slider.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="../../css/header/header.css">
     <style type="text/css">
         .superContainer{
@@ -30,13 +29,10 @@
             vertical-align: top;
         }
     </style>
-
 </head>
-
-<body ng-controller="jobDetails">
+<body ng-controller="socialMediaCtrl">
     <!-- Page Header Section Start-->
     <header>
-        <div class=''>
         <nav class="navbar navbar-default" role="navigation">
           <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -53,7 +49,7 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav">
-                <li><a href="../search/searchVol.html" class='menu-interval'>Search Volunteer</a></li>
+                <li><a href="../searchVolunteer/searchVolunteer.html"  class='menu-interval'>Search Volunteer</a></li>
                 <li><a href="../postJob/postjob.html"  class='menu-interval'>Post a Job</a></li>
                 <li><a href="../jobPost/jobPost.html" class='menu-interval'>Job Postings</a></li>
                 <li><a href="../../message/message.html?owner=organization" class='menu-interval'>Messages</a></li>
@@ -73,6 +69,11 @@
                         <li role="presentation"><a role="menuitem" href="../../notificationSettings/notificationSettings.html?owner=organization">&nbsp;<i class='fa fa-bell'></i> &nbsp;Notification Settings</a></li>
                         <li role="presentation" class="divider"></li>
                         <li role="presentation"><a role="menuitem" href="../../integrationSettings/integrationSettings.html?owner=organization">&nbsp;<i class='fa fa-list-alt'></i> &nbsp;Integration Settings</a></li>
+                        <li role="presentation" class="divider" ng-if="typeOfOwner == 'organization'"></li>
+                        <li role="presentation" ng-if="typeOfOwner == 'organization'">
+                            <a role="menuitem" href="#">&nbsp;<i class='fa fa-share-alt'></i> &nbsp;Publish to social media
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 <li class='pull-right' ><a href="#" id="icons-header-right"><span class="fa fa-exclamation"></a></li>
@@ -85,8 +86,8 @@
                         <li role="presentation" ><a role="menuitem" ng-model="client" ng-click="organization = false; client = true; addActive1 = 'make-it-white';addActive2=''" href="../../volunteer/searchJob/searchJob.html" ng-class="addActive1"><img src="../../img/VV_Icon_Profile.png" width="28" height="28">&nbsp;&nbsp;&nbsp;Volunteer</a></li>
                         <li role="presentation" class="divider"></li>
                         <li role="presentation" id="separate-highlight"> 
-                            <span><a role="menuitem"  href="../../myAccount/myAccount.html?owner=organization" ng-if="client == true">hans.klevenbeek</a></span>
-                            <span><a role="menuitem"  href="../../myAccount/myAccount.html?owner=organization" ng-if="organization == true">hans.klevenbeek</a></span>
+                            <span><a role="menuitem" href="../../myAccount/myAccount.html?owner=organization" ng-if="client == true">hans.klevenbeek</a></span>
+                            <span><a role="menuitem" href="../../myAccount/myAccount.html?owner=organization" ng-if="organization == true">hans.klevenbeek</a></span>
                             <span><a role="menuitem"  href="../../login/login.html">Logout</a></span>
                         </li>
 
@@ -97,143 +98,123 @@
           </div><!-- /.container-fluid -->
         </nav>
     </header>
+    <!-- Page Header Section End-->
     <div class="superContainer">
         <div class="containerB">
             <span class="prototype-scheme">PROTOTYPE</span>
-        </div>
+        </div>    
         <div class="containerA">
-
-            <div class="row margin-rl-0">
+            <div class="row main-border1 margin-rl-0">
                 <div class="col-sm-12 padding-rl-0">
-                    <!-- Navigation back to page-->
-                    <span>
-                        <a href="../search/searchVol.html">
-                            <i class="fa fa-chevron-left black-arrow"></i>Back to search results
-                        </a>
-                    </span>
-                </div>
-            </div>
-            <div class="row margin-rl-0">
-                <div class="col-sm-8 padding-rl-0">
-                    <div class="main-border1">
-                        <img src="../../img/VV_Icon_OrganizationLogo.png" width="70" height="70"/>
-                        <div class="inline-block valign-top">
-                            <div class="panel-title padding-left-0 inline-block">
-                                <span ng-bind="organizationName"></span>
-                            </div>
-                            <br>
-                            <span>Non-profit organization</span>
+                    <div class="row margin-rl-0">
+                        <div class="col-sm-5  padding-rl-0" >
+                            <span class="text-center" id='heading-form'>Publish to social media</span>
                         </div>
-                        <h4 class="bold">
-                            About <span ng-bind="organizationName"></span>
-                        </h4>
-                        <p>Monarch staffing is a local grassroots-oriented company. We are deeply networked throughout the region, continually cultivating through job fairs, professional associations, local events, colleges and universities. We give back to our community - our team is frequently out in the field, helping out-of-work citizens and their marketability through career development workshops, seminars and more. We also provide our clients and networks with interviewing skills training and professional development workshops.</p>
-                        <div class="image-scroller">
-                            <div class="icon-left">
-                                <i class="fa fa-angle-left" id="left"></i>
-                            </div>
-                            <div id="slides">
-                                <img src="../../img/scrolling1.jpg" width="200" height="140" alt="smile" id="image0"/>
-                                <img src="../../img/scrolling2.jpg" width="200" height="140" alt="smile" id="image1"/>
-                                <img src="../../img/scrolling3.png" width="200" height="140" alt="smile" id="image2"/> 
-                                <img src="../../img/scrolling1.jpg" width="200" height="140" alt="smile" id="image3"/> 
-                                <img src="../../img/scrolling2.jpg" width="200" height="140" alt="smile" id="image4"/> 
-                            </div>
-                            <div class="icon-right">
-                                <i class="fa fa-angle-right" id="right"></i>
-                            </div>
+                        <div class="col-sm-7">
+                            &nbsp;
                         </div>
                     </div>
-                    <div class="main-border1">
-                        <h5 class="margin-bottom-30"><strong>Organization recent job postings</strong></h5>
+                    <div class="row margin-rl-0">
+                        <div class="col-sm-5 padding-rl-0">
+                            <h4>LinkedIn <span class="fa fa-linkedin-square"></span> </h4>
+                        </div>
+                    </div>
+                     <div class="row margin-rl-0">
+                        <p><a href="#">vrijwilligersvacaturebank.nl</a> can post jobs as a status update or post the jobs on the LinkedIn job board. If you don't have a recruiter account on LinkedIn for posting jobs, you can automatically buy credits through <a href="#">vrijwilligersvacaturebank.nl</a> and post your job on the LinkedIn job board as well.</p>
+                    </div>
+                    <div class="row margin-rl-0">
+                        <div class="col-sm-2 padding-rl-0 padding-top-7">
+                            <label>LinkedIn login name:</label>
+                        </div>
+                        <div class="col-sm-8 padding-rl-0">
+                            <input type="text" class="col-sm-6" placeholder="User ID/Email"/>
+                        </div>
+                    </div>
+                    <div class="row margin-rl-0 margin-top-15">
+                        <div class="col-sm-2 padding-rl-0 padding-top-7">
+                            <label>LinkedIn password:</label>
+                        </div>
+                        <div class="col-sm-8 padding-rl-0">
+                            <input type="text" class="col-sm-6" placeholder="********"/>
+                        </div>
+                    </div>
+                    <!-- Twitter starts-->
 
-                        <div class="row job margin-rl-0" ng-repeat="job in jobPost">
+                    <div class="row margin-rl-0 margin-top-20">
+                        <div class="col-sm-5 padding-rl-0">
+                            <h4>Twitter <span class="fa fa-twitter-square"></h4>
+                        </div>
+                    </div>
+                     <div class="row margin-rl-0">
+                        <p>When a job is posted as a Tweet the job title and region are usually used. <a href="#">vrijwilligersvacaturebank.nl</a> will automatically make the job title, region and link to the job fit Twitter's 140 characters limit.</p>
+                    </div>
+                    <div class="row margin-rl-0">
+                        <div class="col-sm-2 padding-rl-0 padding-top-7">
+                            <label>Twitter login name:</label>
+                        </div>
+                        <div class="col-sm-8 padding-rl-0">
+                            <input type="text" class="col-sm-6" placeholder="User ID/Email"/>
+                        </div>
+                    </div>
+                    <div class="row margin-rl-0 margin-top-15">
+                        <div class="col-sm-2 padding-rl-0 padding-top-7">
+                            <label>Twitter password:</label>
+                        </div>
+                        <div class="col-sm-8 padding-rl-0">
+                            <input type="text" class="col-sm-6" placeholder="********"/>
+                        </div>
+                    </div>
 
-                            <span>
-                                <a href="../../volunteer/jobDetails/jobDetails.html?jobName={{job.jobTitle}}&jobDate={{job.jobDate}}" ng-bind="job.jobTitle">
-                                </a>
-                            </span>
-                            <span ng-bind="job.jobDate" class="pull-right"></span>
+                    <!-- Twitter ends -->
+
+                    <!-- Facebook starts-->
+
+                    <div class="row margin-rl-0 margin-top-20">
+                        <div class="col-sm-5 padding-rl-0">
+                            <h4>Facebook<span class="fa fa-facebook-square margin-left-10"></span></h4>
+                        </div>
+                    </div>
+                     <div class="row margin-rl-0">
+                        <p>You can post jobs to Facebook using <a href="#">vrijwilligersvacaturebank.nl</a> as a status update on your Fan Page or to your Facebook App.</p>
+                    </div>
+                    <div class="row margin-rl-0">
+                        <div class="col-sm-2 padding-rl-0 padding-top-7">
+                            <label>Facebook login name:</label>
+                        </div>
+                        <div class="col-sm-8 padding-rl-0">
+                            <input type="text" class="col-sm-6" placeholder="User ID/Email"/>
+                        </div>
+                    </div>
+                    <div class="row margin-rl-0 margin-top-15">
+                        <div class="col-sm-2 padding-rl-0 padding-top-7">
+                            <label>Facebook password:</label>
+                        </div>
+                        <div class="col-sm-8 padding-rl-0">
+                            <input type="text" class="col-sm-6" placeholder="********"/>
+                        </div>
+                    </div>
+
+                    <!-- Facebook ends -->
+
+                    <!-- Automatic landing page starts-->
+
+                    <div class="row margin-rl-0 margin-top-20">
+                        <div class="col-sm-5 padding-rl-0">
+                            <h4>Automatic landing pages</h4>
+                        </div>
+                    </div>
+                     <div class="row margin-rl-0">
+                        <p>Post your job as a status update on Twitter, Facebook or LinkedIn and candidates will be redirected to the job description in your look and feel. <a href="#">vrijwilligersvacaturebank.nl</a> will keep track of the number of clicks for you.</p>
+                    </div>
+                    <div class="row margin-rl-0">
+                        <div class="col-sm-12 padding-rl-0 padding-top-7">
+                            <p>go to <a href="../../integrationSettings/integrationSettings.html">Integration settings</a> configuration screen...</p>
                         </div>
                     </div>
                     
-                </div>
-                <div class="col-sm-4 padding-right-0">
-                    <div class="main-border1">
-                        <div class="row margin-rl-0">
-                            <label>E-mail address:</label>
-                            <span class="pull-right">
-                                <a href="#">
-                                    service@redcross.nl
-                                </a>
-                            </span>
-                        </div>
-                        <div class="row margin-rl-0">
-                            <label>Website:</label>
-                            <span class="pull-right">
-                                <a href="http://www.rodekruis.nl">
-                                    www.rodekruis.nl
-                                </a>
-                            </span>
-                        </div>
-                        <div class="row margin-rl-0">
-                            <label>Telephone:</label>
-                            <span class="pull-right">
-                                +31(0)70-4455678 
-                            </span>
-                        </div>
-                        <div class="row margin-rl-0">
-                            <label>Fax:</label>
-                            <span class="pull-right">
-                                +31(0)70-4455678 
-                            </span>
-                        </div>
-                        <div class="row margin-rl-0">
-                            <label>Address:</label>
-                            <span class="pull-right">
-                                Leeghwaterplein 27
-                            </span>
-                            <span class="pull-right">
-                                2521 CV Den Haag
-                            </span>
-                        </div>
-                        <div class="row margin-rl-0">
-                            <a href="" class="pull-right margin-bottom-5" ng-click="hideMap = true" ng-show="!hideMap">Hide map</a>
-                            <a href="" class="pull-right margin-bottom-5" ng-click="hideMap = false" ng-show="hideMap">Show map</a>
-                            <div class="grid" ng-if="!hideMap">
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d156001.6947562717!2d4.9696984!3d52.3427359!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c60955504f6de5%3A0x2ed08c58d2758077!2sRode+Kruislaan%2C+1111+Diemen%2C+The+Netherlands!5e0!3m2!1sen!2sin!4v1408821023776" width="290" height="200" frameborder="0" style="border:0"></iframe>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="main-border1">
-                        <label class="margin-bottom-0">Organizations focus categories:</label>
-                        <div class="row margin-rl-0 margin-bottom-15 margin-top--3">
-                            <span class="small-pill" ng-repeat="category in organizationCategories">{{category}}</span>
-                        </div>
-                    </div>
-                    <div class="main-border1">
-                        <label class="margin-bottom-10">{{organizationName}} Team</label>
-                        <div  ng-repeat="member in members">
-                            <div class="row margin-rl-0">
-                                <div class="col-sm-3">
-                                    <img src="{{member.image}}" width="30" height="30">
-                                </div>      
-                                <div class="col-sm-9">
-                                    <span>
-                                        <a href="../../volunteer/volunteerProfile/volunteerProfile.html?name={{member.name}}&city=Amsterdam,%20Noord%20Holland&image={{member.image}}" ng-bind="member.name">
-                                        </a>
-                                    </span>
-                                        <br>
-                                    <span>
-                                        Amsterdam, Noord Holland
-                                    </span>
-                                </div>
-                            </div>
-                        <hr class="user-hr" style="margin-top: 10px;margin-bottom: 10px;" ng-if="$index !== members.length-1">
-                    </div>
-                    </div>
-
+                    <!-- Automatic landing page ends -->
+                    
                 </div>
             </div>
         </div>
@@ -241,7 +222,6 @@
             <span class="prototype-scheme">PROTOTYPE</span>
         </div>
     </div>
-
     <footer>
         <div class="container1">
             <div class="row">
@@ -282,29 +262,34 @@
                     </ul>
                 </div>
                 <div class="col-lg-4">
-                    <div class="social-network-icon-wrap" style="padding-right:60px">
+                    <div class="social-network-icon-wrap padding-right-65">
                         <a href="#" class="footer-select social-network-icons">
                             <span class="footer-circle footer-circle-linkedin pull-right">
-                                <i class="fa fa-linkedin font-size-20 icon-attr1"> </i>
+                                <span class="fa fa-linkedin font-size-20 icon-attr1"> </i>
                             </span>
                         </a>
                         <a href="#" class="social-network-icons">
                             <span class="footer-circle footer-circle-facebook pull-right">
-                                <i class="fa fa-facebook font-size-20 icon-attr1"> </i>
+                                <span class="fa fa-facebook font-size-20 icon-attr1"> </i>
                             </span>
                         </a>
                         <a href="#" class="social-network-icons">
                             <span class="footer-circle footer-circle-twitter pull-right">
-                                <i class="fa fa-twitter font-size-20 icon-attr1"> </i>
+                                <span class="fa fa-twitter font-size-20 icon-attr1"> </i>
                             </span>
                         </a>
                         <a href="#" class="social-network-icons">
                             <span class="footer-circle footer-circle-google pull-right">
-                                <i class="fa fa-google-plus font-size-20 icon-attr1"> </i>
+                                <span class="fa fa-google-plus font-size-20 icon-attr1"> </i>
+                            </span>
+                        </a>
+                        <a href="#" class="social-network-icons">
+                            <span class="footer-circle footer-circle-google pull-right">
+                                <span class="fa fa-rss font-size-20 icon-attr1"> </i>
                             </span>
                         </a>
                     </div>
-                    <span class="footer-copyrights" id='footer-copyrights' style="padding-right:60px">
+                    <span class="footer-copyrights padding-right-65" id='footer-copyrights' >
                         <span>&#169;&nbsp;Volunteer Corporation</span>
                     </span>
                 </div>
@@ -312,11 +297,12 @@
         </div>
     </footer>
 
-     
     <script src="../../lib/jquery/dist/jquery.min.js"></script>
-    <script src="../../lib/angular/angular.min.js"></script>
     <script src="../../lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../../lib/angular/angular.min.js"></script>
+    <script src="../../js/app.js"></script>
     <script src="controller.js"></script>
-    <script src="../../js/imageSlider/imageSlider.js"></script>    
+
+
 </body>
 </html>
