@@ -1175,9 +1175,10 @@ landingController.controller('landingPage', ['$scope', function ($scope) {
         $scope.project.description = '';
     }
 
+    $scope.globalProjectIndex = "";
     //edit functionality to open the modal with the desired data
     $scope.openProjectModel = function(project, index) {
-        $('#addProject').modal('show');
+        $('#updateProject').modal('show');
         $scope.project.name = project.name;
         $scope.project.organisation = project.organisation;
         $scope.project.url = project.url;
@@ -1188,7 +1189,7 @@ landingController.controller('landingPage', ['$scope', function ($scope) {
         $scope.project.month2 = project.month2;
         $scope.project.endDate = project.endDate;
 
-        $scope.globalJobIndex = index;
+        $scope.globalProjectIndex = index;
     }
 
     //delete the clicked job
@@ -1200,5 +1201,22 @@ landingController.controller('landingPage', ['$scope', function ($scope) {
         $scope.lengthOfProjects = $scope.listOfProjects.length;
     }
 
+    //just to hide the modal poppups
+    $scope.updateProjectCancel = function() {
+        $('#updateProject').modal('hide');
+    }
 
+    //updated the information of the Project details on the page
+    $scope.updateDetailProject = function(project, globalProjectIndex) {
+        console.log($scope.listOfProjects);
+        $scope.listOfProjects[globalProjectIndex].name = project.name;
+        $scope.listOfProjects[globalProjectIndex].organisation = project.organisation;
+        $scope.listOfProjects[globalProjectIndex].url = project.url;
+        $scope.listOfProjects[globalProjectIndex].members = project.members;
+        $scope.listOfProjects[globalProjectIndex].month1 = project.month1;
+        $scope.listOfProjects[globalProjectIndex].startDate = project.startDate;
+        $scope.listOfProjects[globalProjectIndex].month2 = project.month2;
+        $scope.listOfProjects[globalProjectIndex].endDate = project.endDate;
+        $('#updateProject').modal('hide');
+    }
 }]);
