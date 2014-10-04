@@ -133,7 +133,13 @@ signUp.controller("signupController", ['$scope', function ($scope) {
             if (email.val() == '' || email.val() == null) {
                 if (errorList.find('.errormessage-form1mail').length == 0) {
                     var li = $('<li />', { html: 'Email required !', class: 'col-sm-6 errormessage-form1mail' });
-                    li.appendTo(errorList);
+                    li.appendTo(errorList)
+                    .click(function () {
+                        $('html, body').animate({
+                            scrollTop: email.offset().top - 100
+                        }, 500);
+                        email.focus();
+                    })
                     email.parent().addClass('has-error');
                 }
             } else {
@@ -217,7 +223,7 @@ signUp.controller("signupController", ['$scope', function ($scope) {
                             $('html, body').animate({
                                 scrollTop: Organization.offset().top - 100
                             }, 500);
-                            city.focus();
+                            Organization.focus();
                         });
                         //$('#errorMsg').show();
                         Organization.parent().addClass('has-error');
@@ -240,9 +246,9 @@ signUp.controller("signupController", ['$scope', function ($scope) {
                     .appendTo(errorList)
                     .click(function () {
                         $('html, body').animate({
-                            scrollTop: street.offset().top - 100
+                            scrollTop: username.offset().top - 100
                         }, 500);
-                        city.focus();
+                        username.focus();
                     });
                     //$('#errorMsg').show();
                     username.parent().addClass('has-error');
@@ -264,9 +270,9 @@ signUp.controller("signupController", ['$scope', function ($scope) {
                     .appendTo(errorList)
                     .click(function () {
                         $('html, body').animate({
-                            scrollTop: street.offset().top - 100
+                            scrollTop: password.offset().top - 100
                         }, 500);
-                        city.focus();
+                        password.focus();
                     });
                     //$('#errorMsg').show();
                     password.parent().addClass('has-error');
@@ -288,9 +294,9 @@ signUp.controller("signupController", ['$scope', function ($scope) {
                     .appendTo(errorList)
                     .click(function () {
                         $('html, body').animate({
-                            scrollTop: street.offset().top - 100
+                            scrollTop: captcha.offset().top - 100
                         }, 500);
-                        city.focus();
+                        captcha.focus();
                     });
                     //$('#errorMsg').show();
                     captcha.parent().addClass('has-error');
@@ -311,7 +317,7 @@ signUp.controller("signupController", ['$scope', function ($scope) {
                     .appendTo(errorList)
                     .click(function () {
                         $('html, body').animate({
-                            scrollTop: street.offset().top - 100
+                            scrollTop: nickname.offset().top - 100
                         }, 500);
                         nickname.focus();
                     });
