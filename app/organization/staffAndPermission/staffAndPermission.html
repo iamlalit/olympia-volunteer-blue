@@ -1,0 +1,451 @@
+﻿<!DOCTYPE html>
+<html ng-app="landingController">
+<head>
+    <meta charset="utf-8">
+    <title>OLYMPIA</title>
+    
+    <link href="../../img/olympia-fav.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" href="../../css/olympia-icons.css"/>
+    <link rel="stylesheet" href="../../css/bootstrap-tagsinput/bootstrap-tagsinput.css"/>
+    <link href="../../lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../css/bootstrap-responsive.min.css" rel="stylesheet" />
+    <link href="../../css/font-awesome.css" rel="stylesheet"/>
+    <link href="../../css/organization/postJob/postJob.css" rel="stylesheet"/>
+    <link href="../../css/global.css" rel="stylesheet">
+    <link href="../../css/organization/viewApp/viewApp.css" rel="stylesheet">
+    
+    <link href="../../css/organization/staffAndPermission/staffAndPermission.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="../../css/header/header.css">
+    <style type="text/css">
+        .superContainer{
+            width: 1349px;
+            margin: 0 auto;
+        }
+        .containerA{
+            width: 1008px;
+            display: inline-block;
+        }
+        .containerB{
+            width: 164px;
+            display: inline-block;
+            vertical-align: top;
+        }
+    </style>
+</head>
+
+<body ng-controller="landingPage">
+    <!-- Page Header Section Start-->
+    <header>
+        <div class=''>
+        <nav class="navbar navbar-default" role="navigation">
+          <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#"><img src="../../img/logo.png"></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                <li><a href="../search/searchVol.html" class='menu-interval'>Search Volunteer</a></li>
+                <li ><a href="../postJob/postjob.html"  class='menu-interval'>Post a Job</a></li>
+                <li><a href="../jobPost/jobPost.html" class='menu-interval'>Job Postings</a></li>
+                <li><a href="../../message/message.html?owner=organization" class='menu-interval'>Messages</a></li>
+              </ul>
+              
+              <ul class="nav navbar-nav navbar-right">
+                <li class='pull-right'><a href="#" id="icons-header-right"><span class="fa fa-question"></a></li>
+                <li class='dropdown pull-right'>
+                    <a href="#" class="dropdown-toggle" id="icons-header-right" data-toggle="dropdown"><i class='fa fa-cog'></i></a>
+                    <ul class="dropdown-menu">
+                        <li role="presentation"><a role="menuitem" href="../organizationProfile/organizationProfile.html"><img src="../../img/VV_Icon_OrganizationLogo.png" width="25" height="25"> My Profile</a></li>
+                        <li role="presentation" class="divider"></li>
+                        <li role="presentation"><a role="menuitem" href="../../myAccount/myAccount.html?owner=organization">&nbsp;<i class='fa fa-wrench'></i> &nbsp;My Account</a></li>
+                        <li role="presentation" class="divider"></li>
+                        <li role="presentation"><a role="menuitem" href="../staffAndPermission/staffAndPermission.html?owner=organization">&nbsp;<i class='fa fa-cogs'></i> &nbsp;Manage Staff Permissions</a></li>
+                        <li role="presentation" class="divider"></li>
+                        <li role="presentation"><a role="menuitem" href="../../changePassword/changePassword.html?owner=organization">&nbsp;<i class='glyphicon glyphicon-cog'></i> &nbsp;Change Password</a></li>
+                        <li role="presentation" class="divider"></li>
+                        <li role="presentation"><a role="menuitem" href="../../notificationSettings/notificationSettings.html?owner=organization">&nbsp;<i class='fa fa-bell'></i> &nbsp;Notification Settings</a></li>
+                        <li role="presentation" class="divider"></li>
+                        <li role="presentation"><a role="menuitem" href="../../integrationSettings/integrationSettings.html?owner=organization">&nbsp;<i class='fa fa-list-alt'></i> &nbsp;Integration Settings</a></li>
+                        <li role="presentation" class="divider"></li>
+                        <li role="presentation"><a role="menuitem" href="../socialMedia/socialMedia.html?owner=organization">&nbsp;<i class='fa fa-share-alt'></i> &nbsp;Publish to Social Media</a></li>
+                    </ul>
+                </li>
+                <li class='pull-right' ><a href="#" id="icons-header-right"><span class="fa fa-exclamation"></a></li>
+                <li class="dropdown pull-right" style="margin-top:5px;" id="username" ng-init="client = false; organization = true">
+                    <a href="#" class="dropdown-toggle"  id="hover-header-right" data-toggle="dropdown"  ng-if="organization == true">Organization &nbsp;<b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle"  id="hover-header-right" data-toggle="dropdown" ng-if="client == true">Volunteer &nbsp;<b class="caret"></b></a>
+                    <ul class="dropdown-menu header-right-dropdown" ng-init=" addActive2 = 'make-it-white'">
+                        <li role="presentation" ><a role="menuitem" ng-model="organization" ng-click="organization = true; client = false; addActive2 = 'make-it-white';addActive1=''"  href="../../organization/search/searchVol.html" id="tab-header-1" ng-class="addActive2"><img src="../../img/VV_Icon_Volunteers.png" width="28" height="28">&nbsp;&nbsp;&nbsp;Organization</a></li>
+                        <li role="presentation" class="divider"></li>
+                        <li role="presentation" ><a role="menuitem" ng-model="client" ng-click="organization = false; client = true; addActive1 = 'make-it-white';addActive2=''" href="../../volunteer/searchJob/searchJob.html" ng-class="addActive1"><img src="../../img/VV_Icon_Profile.png" width="28" height="28">&nbsp;&nbsp;&nbsp;Volunteer</a></li>
+                        <li role="presentation" class="divider"></li>
+                        <li role="presentation" id="separate-highlight"> 
+                            <span><a role="menuitem"  href="../../myAccount/myAccount.html?owner=organization" ng-if="client == true">hans.klevenbeek</a></span>
+                            <span><a role="menuitem"  href="../../myAccount/myAccount.html?owner=organization" ng-if="organization == true">hans.klevenbeek</a></span>
+                            <span><a role="menuitem"  href="../../login/login.html">Logout</a></span>
+                        </li>
+
+                    </ul>
+                </li>
+              </ul>
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+        </nav>
+    </header>
+    <div class="superContainer">
+        <div class="containerB">
+            <span class="prototype-scheme">PROTOTYPE</span>
+        </div>
+        <div class="containerA">
+            <div class="main-border1">
+                <div class="row margin-rl-0">
+                    <div class="panel-title">
+                        <span>Staff and permissions</span>
+                        <span class="align-right">
+                            <a href="#" id="zoomTextarea" ng-click="" title="Click to Zoom" data-toggle="modal" data-target="#inviteUser">Invite a new user</a>
+                        </span>
+                    </div>
+                    <div class="row margin-rl-0 margin-top-20">
+                        <div class="col-lg-12 ">
+                            <div class="behave-table">
+                                <div class="row header-staff margin-rl-0 behave-row">
+                                    <div class="col-lg-2 text-center column behave-cell">
+                                        <label>User&nbsp;</label>
+                                    </div>
+                                    <div class="col-lg-3 text-center column behave-cell">
+                                        <label>Admin privileges&nbsp;</label>
+                                        <span class="tool-tip-wrapper"><a href="#">?</a></span>
+                                    </div>
+                                    <div class="col-lg-2 text-center column behave-cell">
+                                        <label>Hiring privileges&nbsp;</label>
+                                        <span class="tool-tip-wrapper"><a href="#">?</a></span>
+                                    </div>
+                                    <div class="col-lg-2 text-center column behave-cell">
+                                        <label>Chat access&nbsp;</label>
+                                        <span class="tool-tip-wrapper"><a href="#">?</a></span>
+                                    </div>
+                                    <div class="col-lg-2 text-center column behave-cell">
+                                        <label>Remove from team&nbsp;</label>
+                                        <span class="tool-tip-wrapper"><a href="#">?</a></span>
+                                    </div>
+                                </div>
+                                <div class="row body-staff owner margin-rl-0 behave-row">
+                                    <div class="col-lg-3 text-center column behave-cell">
+                                        <label class="margin-bottom-0">Owner: <a href="#">Hans klevenbeek</a></label>
+                                        <label>(hans.klevenbeek)</label>
+                                    </div>
+                                    <div class="col-lg-3 text-center column behave-cell">
+                                        <label>Administrator</label>
+                                    </div>
+                                    <div class="col-lg-2 text-center column behave-cell">
+                                        <label>Hiring manger</label>
+                                    </div>
+                                    <div class="col-lg-2 text-center column behave-cell">
+                                        <label>Full</label>
+                                    </div>
+                                    <div class="col-lg-2 text-center column behave-cell">
+                                        <label>&nbsp;</label>
+                                    </div>
+                                </div>
+                                <div class="row margin-rl-0 behave-row divider">&nbsp;</div>
+                                <div class="row body-staff staff margin-rl-0 behave-row">
+                                    <div class="col-lg-3 text-center column behave-cell">
+                                        <a href="#">Aileen Enerlan</a>
+                                        <label>(aenerlan)</label>
+                                    </div>
+                                    <div class="col-lg-3 text-center column behave-cell">
+                                        <select class="select-option float-none margin-left-10">
+                                            <option>None</option>
+                                            <option>None</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-2 text-center column behave-cell">
+                                        <select class="select-option float-none margin-left-10">
+                                            <option>None</option>
+                                            <option>None</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-2 text-center column behave-cell">
+                                        <select class="select-option float-none margin-left-10">
+                                            <option>None</option>
+                                            <option>None</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-2 text-center column behave-cell">
+                                        <label><a href="#">On Contract</a></label>
+                                        <span class="tool-tip-wrapper"><a href="#">?</a></span>
+                                    </div>
+                                </div>
+                                <div class="row margin-rl-0 behave-row divider">&nbsp;</div>
+                                <div class="row body-staff staff margin-rl-0 behave-row">
+                                    <div class="col-lg-3 text-center column behave-cell">
+                                        <a href="#">Altaf Balotrawala</a>
+                                        <label>(altafub)</label>
+                                    </div>
+                                    <div class="col-lg-3 text-center column behave-cell">
+                                        <select class="select-option float-none margin-left-10">
+                                            <option>None</option>
+                                            <option>None</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-2 text-center column behave-cell">
+                                        <select class="select-option float-none margin-left-10">
+                                            <option>None</option>
+                                            <option>None</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-2 text-center column behave-cell">
+                                        <select class="select-option float-none margin-left-10">
+                                            <option>None</option>
+                                            <option>None</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-2 text-center column behave-cell">
+                                        <label><a href="#">On Contract</a></label>
+                                    </div>
+                                </div>
+                                <div class="row margin-rl-0 behave-row divider">&nbsp;</div>
+                                <div class="row body-staff staff margin-rl-0 behave-row">
+                                    <div class="col-lg-3 text-center column behave-cell">
+                                        <a href="#">Esraa Ahmed</a>
+                                        <label>(eng_esraahmed)</label>
+                                    </div>
+                                    <div class="col-lg-3 text-center column behave-cell">
+                                        <select class="select-option float-none margin-left-10">
+                                            <option>None</option>
+                                            <option>None</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-2 text-center column behave-cell">
+                                        <select class="select-option float-none margin-left-10">
+                                            <option>None</option>
+                                            <option>None</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-2 text-center column behave-cell">
+                                        <select class="select-option float-none margin-left-10">
+                                            <option>None</option>
+                                            <option>None</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-2 text-center column behave-cell">
+                                        <label><a href="#">On Contract</a></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row margin-rl-0 hidden">
+                        <div class="col-lg-12">
+                            <section class="accrd_table">
+                                <table class="table ng-table">
+                                    <thead>
+                                        <tr>
+                                            <th>User</th>
+                                            <th>Admin privileges</th>
+                                            <th>Hiring privileges</th>
+                                            <th>Chat access</th>
+                                            <th>Remove from team</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>                
+        </div>
+        <div class="containerB">
+            <span class="prototype-scheme">PROTOTYPE</span>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container1">
+            <div class="row">
+                <div class="col-lg-2">
+                    <ul class="footer-link-list" style="padding-left:80px">
+                        <li>
+                            <a href="#" class="footer-text">About Us </a>
+                        </li>
+                        <li><a href="#" class="footer-text">Blog </a></li>
+                        <li><a href="#" class="footer-text">Feedback </a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2">
+                    <ul class="footer-link-list" style="padding-left:40px">
+                        <li>
+                            <a href="#" class="footer-text">Community</a>
+                        </li>
+                        <li><a href="#" class="footer-text">Trust & Safety </a></li>
+                        <li><a href="#" class="footer-text">Help & Support </a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2">
+                    <ul class="footer-link-list" style="padding-left:30px">
+                        <li>
+                            <a href="#" class="footer-text">Enterprise Solutions</a>
+                        </li>
+                        <li><a href="#" class="footer-text">Terms of Service</a></li>
+                        <li><a href="#" class="footer-text">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2">
+                    <ul class="footer-link-list" style="padding-left:30px">
+                        <li>
+                            <a href="#" class="footer-text">Tools</a>
+                        </li>
+                        <li><a href="#" class="footer-text">Client Resources</a></li>
+                        <li><a href="#" class="footer-text">Help & Support</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <div class="social-network-icon-wrap" style="padding-right:60px">
+                        <a href="#" class="footer-select social-network-icons">
+                            <span class="footer-circle footer-circle-linkedin pull-right">
+                                <i class="fa fa-linkedin font-size-20 icon-attr1"> </i>
+                            </span>
+                        </a>
+                        <a href="#" class="social-network-icons">
+                            <span class="footer-circle footer-circle-facebook pull-right">
+                                <i class="fa fa-facebook font-size-20 icon-attr1"> </i>
+                            </span>
+                        </a>
+                        <a href="#" class="social-network-icons">
+                            <span class="footer-circle footer-circle-twitter pull-right">
+                                <i class="fa fa-twitter font-size-20 icon-attr1"> </i>
+                            </span>
+                        </a>
+                        <a href="#" class="social-network-icons">
+                            <span class="footer-circle footer-circle-google pull-right">
+                                <i class="fa fa-google-plus font-size-20 icon-attr1"> </i>
+                            </span>
+                        </a>
+                    </div>
+                    <span class="footer-copyrights" id='footer-copyrights' style="padding-right:60px">
+                        <span>&#169;&nbsp;Volunteer Corporation</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Volunteer Project add Modal -->
+    <div class="modal fade" id="inviteUser" tabindex="-1" role="dialog" aria-labelledby="inviteUser" aria-hidden="true">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close big-close" ng-click="volunteerProjectClose()" aria-hidden="true">&times;</button>
+                    <h2 class="modal-title" id="myModalLabel">Invite User</h2>
+                </div>
+                <form role="form" name="jobForm" id="jobForm" novalidate>
+                    <div class="modal-body">
+                        <div class="row" id="errorMsg2">
+                            <div class="col-lg-12">
+                                <div class="col-sm-1"></div>
+                                <div class="alert alert-danger col-sm-10">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                    <h4 class="text-center margin-top-0">Please fix the following issues</h4>
+                                    <ul id="errorList2" class="errorList" style="margin-bottom:35px"></ul>
+                                </div>
+                                <div class="col-sm-1"></div>
+                            </div>
+                        </div>
+                        <div class="row margin-left--15">
+                            <div class="col-sm-12">
+                                <label>Invite by</label>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="radio">
+                                    <label>
+                                      <input type="radio" id="userID1" name="invite" value="Email Address"> Email Address
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="radio">
+                                    <label>
+                                      <input type="radio" id="userID2" name="invite" value="User name"> User name
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 margin-top-10">
+                                <label>Username</label>
+                            </div>
+                            <div class="col-sm-12">
+                                <input type="text" class="col-sm-12" ng-model="user.username" id="userID3" ng-required/>
+                            </div>
+                            <div class="col-sm-12 margin-top-10">
+                                <label>Email address</label>
+                            </div>
+                            <div class="col-sm-12">
+                                <input type="text" class="col-sm-12" ng-model="user.email" id="userID4" ng-required/>
+                            </div>
+                            <div class="col-sm-12 margin-top-10">
+                                <label>Admin privileges &nbsp;</label><span class="tool-tip-wrapper"><a href="#">?</a></span>
+                            </div>
+                            <div class="col-sm-12">
+                                <select class="col-sm-12"  id="userID5" ng-init="user.admin = 0" ng-model="user.admin">
+                                    <option value="0" select="selected">None</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-12 margin-top-10">
+                                <label>Hirig privileges &nbsp;</label><span class="tool-tip-wrapper"><a href="#">?</a></span>
+                            </div>
+                            <div class="col-sm-12">
+                                <select class="col-sm-12" id="userID6" ng-init="user.hiring = 0" ng-model="user.hiring">
+                                    <option value="0" select="selected">None</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-12 margin-top-10">
+                                <label>Chat access &nbsp;</label><span class="tool-tip-wrapper"><a href="#">?</a></span>
+                            </div>
+                            <div class="col-sm-12">
+                                <select class="col-sm-12 " id="userID7" ng-init="user.chat = 0" ng-model="user.chat">
+                                    <option value="0" select="selected">None</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-12 margin-top-10 check-label">
+                                <label>Message to user</label>
+                            </div>
+                            <div class="col-sm-12">
+                                <textarea class="col-sm-12 text-area" rows="5" cols="60" ng-model="user.description"></textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3">&nbsp;</div>
+                            <div class="col-sm-9">
+                                <button style="margin: 20px 10px 30px 0;" type="button" class="btn btn-default btn-danger" ng-click="projectCancel()" aria-hidden="true" >Cancel</button>
+                                <button style="margin: 20px 0 30px 0;" type="submit" class="btn btn-success" ng-click="updateProjectDetails(project, 1)">Invite User</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Scripts -->    
+    <script src="../../lib/jquery/dist/jquery.min.js"></script>
+    <script src="../../lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../../lib/angular/angular.min.js"></script>
+    <!--tag inputs -->
+    <script src="../../lib/bootstrap.taginput.js"></script>
+    <script src="../../lib/bootstrap3-typeahead.js"></script>
+    <script src="../../js/app.js"></script>
+    <script src="control.js"></script>
+    <script src="controller.js"></script>
+    <script src="../../lib/jasny-bootstrap/js/jasny-bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+/* */
+input[type=radio], input[type=checkbox]{
+	margin:2px 0 0;
+}
+.main-border1{
+	min-height:407px;
+}
+.panel-title .align-right{
+	display: inline-block;
+	text-align: right;
+	font-size:14px;		
+	float:right;
+	line-height:28px;
+}
+
+.header-staff{
+	margin-top: 10px;
+}
+.header-staff .column{
+	padding:5px 7px;
+}
+.body-staff{
+	border-radius:7px;
+	margin-bottom:15px;
+}
+.body-staff.owner .behave-cell{
+	background:rgba(228,228,228,1);
+	border-bottom:2px solid #C0BFBF;
+}
+.body-staff.staff .behave-cell{
+	background:rgba(228,228,228,0.5);
+}
+.body-staff .column{
+	padding:10px 15px;
+}
+.body-staff .column a, .body-staff .column label{
+	display:block;
+	line-height: normal;
+	font-weight: normal;
+}
+.body-staff .column label a{
+	display: inline;
+}
+.body-staff .column select{
+	width:100%;
+}
+
+/* Table behaviour */
+.behave-table{
+	display:table;
+}
+.behave-table .behave-row{
+	display:table-row;
+}
+.behave-table .behave-row.divider{
+	line-height: 12px;
+}
+.behave-table .behave-row .behave-cell{
+	display:table-cell;
+	vertical-align: middle;
+}
+.behave-table .behave-row .behave-cell:nth-child(1){
+	border-top-left-radius:7px;
+	border-bottom-left-radius:7px;
+}
+.behave-table .behave-row .behave-cell:last-child{
+	border-top-right-radius:7px;
+	border-bottom-right-radius:7px;
+}
+.behave-table .behave-row .behave-cell.column{
+	float:none;
+	width:20%;
+}
+.behave-table .behave-row.owner .behave-cell{
+	border-color:rgba(20,137,190,1);
+	border-bottom:2px solid rgba(20,137,190,1);
+	border-top:1px solid rgba(20,137,190,1);
+	background:rgba(20,137,190,0.8);
+	color:#fff;
+}
+.behave-table .behave-row.owner .behave-cell:first-child{
+	border-left:1px solid rgba(20,137,190,1);
+}
+.behave-table .behave-row.owner .behave-cell:first-child label a{
+	color:#fff;
+	font-weight:bold;
+	font-style:italic;
+}
+.behave-table .behave-row.owner .behave-cell:last-child{
+	/*border-right:1px solid #ccc;*/
+	border-right:1px solid rgba(20,137,190,1);
+}
+.behave-table .behave-row.staff .behave-cell{
+	border-bottom:1px solid #e4e4e4;
+	border-top:1px solid #e4e4e4;
+}
+.behave-table .behave-row.staff .behave-cell:first-child{
+	border-left:1px solid #e4e4e4;
+}
+.behave-table .behave-row.staff .behave-cell:last-child{
+	border-right:1px solid #e4e4e4;
+}
