@@ -331,7 +331,7 @@ $(document).ready(function(){
         }
         else {
             if (facebookPass.parent().hasClass('has-error')) {
-                facebookPass.parent().removeClass('has-error')
+                facebookPass.parent().removeClass('has-error');
             };
             if (errorList3.find('.errormessage-facebookPass').length > 0) {
                 errorList3.find('.errormessage-facebookPass').remove();
@@ -339,5 +339,33 @@ $(document).ready(function(){
             }
         }
     });
-
+	
+	$('#facebookCancel').click(function(){
+		facebookID.parent().removeClass('has-error');
+		facebookPass.parent().removeClass('has-error');
+		errorList3.find('.errormessage-facebookID').remove();
+		errorList3.find('.errormessage-facebookPass').remove();
+    	$('#errorMsg3').hide();
+    	facebookPass.val('');
+    	facebookID.val('');
+	});
+	$('#linkedinCancel').click(function(){
+		linkedinID.parent().removeClass('has-error');
+		linkedinPass.parent().removeClass('has-error');
+		errorList1.find('.errormessage-linkedinID').remove();
+		errorList1.find('.errormessage-linkedinPass').remove();
+    	$('#errorMsg1').hide();
+    	linkedinPass.val('');
+    	linkedinID.val('');
+	});
+	$('#twitterCancel').click(function(){
+		twitterID.parent().removeClass('has-error');
+		twitterPass.parent().removeClass('has-error');
+		errorList2.find('.errormessage-twitterID').remove();
+		errorList2.find('.errormessage-twitterPass').remove();
+    	$('#errorMsg2').hide();
+    	twitterPass.val('');
+    	twitterID.val('');
+	});
+		
 });
