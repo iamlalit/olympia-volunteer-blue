@@ -831,7 +831,7 @@ landingController.controller('landingPage', ['$scope', function ($scope) {
                 checkDateJob1 = false;  
             }
         }else {
-            if( (parseInt($('#projAns4 option:selected').val()) > parseInt($('#projAns6 option:selected').val())) || (parseInt($('#projAns4 option:selected').val()) == parseInt($('#projAns6 option:selected').val()) && parseInt($('#projAns3 option:selected').val()) >= parseInt($('#projAns5 option:selected').val()))){
+            if( (parseInt($('#projAns4 option:selected').val()) > parseInt($('#projAns6 option:selected').val())) || (parseInt($('#projAns4 option:selected').val()) == parseInt($('#projAns6 option:selected').val()) && parseInt($('#projAns3 option:selected').val()) > parseInt($('#projAns5 option:selected').val()))){
                 if (errorList2.find('.errormessage-projAns6').length == 0) {
                     $('<li />', { html: 'End date should be later then start date, please select the correct end date !', class: 'col-sm-6 errormessage-projAns6' })
                     .appendTo(errorList2)
