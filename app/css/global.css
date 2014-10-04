@@ -886,3 +886,26 @@ table thead{
 .text-align-justify{
   text-align:justify;
 }
+
+/* Tooltip component */
+.tool-tip-wrapper{
+  width:18px;
+  height:18px;
+  line-height: normal;
+  border-radius: 33px;
+  display: inline-block;
+  font-weight: 800;
+  /*border:1px solid #1489be;
+  padding-top:2px;*/
+  padding-top:3px;
+  background:#ffaa47;
+  text-align: center;
+}
+.tool-tip-wrapper a{
+  font-size:12px;
+  display: block;
+  color:#fff;
+}
+.tool-tip-wrapper a:hover{
+  text-decoration: none;
+}
