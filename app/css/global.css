@@ -883,3 +883,6 @@ table thead{
 .main-border1{
   border-radius:7px !important;
 }
+.text-align-justify{
+  text-align:justify;
+}
