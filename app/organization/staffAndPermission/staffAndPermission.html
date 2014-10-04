@@ -368,27 +368,27 @@
                             <div class="col-sm-6">
                                 <div class="radio">
                                     <label>
-                                      <input type="radio" id="userID1" name="invite" value="Email Address"> Email Address
+                                      <input type="radio" ng-init="user.invite='EmailAddress'" id="userID1" ng-model="user.invite" value="EmailAddress"> Email Address
                                     </label>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="radio">
                                     <label>
-                                      <input type="radio" id="userID2" name="invite" value="User name"> User name
+                                      <input type="radio" id="userID2" ng-model="user.invite" value="Username"> User name
                                     </label>
                                 </div>
                             </div>
-                            <div class="col-sm-12 margin-top-10">
+                            <div class="col-sm-12 margin-top-10" ng-if="user.invite== 'EmailAddress'">
                                 <label>Username</label>
                             </div>
-                            <div class="col-sm-12">
+                            <div class="col-sm-12" ng-if="user.invite=='EmailAddress'">
                                 <input type="text" class="col-sm-12" ng-model="user.username" id="userID3" ng-required/>
                             </div>
-                            <div class="col-sm-12 margin-top-10">
+                            <div class="col-sm-12 margin-top-10" ng-if="user.invite=='Username'">
                                 <label>Email address</label>
                             </div>
-                            <div class="col-sm-12">
+                            <div class="col-sm-12" ng-if="user.invite=='Username'">
                                 <input type="text" class="col-sm-12" ng-model="user.email" id="userID4" ng-required/>
                             </div>
                             <div class="col-sm-12 margin-top-10">
@@ -423,8 +423,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-sm-3">&nbsp;</div>
-                            <div class="col-sm-9">
+                            <div class="col-sm-12 text-center">
                                 <button style="margin: 20px 10px 30px 0;" type="button" class="btn btn-default btn-danger" ng-click="projectCancel()" aria-hidden="true" >Cancel</button>
                                 <button style="margin: 20px 0 30px 0;" type="submit" class="btn btn-success" ng-click="updateProjectDetails(project, 1)">Invite User</button>
                             </div>
