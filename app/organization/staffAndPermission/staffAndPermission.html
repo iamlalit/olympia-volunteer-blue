@@ -256,7 +256,7 @@
                                     <div class="col-lg-3 text-center column behave-cell">
                                         <a href="#" ng-if="user.userflag" ng-bind="user.username"></a>
                                         <a href="#" ng-if="!user.userflag">Guest_{{$index+1}}</a>
-                                        <label ng-bind="user.email"></label>
+                                        <label ng-if="user.emailflag" ng-bind="user.email"></label>
                                     </div>
                                     <div class="col-lg-3 text-center column behave-cell">
                                         <select class="select-option float-none margin-left-10" ng-model="user.admin">
