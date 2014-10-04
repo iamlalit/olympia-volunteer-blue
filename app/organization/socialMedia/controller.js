@@ -31,7 +31,7 @@ $(document).ready(function(){
                     }, 500);
                     linkedinID.focus();
                 })
-                $('#errorMsg1').show();
+                //$('#errorMsg1').show();
                 linkedinID.parent().addClass('has-error');
             }
         }
@@ -56,7 +56,7 @@ $(document).ready(function(){
                     }, 500);
                     linkedinPass.focus();
                 })
-                $('#errorMsg1').show();
+                //$('#errorMsg1').show();
                 linkedinPass.parent().addClass('has-error');
             }
         }
@@ -84,7 +84,7 @@ $(document).ready(function(){
 				    }, 500);
 				    linkedinID.focus();
 				})
-                $('#errorMsg1').show();
+                //$('#errorMsg1').show();
                 linkedinID.parent().addClass('has-error');
             }
         }
@@ -94,7 +94,7 @@ $(document).ready(function(){
             };
             if (errorList1.find('.errormessage-linkedinID').length > 0) {
                 errorList1.find('.errormessage-linkedinID').remove();
-                $('#errorMsg1').hide();
+                //$('#errorMsg1').hide();
             }
         }
         //password
@@ -108,7 +108,7 @@ $(document).ready(function(){
 				    }, 500);
 				    linkedinPass.focus();
 				})
-                $('#errorMsg1').show();
+                //$('#errorMsg1').show();
                 linkedinPass.parent().addClass('has-error');
             }
         }
@@ -118,8 +118,13 @@ $(document).ready(function(){
             };
             if (errorList1.find('.errormessage-linkedinPass').length > 0) {
                 errorList1.find('.errormessage-linkedinPass').remove();
-                $('#errorMsg1').hide();
+                //$('#errorMsg1').hide();
             }
+        }
+        if (errorList1.children('li').length > 0) {
+            $('#errorMsg1').show();
+        } else {
+            $('#errorMsg1').hide();
         }
 	});
 
@@ -142,7 +147,7 @@ $(document).ready(function(){
 				    }, 500);
 				    twitterID.focus();
 				})
-                $('#errorMsg2').show();
+                //$('#errorMsg2').show();
                 twitterID.parent().addClass('has-error');
             }
         }
@@ -152,7 +157,7 @@ $(document).ready(function(){
             };
             if (errorList2.find('.errormessage-twitterID').length > 0) {
                 errorList2.find('.errormessage-twitterID').remove();
-                $('#errorMsg2').hide();
+                //$('#errorMsg2').hide();
             }
         }
         //password
@@ -166,7 +171,7 @@ $(document).ready(function(){
 				    }, 500);
 				    twitterPass.focus();
 				})
-                $('#errorMsg2').show();
+                //$('#errorMsg2').show();
                 twitterPass.parent().addClass('has-error');
             }
         }
@@ -178,6 +183,11 @@ $(document).ready(function(){
                 errorList2.find('.errormessage-twitterPass').remove();
                 $('#errorMsg2').hide();
             }
+        }
+        if (errorList2.children('li').length > 0) {
+            $('#errorMsg2').show();
+        } else {
+            $('#errorMsg2').hide();
         }
 	});
 	twitterID.change(function() {
@@ -191,7 +201,7 @@ $(document).ready(function(){
                     }, 500);
                     twitterID.focus();
                 })
-                $('#errorMsg2').show();
+                //$('#errorMsg2').show();
                 twitterID.parent().addClass('has-error');
             }
         }
@@ -216,7 +226,7 @@ $(document).ready(function(){
                     }, 500);
                     twitterPass.focus();
                 })
-                $('#errorMsg2').show();
+                //$('#errorMsg2').show();
                 twitterPass.parent().addClass('has-error');
             }
         }
@@ -251,7 +261,7 @@ $(document).ready(function(){
 				    }, 500);
 				    facebookID.focus();
 				})
-                $('#errorMsg3').show();
+                //$('#errorMsg3').show();
                 facebookID.parent().addClass('has-error');
             }
         }
@@ -261,7 +271,7 @@ $(document).ready(function(){
             };
             if (errorList3.find('.errormessage-facebookID').length > 0) {
                 errorList3.find('.errormessage-facebookID').remove();
-                $('#errorMsg3').hide();
+                //$('#errorMsg3').hide();
             }
         }
         //password
@@ -275,7 +285,7 @@ $(document).ready(function(){
 				    }, 500);
 				    facebookPass.focus();
 				})
-                $('#errorMsg3').show();
+                //$('#errorMsg3').show();
                 facebookPass.parent().addClass('has-error');
             }
         }
@@ -285,8 +295,13 @@ $(document).ready(function(){
             };
             if (errorList3.find('.errormessage-facebookPass').length > 0) {
                 errorList3.find('.errormessage-facebookPass').remove();
-                $('#errorMsg3').hide();
+                //$('#errorMsg3').hide();
             }
+        }
+        if (errorList3.children('li').length > 0) {
+            $('#errorMsg3').show();            
+        } else {
+            $('#errorMsg3').hide();
         }
 	});
 	facebookID.change(function() {
@@ -300,7 +315,7 @@ $(document).ready(function(){
                     }, 500);
                     facebookID.focus();
                 })
-                $('#errorMsg3').show();
+                //$('#errorMsg3').show();
                 facebookID.parent().addClass('has-error');
             }
         }
@@ -325,7 +340,7 @@ $(document).ready(function(){
                     }, 500);
                     facebookPass.focus();
                 })
-                $('#errorMsg3').show();
+                //$('#errorMsg3').show();
                 facebookPass.parent().addClass('has-error');
             }
         }
