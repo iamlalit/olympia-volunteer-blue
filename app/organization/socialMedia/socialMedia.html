@@ -122,21 +122,43 @@
                         <p><a href="#">vrijwilligersvacaturebank.nl</a> can post jobs as a status update or post the jobs on the LinkedIn job board. If you don't have a recruiter account on LinkedIn for posting jobs, you can automatically buy credits through <a href="#">vrijwilligersvacaturebank.nl</a> and post your job on the LinkedIn job board as well.</p>
                     </div>
                     <div class="row margin-rl-0">
-                        <div class="col-sm-2 padding-rl-0 padding-top-7">
-                            <label>LinkedIn login name:</label>
-                        </div>
-                        <div class="col-sm-8 padding-rl-0">
-                            <input type="text" class="col-sm-6" placeholder="User ID/Email"/>
-                        </div>
-                    </div>
-                    <div class="row margin-rl-0 margin-top-15">
-                        <div class="col-sm-2 padding-rl-0 padding-top-7">
-                            <label>LinkedIn password:</label>
-                        </div>
-                        <div class="col-sm-8 padding-rl-0">
-                            <input type="text" class="col-sm-6" placeholder="********"/>
+                        <div class="col-lg-7">
+                            <div class="alert alert-danger col-sm-11" id="errorMsg1">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                <h2 class="text-center margin-top-0">Please fix the following issues</h2>
+                                <ul id="errorList1" class="errorList" style="margin-bottom:35px"></ul>
+                            </div>
                         </div>
                     </div>
+                    <form id="linkedinForm" name="linkedinForm">
+                        <div class="row margin-rl-0">
+                            <div class="col-sm-2 padding-rl-0 padding-top-7">
+                                <label>LinkedIn login name:</label>
+                            </div>
+                            <div class="col-sm-8 padding-rl-0">
+                                <input type="text" class="col-sm-6" placeholder="User ID/Email" ng-model="linkedinID" id="linkedinID"/>
+                            </div>
+                        </div>
+                        <div class="row margin-rl-0 margin-top-15">
+                            <div class="col-sm-2 padding-rl-0 padding-top-7">
+                                <label>LinkedIn password:</label>
+                            </div>
+                            <div class="col-sm-8 padding-rl-0">
+                                <input type="text" class="col-sm-6" placeholder="********" ng-model="linkedinPass" id="linkedinPass"/>
+                            </div>
+                        </div>
+                        <div class="row margin-rl-0 margin-top-15">
+                            <div class="col-sm-2">
+                                &nbsp;
+                            </div>
+                            <div class="col-sm-8 padding-rl-0">
+                                <div class='col-sm-4 padding-rl-0'>
+                                    <button class='btn btn-success' type="submit">Publish</button>
+                                    <button class='btn btn-danger' type="button" ng-click="linkedinPass = ''; linkedinID = ''">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                     <!-- Twitter starts-->
 
                     <div class="row margin-rl-0 margin-top-30">
@@ -147,23 +169,45 @@
                      <div class="row margin-rl-0">
                         <p>When a job is posted as a Tweet the job title and region are usually used. <a href="#">vrijwilligersvacaturebank.nl</a> will automatically make the job title, region and link to the job fit Twitter's 140 characters limit.</p>
                     </div>
-                    <div class="row margin-rl-0">
-                        <div class="col-sm-2 padding-rl-0 padding-top-7">
-                            <label>Twitter login name:</label>
-                        </div>
-                        <div class="col-sm-8 padding-rl-0">
-                            <input type="text" class="col-sm-6" placeholder="User ID/Email"/>
-                        </div>
-                    </div>
-                    <div class="row margin-rl-0 margin-top-15">
-                        <div class="col-sm-2 padding-rl-0 padding-top-7">
-                            <label>Twitter password:</label>
-                        </div>
-                        <div class="col-sm-8 padding-rl-0">
-                            <input type="text" class="col-sm-6" placeholder="********"/>
-                        </div>
-                    </div>
 
+                    <div class="row margin-rl-0">
+                        <div class="col-lg-7">
+                            <div class="alert alert-danger col-sm-11" id="errorMsg2">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                <h2 class="text-center margin-top-0">Please fix the following issues</h2>
+                                <ul id="errorList2" class="errorList" style="margin-bottom:35px"></ul>
+                            </div>
+                        </div>
+                    </div>
+                    <form id="twitterForm" name="twitterForm">
+                        <div class="row margin-rl-0">
+                            <div class="col-sm-2 padding-rl-0 padding-top-7">
+                                <label>Twitter login name:</label>
+                            </div>
+                            <div class="col-sm-8 padding-rl-0">
+                                <input type="text" class="col-sm-6" placeholder="User ID/Email" ng-model="twitterID" id="twitterID"/>
+                            </div>
+                        </div>
+                        <div class="row margin-rl-0 margin-top-15">
+                            <div class="col-sm-2 padding-rl-0 padding-top-7">
+                                <label>Twitter password:</label>
+                            </div>
+                            <div class="col-sm-8 padding-rl-0">
+                                <input type="text" class="col-sm-6" placeholder="********" ng-model="twitterPass" id="twitterPass"/>
+                            </div>
+                        </div>
+                        <div class="row margin-rl-0 margin-top-15">
+                            <div class="col-sm-2">
+                                &nbsp;
+                            </div>
+                            <div class="col-sm-8 padding-rl-0">
+                                <div class='col-sm-4 padding-rl-0'>
+                                    <button class='btn btn-success' type="submit">Publish</button>
+                                    <button class='btn btn-danger' type="button" ng-click="twitterPass = ''; twitterID = ''">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                     <!-- Twitter ends -->
 
                     <!-- Facebook starts-->
@@ -177,21 +221,43 @@
                         <p>You can post jobs to Facebook using <a href="#">vrijwilligersvacaturebank.nl</a> as a status update on your Fan Page or to your Facebook App.</p>
                     </div>
                     <div class="row margin-rl-0">
-                        <div class="col-sm-2 padding-rl-0 padding-top-7">
-                            <label>Facebook login name:</label>
-                        </div>
-                        <div class="col-sm-8 padding-rl-0">
-                            <input type="text" class="col-sm-6" placeholder="User ID/Email"/>
-                        </div>
-                    </div>
-                    <div class="row margin-rl-0 margin-top-15">
-                        <div class="col-sm-2 padding-rl-0 padding-top-7">
-                            <label>Facebook password:</label>
-                        </div>
-                        <div class="col-sm-8 padding-rl-0">
-                            <input type="text" class="col-sm-6" placeholder="********"/>
+                        <div class="col-lg-7">
+                            <div class="alert alert-danger col-sm-11" id="errorMsg3">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                <h2 class="text-center margin-top-0">Please fix the following issues</h2>
+                                <ul id="errorList3" class="errorList" style="margin-bottom:35px"></ul>
+                            </div>
                         </div>
                     </div>
+                    <form id="facebookForm" name="facebookForm">
+                        <div class="row margin-rl-0">
+                            <div class="col-sm-2 padding-rl-0 padding-top-7">
+                                <label>Facebook login name:</label>
+                            </div>
+                            <div class="col-sm-8 padding-rl-0">
+                                <input type="text" class="col-sm-6" placeholder="User ID/Email" ng-model="facebookID" id="facebookID"/>
+                            </div>
+                        </div>
+                        <div class="row margin-rl-0 margin-top-15">
+                            <div class="col-sm-2 padding-rl-0 padding-top-7">
+                                <label>Facebook password:</label>
+                            </div>
+                            <div class="col-sm-8 padding-rl-0">
+                                <input type="text" class="col-sm-6" placeholder="********"  ng-model="facebookPass" id="facebookPass"/>
+                            </div>
+                        </div>
+                        <div class="row margin-rl-0 margin-top-15">
+                            <div class="col-sm-2">
+                                &nbsp;
+                            </div>
+                            <div class="col-sm-8 padding-rl-0">
+                                <div class='col-sm-4 padding-rl-0'>
+                                    <button class='btn btn-success' type="submit">Publish</button>
+                                    <button class='btn btn-danger' type="button" ng-click="facebookID = ''; facebookPass = ''">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
 
                     <!-- Facebook ends -->
 
