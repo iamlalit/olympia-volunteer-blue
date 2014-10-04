@@ -833,11 +833,11 @@
                                     </div>
                                     <div class="row margin-rl-0">
                                         <div class="col-lg-5 center-block">
-                                            <div class="form-group">
+                                            <div class="form-group" ng-init="registered = 'no'">
                                                 <label>Are you creating a registered organization?</label>
                                                 <div class="radio margin-top-0">
                                                     <label>
-                                                        <input type="radio" ng-model="registered" value="yes"> Yes
+                                                        <input type="radio" id="registered" ng-model="registered" value="yes"> Yes
                                                     </label>
                                                 </div>
                                                 <div class="radio">
@@ -858,7 +858,7 @@
                                             </div>
                                         </div>
                                         <div class="row margin-rl-0">
-                                            <div class="col-lg-5 center-block">
+                                            <div class="col-lg-5 center-block" ng-init="typeOfOrganization = 'Company'">
                                                 <div class="form-group">
                                                     <label>Select what type of organization you are creating:</label>
                                                     <div class="row">

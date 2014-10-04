@@ -42,7 +42,10 @@ signUp.controller("signupController", ['$scope', function ($scope) {
         city = $('input[name="city"]'),
         Organization = $('input[name="Organization"]'),
         username = $('input[name="username"]'),
-        captcha = $('input[name="captcha"]'),
+        captcha = $('input[name="captcha"]'),nickname
+        registered = $('#registered'),
+        registrationNumber = $('input[name="registrationNumber"]'),
+        nickname = $('input[name="nickname"]'),
         //gender = $('input[name="Gaslachet"]'),
         //phone = $('input[name="Telefoonnummer"]'),
         //street = $('input[name="Straat"]'),
@@ -300,6 +303,59 @@ signUp.controller("signupController", ['$scope', function ($scope) {
                     errorList.find('.errormessage-captcha').remove();
                     //$('#errorMsg').hide();
                 }
+            }
+            //Organization nickname 
+            if (nickname.val() == '' || nickname.val() == null) {
+                if (errorList.find('.errormessage-nickname').length == 0) {
+                    $('<li />', { html: 'Organization Nick Name required !', class: 'col-sm-6 errormessage-nickname' })
+                    .appendTo(errorList)
+                    .click(function () {
+                        $('html, body').animate({
+                            scrollTop: street.offset().top - 100
+                        }, 500);
+                        nickname.focus();
+                    });
+                    //$('#errorMsg').show();
+                    nickname.parent().addClass('has-error');
+                }
+            } else {
+                if (nickname.parent().hasClass('has-error')) {
+                    nickname.parent().removeClass('has-error')
+                };
+                if (errorList.find('.errormessage-nickname').length > 0) {
+                    errorList.find('.errormessage-nickname').remove();
+                    //$('#errorMsg').hide();
+                }
+            }
+            //registered user is yes for registrationNumber
+            if($('#registered').is(':checked')) { 
+                if (registrationNumber.val() == '' || registrationNumber.val() == null) {
+                    if (errorList.find('.errormessage-registrationNumber').length == 0) {
+                        $('<li />', { html: 'Registration Number is required !', class: 'col-sm-6 errormessage-registrationNumber' })
+                        .appendTo(errorList)
+                        .click(function () {
+                            $('html, body').animate({
+                                scrollTop: street.offset().top - 100
+                            }, 500);
+                            registrationNumber.focus();
+                        });
+                        //$('#errorMsg').show();
+                        registrationNumber.parent().addClass('has-error');
+                    }
+                } else {
+                    if (registrationNumber.parent().hasClass('has-error')) {
+                        registrationNumber.parent().removeClass('has-error')
+                    };
+                    if (errorList.find('.errormessage-registrationNumber').length > 0) {
+                        errorList.find('.errormessage-registrationNumber').remove();
+                        //$('#errorMsg').hide();
+                    }
+                }
+            }else{
+                //no is choosen
+                registrationNumber.val('');
+                errorList.find('.errormessage-registrationNumber').remove();
+                registrationNumber.parent().removeClass('has-error');
             }
 
             if (errorList.children('li').length > 0) {
