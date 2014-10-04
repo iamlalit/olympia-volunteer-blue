@@ -815,15 +815,15 @@
 
                                 <!-- creating-organizations starts-->
                                 <div ng-if="Organization">
-                                    <div class="row">
+                                    <div class="row margin-rl-0">
                                         <div class="col-lg-5 center-block">
                                             <div class="form-group">
                                                 <label>Organization Name</label>
-                                                <input type="text" name="organizationName" id="organizationName" class="form-control" placeholder="Name organization">
+                                                <input type="text" name="Organization" id="organizationName" class="form-control" placeholder="Name organization">
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row">
+                                    <div class="row margin-rl-0">
                                         <div class="col-lg-5 center-block">
                                             <div class="form-group">
                                                 <label>Organization Nick Name </label>
@@ -831,7 +831,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row">
+                                    <div class="row margin-rl-0">
                                         <div class="col-lg-5 center-block">
                                             <div class="form-group">
                                                 <label>Are you creating a registered organization?</label>
@@ -849,7 +849,7 @@
                                         </div>
                                     </div>
                                     <div ng-show="registered == 'yes'">
-                                        <div class="row">
+                                        <div class="row margin-rl-0">
                                             <div class="col-lg-5 center-block">
                                                 <div class="form-group">
                                                     <label>Please enter the number your organization is registered under</label>
@@ -857,7 +857,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div class="row margin-rl-0">
                                             <div class="col-lg-5 center-block">
                                                 <div class="form-group">
                                                     <label>Select what type of organization you are creating:</label>
@@ -896,14 +896,14 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row">
+                                    <div class="row margin-rl-0">
                                         <div class="col-lg-5 center-block">
                                             <div class="form-group">
                                                 <p class="text-align-justify">Our volunteer platform strives to create stronger, thriving communities. The aim of this platform is to enable an effortless connection between caring people and facilitate the coordination of services and volunteers. In order to maintain this service and what it provides, we need the support of sponsors who want to be a part of this exciting initiative. [MAIN SPONSOR] is committed to making this platform a success, and the potential for growth is tremendous. Any business or organization that chooses to sponsor this website is a true team member, to the benefit of all parties.</p>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row" ng-if="typeOfOrganization == 'Company' || typeOfOrganization == 'Governement'">
+                                    <div class="row margin-rl-0" ng-if="(typeOfOrganization == 'Company' || typeOfOrganization == 'Governement') && registered !== 'no'">
                                         <div class="col-lg-5 center-block">
                                             <div class="checkbox">
                                                 <label>
@@ -912,7 +912,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row" ng-if="typeOfOrganization == 'Non-profit' || typeOfOrganization == 'Volunteer organization' || typeOfOrganization == 'Social entreprise' ">
+                                    <div class="row margin-rl-0" ng-if="(typeOfOrganization == 'Non-profit' || typeOfOrganization == 'Volunteer organization' || typeOfOrganization == 'Social entreprise') && registered !== 'no' ">
                                         <div class="col-lg-5 center-block" >
                                             <div class="checkbox text-align-justify">
                                                 <label>
