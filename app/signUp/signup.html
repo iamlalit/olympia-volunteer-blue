@@ -89,19 +89,19 @@
                                 <div class="col-lg-5 center-block">
                                     
                                         <div class="form-group">
-                                            <label>First Name</label>
-                                            <input type="text" name="firstname" id="firstname" class="form-control" placeholder="First Name">
+                                            <label><strong>First name</strong></label>
+                                            <input type="text" name="firstname" id="firstname" class="form-control" placeholder="First name">
                                         </div>
                                         <div class="form-group">
-                                            <label>Last Name</label>
-                                            <input type="text" name="lastname" id="lastname" class="form-control" placeholder="Last Name">
+                                            <label><strong>Last name</strong></label>
+                                            <input type="text" name="lastname" id="lastname" class="form-control" placeholder="Last name">
                                         </div>
                                         <div class="form-group">
-                                            <label>Email Address</label>
-                                            <input type="text" name="email" id="email" class="form-control" placeholder="Email Address">
+                                            <label><strong>Email address</strong></label>
+                                            <input type="text" name="email" id="email" class="form-control" placeholder="Email address">
                                         </div>
                                         <div class="form-group">
-                                            <label>Country</label>
+                                            <label><strong>Country</strong></label>
                                             <select name="country" id="country">
                                                 <option value="0" label="Country">Country</option>
                                                 <option value="41" label="Belgium">
@@ -800,15 +800,15 @@
                                             </select>
                                         </div>
                                         <div class="form-group" ng-if="volunteer">
-                                            <label>City</label>
+                                            <label><strong>City</strong></label>
                                             <input type="text" name="city" id="city" class="form-control" placeholder="City">
                                         </div>
                                         <div class="form-group">
-                                            <label>Username</label>
+                                            <label><strong>Username</strong></label>
                                             <input type="text" name="username" id="username" class="form-control" placeholder="Username">
                                         </div>
                                         <div class="form-group">
-                                            <label>Password</label>
+                                            <label><strong>Password</strong></label>
                                             <input type="password" name="password" id="password" class="form-control" placeholder="Password">
                                         </div>
                                     </div>
@@ -818,15 +818,15 @@
                                     <div class="row margin-rl-0">
                                         <div class="col-lg-5 center-block">
                                             <div class="form-group">
-                                                <label>Organization Name</label>
-                                                <input type="text" name="Organization" id="organizationName" class="form-control" placeholder="Organization Name">
+                                                <label><strong>Organization name</strong></label>
+                                                <input type="text" name="Organization" id="organizationName" class="form-control" placeholder="Organization name">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row margin-rl-0">
                                         <div class="col-lg-5 center-block">
                                             <div class="form-group">
-                                                <label>Organization Nick Name </label>
+                                                <label><strong>Organization nickname </strong></label>
                                                 <input type="text" name="nickname" id="nickname" class="form-control" placeholder="Organization Nick Name">
                                             </div>
                                         </div>
@@ -834,7 +834,7 @@
                                     <div class="row margin-rl-0">
                                         <div class="col-lg-5 center-block">
                                             <div class="form-group" ng-init="registered = 'no'">
-                                                <label>Are you creating a registered organization?</label>
+                                                <label><strong>Are you creating a registered organization?</strong></label>
                                                 <div class="radio margin-top-0">
                                                     <label>
                                                         <input type="radio" id="registered" ng-model="registered" value="yes"> Yes
@@ -852,7 +852,7 @@
                                         <div class="row margin-rl-0">
                                             <div class="col-lg-5 center-block">
                                                 <div class="form-group">
-                                                    <label>Please enter the number your organization is registered under</label>
+                                                    <label><strong>Please enter the number your organization is registered under</strong></label>
                                                     <input type="text" name="registrationNumber" id="registrationNumber" class="form-control" placeholder=" Registration Number">
                                                 </div>
                                             </div>
@@ -860,7 +860,7 @@
                                         <div class="row margin-rl-0">
                                             <div class="col-lg-5 center-block" ng-init="typeOfOrganization = 'Company'">
                                                 <div class="form-group">
-                                                    <label>Select what type of organization you are creating:</label>
+                                                    <label><strong>Select what type of organization you are creating:</strong></label>
                                                     <div class="row">
                                                         <div class="col-sm-6">
                                                             <div class="radio margin-top-0">
@@ -873,7 +873,7 @@
                                                                     <input type="radio" ng-model="typeOfOrganization" value="Social entreprise" > Social entreprise
                                                                 </label>
                                                             </div>
-                                                            <div class="radio">
+                                                            <div class="radio margin-bottom-0">
                                                                 <label>
                                                                     <input type="radio" ng-model="typeOfOrganization" value="Governement" > Governement
                                                                 </label>
@@ -898,14 +898,14 @@
                                     </div>
                                     <div class="row margin-rl-0">
                                         <div class="col-lg-5 center-block">
-                                            <div class="form-group">
-                                                <p class="text-align-justify">Our volunteer platform strives to create stronger, thriving communities. The aim of this platform is to enable an effortless connection between caring people and facilitate the coordination of services and volunteers. In order to maintain this service and what it provides, we need the support of sponsors who want to be a part of this exciting initiative. [MAIN SPONSOR] is committed to making this platform a success, and the potential for growth is tremendous. Any business or organization that chooses to sponsor this website is a true team member, to the benefit of all parties.</p>
+                                            <div class="form-group margin-bottom-0">
+                                                <p class="text-align-justify margin-bottom-0">Our volunteer platform strives to create stronger, thriving communities. The aim of this platform is to enable an effortless connection between caring people and facilitate the coordination of services and volunteers. In order to maintain this service and what it provides, we need the support of sponsors who want to be a part of this exciting initiative. [MAIN SPONSOR] is committed to making this platform a success, and the potential for growth is tremendous. Any business or organization that chooses to sponsor this website is a true team member, to the benefit of all parties.</p>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row margin-rl-0" ng-if="(typeOfOrganization == 'Company' || typeOfOrganization == 'Governement') && registered !== 'no'">
                                         <div class="col-lg-5 center-block">
-                                            <div class="checkbox">
+                                            <div class="checkbox margin-top-0">
                                                 <label>
                                                     <input type="checkbox">We hereby accept the <a>terms and conditions</a> of this platform.
                                                 </label>
@@ -914,7 +914,7 @@
                                     </div>
                                     <div class="row margin-rl-0" ng-if="(typeOfOrganization == 'Non-profit' || typeOfOrganization == 'Volunteer organization' || typeOfOrganization == 'Social entreprise') && registered !== 'no' ">
                                         <div class="col-lg-5 center-block" >
-                                            <div class="checkbox text-align-justify">
+                                            <div class="checkbox margin-top-0 text-align-justify">
                                                 <label>
                                                     <input type="checkbox">We hereby accept the <a>terms and conditions</a> of this platform and its services with a sponsorship contribution from our organization. This <a>sponsorship</a> entails full access to the volunteer platform and the volunteer community, help desk support, integration with your site and all volunteer recruitment tool sets the platform provides. We will acknowledge this contribution from [MAIN SPONSOR] on our organization's website.
                                                 </label>
@@ -924,24 +924,24 @@
                                 </div>
                                 <!-- creating-organizations ends-->
                                 <div class="col-sm-5 center-block">
-                                        <div class="form-group">
-                                            <label>Type the letter below</label>
+                                        <div class="form-group margin-top-10">
+                                            <label><strong>Type the letter below</strong></label>
                                             <input type="text" name="captcha" id="captcha" class="form-control" placeholder="Type the letter below">
                                         </div>
                                         <div class="form-group">
                                             <span class="captchaImg">
                                                 <img src="../img/captcha.png" />
                                             </span>
-                                            <span class="captchTxt">This Proves that you are a human. We like humans, Spambots, not so much</span>
+                                            <span class="captchTxt">This proves that you are a human. We like humans, spambots, not so much</span>
                                         </div>
                                         <div class="checkbox">
                                             <label>
-                                                <input type="checkbox"> Yes, Send me genuinely useful emails every now and then to help me get the most out of Volunteer
+                                                <input type="checkbox"> Yes, send me genuinely useful emails every now and then to help me get the most out of Volunteer
                                             </label>
                                         </div>
                                         <input type="submit" class="btn btn-success btn-signup" value="Get Started" />
                                         <p class="agree-text">
-                                            By Creating an account, you agree to our Volunteer
+                                            By creating an account, you agree to our Volunteer
                                             <a href="#">Agreement & Privacy Policy</a>
                                         </p>
 
