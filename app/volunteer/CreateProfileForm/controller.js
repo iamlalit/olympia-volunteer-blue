@@ -38,7 +38,87 @@ landingController.controller('landingPage', ['$scope', function ($scope) {
     $scope.listOfProjects = [];
     $scope.lengthOfProjects = $scope.listOfProjects.length;
 
+    $('#errorMsg3').hide();
+    var errorList3 = $('#errorList3');
+    var skillname = $("#skillname");
+    var skillDescription = $("#skillDescription");
+    var SkillLink = $("#SkillLink");
+    
+    $('#suggestSkillForm')
+    $('#suggestSkillForm').submit(function (e) {
+        e.preventDefault();
+        if (skillname.val() == '' || skillname.val() == null) {
+            if (errorList3.find('.errormessage-skillname').length == 0) {
+                $('<li />', { html: 'Skill is required !', class: 'col-sm-6 errormessage-skillname' })
+                .appendTo(errorList3)
+                .click(function () {
+                    skillname.focus();
+                })
+                //$('#errorMsg').show();
+                skillname.parent().addClass('has-error');
+            }
+        }
+        else {
+            if (skillname.parent().hasClass('has-error')) {
+                skillname.parent().removeClass('has-error')
+            };
+            if (errorList3.find('.errormessage-skillname').length > 0) {
+                errorList3.find('.errormessage-skillname').remove();
+                //$('#errorMsg').hide();
+            }
+        }
+        //text area for description
+        if (skillDescription.val() == '' || skillDescription.val() == null) {
+            if (errorList3.find('.errormessage-skillDescription').length == 0) {
+                $('<li />', { html: 'Skill is required !', class: 'col-sm-6 errormessage-skillDescription' })
+                .appendTo(errorList3)
+                .click(function () {
+                    skillDescription.focus();
+                })
+                //$('#errorMsg').show();
+                skillDescription.parent().addClass('has-error');
+            }
+        }
+        else {
+            if (skillDescription.parent().hasClass('has-error')) {
+                skillDescription.parent().removeClass('has-error')
+            };
+            if (errorList3.find('.errormessage-skillDescription').length > 0) {
+                errorList3.find('.errormessage-skillDescription').remove();
+                //$('#errorMsg').hide();
+            }
+        }
 
+        //link is required
+        if (SkillLink.val() == '' || SkillLink.val() == null) {
+            if (errorList3.find('.errormessage-SkillLink').length == 0) {
+                $('<li />', { html: 'Skill link is required !', class: 'col-sm-6 errormessage-SkillLink' })
+                .appendTo(errorList3)
+                .click(function () {
+                    SkillLink.focus();
+                })
+                //$('#errorMsg').show();
+                SkillLink.parent().addClass('has-error');
+            }
+        }
+        else {
+            if (SkillLink.parent().hasClass('has-error')) {
+                SkillLink.parent().removeClass('has-error')
+            };
+            if (errorList3.find('.errormessage-SkillLink').length > 0) {
+                errorList3.find('.errormessage-SkillLink').remove();
+                //$('#errorMsg').hide();
+            }
+        }
+
+        if (errorList3.children('li').length > 0) {
+                $('#errorMsg3').show();
+            } else {
+                $('#errorMsg3').hide();
+                $('#suggestSkillBox').modal('hide');
+            }
+    
+    });
 
     var checkDateSchool = false;
     var checkDateJob = false;
@@ -1219,4 +1299,6 @@ landingController.controller('landingPage', ['$scope', function ($scope) {
         $scope.listOfProjects[globalProjectIndex].endDate = project.endDate;
         $('#updateProject').modal('hide');
     }
+
+
 }]);

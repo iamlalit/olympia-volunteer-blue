@@ -244,6 +244,9 @@ footer{
 .inline-block{
 	display: inline-block;
 }
+.block{
+  display: block;
+}
 .valign-middle{
   position: relative;
 vertical-align: middle;
@@ -444,6 +447,9 @@ position: relative;
 }
 .margin-top-20{
 	margin-top:20px; 
+}
+.margin-top-25{
+  margin-top:25px; 
 }
 .margin-top-35{
 	margin-top:35px; 
@@ -908,4 +914,17 @@ table thead{
 }
 .tool-tip-wrapper a:hover{
   text-decoration: none;
+}
+/*skill modal popup add new skills*/
+.skillsSet label{
+  display: block;
+}
+.skillsSet label i{
+  font-size: 15px;
+}
+.skillsSet label i.green{
+  color: green;
+}
+.skillsSet label i.red{
+  color: #ec6a38;
 }
