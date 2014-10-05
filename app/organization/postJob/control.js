@@ -1,5 +1,19 @@
 
  $(document).ready(function() {
+  //hide the modal popup and work on scroll bar starts
+  $('#hideSkill').on('click', function(){
+    $('#skillBox').modal('hide');
+  })
+  $('#skillBox').on('hide.bs.modal', function (e) {
+    $('body').css('overflow-y', 'hidden');
+  });
+  $('#suggestSkillBox').on('hide.bs.modal', function (e) {
+    $('body').css('overflow-y', 'auto');
+  });
+  //hide the modal popup and work on scroll bar ends
+  
+
+
   $('#tabs > div').hide(); // hide all child divs
   $('#tabs div:first').show(); // show first child dive
   $('#tabsnav li:first').addClass('active');

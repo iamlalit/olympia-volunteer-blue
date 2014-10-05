@@ -1,85 +1,4 @@
 $(document).ready(function () {
-
-    //$('#phoneToggler').hide();
-    //$('#phoneToggle').click(function () {
-    //    $(this).hide();
-    //    $('#phoneToggler').show();
-    //});
-    //
-    //$('#cvUpload').click(function (event) {
-    //    event.stopPropagation();
-    //    $('#input-cvUpload').click();
-    //    if ($('input[name=cv]').val == "") {
-    //        $('#cvVal-div').hide();
-    //    }
-    //});
-    //
-    //$('#mailToggler').hide();
-    //$('#mailToggle').click(function () {
-    //    $(this).hide();
-    //    $('#mailToggler').show();
-    //});
-    //
-    //$('#cvWrite').hide();
-    //$('input[name=cvChoice]').click(function () {
-    //    var thisval = $(this).val();
-    //
-    //    if (thisval == 'cvUpload') {
-    //        $('#cvUpload').show();
-    //        $('#cvWrite').hide();
-    //    }
-    //    else if (thisval == 'cvWrite') {
-    //        $('#cvUpload').hide();
-    //        $('#cvWrite').show();
-    //    }
-    //});
-    //
-    //$('input[name=cv]').change(function () {
-    //    console.log($(this).val());
-    //    var FileName = $(this).val();
-    //    var cvFile = FileName.match(/\\([^\\]+)$/)[1];
-    //    $('#cvVal-div').show();
-    //    $('#cvVal').html('<a href="javascript:void(0)">' + cvFile + '</a>');
-    //});
-    //
-    //$('#removeCv').click(function () {
-    //    $('input[name=cv]').val() === '';
-    //    $('#cvVal').empty();
-    //    $('#cvVal-div').hide();
-    //});
-})
-
-$(document).ready(function () {
-
-    //$('.job-vacancy')
-    //.mouseover(function () {
-    //    if ($(this).children().find('a').hasClass('focused')) {
-    //        $(this).children().find('a').removeClass('focused');
-    //    }
-    //})
-    //.mouseout(function () {
-    //    if ($(this).children().find('a').hasClass('focused') == false) {
-    //        $(this).children().find('a').eq(2).addClass('focused');
-    //    }
-    //});
-    //
-    //$('#password-container').hide();
-    //$('#password-container-hide').show();
-    //
-    //$('input:radio[name=ques1]').click(function () {
-    //    var checkval = $(this).val();
-    //    $('#ques1-opt1-ans').prop('disabled', !(checkval == '1'));
-    //});
-    //
-    //$('#radio-email1').click(function () {
-    //    $('#password-container').hide();
-    //    $('#password-container-hide').show();
-    //});
-    //$('#radio-email2').click(function () {
-    //    $('#password-container').show();
-    //    $('#password-container-hide').hide();
-    //});
-    //
     $('#errorMsg').hide();
 
     var
@@ -124,116 +43,6 @@ $(document).ready(function () {
 	termsStr,
 	ques1Str;
 
-    //$('#jobForm-section2 :input').prop("disabled", true);
-    //$('#jobForm-section2').addClass('grey-link');
-    //$('#jobForm-section2').find('select').addClass('grey-link');
-    //$('#jobForm-section2').find('button[type=submit]').addClass('btn-default').removeClass('btn-primary');
-    //$('#jobForm-section2').find('a').prop("disabled", true)
-	//.addClass('grey-link')
-	//.click(function (e) {
-	//    if ($(this).attr("disabled") == "disabled") {
-	//        e.preventDefault();
-	//    }
-	//});
-
-    //Form 1
-    //$('#jobForm-section1').submit(function (e) {
-    //    e.preventDefault();
-    //    //Email
-    //    if (email.val() == '' || email.val() == null) {
-    //        if (errorList.find('.errormessage-form1mail').length == 0) {
-    //            var li = $('<li />', { class: 'col-sm-6 errormessage-form1mail' });
-    //            $('<label />', { html: 'Email required !', for: 'email' }).appendTo(li);
-    //            li.appendTo(errorList);
-    //            $('#errorMsg').show();
-    //            email.parent().addClass('has-error');
-    //        }
-    //    } else {
-    //        var re = /^\s*[\w\-\+_]+(\.[\w\-\+_]+)*\@[\w\-\+_]+\.[\w\-\+_]+(\.[\w\-\+_]+)*\s*$/;
-    //        if (!re.test(email.val())) {
-    //            if (errorList.find('.col-sm-6 errormessage-form1mail').length == 0) {
-    //                var li = $('<li />', { class: '.col-sm-6 errormessage-form1mail' })
-    //                $('<label />', { html: 'Vul e-mail adres in.', for: 'email' }).appendTo(li);
-    //                li.appendTo(errorList)
-    //                $('#errorMsg').show();
-    //            }
-    //        } else {
-    //            if (email.parent().hasClass('has-error')) {
-    //                email.parent().removeClass('has-error')
-    //            };
-    //            if (errorList.find('.errormessage-form1mail').length > 0) {
-    //                errorList.find('.errormessage-form1mail').remove();
-    //                $('#errorMsg').hide();
-    //            }
-    //        }
-    //    }
-    //
-    //    // radio
-    //    $.each(logOpt, function () {
-    //        if (this.checked)
-    //            emailRadioStr = this.value;
-    //        if (emailRadioStr == '' || emailRadioStr == undefined) {
-    //            if (errorList.find('.logOpt-form1radio').length == 0) {
-    //                $('<li />', { html: 'Selecteer een optie !', class: 'col-sm-6 logOpt-form1radio' }).appendTo(errorList);
-    //                $('#errorMsg').show();
-    //                logOpt.parent().parent().parent().addClass('has-error');
-    //            }
-    //        }
-    //        else {
-    //            if (logOpt.parent().parent().parent().hasClass('has-error')) {
-    //                logOpt.parent().parent().parent().removeClass('has-error')
-    //            };
-    //            if (errorList.find('.logOpt-form1radio').length > 0) {
-    //                errorList.find('.logOpt-form1radio').remove();
-    //                $('#errorMsg').hide();
-    //            }
-    //        }
-    //
-    //        if (emailRadioStr == 'option2') {
-    //            if (password.val() == '' || password.val() == null) {
-    //                if (errorList.find('.errormessage-password').length == 0) {
-    //                    $('<li />', { html: 'Vul wachtwoord in', class: 'col-sm-6 errormessage-password' })
-    //					.appendTo(errorList)
-    //					.click(function () {
-    //					    $('html, body').animate({
-    //					        scrollTop: firstname.offset().top - 100
-    //					    }, 500);
-    //					    password.focus();
-    //					})
-    //                    $('#errorMsg').show();
-    //                    password.parent().addClass('has-error');
-    //                }
-    //            } else {
-    //                if (password.parent().hasClass('has-error')) {
-    //                    password.parent().removeClass('has-error')
-    //                };
-    //                if (errorList.find('.errormessage-password').length > 0) {
-    //                    errorList.find('.errormessage-password').remove();
-    //                    $('#errorMsg').hide();
-    //                }
-    //            }
-    //        }
-    //    });
-    //    if (errorList.find('.errormessage-form1mail').length == 0 &&
-    //		errorList.find('.logOpt-form1radio').length == 0 &&
-    //		errorList.find('.errormessage-password').length == 0) {
-    //        $('#jobForm-section2 :input').prop("disabled", false);
-    //        $('#jobForm-section2').find('a').removeAttr("disabled").removeClass('grey-link');
-    //        $('#jobForm-section2').removeClass('grey-link');
-    //        $('#jobForm-section2').find('select').removeClass('grey-link');
-    //        $('#jobForm-section2').find('button[type=submit]').addClass('btn-primary').removeClass('btn-default');
-    //        $('#firstname').focus();
-    //        $('html, body').animate({
-    //            scrollTop: $("#firstname").offset().top - 100
-    //        }, 500);
-    //    }
-    //    else {
-    //        $('html, body').animate({
-    //            scrollTop: $("#errorMsg").offset().top - 100
-    //        }, 500);
-    //    }
-    //
-    //});
     //on change of writing in any of input fields
     jobTitle.change(function() {
         if (jobTitle.val() == '' || jobTitle.val() == null) {
@@ -860,4 +669,89 @@ $(document).ready(function () {
 //            $('#educationPop').modal('hide');
 //        }
 //    });
+
+//skills suggestion
+
+    $('#errorMsg3').hide();
+    var errorList3 = $('#errorList3');
+    var skillname = $("#skillname");
+    var skillDescription = $("#skillDescription");
+    var SkillLink = $("#SkillLink");
+    
+    $('#suggestSkillForm')
+    $('#suggestSkillForm').submit(function (e) {
+        e.preventDefault();
+        if (skillname.val() == '' || skillname.val() == null) {
+            if (errorList3.find('.errormessage-skillname').length == 0) {
+                $('<li />', { html: 'Skill is required !', class: 'col-sm-6 errormessage-skillname' })
+                .appendTo(errorList3)
+                .click(function () {
+                    skillname.focus();
+                })
+                //$('#errorMsg').show();
+                skillname.parent().addClass('has-error');
+            }
+        }
+        else {
+            if (skillname.parent().hasClass('has-error')) {
+                skillname.parent().removeClass('has-error')
+            };
+            if (errorList3.find('.errormessage-skillname').length > 0) {
+                errorList3.find('.errormessage-skillname').remove();
+                //$('#errorMsg').hide();
+            }
+        }
+        //text area for description
+        if (skillDescription.val() == '' || skillDescription.val() == null) {
+            if (errorList3.find('.errormessage-skillDescription').length == 0) {
+                $('<li />', { html: 'Skill is required !', class: 'col-sm-6 errormessage-skillDescription' })
+                .appendTo(errorList3)
+                .click(function () {
+                    skillDescription.focus();
+                })
+                //$('#errorMsg').show();
+                skillDescription.parent().addClass('has-error');
+            }
+        }
+        else {
+            if (skillDescription.parent().hasClass('has-error')) {
+                skillDescription.parent().removeClass('has-error')
+            };
+            if (errorList3.find('.errormessage-skillDescription').length > 0) {
+                errorList3.find('.errormessage-skillDescription').remove();
+                //$('#errorMsg').hide();
+            }
+        }
+
+        //link is required
+        if (SkillLink.val() == '' || SkillLink.val() == null) {
+            if (errorList3.find('.errormessage-SkillLink').length == 0) {
+                $('<li />', { html: 'Skill link is required !', class: 'col-sm-6 errormessage-SkillLink' })
+                .appendTo(errorList3)
+                .click(function () {
+                    SkillLink.focus();
+                })
+                //$('#errorMsg').show();
+                SkillLink.parent().addClass('has-error');
+            }
+        }
+        else {
+            if (SkillLink.parent().hasClass('has-error')) {
+                SkillLink.parent().removeClass('has-error')
+            };
+            if (errorList3.find('.errormessage-SkillLink').length > 0) {
+                errorList3.find('.errormessage-SkillLink').remove();
+                //$('#errorMsg').hide();
+            }
+        }
+
+        if (errorList3.children('li').length > 0) {
+                $('#errorMsg3').show();
+            } else {
+                $('#errorMsg3').hide();
+                $('#suggestSkillBox').modal('hide');
+            }
+    
+    });
+
 //});
