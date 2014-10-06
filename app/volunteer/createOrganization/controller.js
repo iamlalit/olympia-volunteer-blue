@@ -102,7 +102,7 @@ signUp.controller("signupController", ['$scope', function ($scope) {
                 }, 500);
             } else {
                 $('#errorMsg').hide();
-                window.location.href = '../../organization/search/searchVol.html?owner=Organization';
+                window.location.href = '../../landingPage/landing.html' + '?form=signup&owner=organization';
             }
 
         });

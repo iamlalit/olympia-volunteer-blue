@@ -12,7 +12,18 @@
   });
   //hide the modal popup and work on scroll bar ends
   
-
+   //hide the modal popup and work on scroll bar starts -diploma
+  $('#hideDiploma').on('click', function(){
+    $('#diplomaBox').modal('hide');
+  })
+  $('#diplomaBox').on('hide.bs.modal', function (e) {
+    $('body').css('overflow-y', 'hidden');
+  });
+  $('#suggestDiplomaBox').on('hide.bs.modal', function (e) {
+    $('body').css('overflow-y', 'auto');
+  });
+  //hide the modal popup and work on scroll bar ends
+  
 
   $('#tabs > div').hide(); // hide all child divs
   $('#tabs div:first').show(); // show first child dive

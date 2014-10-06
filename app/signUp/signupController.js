@@ -311,26 +311,28 @@ signUp.controller("signupController", ['$scope', function ($scope) {
                 }
             }
             //Organization nickname 
-            if (nickname.val() == '' || nickname.val() == null) {
-                if (errorList.find('.errormessage-nickname').length == 0) {
-                    $('<li />', { html: 'Organization Nick Name required !', class: 'col-sm-6 errormessage-nickname' })
-                    .appendTo(errorList)
-                    .click(function () {
-                        $('html, body').animate({
-                            scrollTop: nickname.offset().top - 100
-                        }, 500);
-                        nickname.focus();
-                    });
-                    //$('#errorMsg').show();
-                    nickname.parent().addClass('has-error');
-                }
-            } else {
-                if (nickname.parent().hasClass('has-error')) {
-                    nickname.parent().removeClass('has-error')
-                };
-                if (errorList.find('.errormessage-nickname').length > 0) {
-                    errorList.find('.errormessage-nickname').remove();
-                    //$('#errorMsg').hide();
+            if (OrganizationValue == 'true') {
+                if (nickname.val() == '' || nickname.val() == null) {
+                    if (errorList.find('.errormessage-nickname').length == 0) {
+                        $('<li />', { html: 'Organization Nick Name required !', class: 'col-sm-6 errormessage-nickname' })
+                        .appendTo(errorList)
+                        .click(function () {
+                            $('html, body').animate({
+                                scrollTop: nickname.offset().top - 100
+                            }, 500);
+                            nickname.focus();
+                        });
+                        //$('#errorMsg').show();
+                        nickname.parent().addClass('has-error');
+                    }
+                } else {
+                    if (nickname.parent().hasClass('has-error')) {
+                        nickname.parent().removeClass('has-error')
+                    };
+                    if (errorList.find('.errormessage-nickname').length > 0) {
+                        errorList.find('.errormessage-nickname').remove();
+                        //$('#errorMsg').hide();
+                    }
                 }
             }
             //registered user is yes for registrationNumber
@@ -373,11 +375,11 @@ signUp.controller("signupController", ['$scope', function ($scope) {
                 $('#errorMsg').hide();
                 if (volunteerValue == 'true') {
                     //window.location.href = '../langinPage/landing.html' + '?form=signup&fname=' + firstname.val() + '&user=volunteer'
-                    window.location.href = '../langinPage/landing.html' + '?form=signup&owner=volunteer&fname=' + firstname.val() + '&lname=' + lastname.val() + '&email=' + email.val();
+                    window.location.href = '../landingPage/landing.html' + '?form=signup&owner=volunteer&fname=' + firstname.val() + '&lname=' + lastname.val() + '&email=' + email.val();
                 }
                 if (OrganizationValue == 'true') {
                     //window.location.href = '../langinPage/landing.html' + '?form=signup&fname=' + firstname.val() + '&user=Organization'
-                    window.location.href = '../organization/search/searchVol.html' + '?form=signup&owner=Organization&fname=' + firstname.val() + '&lname=' + lastname.val() + '&email=' + email.val();
+                    window.location.href = '../landingPage/landing.html' + '?form=signup&owner=organization&fname=' + firstname.val() + '&lname=' + lastname.val() + '&email=' + email.val();
                 }                
             }
 

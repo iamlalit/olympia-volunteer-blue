@@ -1,6 +1,6 @@
 
  $(document).ready(function() {
-  //hide the modal popup and work on scroll bar starts
+  //hide the modal popup and work on scroll bar starts -skills
   $('#hideSkill').on('click', function(){
     $('#skillBox').modal('hide');
   })
@@ -8,6 +8,18 @@
     $('body').css('overflow-y', 'hidden');
   });
   $('#suggestSkillBox').on('hide.bs.modal', function (e) {
+    $('body').css('overflow-y', 'auto');
+  });
+  //hide the modal popup and work on scroll bar ends
+
+   //hide the modal popup and work on scroll bar starts -diploma
+  $('#hideDiploma').on('click', function(){
+    $('#diplomaBox').modal('hide');
+  })
+  $('#diplomaBox').on('hide.bs.modal', function (e) {
+    $('body').css('overflow-y', 'hidden');
+  });
+  $('#suggestDiplomaBox').on('hide.bs.modal', function (e) {
     $('body').css('overflow-y', 'auto');
   });
   //hide the modal popup and work on scroll bar ends

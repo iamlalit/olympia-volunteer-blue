@@ -2502,9 +2502,10 @@
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-sm-6 text-left">
-							</div>
-							<div class="col-sm-6">
+							<div class="col-sm-9 text-left margin-top-25">
+                                <span class="margin-left-15"><a href="#" id="hideDiploma" title="Suggest diploma/certificate" data-toggle="modal" data-target="#suggestDiplomaBox">Don't see a diploma/certificate listed? Suggest a diploma/certificate</a></span>
+                            </div>
+							<div class="col-sm-3 padding-rl-0">
 								<button style="margin: 20px 10px 30px 0;" type="button" class="btn btn-success pull-right" data-dismiss="modal" onclick="updateValueDiplomaCheck()">OK <i class="glyphicon glyphicon-arrow-right"></i></button>
 								<button style="margin: 20px 10px 30px 0;" type="button" class="btn btn-default btn-danger pull-right" data-dismiss="modal" aria-hidden="true" >Cancel</button>
 							</div>
@@ -2514,6 +2515,73 @@
 			</div>
 		</div>
 	</div>
+
+	<!--Suggest diploma certificate-->
+    <div class="modal fade" id="suggestDiplomaBox" tabindex="-1" role="dialog" aria-labelledby="suggestDiplomaBox" aria-hidden="true">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close big-close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h2 class="modal-title" id="myModalLabel">Suggest a diploma/certificate </h2>
+                </div>
+                <form role="form" id="suggestDiplomaForm">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <div class="row margin-rl-0">
+                                <div class="col-sm-12 padding-rl-0">
+                                    <p>Diploma's/Certificate's must also be in English and comply with the vrijwilligersvacaturebank.nl <a>Terms of Service</a></p>
+                                </div>
+                            </div>
+                            <div class="row margin-rl-0" id="errorMsg4">
+                                <div class="col-sm-12 padding-rl-0">
+                                    <div class="col-sm-1"></div>
+                                    <div class="alert alert-danger col-sm-10">
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                        <h4 class="text-center margin-top-0">Please fix the following issues</h4>
+                                        <ul id="errorList4" class="errorList" style="margin-bottom:35px"></ul>
+                                    </div>
+                                    <div class="col-sm-1"></div>
+                                </div>
+                            </div>
+                            <div class="row margin-rl-0 margin-bottom-20">
+                                <div class="col-sm-7 padding-rl-0">
+                                    <div class="form-group">
+                                        <label class="block"><strong>Diploma/Certificate name </strong></label>
+                                        <input type="text" name="diplomaname" id="diplomaname" class="col-sm-12" placeholder="Please enter only one diploma/certificate at a time">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row margin-rl-0">
+                                <div class="col-sm-12 padding-rl-0">
+                                    <div class="form-group">
+                                        <label class="block"><strong>Description </strong></label>
+                                        <textarea class="text-area" id="diplomaDescription" cols="76" rows="4"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row margin-rl-0">
+                                <div class="col-sm-7 padding-rl-0">
+                                    <div class="form-group">
+                                        <label class="block"><strong>Link </strong></label>
+                                        <input type="text" name="diplomaLink" id="diplomaLink" class="col-sm-12" placeholder="e.g., http://en.wikipedia.org/microsoft/excel/foundation">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4 text-left">
+                            </div>
+                            <div class="col-sm-8">
+                                <button style="margin: 20px 10px 30px 0;" type="submit" class="btn btn-success pull-right" >Suggest diploma/certificate <i class="glyphicon glyphicon-arrow-right"></i></button>
+                                <button style="margin: 20px 10px 30px 0;" type="button" class="btn btn-default btn-danger pull-right" ng-click="cancelSuggestDiploma()" aria-hidden="true" >Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
 	<!-- Address questions -->
 	<div class="modal fade" id="locationNew" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">

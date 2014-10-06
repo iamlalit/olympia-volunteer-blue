@@ -574,103 +574,8 @@ $(document).ready(function () {
 //    });
 //});
 
-//$(document).ready(function () {
-//    $('#pastedu-info-container').hide();
-//    $('#manual-edu-add').click(function () {
-//        var // cache variables
-//		diploma = $('input[name="pop-diploma"]'),
-//		opleding = $('#pop-edu-opleiding'),
-//		startMonth2 = $('#pop-start-month'),
-//		startYear2 = $('#pop-start-year'),
-//		endMonth2 = $('#pop-end-month'),
-//		endYear2 = $('#pop-end-year');
-//
-//        var // localstorage
-//		diplomaStr,
-//		opledingStr,
-//		startMonth2Str,
-//		startYear2Str,
-//		endMonth2Str,
-//		endYear2Str;
-//
-//
-//        if (opleding.val() == '' || opleding.val() == null) {
-//            opleding.parent().parent().addClass('has-error');
-//        } else {
-//            if (opleding.parent().parent().hasClass('has-error')) {
-//                opleding.parent().parent().removeClass('has-error')
-//            };
-//            opledingStr = opleding.val();
-//        }
-//
-//        if ($('input[name="pop-diploma"]:checked').val() == '' || $('input[name="pop-diploma"]:checked').val() == null) {
-//            diploma.parent().parent().parent().addClass('has-error');
-//        } else {
-//            if (diploma.parent().parent().hasClass('has-error')) {
-//                diploma.parent().parent().removeClass('has-error')
-//            };
-//            diplomaStr = $('input[name="pop-diploma"]:checked').val();
-//        }
-//
-//        if ($('#pop-start-month option:selected').val() == 0) {
-//            $('#pop-start-month').parent().parent().parent().parent().addClass('has-error');
-//        } else {
-//            if ($('#pop-start-month').parent().parent().parent().parent().hasClass('has-error')) {
-//                $('#pop-start-month').parent().parent().parent().parent().removeClass('has-error')
-//            };
-//            startMonth2Str = $('#pop-start-month option:selected').val();
-//        }
-//
-//        if ($('#pop-start-year option:selected').val() == 0) {
-//            $('#pop-start-year').parent().parent().parent().parent().addClass('has-error');
-//        } else {
-//            if ($('#pop-start-year').parent().parent().parent().parent().hasClass('has-error')) {
-//                $('#pop-start-year').parent().parent().parent().parent().removeClass('has-error')
-//            };
-//            startYear2Str = $('#pop-start-year option:selected').val();
-//        }
-//
-//        if ($('#pop-end-month option:selected').val() == 0) {
-//            $('#pop-end-month').parent().parent().parent().addClass('has-error');
-//        } else {
-//            if ($('#pop-end-month').parent().parent().parent().parent().hasClass('has-error')) {
-//                $('#pop-end-month').parent().parent().parent().parent().removeClass('has-error')
-//            };
-//            endMonth2Str = $('#pop-end-month option:selected').val();
-//        }
-//
-//        if ($('#pop-end-year option:selected').val() == 0) {
-//            $('#pop-end-year').parent().parent().parent().parent().addClass('has-error');
-//        } else {
-//            if ($('#pop-end-year').parent().parent().parent().parent().hasClass('has-error')) {
-//                $('#pop-end-year').parent().parent().parent().parent().removeClass('has-error')
-//            };
-//            endYear2Str = $('#pop-end-year option:selected').val();
-//        }
-//
-//        if (
-//			$('#pop-end-year option:selected').val() == 0 ||
-//			$('#pop-end-month option:selected').val() == 0 ||
-//			$('#pop-start-month option:selected').val() == 0 ||
-//			$('#pop-start-year option:selected').val() == 0 ||
-//			opleding.val() == '' ||
-//			diploma.val() == '') {
-//            return false;
-//        } else {
-//            $('#pastedu-info-container').show();
-//            $('#pastedu-info-container').html(
-//				'<ul class="row" id="pastwork-info" style="list-style:none">' +
-//					'<li class="col-sm-6">Opleiding :</li><li class="col-sm-6">' + opledingStr + '</li>' +
-//					'<li class="col-sm-6">Diploma behaald :</li><li class="col-sm-6">' + diplomaStr + '</li>' +
-//					'<li class="col-sm-6">Startdatum :</li><li class="col-sm-6">' + startMonth2Str + '-' + startYear2Str + '</li>' +
-//					'<li class="col-sm-6">Einddatum :</li><li class="col-sm-6">' + endMonth2Str + '-' + endYear2Str + '</li>' +
-//				'</ul>'
-//			);
-//            $('#educationPop').modal('hide');
-//        }
-//    });
-
-//skills suggestion
+$(document).ready(function () {
+ //skills suggestion
 
     $('#errorMsg3').hide();
     var errorList3 = $('#errorList3');
@@ -754,4 +659,88 @@ $(document).ready(function () {
     
     });
 
-//});
+    //suggest diploma/certificate
+    $('#errorMsg4').hide();
+    var errorList4 = $('#errorList4');
+    var diplomaname = $("#diplomaname");
+    var diplomaDescription = $("#diplomaDescription");
+    var diplomaLink = $("#diplomaLink");
+    
+    $('#suggestDiplomaForm').submit(function (e) {
+        e.preventDefault();
+        if (diplomaname.val() == '' || diplomaname.val() == null) {
+            if (errorList4.find('.errormessage-diplomaname').length == 0) {
+                $('<li />', { html: 'Name is required !', class: 'col-sm-6 errormessage-diplomaname' })
+                .appendTo(errorList4)
+                .click(function () {
+                    diplomaname.focus();
+                })
+                //$('#errorMsg').show();
+                diplomaname.parent().addClass('has-error');
+            }
+        }
+        else {
+            if (diplomaname.parent().hasClass('has-error')) {
+                diplomaname.parent().removeClass('has-error')
+            };
+            if (errorList4.find('.errormessage-diplomaname').length > 0) {
+                errorList4.find('.errormessage-diplomaname').remove();
+                //$('#errorMsg').hide();
+            }
+        }
+        //text area for description
+        if (diplomaDescription.val() == '' || diplomaDescription.val() == null) {
+            if (errorList4.find('.errormessage-diplomaDescription').length == 0) {
+                $('<li />', { html: 'Description is required !', class: 'col-sm-6 errormessage-diplomaDescription' })
+                .appendTo(errorList4)
+                .click(function () {
+                    diplomaDescription.focus();
+                })
+                //$('#errorMsg').show();
+                diplomaDescription.parent().addClass('has-error');
+            }
+        }
+        else {
+            if (diplomaDescription.parent().hasClass('has-error')) {
+                diplomaDescription.parent().removeClass('has-error')
+            };
+            if (errorList4.find('.errormessage-diplomaDescription').length > 0) {
+                errorList4.find('.errormessage-diplomaDescription').remove();
+                //$('#errorMsg').hide();
+            }
+        }
+
+        //link is required
+        if (diplomaLink.val() == '' || diplomaLink.val() == null) {
+            if (errorList4.find('.errormessage-diplomaLink').length == 0) {
+                $('<li />', { html: 'Diploma/certificate link is required !', class: 'col-sm-6 errormessage-diplomaLink' })
+                .appendTo(errorList4)
+                .click(function () {
+                    diplomaLink.focus();
+                })
+                //$('#errorMsg').show();
+                diplomaLink.parent().addClass('has-error');
+            }
+        }
+        else {
+            if (diplomaLink.parent().hasClass('has-error')) {
+                diplomaLink.parent().removeClass('has-error')
+            };
+            if (errorList4.find('.errormessage-diplomaLink').length > 0) {
+                errorList4.find('.errormessage-diplomaLink').remove();
+                //$('#errorMsg').hide();
+            }
+        }
+
+        if (errorList4.children('li').length > 0) {
+                $('#errorMsg4').show();
+            } else {
+                $('#errorMsg4').hide();
+                $('#suggestDiplomaBox').modal('hide');
+                diplomaname.val('');
+                diplomaDescription.val('');
+                diplomaLink.val('');
+            }
+    
+    });
+});

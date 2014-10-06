@@ -15,4 +15,19 @@ app.controller('postJobCntrl', ['$scope', function($scope){
         SkillLink.val('');
         $('#suggestSkillBox').modal('hide');
     }
+
+    $scope.cancelSuggestDiploma = function(){
+        $('#errorMsg4').hide();
+        errorList4.find('.errormessage-diplomaLink').remove();
+        diplomaLink.parent().removeClass('has-error');
+        errorList4.find('.errormessage-diplomaDescription').remove();
+        diplomaDescription.parent().removeClass('has-error');
+        errorList4.find('.errormessage-diplomaname').remove();
+        diplomaname.parent().removeClass('has-error');
+        diplomaname.val('');
+        diplomaDescription.val('');
+        diplomaLink.val('');
+        $('#suggestDiplomaBox').modal('hide');
+    }
+    
 }]);

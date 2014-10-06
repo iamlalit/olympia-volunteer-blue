@@ -1,9 +1,6 @@
 'use strict';
 /* main App */
-var app = angular.module('socialMediaController', []);
-
 app.controller('socialMediaCtrl', function($scope){
-
     $scope.typeOfOwner = '';
     function getParameterByName(name) {
         name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
