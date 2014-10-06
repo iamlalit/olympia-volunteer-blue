@@ -88,6 +88,9 @@ textarea[disabled] {
   background-color: #f5f5f2;
   cursor:not-allowed !important; 
 }
+.max-width-630 {
+  max-width: 630px;
+}
 .fa-facebook-square {
 color: #3b5998;
 font-size: 20px;
