@@ -6,7 +6,7 @@ app.controller('jobDetails', ['$scope', function ($scope) {
     $scope.postJobDiploma = ["Program coordinator", "Negotiation"];
     $scope.postJobTime = ["Full time(30-40 hours/week)"];
     $scope.postJobEstimated = ["Less than 3 months", "Less than 1 months"];
-    $scope.postJobTimeReq = ["Weekends - Full day", "Monday - Late Night"];
+    $scope.postJobTimeReq = ["Weekends - full day", "Monday - late Night"];
     $scope.postJobSchedule = ["Flexible schedule"];
     $scope.postJobIVO = ["Housing available"];
     $scope.postJobLanguage = ["English", "Dutch"];

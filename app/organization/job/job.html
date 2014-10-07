@@ -2,7 +2,7 @@
 <html ng-app="jobDetailsController">
 <head>
     <meta charset="utf-8">
-    <title>OLYMPIA</title>
+    <title>Job details</title>
     
     <link href="../../img/olympia-fav.ico" rel="shortcut icon" type="image/x-icon" />
     <link href="../../lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
@@ -55,7 +55,7 @@
                         <li class="active"><a href="../searchJob/searchJob.html" class='menu-interval' ng-style="{'color': topBarText}">Search Job</a></li>
                         <li><a href="../jobApplication/jobApplication.html" class='menu-interval' ng-style="{'color': topBarText}">Job Applications</a></li>
                         <li><a href="../recommendation/recommendation.html" class='menu-interval' ng-style="{'color': topBarText}">Recommendations</a></li>
-                        <li><a href="../../message/message.html?owner=volunteer" class='menu-interval' ng-style="{'color': topBarText}">Messages</a></li>
+                        <li><a href="../../message/message.html?owner=volunteer" class='menu-interval' ng-style="{'color': topBarText}">Messages<span class="message-number">23</span></a></li>
                     </ul>
                     <!-- Volunteer Menu end here-->
                     <ul class="nav navbar-nav navbar-right" ng-class="{ishidden: topBar}">
@@ -111,7 +111,7 @@
                             <span ng-bind="jobName"></span>
                         </div>
                         <div>
-                            <strong>Event Type: </strong><span>Event&nbsp;</span>
+                            <strong>Event type: </strong><span>Event&nbsp;</span>
                             <strong>Posted: </strong><span ng-bind="jobDate"></span>
                         </div>
                         <br />

@@ -2,7 +2,7 @@
 <html lang="en" ng-app="viewAppcontroller">
 <head>
     <meta charset="utf-8">
-    <title>OLYMPIA</title>
+    <title>View applications</title>
     <link href="../../img/olympia-fav.ico" rel="shortcut icon" type="image/x-icon" />
     <link href="../../lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" type="text/css" />
     <link href="../../lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
@@ -46,7 +46,7 @@
                 <li ><a href="../search/searchVol.html" class='menu-interval'>Search Volunteer</a></li>
                 <li ><a href="../postJob/postjob.html" class='menu-interval'>Post a Job</a></li>
                 <li class="active"><a href="#" class='menu-interval'>Job Postings</a></li>
-                <li><a href="../../message/message.html?owner=organization" class='menu-interval'>Messages</a></li>
+                <li><a href="../../message/message.html?owner=organization" class='menu-interval'>Messages<span class="message-number">23</span></a></li>
               </ul>
               
               <ul class="nav navbar-nav navbar-right">
@@ -102,7 +102,7 @@
                 <div class="col-lg-12">
                     <!-- Navigation back to page-->
                     <a href="../jobPost/jobPost.html" class="navigation" >
-                        <span class="fa fa-chevron-left black-arrow" style="float:left;margin-left:-15px;margin-top:-5px"></i><label class="blue-heading">Back to Job Postings</label>
+                        <span class="fa fa-chevron-left black-arrow" style="float:left;margin-left:-15px;margin-top:-5px"></i><label class="blue-heading">Back to job postings</label>
                     </a>
                 </div>
             </div>
@@ -137,10 +137,10 @@
                                     <label ng-show="showShortlisted" ng-bind="lengthOfshortlistedApplicants"></label>
                                     <label ng-show="showMessaged" ng-bind="lengthOfMessagedApplicants"></label>
                                     <label ng-show="showHired" ng-bind="lengthOfHiredApplicants"></label>
-                                    Applicants
+                                    applicants
                                 </span>
                                 <div class="sort-applicant align-right">
-                                    <label>Sort By:</label>
+                                    <label>Sort by:</label>
                                     <span>
                                         <select class="form-control pull-right select-option">
                                             <option value="values" ng-repeat="values in sortByList" ng-bind="values"></option>
@@ -192,10 +192,10 @@
                             <div class="row">
                                 <div class="col-sm-3 col-lg-3 col-md-3"></div>
                                 <div class="col-sm-8 col-lg-8 col-md-8" style="margin-left:-38px">
-                                    <span ng-show="applicant.value" ng-model="applicant.value"><a title="click to view the full application">View Full Application</a> | <a title="click to send the message" ng-click="moveApplicant(applicant, Applicants, messagedApplicants)">Send Message</a> | <a ng-click="moveApplicant(applicant, Applicants, hiredApplicants)" title="click to hire the applicant">Hire</a></span>
+                                    <span ng-show="applicant.value" ng-model="applicant.value"><a title="click to view the full application">View full application</a> | <a title="click to send the message" ng-click="moveApplicant(applicant, Applicants, messagedApplicants)">Send message</a> | <a ng-click="moveApplicant(applicant, Applicants, hiredApplicants)" title="click to hire the applicant">Hire</a></span>
                                 </div>
-                                <div class="col-sm-1 col-lg-1 col-md-1" ng-show="applicant.value" style="margin-left:30px"><span><a ng-model="more" ng-click="applicant.value=false" title="">Less</a></span></div>
-                                <div class="col-sm-1 col-lg-1 col-md-1" ng-show="!applicant.value" style="margin-left:30px"><span><a ng-model="more" ng-click="applicant.value=true" title="click to show more">More</a></span></div>
+                                <div class="col-sm-1 col-lg-1 col-md-1" ng-show="applicant.value" style="margin-left:30px"><span><a ng-model="more" ng-click="applicant.value=false" title="">less</a></span></div>
+                                <div class="col-sm-1 col-lg-1 col-md-1" ng-show="!applicant.value" style="margin-left:30px"><span><a ng-model="more" ng-click="applicant.value=true" title="click to show more">more</a></span></div>
                             </div>
                             <hr class="user-hr" ng-if="$index !== lengthOfApplicants-1" />
                         </div>
@@ -232,10 +232,10 @@
                                     <label ng-show="showShortlisted" ng-bind="lengthOfshortlistedApplicants"></label>
                                     <label ng-show="showMessaged" ng-bind="lengthOfMessagedApplicants"></label>
                                     <label ng-show="showHired" ng-bind="lengthOfHiredApplicants"></label>
-                                    Applicants
+                                    applicants
                                 </span>
                                 <div class="sort-applicant align-right">
-                                    <label>Sort By:</label>
+                                    <label>Sort by:</label>
                                     <span>
                                         <select class="form-control pull-right select-option">
                                             <option value="values" ng-repeat="values in sortByList" ng-bind="values"></option>
@@ -286,10 +286,10 @@
                             <div class="row">
                                 <div class="col-sm-3 col-lg-3 col-md-3"></div>
                                 <div class="col-sm-8 col-lg-8 col-md-8" style="margin-left:-38px">
-                                    <span ng-show="applicant.value" ng-model="applicant.value"><a>View Full Application</a></span>
+                                    <span ng-show="applicant.value" ng-model="applicant.value"><a>View full application</a></span>
                                 </div>
-                                <div class="col-sm-1 col-lg-1 col-md-1" ng-show="applicant.value" style="margin-left:30px"><span><a ng-model="more" ng-click="applicant.value=false">Less</a></span></div>
-                                <div class="col-sm-1 col-lg-1 col-md-1" ng-show="!applicant.value" style="margin-left:30px"><span><a ng-model="more" ng-click="applicant.value=true">More</a></span></div>
+                                <div class="col-sm-1 col-lg-1 col-md-1" ng-show="applicant.value" style="margin-left:30px"><span><a ng-model="more" ng-click="applicant.value=false">less</a></span></div>
+                                <div class="col-sm-1 col-lg-1 col-md-1" ng-show="!applicant.value" style="margin-left:30px"><span><a ng-model="more" ng-click="applicant.value=true">more</a></span></div>
                             </div>
                             <hr class="user-hr" ng-if="$index !== lengthOfHiddenApplicants-1" />
                         </div>
@@ -327,10 +327,10 @@
                                     <label ng-show="showShortlisted" ng-bind="lengthOfshortlistedApplicants"></label>
                                     <label ng-show="showMessaged" ng-bind="lengthOfMessagedApplicants"></label>
                                     <label ng-show="showHired" ng-bind="lengthOfHiredApplicants"></label>
-                                    Applicants
+                                    applicants
                                 </span>
                                 <div class="sort-applicant align-right">
-                                    <label>Sort By:</label>
+                                    <label>Sort by:</label>
                                     <span>
                                         <select class="form-control pull-right select-option">
                                             <option value="values" ng-repeat="values in sortByList" ng-bind="values"></option>
@@ -386,10 +386,10 @@
                             <div class="row">
                                 <div class="col-sm-3 col-lg-3 col-md-3"></div>
                                 <div class="col-sm-8 col-lg-8 col-md-8" style="margin-left:-38px">
-                                    <span ng-show="applicant.value" ng-model="applicant.value"><a>View Full Application</a> | <a ng-click="moveApplicant(applicant, shortlistedApplicants, messagedApplicants)" title="click to sent message to applicant">Send Message</a> | <a ng-click="moveApplicant(applicant, shortlistedApplicants, hiredApplicants)" title="click to hire the applicant">Hire</a></span>
+                                    <span ng-show="applicant.value" ng-model="applicant.value"><a>View full application</a> | <a ng-click="moveApplicant(applicant, shortlistedApplicants, messagedApplicants)" title="click to sent message to applicant">Send message</a> | <a ng-click="moveApplicant(applicant, shortlistedApplicants, hiredApplicants)" title="click to hire the applicant">Hire</a></span>
                                 </div>
-                                <div class="col-sm-1 col-lg-1 col-md-1" ng-show="applicant.value" style="margin-left:30px"><span><a ng-model="more" ng-click="applicant.value=false">Less</a></span></div>
-                                <div class="col-sm-1 col-lg-1 col-md-1" ng-show="!applicant.value" style="margin-left:30px"><span><a ng-model="more" ng-click="applicant.value=true">More</a></span></div>
+                                <div class="col-sm-1 col-lg-1 col-md-1" ng-show="applicant.value" style="margin-left:30px"><span><a ng-model="more" ng-click="applicant.value=false">less</a></span></div>
+                                <div class="col-sm-1 col-lg-1 col-md-1" ng-show="!applicant.value" style="margin-left:30px"><span><a ng-model="more" ng-click="applicant.value=true">more</a></span></div>
                             </div>
                             <hr class="user-hr" ng-if="$index !== lengthOfshortlistedApplicants-1" />
                         </div>
@@ -427,10 +427,10 @@
                                     <label ng-show="showShortlisted" ng-bind="lengthOfshortlistedApplicants"></label>
                                     <label ng-show="showMessaged" ng-bind="lengthOfMessagedApplicants"></label>
                                     <label ng-show="showHired" ng-bind="lengthOfHiredApplicants"></label>
-                                    Applicants
+                                    applicants
                                 </span>
                                 <div class="sort-applicant align-right">
-                                    <label>Sort By:</label>
+                                    <label>Sort by:</label>
                                     <span>
                                         <select class="form-control pull-right select-option">
                                             <option value="values" ng-repeat="values in sortByList" ng-bind="values"></option>
@@ -480,10 +480,10 @@
                             <div class="row">
                                 <div class="col-sm-3 col-lg-3 col-md-3"></div>
                                 <div class="col-sm-8 col-lg-8 col-md-8" style="margin-left:-38px">
-                                    <span ng-show="applicant.value" ng-model="applicant.value" title="click to view full application"><a>View Full Application</a> | <a title="click to sent message to applicant" >Send Message</a> | <a ng-click="moveApplicant(applicant, messagedApplicants, hiredApplicants)" title="click to hire the applicant">Hire</a></span>
+                                    <span ng-show="applicant.value" ng-model="applicant.value" title="click to view full application"><a>View full application</a> | <a title="click to sent message to applicant" >Send message</a> | <a ng-click="moveApplicant(applicant, messagedApplicants, hiredApplicants)" title="click to hire the applicant">Hire</a></span>
                                 </div>
-                                <div class="col-sm-1 col-lg-1 col-md-1" ng-show="applicant.value" style="margin-left:30px"><span><a ng-model="more" ng-click="applicant.value=false">Less</a></span></div>
-                                <div class="col-sm-1 col-lg-1 col-md-1" ng-show="!applicant.value" style="margin-left:30px"><span><a ng-model="more" ng-click="applicant.value=true">More</a></span></div>
+                                <div class="col-sm-1 col-lg-1 col-md-1" ng-show="applicant.value" style="margin-left:30px"><span><a ng-model="more" ng-click="applicant.value=false">less</a></span></div>
+                                <div class="col-sm-1 col-lg-1 col-md-1" ng-show="!applicant.value" style="margin-left:30px"><span><a ng-model="more" ng-click="applicant.value=true">more</a></span></div>
                             </div>
                             <hr class="user-hr" ng-if="$index !== lengthOfMessagedApplicants-1" />
                         </div>
@@ -522,10 +522,10 @@
                                     <label ng-show="showShortlisted" ng-bind="lengthOfshortlistedApplicants"></label>
                                     <label ng-show="showMessaged" ng-bind="lengthOfMessagedApplicants"></label>
                                     <label ng-show="showHired" ng-bind="lengthOfHiredApplicants"></label>
-                                    Applicants
+                                    applicants
                                 </span>
                                 <div class="sort-applicant align-right">
-                                    <label>Sort By:</label>
+                                    <label>Sort by:</label>
                                     <span>
                                         <select class="form-control pull-right select-option">
                                             <option value="values" ng-repeat="values in sortByList" ng-bind="values"></option>
@@ -567,10 +567,10 @@
                             <div class="row">
                                 <div class="col-sm-3 col-lg-3 col-md-3"></div>
                                 <div class="col-sm-8 col-lg-8 col-md-8" style="margin-left:-38px">
-                                    <span ng-show="applicant.value" ng-model="applicant.value" title="click to view the full application"><a>View Full Application</a></span>
+                                    <span ng-show="applicant.value" ng-model="applicant.value" title="click to view the full application"><a>View full application</a></span>
                                 </div>
-                                <div class="col-sm-1 col-lg-1 col-md-1" ng-show="applicant.value" style="margin-left:30px"><span><a ng-model="more" ng-click="applicant.value=false">Less</a></span></div>
-                                <div class="col-sm-1 col-lg-1 col-md-1" ng-show="!applicant.value" style="margin-left:30px"><span><a ng-model="more" ng-click="applicant.value=true">More</a></span></div>
+                                <div class="col-sm-1 col-lg-1 col-md-1" ng-show="applicant.value" style="margin-left:30px"><span><a ng-model="more" ng-click="applicant.value=false">less</a></span></div>
+                                <div class="col-sm-1 col-lg-1 col-md-1" ng-show="!applicant.value" style="margin-left:30px"><span><a ng-model="more" ng-click="applicant.value=true">more</a></span></div>
                             </div>
                             <hr class="user-hr" ng-if="$index !== lengthOfHiredApplicants-1" />
                         </div>

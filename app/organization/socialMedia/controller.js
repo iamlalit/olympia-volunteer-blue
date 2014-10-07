@@ -97,7 +97,7 @@ $(document).ready(function(){
         //password
         if (linkedinPass.val() == '' || linkedinPass.val() == null) {
             if (errorList1.find('.errormessage-linkedinPass').length == 0) {
-                $('<li />', { html: 'Linkedin Password is required!', class: 'col-sm-6 errormessage-linkedinPass' })
+                $('<li />', { html: 'Linkedin password is required!', class: 'col-sm-6 errormessage-linkedinPass' })
 				.appendTo(errorList1)
 				.click(function () {
 				    $('html, body').animate({

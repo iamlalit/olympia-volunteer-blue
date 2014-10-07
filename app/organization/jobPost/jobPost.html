@@ -2,7 +2,7 @@
 <html lang="en" ng-app="jobPostcontroller">
 <head>
     <meta charset="utf-8">
-    <title>OLYMPIA</title>    
+    <title>Job postings</title>    
     <!-- font for main content -->
     <link href="//fonts.googleapis.com/css?family=PT+Sans:400italic,400,700italic,700"/>
     <link href="../../img/olympia-fav.ico" rel="shortcut icon" type="image/x-icon" />
@@ -55,7 +55,7 @@
                 <li ><a href="../search/searchVol.html" class='menu-interval'>Search Volunteer</a></li>
                 <li ><a href="../postJob/postjob.html"  class='menu-interval'>Post a Job</a></li>
                 <li class="active"><a href="#" class='menu-interval'>Job Postings</a></li>
-                <li><a href="../../message/message.html?owner=organization" class='menu-interval'>Messages</a></li>
+                <li><a href="../../message/message.html?owner=organization" class='menu-interval'>Messages<span class="message-number">23</span></a></li>
               </ul>
               
               <ul class="nav navbar-nav navbar-right">
@@ -135,7 +135,7 @@
                             <tr ng-repeat="user in $data | filter:statusShow.status">
                                 <td data-title="'Job Title'" sortable="'jobTitle'">
                                     <span><a href="../viewApp/viewApp.html?jobTitle={{user.jobTitle}}">{{user.jobTitle}}</a></span><br/>
-                                    <span style="font-size:12px;">{{user.client}}<a style="padding-left:20px" href="../../volunteer/jobDetails/jobDetails.html?jobName={{user.jobTitle}}&jobDate={{user.jobDate}}">View Job Postings</a></span>
+                                    <span style="font-size:12px;">{{user.client}}<a style="padding-left:20px" href="../../volunteer/jobDetails/jobDetails.html?jobName={{user.jobTitle}}&jobDate={{user.jobDate}}">View job postings</a></span>
                                 </td>
                                 <td data-title="'Applicants'" sortable="'Applicants'" class="text-center">
                                     <span><a href="../viewApp/viewApp.html?jobTitle={{user.jobTitle}}">{{user.Applicants}}</a></span>
