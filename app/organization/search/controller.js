@@ -8,15 +8,15 @@ app.controller('searchVolCtrl', function($scope){
       $scope.categories = ['Aggriculture', 'Animals', 'Arts', 'Communications access', 
 	'Community development', 'conflict resolution'];
 	
-      $scope.skills = ['Answering Telephones', 'Accounting', 'Administration', 'Business Correspondence', 'Client Relations', 'Communication',
-            'Crowd Control', 'Crime & Safety', 'Customer Service', 'Cooking', 'Clerical', 'Document Management', 'Disaster Relief', 
-            'Event Coordination', 'Employee Relations', 'Legal Familiarity', 'Meeting Planning', 'Office Administration',
-            'Organizational Skills', 'Problem Solving', 'Public Relations', 'Public Speaking', 'People Management', 'Receptionist', 'Stenography', 
-            'Travel Arrangements', 'Word Processing', 'Written Communication'];
+      $scope.skills = ['Answering telephones', 'Accounting', 'Administration', 'Business correspondence', 'Client relations', 'Communication',
+            'Crowd control', 'Crime & safety', 'Customer service', 'Cooking', 'Clerical', 'Document management', 'Disaster relief', 
+            'Event coordination', 'Employee relations', 'Legal familiarity', 'Meeting planning', 'Office administration',
+            'Organizational skills', 'Problem solving', 'Public relations', 'Public speaking', 'People management', 'Receptionist', 'Stenography', 
+            'Travel arrangements', 'Word processing', 'Written communication'];
 	
-      $scope.diplomas = ['First Aid Diploma', 'Community Service Coordination', 'Football Referee License', 'Active Volunteering', 'Training and Assessmement', 
-                  'Program Coordination', 'Effective Communication', 'Negotiation', 
-                  'Customer Service', 'Risk Management'];
+      $scope.diplomas = ['First aid diploma', 'Community service coordination', 'Football referee license', 'Active volunteering', 'Training and assessmement', 
+                  'Program coordination', 'Effective communication', 'Negotiation', 
+                  'Customer service', 'Risk management'];
 
       $scope.languages = ['Afrikaans','Albanian', 'Arabic', 'Armenian', 'Azerbaijani', 'Basque', 'Belarusian', 'Bengali', 'Bosnian', 'Bulgarian', 
             'Catalan', 'Cebuano', 'Chinese', 'Danish', 'Dutch', 'English', 'Esperanto', 'Estonian', 'Filipino', 'French', 'Georgian', 
@@ -25,13 +25,13 @@ app.controller('searchVolCtrl', function($scope){
             'Spanish',  'Swedish', 'Thai', 'Turkish', 'Ukrainian', 'Urdu', 'Vietnamese', 'Welsh', 'Yoruba',
              'Zulu'];
 
-      $scope.timePreference = ['Monday - Full day', 'Tuesday - Full day', 'Wednesday - Full day', 'Thursday - Full day', 'Friday - Full day', 'Saturday - Full day', 'Sunday - Full day', 
-        	'Monday - Morning', 'Tuesday - Morning', 'Wednesday - Morning', 'Thursday - Morning', 'Friday - Morning', 'Saturday - Morning', 'Sunday - Morning', 
-        	'Monday - Afternoon', 'Tuesday - Afternoon', 'Wednesday - Afternoon', 'Thursday - Afternoon', 'Friday - Afternoon', 'Saturday - Afternoon', 'Sunday - Afternoon', 
-        	'Monday - Evening', 'Tuesday - Evening', 'Wednesday - Evening', 'Thursday - Evening', 'Friday - Evening', 'Saturday - Evening', 'Sunday - Evening', 
+      $scope.timePreference = ['Monday - full day', 'Tuesday - full day', 'Wednesday - full day', 'Thursday - full day', 'Friday - full day', 'Saturday - full day', 'Sunday - full day', 
+        	'Monday - morning', 'Tuesday - morning', 'Wednesday - morning', 'Thursday - morning', 'Friday - morning', 'Saturday - morning', 'Sunday - morning', 
+        	'Monday - afternoon', 'Tuesday - afternoon', 'Wednesday - afternoon', 'Thursday - afternoon', 'Friday - afternoon', 'Saturday - afternoon', 'Sunday - afternoon', 
+        	'Monday - evening', 'Tuesday - evening', 'Wednesday - evening', 'Thursday - evening', 'Friday - evening', 'Saturday - evening', 'Sunday - evening', 
         	'Monday - Late Night', 'Tuesday - Late Night', 'Wednesday - Late Night', 'Thursday - Late Night', 'Friday - Late Night', 'Saturday - Late Night', 'Sunday - Late Night'];
         	
-  $scope.sortByList = ['Best Match', 'Newest Applicants', 'Oldest Applicants', 'Feedback'];
+  $scope.sortByList = ['Best match', 'Newest applicants', 'Oldest applicants', 'Feedback'];
 
   $scope.Applicants = [];
 	$scope.Applicants.push({Name:"Marleen Bosch",
@@ -46,7 +46,7 @@ app.controller('searchVolCtrl', function($scope){
             NumbertoStart: 7,
             joined: 'Joined 1 year ago',
             lastActive: 'Last active: 1 day ago',
-            volunteerSkills: ['Education', 'Crowd control', 'Caring for People', 'Damage control', 'First aid'],
+            volunteerSkills: ['Education', 'Crowd control', 'Caring for people', 'Damage control', 'First aid'],
             invited: true,   
             selected: false,
             value: false
@@ -62,7 +62,7 @@ app.controller('searchVolCtrl', function($scope){
             contact: '2',
             joined: 'Joined 5 year ago',
             lastActive: 'Last active: 10 days ago',
-            volunteerSkills: ['Cooking', 'First aid', 'Education', 'Caring for People', 'Communication'],
+            volunteerSkills: ['Cooking', 'First aid', 'Education', 'Caring for people', 'Communication'],
             invited: false,
             selected: false,
             value: false
@@ -78,7 +78,7 @@ app.controller('searchVolCtrl', function($scope){
             contact: '0',
             joined: 'Joined 3 months ago',
             lastActive: 'Last active: 1 month ago',
-            volunteerSkills: ['Damage control', 'First aid', 'Caring for People', 'Communication'],
+            volunteerSkills: ['Damage control', 'First aid', 'Caring for people', 'Communication'],
             invited: false,
             selected: false,
             value: false    
@@ -94,7 +94,7 @@ app.controller('searchVolCtrl', function($scope){
             contact: '3',
             joined: 'Joined 1 day ago',
             lastActive: 'Last active: 1 day ago',
-            volunteerSkills: ['Cooking', 'Caring for People', 'Communication'],
+            volunteerSkills: ['Cooking', 'Caring for people', 'Communication'],
             invited: true,
             selected: false,
             value: false      
@@ -110,7 +110,7 @@ app.controller('searchVolCtrl', function($scope){
             contact: '4',
             joined: 'Joined 6 months ago',
             lastActive: 'Last active: 6 days ago',
-            volunteerSkills: ['Cooking', 'Education', 'Caring for People', 'Communication'],
+            volunteerSkills: ['Cooking', 'Education', 'Caring for people', 'Communication'],
             invited: false,
             selected: false,      
             value: false
@@ -143,7 +143,7 @@ app.controller('searchVolCtrl', function($scope){
             contact: '6',
             joined: 'Joined 1 year ago',
             lastActive: 'Last active: 1 day ago',
-            volunteerSkills: ['Cooking', 'Caring for People', 'Communication'],
+            volunteerSkills: ['Cooking', 'Caring for people', 'Communication'],
             invited: true,   
             selected: false,
             value: false
@@ -207,7 +207,7 @@ app.controller('searchVolCtrl', function($scope){
             contact: '10',
             joined: 'Joined 6 months ago',
             lastActive: 'Last active: 2 days ago',
-            volunteerSkills: ['Damage control', 'First aid', 'Caring for People', 'Communication'],
+            volunteerSkills: ['Damage control', 'First aid', 'Caring for people', 'Communication'],
             invited: false,
             selected: false,      
             value: false
@@ -230,7 +230,7 @@ app.controller('searchVolCtrl', function($scope){
     }); 
       
 
-    $scope.volunteerSkills = ['Cooking', 'Education', 'Caring for People', 'Communication', 'Crowd control', 'Damage control', 'First aid'];
+    $scope.volunteerSkills = ['Cooking', 'Education', 'Caring for people', 'Communication', 'Crowd control', 'Damage control', 'First aid'];
       $scope.favouriteApplicants = [];
       $scope.groupedItems = [];
       $scope.applicantsPerPage = 8;
@@ -308,7 +308,6 @@ app.controller('searchVolCtrl', function($scope){
                 }   
 
             }else{
-                console.log("unselect me");
                 $scope.deleteApplicant(item, to,from);
             }
             $scope.lengthOfFavouriteApplicants = $scope.favouriteApplicants.length;
@@ -319,8 +318,7 @@ app.controller('searchVolCtrl', function($scope){
             var idx2=to.indexOf(item);
             if (idx != -1) {
                   from.splice(idx, 1);
-            }
-            console.log($scope.Applicants[idx2]);     
+            }   
             $scope.Applicants[idx2].selected = false;
             $scope.lengthOfFavouriteApplicants = $scope.favouriteApplicants.length;
       }
@@ -386,18 +384,18 @@ app.controller('searchVolCtrl', function($scope){
 });
 
 app.controller('modalVolCtrl', function($scope) {
-      $scope.jobPost = [{jobTitle: "Volunteer Grant Writers", client:"Posted 1 month ago by Hans Klevenbeek" ,Applicants: 50, messaged: 3, hired:2, status:"Open"},
-          {jobTitle: "Outreach Volunteer", client:"Posted 2 years ago by Hans Klevenbeek", Applicants: 27, messaged: 1, hired:0, status:"Closed"},
-          {jobTitle: "Volunteer Coordinator - Volunteer", client:"Posted 4 days ago by Hans Klevenbeek", Applicants: 34, messaged: 1, hired:1, status:"Open"},
-          {jobTitle: "Crowd Control Volunteering", client:"Posted 6 weeks ago by Hans Klevenbeek", Applicants: 43, messaged: 3, hired:0, status:"Open"},
-          {jobTitle: "Football Refree Volunteer", client:"Posted 2 months ago by Hans Klevenbeek", Applicants: 27, messaged: 2, hired:0, status:"Closed"},
-          {jobTitle: "Volunteering Coordinator", client:"Posted 3 weeks ago by Hans Klevenbeek", Applicants: 34, messaged: 5, hired:3, status:"Open"},
-          {jobTitle: "Crowd Control Volunteer", client:"Posted 2 weeks ago by Hans Klevenbeek", Applicants: 43, messaged: 4, hired:2, status:"Closed"},
-          {jobTitle: "Football Refree Volunteering", client:"Posted 1 month ago by Hans Klevenbeek", Applicants: 34, messaged: 1, hired:0, status:"Closed"},
-          {jobTitle: "Public Relation Intern - Volunteer", client:"Posted 10 days ago by Hans Klevenbeek", Applicants: 34, messaged: 3, hired:2, status:"Open"}];
+      $scope.jobPost = [{jobTitle: "Volunteer grant writers", client:"Posted 1 month ago by Hans Klevenbeek" ,Applicants: 50, messaged: 3, hired:2, status:"Open"},
+          {jobTitle: "Outreach volunteer", client:"Posted 2 years ago by Hans Klevenbeek", Applicants: 27, messaged: 1, hired:0, status:"Closed"},
+          {jobTitle: "Volunteer coordinator - volunteer", client:"Posted 4 days ago by Hans Klevenbeek", Applicants: 34, messaged: 1, hired:1, status:"Open"},
+          {jobTitle: "Crowd control volunteering", client:"Posted 6 weeks ago by Hans Klevenbeek", Applicants: 43, messaged: 3, hired:0, status:"Open"},
+          {jobTitle: "Football refree volunteer", client:"Posted 2 months ago by Hans Klevenbeek", Applicants: 27, messaged: 2, hired:0, status:"Closed"},
+          {jobTitle: "Volunteering coordinator", client:"Posted 3 weeks ago by Hans Klevenbeek", Applicants: 34, messaged: 5, hired:3, status:"Open"},
+          {jobTitle: "Crowd control volunteer", client:"Posted 2 weeks ago by Hans Klevenbeek", Applicants: 43, messaged: 4, hired:2, status:"Closed"},
+          {jobTitle: "Football refree volunteering", client:"Posted 1 month ago by Hans Klevenbeek", Applicants: 34, messaged: 1, hired:0, status:"Closed"},
+          {jobTitle: "Public relation intern - volunteer", client:"Posted 10 days ago by Hans Klevenbeek", Applicants: 34, messaged: 3, hired:2, status:"Open"}];
       var message = "Hello, \n\n"+
                   "I'd like to personally invite you to apply to my job. Please review the job post and apply if you are available \n\n"+
-                  "Rob";
+                  "Hans Klevenbeek";
       $("#modalMessage").val(message);
 });
 
