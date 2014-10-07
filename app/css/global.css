@@ -928,3 +928,15 @@ table thead{
 .skillsSet label i.red{
   color: #ec6a38;
 }
+/* messages new number */
+.message-number{
+  width: 20px;
+  height: 20px;
+  background: #ed6623;
+  padding: 4px 6px;
+  margin-left: 5px;
+  border-radius: 5px;
+  color: #fff;
+  font-weight: 500;
+  font-size: 14px;
+}

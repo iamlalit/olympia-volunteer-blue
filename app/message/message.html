@@ -2,11 +2,8 @@
 <html lang="en" ng-app="messageApp">
 <head>
     <meta charset="utf-8">
-    <title>Olympia</title>
+    <title>Message</title>
     <link href="../img/olympia-fav.ico" rel="shortcut icon" type="image/x-icon" />
-
-    
-    <!-- font for main content -->
     <link href="//fonts.googleapis.com/css?family=PT+Sans:400italic,400,700italic,700" />
     <link href="../../img/olympia-fav.ico" rel="shortcut icon" type="image/x-icon" />
     <link href="../lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
@@ -56,7 +53,7 @@
                         <li><a href="../Volunteer/searchJob/searchJob.html" class='menu-interval'>Search Job</a></li>
                         <li><a href="../Volunteer/jobApplication/jobApplication.html" class='menu-interval'>Job Applications</a></li>
                         <li><a href="../volunteer/recommendation/recommendation.html" class='menu-interval'>Recommendations</a></li>
-                        <li class="active"><a href="#" class='menu-interval'>Messages</a></li>
+                        <li class="active"><a href="#" class='menu-interval'>Messages<span class="message-number">20</span></a></li>
                     </ul>
                     <!-- Volunteer Menu end here-->
                     <!-- organization Menu start-->
@@ -64,7 +61,7 @@
                         <li ><a href="../organization/search/searchVol.html" class='menu-interval'>Search Volunteer</a></li>
                         <li><a href="../organization/postJob/postJob.html"  class='menu-interval'>Post a Job</a></li>
                         <li><a href="../organization/jobPost/jobPost.html" class='menu-interval'>Job Postings</a></li>
-                        <li class="active"><a href="#" class='menu-interval'>Messages</a></li>
+                        <li class="active"><a href="#" class='menu-interval'>Messages<span class="message-number">20</span></a></li>
                     </ul>
                     <!-- organization ends here start-->
                     <ul class="nav navbar-nav navbar-right">
@@ -150,7 +147,7 @@
                     <div class="">
                         <div class="row-fluid">
                             <div class="col-lg-12 margin-bottom-15 padding-right-0">
-                                <a href="" class="btn btn-primary active col-lg-12" ng-click="toggle(3);$parent.showMessage = false">New Message</a>
+                                <a href="" class="btn btn-primary active col-lg-12" ng-click="toggle(3);$parent.showMessage = false">New message</a>
                             </div>
                         </div>
                         <div class="row-fluid">
@@ -344,7 +341,7 @@
                                     </div>
                                 </div>
                                 <hr class="create-hr margin-top-0 col-sm-12 padding-rl-0">
-                                <label class="padding-left-15 col-sm-12">Reply to All</label>      
+                                <label class="padding-left-15 col-sm-12">Reply to all</label>      
                                 <div class="padding-left-15">
                                     <textarea class="text-area" cols="75" rows="8"></textarea>
                                 </div>

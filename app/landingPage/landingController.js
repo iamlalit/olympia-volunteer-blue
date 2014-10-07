@@ -11,22 +11,22 @@ landingController.controller('landingPage', ['$scope', function ($scope) {
         {
             'imgLink': '../img/name7.png',
             'name': 'Betsy Chang',
-            'skill': 'PhotoGrapher'
+            'skill': 'Photographer'
         },
         {
             'imgLink': '../img/name9.png',
             'name': 'Darius Kasperitis',
-            'skill': 'Python Developer'
+            'skill': 'Python developer'
         },
         {
             'imgLink': '../img/name11.png',
             'name': 'Marleen Dijkstra',
-            'skill': 'Software Developer'
+            'skill': 'Software developer'
         },
         {
             'imgLink': '../img/name5.png',
             'name': 'Henk-jan Bosch',
-            'skill': 'Crowd Controller'
+            'skill': 'Crowd controller'
         }
     ];
     $scope.profileModelOrganization = [
