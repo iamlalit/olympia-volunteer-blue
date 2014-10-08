@@ -786,9 +786,9 @@ Header Search Box
     float: left; /* IE 9 Fix */
 }
 .nav>li>a {
-position: relative;
-display: block;
-padding: 15px 12px;
+    position: relative;
+    display: block;
+    padding: 15px 8px;
 }
 /*alert message*/
 .alert-danger {

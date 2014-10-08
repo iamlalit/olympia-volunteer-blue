@@ -3,18 +3,14 @@
 <head>
     <meta charset="utf-8">
     <title>OLYMPIA</title>
-    
     <link href="../../img/olympia-fav.ico" rel="shortcut icon" type="image/x-icon" />
     <link href="../../lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="../../css/bootstrap-responsive.min.css" rel="stylesheet">
     <link href="../../css/font-awesome.css" rel="stylesheet">
     <link rel="stylesheet" href="../../css/organization/postJob/postJob.css"/>
+    <link rel="stylesheet" href="../../css/organization/searchVol/searchVol.css"/>
     <link href="../../css/global.css" rel="stylesheet">
     <link href="../../css/organization/viewApp/viewApp.css" rel="stylesheet">
-    
-    <link href="../../css/volunteer/jobDetails/jobDetails.css" rel="stylesheet">
-    <link href="../../css/slider/slider.css" rel="stylesheet" />
-    <link href="../../css/volunteer/volunteerProfile/volunteerProfile.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../../css/header/header.css">
     <style type="text/css">
         .superContainer{
@@ -29,6 +25,78 @@
             width: 164px;
             display: inline-block;
             vertical-align: top;
+        }
+        .navbar-brand {
+            float: left;
+            height: 35px;
+            margin-top: 40px;
+            padding-left: 170px;
+            padding-right: 10px;
+            padding-bottom: 0px;
+            padding-top: 0px;
+            line-height: 20px;
+        }
+        .nav>li>a {
+            position: relative;
+            display: block;
+            padding: 15px 8px;
+        }
+        .menu-interval {
+            font-family: Arial;
+            font-weight: 500;
+            font-size: 15px;
+            line-height: 1em;
+        }
+        .navbar-right li a#hover-header-right {
+            border-radius: 4px 4px 4px 4px;
+            font-size: 12px;
+            position: relative;
+            margin-top: 16px;
+            padding: 4px 9px 4px 9px;
+            font-weight: 700;
+            margin-right: 5px;
+            cursor: pointer;
+            vertical-align: text-bottom;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            vertical-align: text-bottom;
+            color: #777777;
+        }
+        .navbar-right li a#icons-header-right span.fa-exclamation {
+            top: 3px;
+            text-align: center;
+            display: block;
+        }
+        .navbar-right li a#icons-header-right i {
+            display: block;
+            text-align: center;
+            top: 4px;
+            left: -1px;
+            font-size: 16px;
+        }
+        .navbar-right li a#icons-header-right span.fa-question {
+            display: block;
+            text-align: center;
+            top: 3px;
+            left: 0px;
+        }
+
+        .navbar-right li a#icons-header-right {
+            margin-top: 13px;
+            margin-right: 5px;
+            font-size: 17px;
+            content: ' ';
+            padding: 0;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            color: #ffffff;
+            background-color: #aed2e5;
+            border-radius: 100%;
+            webkit-box-shadow: inset 0px -2px 0px 0px rgba(6, 113, 169, 0.19);
+            -moz-box-shadow: inset 0px -2px 0px 0px rgba(6, 113, 169, 0.19);
+            box-shadow: inset 0px -2px 0px 0px rgba(6, 113, 169, 0.19);
         }
     </style>
 
@@ -50,13 +118,14 @@
                     <a class="navbar-brand" href="#"><img src="../../img/logo.png"></a>
                 </div>
 
+                    <!-- Volunteer Menu ??Start-->
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <!-- Volunteer Menu Start-->
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="../searchJob/searchJob.html" class='menu-interval'>Search Job</a></li>
+                        <li class="active"><a href="#" class='menu-interval'>Search Jobs</a></li>
                         <li><a href="../jobApplication/jobApplication.html" class='menu-interval'>Job Applications</a></li>
                         <li><a href="../recommendation/recommendation.html" class='menu-interval'>Recommendations</a></li>
+                        <li><a href="#" class='menu-interval'>My Profile</a></li>
                         <li><a href="../../message/message.html?owner=volunteer" class='menu-interval'>Messages<span class="message-number">23</span></a></li>
                     </ul>
                     <!-- Volunteer Menu end here-->
@@ -65,7 +134,7 @@
                         <li class='dropdown pull-right'>
                             <a href="#" class="dropdown-toggle" id="icons-header-right" data-toggle="dropdown"><i class='fa fa-cog'></i></a>
                             <ul class="dropdown-menu">
-                                <li role="presentation"><a role="menuitem" href="../createProfileForm/createProfile.html"><img src="../../img/VV_Icon_Profile.png" width="25" height="25"> My Profile</a></li>
+                                <li role="presentation"><a role="menuitem" href="../createProfileForm/createProfile.html"><img src="../../img/VV_Icon_Profile.png" width="25" height="25"> Edit Profile</a></li>
                                 <li role="presentation" class="divider"></li>
                                 <li role="presentation"><a role="menuitem" href="../../myAccount/myAccount.html?owner=volunteer">&nbsp;<i class='fa fa-wrench'></i> &nbsp;My Account</a></li>
                                 <li role="presentation" class="divider"></li>
@@ -97,153 +166,54 @@
             </div><!-- /.container-fluid -->
         </div>
     </header>
+
     <div class="superContainer">
         <div class="containerB">
             <span class="prototype-scheme">PROTOTYPE</span>
         </div>
-        <div class="containerA">
-            <div class="row margin-rl-0">
-                <div class="main-border1 background-white col-sm-8">
-                    <img src="{{volunteerImage}}"  width="70" height="73" class="margin-top-15">
-                    <div class="inline-block  margin-top-15 valign-top">
-                        <span id='heading-form' class="inline-block padding-left-5 bold line-height-23" ng-bind="volunteerName">Hans Klevenbeek</span>
-                        <br>
-                        <span class="padding-left-5 margin-top-10">{{volunteerCity}}</span>
-                    </div>
-                    <div class=" padding-rl-0 margin-top-10 margin-bottom-10">
-                        <div class="row margin-rl-0 margin-top-15">
-                            <span class="small-pill" ng-class="{'margin-left-10':$index != 0}" ng-repeat="volunteerSkill in volunteerSkills" ng-bind="volunteerSkill"></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4 padding-right-0">
-                    <div class="margin-bottom-10">
-                        <button class="btn btn-primary active apply-button" type="button" ng-click="contactVolunteer()">Contact Volunteer</button>
-                    </div>
-                    <div class="main-border1 background-white">
-                        <div class="row margin-rl-0">
-                            <div class="col-sm-4 padding-rl-0">
-                                <h5 class="bold">Follow me on:</h5>
-                            </div>
-                            <div class="col-sm-8">
-                                <div class="social-network-icon-wrap" style="padding-right:28px">
-                                    <a href="#" class="social-network-icons">
-                                        <span class="footer-circle footer-circle-twitter pull-right">
-                                            <i class="fa fa-twitter font-size-20 icon-attr1"> </i>
-                                        </span>
-                                    </a>
-                                    <a href="#" class="footer-select social-network-icons">
-                                        <span class="footer-circle footer-circle-linkedin pull-right">
-                                            <i class="fa fa-linkedin font-size-20 icon-attr1"> </i>
-                                        </span>
-                                    </a>
-                                    <a href="#" class="social-network-icons">
-                                        <span class="footer-circle footer-circle-facebook pull-right">
-                                            <i class="fa fa-facebook font-size-20 icon-attr1"> </i>
-                                        </span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row margin-rl-0 margin-top--3">
-                            <div class="col-sm-4 padding-rl-0">
-                                <label>Birthday:</label>
-                            </div>
-                            <div class="col-sm-8">
-                                <span>July 23</span>
-                            </div>
-                        </div>
-                        <div class="col-sm-12 padding-rl-0">
-                            <label>Phone number:</label>
-                            <span>&nbsp;&nbsp;&nbsp;+44-9765456711</span>
-                        </div>
-                        <div class="row margin-bottom-0">
-                            &nbsp;
-                        </div>
-                    </div>
-                </div>
+        <div class="containerA" ng-init="showrecent = true;hideIt = false" >
+            <div class="header-box">
+                <div class="row margin-rl-0">
 
+                    <div class="col-lg-3 padding-rl-0">
+                        <select class="form-control select-option">
+                            <option value="Volunteers">Volunteers</option>
+                            <option value="Organizations">Organizations</option>
+                            <option value="Volunteer Organizations">Volunteer Organizations</option>
+                            <option value="Jobs">Jobs</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-4 padding-rl-0">
+                        <span class="search-txt">what&nbsp;</span>
+                        <input type="text" placeholder="Keywords (e.g. name, interests or skills)" class="wat-text"/>
+                    </div>
+
+                    <div class="col-lg-3 padding-rl-0">
+                        <span class="search-txt">where&nbsp;</span>
+                        <input type="text" placeholder="City or post code" class="waar-text"/>
+                    </div>
+                    <div class="col-lg-1 padding-rl-0">
+                            <select class="select-search">
+                                <option value="5 km">5 km</option>
+                                <option value="10 km">10 km</option>
+                                <option value="15 km">15 km</option>
+                                <option value="20 km">20 km</option>
+                                <option value="25 km">25 km</option>
+                                <option value="30 km" selected="selected">30 km</option>
+                                <option value="35 km">35 km</option>
+                                <option value="40 km">40 km</option>
+                                <option value="45 km">45 km</option>
+                                <option value="50 km">50 km</option>
+                            </select>
+                    </div>
+
+                    <div class="col-lg-1 padding-rl-0" >
+                        <button type="button" class="btn btn-primary pull-right small-btn active"><span class="fa fa-search"></span>&nbsp;Search</button>
+                    </div>
+                </div>
             </div>
-                
             <div class="row margin-rl-0">
-                <div class="col-sm-8 padding-rl-0">
-                    <div class="main-border1 background-white" ng-init="showMoreLess = false">
-                        <h4 class="margin-top-0 bold">About Volunteer</h4>
-                        <p>I am four-year student in Biology working towards a Master's degree. I have fundamental basis in Ecology, Plant physiology and development and i have ever done several research projects in laboratories working on Evolutionary Biology.</p>
-                        <p>I am really interested in environment protection and wild life conservation. I have also a French Activity leader Certificate and I am a coordinator in summer camps. I really like to spend time with children.
-                            <span ng-click="showMoreLess = !showMoreLess" ng-show="showMoreLess == false"><a href="">more</a></span>
-                        </p>
-                        
-                        <p ng-show="showMoreLess == true">I have a good command of English. I'm an eco-friendly person conerned about the environmental issues. I'm a loving caring person. I'm serious about evrything. I'm looking for an oppurtunity to help othersin a different way and experience a colourful life.
-                            <span ng-click="showMoreLess = !showMoreLess" ng-show="showMoreLess == true"><a href="">less</a></span>
-                        </p>
-                    </div>
-                    <div class="main-border1 background-white">
-                        <h4 class="margin-top-0 bold">Employment/Volunteering job history</h4>
-                        
-                        <div ng-repeat="job in listOfJobs track by $index">
-                            <div class='padding-rl-0 margin-bottom-5'>
-                                <span><a href="../jobDetails/jobDetails.html?jobName={{job.name}}&jobDate=About%201%20hour%20ago" ng-bind="job.name"></a></span>
-                            </div>
-                            <p class="margin-bottom-1"><label class="margin-bottom-0">Organization - </label>&nbsp;<span ng-bind="job.organization"></span></p>
-                            <p class="margin-bottom-1"><label class="margin-bottom-0">From - </label>&nbsp;<span ng-bind="job.startDate"></span>&nbsp;&nbsp;<label class="margin-bottom-0">To - </label>&nbsp;<span ng-bind="job.endDate"></span></p>
-                            <p class="margin-bottom-1"><label class="margin-bottom-0">Description - </label>&nbsp;<span ng-bind="job.description"></span></p>
-                            <div class="image-scroller" ng-if="$index==0">
-                                <div class="icon-left">
-                                    <i class="fa fa-angle-left" id="left"></i>
-                                </div>
-                                <div id="slides">
-                                    <img src="../../img/scrolling1.jpg" width="200" height="140" alt="smile" id="image0"/>
-                                    <img src="../../img/scrolling2.jpg" width="200" height="140" alt="smile" id="image1"/>
-                                    <img src="../../img/scrolling3.png" width="200" height="140" alt="smile" id="image2"/> 
-                                    <img src="../../img/scrolling1.jpg" width="200" height="140" alt="smile" id="image3"/> 
-                                    <img src="../../img/scrolling2.jpg" width="200" height="140" alt="smile" id="image4"/> 
-                                </div>
-                                <div class="icon-right">
-                                    <i class="fa fa-angle-right" id="right"></i>
-                                </div>
-                            </div>
-                            <div class="row margin-top-10 margin-bottom-10" ng-if="$index !== lengthOfJobs-1">
-                                <div class="col-sm-12 padding-right-5">
-                                    <div class="hr1"></div>
-                                </div>  
-                            </div>
-                        </div>
-                    </div>
-                    <div class="main-border1 background-white">
-
-                        <h4 class="margin-top-0 bold">Schools</h4>
-                        
-                        <div ng-repeat="school in listOfSchools track by $index">
-                            <div class='padding-rl-0 margin-bottom-5'>
-                                <span class="margin-right-15"><a href="" ng-bind="school.name"></a></span>
-                            </div>
-                            <p class="margin-bottom-1"><label class="margin-bottom-0">Degree - </label>&nbsp;<span ng-bind="school.degree"></span></p>
-                            <p class="margin-bottom-1"><label class="margin-bottom-0">Area Of Study - </label>&nbsp;<span ng-bind="school.areaOfStudy"></span></p>
-                            <p class="margin-bottom-1"><label class="margin-bottom-0">From - </label>&nbsp;<span ng-bind="school.startDate"></span>&nbsp;&nbsp;<label class="margin-bottom-0">To - </label>&nbsp;<span ng-bind="school.endDate"></span></p>
-                            <div class="row margin-top-10 margin-bottom-10" ng-if="$index !== lengthOfSchools-1">
-                                <div class="col-sm-12 padding-right-5">
-                                    <div class="hr1"></div>
-                                </div>  
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4 padding-right-0">
-                    <div class="main-border1 background-white">
-                        <label class="margin-bottom-0">Volunteer work interests:</label>
-                        <div class="row margin-rl-0 margin-bottom-15 margin-top--3">
-                            <span class="small-pill" ng-repeat="volWork in contactVolWork" ng-bind="volWork"></span>
-                        </div>
-                        <label class="margin-bottom-0">Diploma/Certificates:</label>
-                        <div class="row margin-rl-0 margin-bottom-15 margin-top--3">
-                            <span class="small-pill" ng-repeat="diploma in contactVolDiploma" ng-bind="diploma"></span>
-                        </div>
-                        <label class="margin-bottom-0">Working time preferences:</label>
-                        <div class="row margin-rl-0 margin-bottom-15 margin-top--3">
-                            <span class="small-pill" ng-repeat="volTime in contactVolTime" ng-bind="volTime"></span>
-                        </div>
-                    </div>
+                <div class="main-border1 width-auto border-main-border1 padding-top-0 padding-bottom-0" style="height:350px;">
                 </div>
             </div>
         </div>
@@ -327,6 +297,5 @@
     <script src="../../lib/angular/angular.min.js"></script>
     <script src="../../lib/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="controller.js"></script>
-    <script src="../../js/imageSlider/imageSlider.js"></script>    
 </body>
 </html>
