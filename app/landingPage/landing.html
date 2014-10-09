@@ -53,6 +53,7 @@
                         <li><a href="../Volunteer/searchJob/searchJob.html" class='menu-interval'>Search Job</a></li>
                         <li><a href="../Volunteer/jobApplication/jobApplication.html" class='menu-interval'>Job Applications</a></li>
                         <li><a href="../volunteer/recommendation/recommendation.html" class='menu-interval'>Recommendations</a></li>
+                        <li><a href="../volunteer/volunteerProfile/volunteerProfile.html" class='menu-interval'>My Profile</a></li>
                         <li><a href="../message/message.html?owner=volunteer" class='menu-interval'>Messages<span class="message-number">23</span></a></li>
                     </ul>
                     <!-- Volunteer Menu end here-->
@@ -61,6 +62,7 @@
                         <li ><a href="../organization/search/searchVol.html" class='menu-interval'>Search Volunteer</a></li>
                         <li><a href="../organization/postJob/postJob.html"  class='menu-interval'>Post a Job</a></li>
                         <li><a href="../organization/jobPost/jobPost.html" class='menu-interval'>Job Postings</a></li>
+                        <li><a href="../organization/organizationpcms/organizationpcms.html" class='menu-interval'>My Profile</a></li>
                         <li><a href="../message/message.html?owner=organization" class='menu-interval'>Messages<span class="message-number">23</span></a></li>
                       </ul>
                     <ul class="nav navbar-nav navbar-right">
@@ -69,8 +71,8 @@
                             <a href="#" class="dropdown-toggle" id="icons-header-right" data-toggle="dropdown"><i class='fa fa-cog'></i></a>
                             <ul class="dropdown-menu">
                                 <li role="presentation">
-                                    <a role="menuitem" href="../volunteer/createProfileForm/createProfile.html" ng-if="typeOfOwner == 'volunteer'"><img src="../img/VV_Icon_Profile.png" width="25" height="25"> My Profile</a>
-                                    <a role="menuitem" href="../organization/organizationProfile/organizationProfile.html" ng-if="typeOfOwner == 'organization'"><img src="../img/VV_Icon_OrganizationLogo.png" width="25" height="25"> My Profile</a>
+                                    <a role="menuitem" href="../volunteer/createProfileForm/createProfile.html" ng-if="typeOfOwner == 'volunteer'"><img src="../img/VV_Icon_Profile.png" width="25" height="25"> Edit Profile</a>
+                                    <a role="menuitem" href="../organization/organizationProfile/organizationProfile.html" ng-if="typeOfOwner == 'organization'"><img src="../img/VV_Icon_OrganizationLogo.png" width="25" height="25"> Edit Profile</a>
                                 </li>
                                 <li role="presentation" class="divider"></li>
                                 <li role="presentation">
@@ -78,7 +80,7 @@
                                     <a role="menuitem" href="../myAccount/myAccount.html?owner=volunteer" ng-if="typeOfOwner == 'volunteer'"><i class='fa fa-wrench'></i> My Account</a>
                                 </li>
                                 <li role="presentation" class="divider" ng-if="typeOfOwner == 'organization'"></li>
-                                <li role="presentation" ng-if="typeOfOwner == 'organization'"><a role="menuitem" href="../organization/staffAndPermission/staffAndPermission.html?owner=organization">&nbsp;<i class='fa fa-lock'></i> &nbsp;Manage Staff Permissions</a></li>
+                                <li role="presentation" ng-if="typeOfOwner == 'organization'"><a role="menuitem" href="../organization/staffAndPermission/staffAndPermission.html?owner=organization">&nbsp;<i class='fa fa-lock'></i> &nbsp; Manage Staff Permissions</a></li>
                                 <li role="presentation" class="divider"></li>
                                 <li role="presentation">
                                     <a role="menuitem" href="../changePassword/changePassword.html?owner=organization" ng-if="typeOfOwner == 'organization'">&nbsp;<i class='fa fa-cog'></i> &nbsp;Change Password</a>

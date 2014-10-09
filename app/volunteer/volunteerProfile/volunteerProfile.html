@@ -54,10 +54,10 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <!-- Volunteer Menu Start-->
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="../searchJob/searchJob.html" class='menu-interval'>Search Job</a></li>
+                        <li><a href="../searchJob/searchJob.html" class='menu-interval'>Search Job</a></li>
                         <li><a href="../jobApplication/jobApplication.html" class='menu-interval'>Job Applications</a></li>
                         <li><a href="../recommendation/recommendation.html" class='menu-interval'>Recommendations</a></li>
-                        <li><a href="../volunteerProfile/volunteerProfile.html" class='menu-interval'>My Profile</a></li>
+                        <li class="active"><a href="../volunteerProfile/volunteerProfile.html" class='menu-interval'>My Profile</a></li>
                         <li><a href="../../message/message.html?owner=volunteer" class='menu-interval'>Messages<span class="message-number">23</span></a></li>
                     </ul>
                     <!-- Volunteer Menu end here-->
@@ -105,11 +105,14 @@
         <div class="containerA">
             <div class="row margin-rl-0">
                 <div class="main-border1 background-white col-sm-8">
-                    <img src="{{volunteerImage}}"  width="70" height="73" class="margin-top-15">
+                    <img src="{{volunteerImage}}"  width="70" height="73" class="margin-top-15" ng-if="volunteerImage">
+                    <img src="../../img/name3.png"  width="70" height="73" class="margin-top-15" ng-if="!volunteerImage">
                     <div class="inline-block  margin-top-15 valign-top">
-                        <span id='heading-form' class="inline-block padding-left-5 bold line-height-23" ng-bind="volunteerName">Hans Klevenbeek</span>
+                        <span id='heading-form' class="inline-block padding-left-5 bold line-height-23" ng-if="volunteerName" ng-bind="volunteerName"></span>
+                        <span id='heading-form' class="inline-block padding-left-5 bold line-height-23" ng-if="!volunteerName" >Hans Klevenbeek</span>
                         <br>
-                        <span class="padding-left-5 margin-top-10">{{volunteerCity}}</span>
+                        <span class="padding-left-5 margin-top-10" ng-bind="volunteerCity" ng-if="volunteerCity"></span>
+                        <span class="padding-left-5 margin-top-10" ng-if="!volunteerCity">Amsterdam, Noord Holland</span>
                     </div>
                     <div class=" padding-rl-0 margin-top-10 margin-bottom-10">
                         <div class="row margin-rl-0 margin-top-15">

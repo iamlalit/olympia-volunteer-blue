@@ -69,7 +69,7 @@
                         <li role="presentation" class="divider"></li>
                         <li role="presentation"><a role="menuitem" href="../../myAccount/myAccount.html?owner=organization">&nbsp;<i class='fa fa-wrench'></i> &nbsp;My Account</a></li>
                         <li role="presentation" class="divider"></li>
-                        <li role="presentation"><a role="menuitem" href="../staffAndPermission/staffAndPermission.html?owner=organization">&nbsp;<i class='fa fa-lock'></i> &nbsp;Manage Staff Permissions</a></li>
+                        <li role="presentation"><a role="menuitem" href="../staffAndPermission/staffAndPermission.html?owner=organization">&nbsp;<i class='fa fa-lock'></i> &nbsp; Manage Staff Permissions</a></li>
                         <li role="presentation" class="divider"></li>
                         <li role="presentation"><a role="menuitem" href="../../changePassword/changePassword.html?owner=organization">&nbsp;<i class='fa fa-cog'></i> &nbsp;Change Password</a></li>
                         <li role="presentation" class="divider"></li>
@@ -124,7 +124,8 @@
                         <img src="../../img/VV_Icon_OrganizationLogo.png" width="70" height="70"/>
                         <div class="inline-block valign-top">
                             <div class="panel-title padding-left-0 inline-block">
-                                <span ng-bind="organizationName"></span>
+                                <span ng-if='organizationName' ng-bind="organizationName"></span>
+                                <span ng-if='!organizationName'>Red Cross NL</span>
                             </div>
                             <br>
                             <span>Non-profit organization</span>
