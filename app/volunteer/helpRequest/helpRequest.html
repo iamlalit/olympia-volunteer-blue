@@ -1,0 +1,2763 @@
+﻿<!doctype html>
+<html lang="en" ng-app="postJobcontroller">
+<head>
+	<meta charset="utf-8">
+	<title>Help request</title>
+	<link href="../../img/olympia-fav.ico" rel="shortcut icon" type="image/x-icon" />
+	<link rel="stylesheet" href="../../css/olympia-icons.css"/>
+	<link rel="stylesheet" href="../../css/bootstrap-tagsinput/bootstrap-tagsinput.css"/>
+	<link rel="stylesheet" href="../../lib/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css"/>
+	<link href="../../lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+	<link href="../../css/bootstrap-responsive.min.css" rel="stylesheet">
+	<link href="../../css/font-awesome.css" rel="stylesheet">
+	<link rel="stylesheet" href="../../css/organization/postjob/postjob.css"/>
+    <link rel="stylesheet" href="../../css/organization/jobPost/jobPost.css"/>
+    <link rel="stylesheet" href="../../css/organization/viewApp/viewApp.css"/>
+    <link href="../../css/global.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../../css/header/header.css">
+    <style type="text/css">
+        .superContainer{
+            width: 1349px;
+            margin: 0 auto;
+        }
+        .containerA{
+            width: 1008px;
+            display: inline-block;
+        }
+        .containerB{
+            width: 164px;
+            display: inline-block;
+            vertical-align: top;
+        }
+    </style>
+
+</head>
+<body ng-controller="postJobCntrl">
+
+	<header>
+        <div class="navbar navbar-default" role="navigation">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#"><img src="../../img/logo.png"></a>
+                </div>
+
+                    <!-- Volunteer Menu ??Start-->
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#" class='menu-interval'>Search Jobs</a></li>
+                        <li><a href="../jobApplication/jobApplication.html" class='menu-interval'>Job Applications</a></li>
+                        <li><a href="../recommendation/recommendation.html" class='menu-interval'>Recommendations</a></li>
+                        <li><a href="../volunteerProfile/volunteerProfile.html" class='menu-interval'>My Profile</a></li>
+                        <li><a href="../../message/message.html?owner=volunteer" class='menu-interval'>Messages<span class="message-number">23</span></a></li>
+                    </ul>
+                    <!-- Volunteer Menu end here-->
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class='pull-right'><a href="#" id="icons-header-right"><span class="fa fa-question"></a></li>
+                        <li class='dropdown pull-right'>
+                            <a href="#" class="dropdown-toggle" id="icons-header-right" data-toggle="dropdown"><i class='fa fa-cog'></i></a>
+                            <ul class="dropdown-menu">
+                                <li role="presentation"><a role="menuitem" href="../createProfileForm/createProfile.html"><img src="../../img/VV_Icon_Profile.png" width="25" height="25"> Edit Profile</a></li>
+                                <li role="presentation" class="divider"></li>
+                                <li role="presentation"><a role="menuitem" href="../../myAccount/myAccount.html?owner=volunteer">&nbsp;<i class='fa fa-wrench'></i> &nbsp;My Account</a></li>
+                                <li role="presentation" class="divider"></li>
+                                <li role="presentation"><a role="menuitem" href="../../changePassword/changePassword.html?owner=volunteer">&nbsp;<i class='fa fa-cog'></i> &nbsp;Change Password</a></li>
+                                <li role="presentation" class="divider"></li>
+                                <li role="presentation"><a role="menuitem" href="../../notificationSettings/notificationSettings.html?owner=volunteer">&nbsp;<i class='fa fa-bell'></i> &nbsp;Notification Settings</a></li>
+                                <li role="presentation" class="divider"></li>
+                                <li role="presentation"><a role="menuitem" href="../createOrganization/createOrganization.html?owner=volunteer">&nbsp;<i class='fa fa-list-alt'></i> &nbsp;Create an Organization</a></li>
+                                <li role="presentation" class="divider"></li>
+                                <li role="presentation"><a role="menuitem" href="../helpRequest/helpRequest.html">&nbsp;<i class='fa fa-th-list'></i> &nbsp;Help Request</a></li>
+                            </ul>
+                        </li>
+                        <li class='pull-right'><a href="#" id="icons-header-right"><span class="fa fa-exclamation"></a></li>
+                        <li class="dropdown pull-right" style="margin-top:5px;" id="username" ng-init="client = true; organization = false">
+                            <a href="#" class="dropdown-toggle"  id="hover-header-right" data-toggle="dropdown"  ng-if="organization == true">Organization &nbsp;<b class="caret"></b></a>
+                            <a href="#" class="dropdown-toggle"  id="hover-header-right" data-toggle="dropdown" ng-if="client == true">Volunteer &nbsp;<b class="caret"></b></a>
+                            <ul class="dropdown-menu header-right-dropdown" ng-init=" addActive1 = 'make-it-white'">
+                                <li role="presentation" ng-cloak><a role="menuitem" ng-model="organization" ng-click="organization = true; client = false; addActive2 = 'make-it-white';addActive1=''" href="../../organization/search/searchVol.html" id="tab-header-1" ng-class="addActive2" ><img src="../../img/VV_Icon_OrganizationLogo.png" width="28" height="28">&nbsp;&nbsp;&nbsp;Organization</a></li>
+                                <li role="presentation" class="divider" ng-cloak></li>
+                                <li role="presentation" ng-cloak><a role="menuitem" ng-model="client" ng-click="organization = false; client = true; addActive1 = 'make-it-white';addActive2=''" href="../../volunteer/searchJob/searchJob.html" ng-class="addActive1"><img src="../../img/VV_Icon_VolunteerOpportunities.png" width="28" height="28">&nbsp;&nbsp;&nbsp;Volunteer</a></li>
+                                <li role="presentation" class="divider"></li>
+                                <li role="presentation" id="separate-highlight"> 
+                                    <span><a role="menuitem"  href="../../myAccount/myAccount.html?owner=volunteer" ng-if="client == true">hans.klevenbeek</a></span>
+                                    <span><a role="menuitem"  href="../../myAccount/myAccount.html?owner=volunteer" ng-if="organization == true">hans.klevenbeek</a></span>
+                                    <span><a role="menuitem"  href="../../login/login.html">Logout</a></span>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </div>
+    </header>
+
+	<div class="superContainer">
+        <div class="containerB">
+            <span class="prototype-scheme">PROTOTYPE</span>
+        </div>
+	    <div class="containerA">
+			<div class="row">
+		        <div class="col-lg-1"></div>
+		        <div class="col-lg-9 margin-left-71">
+		        	<div class="col-sm-2"></div>
+		            <div class="alert alert-danger col-sm-8" id="errorMsg">
+		                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+		                <h2 class="text-center margin-top-0">Please fix the following issues</h2>
+		                <ul id="errorList" class="errorList" style="margin-bottom:35px"></ul>
+		            </div>
+		            <div class="col-sm-2"></div>
+		        </div>
+		        <div class="col-lg-2"></div>
+		    </div>
+		    <div class="main-border1">
+				<div class="row margin-rl-0">
+					<div class="row margin-top-15 margin-rl-0" ></div>
+					<form  id="postJobForm" role="form">
+						<div class="col-sm-12">
+							<div class='row margin-rl-0'>
+								<span id='heading-form'>Help request</span>
+							</div>
+							<div class='row margin-rl-0'>
+								<div class='margin-top-15'>
+								</div>
+							</div>
+							<div class="row margin-rl-0" id="jobs">
+								<div class="col-sm-8 padding-rl-0">
+									<label >Job types</label>
+									<select class='form-control' id="job-type" style="width:400px;" required ng-model="jobType" ng-init="jobType='job'">
+										<option value='job'>Job</option>
+										<option value='Internship'>Internship</option>
+										<option value='Event'>Event</option>
+									</select>
+								</div>
+							</div>
+							<div class='row margin-rl-0'>
+								<div class='margin-top-10'>
+								</div>
+							</div>
+							<div class="row margin-rl-0" id="title">
+								<div class="col-sm-10 padding-rl-0" >
+									<label>Give your job a title</label>
+									<input type='text' ng-model="jobTitle" style="width:697px;" id='form-control-weight' for='inserting job title' id='form-text-control' placeholder='Title' id="job-title" >
+								</div>
+							</div>
+							<div class='row margin-rl-0'>
+								<div class='margin-top-10'>
+								</div>
+							</div>
+							<div class="row margin-rl-0" id="describe-work">
+								<div>
+									<div class='col-sm-9 padding-left-0'>
+									<label>Describe the work to be done</label>
+										<a href="#" id="zoomTextarea" class="pull-right" title="Click to Zoom" data-toggle="modal" data-target="#textBoxBig">Expand <i class="olympia-expand2"></i></a>
+										<textarea id="text-content" maxlength="5000" class="text-area fullWidth" cols="92" rows="7" ng-model="describeWork"></textarea>
+										<p>Number of characters <span id="text-content-count">0</span> (max 5000 characters)</p>
+									</div>
+								</div>
+							</div>
+							<div class='row margin-rl-0'>
+								<div class='margin-top-10'>
+								</div>
+							</div>
+							<div class="row margin-rl-0">
+								<div class="">
+		                            <label >Attachment </label><span id='optional-text'> (optional)</span><br/>
+		                            <div class="custom-file-upload">
+		                                <input type="file" id="file" name="myfiles[]" multiple />
+		                            </div>
+		                        </div>
+		                        <div class="margin-top-0">
+		                            <p class="italic small">File size should be less than 5MB.</p>
+		                        </div>
+							</div>
+							<div class='row margin-rl-0'>
+								<div id='margin-top-10'>
+								</div>
+							</div>
+							<div class='row margin-rl-0' >
+								<div class='col-sm-12 padding-rl-0'>
+									<div class='border-heading'>
+										<label class="font-size-16" style='vertical-align:middle;' >Customize your application requirements</label>
+									</div>
+								</div>
+							</div>
+
+							<div class='row margin-rl-0'>
+								<div class='margin-top-15'>
+								</div>
+							</div>
+							<div class="row margin-rl-0">
+								<div class="col-sm-12 padding-rl-0">
+									<div class='col-sm-1  font-size-4 '>
+										<span class="glyphicon glyphicon-list-alt"></span>			    	
+								    </div>
+								    <div class="col-sm-6">
+								    	<label class="font-size-15">Preferred skills and diplomas</label>
+								    </div>
+								    <div class='col-sm-11' >
+								    	<span>
+											Specify the diplomas/certificates you are looking for related to a specific role or task. Potential volunteers may still apply if their education or training does not align with your preferences, but they will be clearly notified that it may not meet the job's requirements.
+										</span>
+
+										<div class='row'>
+											<div class='margin-top-10'>
+											</div>
+										</div>
+										<button class="btn btn-primary active" type="button" id="skills" value="Add Skills / Certificates" name="Add Skills / Certificates">Add skills / certificates</button>
+										<ul class="ishidden" id="group-skills">
+											<!-- <li style="list-style-type:none; padding-bottom:30px;" id="skills-popover"> -->
+											<li style="list-style-type:none; padding-bottom:30px;">								
+												<label >What skills are needed?</label>
+												<span id="optional-text">(optional) </span>
+												<div  id='form-component-arrangement-input' style="margin-bottom:-10px;">
+													<input type="text" class='form-control' id='skill-tag' placeholder="Add skills" />
+												</div>
+												<div class="col-sm-12">
+													<span style="margin-left:-13px;"><a href="#" id="zoomTextarea" id="modal-skill" onclick="updateValueSkillText()" title="Click to Zoom" data-toggle="modal" data-target="#skillBox">Add skills requirements to your job posting</a>
+													</span>
+												</div>
+											</li>
+											<!-- <li style="list-style-type:none" id="diploma-popover"> -->
+											<li style="list-style-type:none">
+												<label >What diplomas/certificates are needed?</label>
+												<span id="optional-text">(optional) </span>
+												<div  id='form-component-arrangement-input' style="margin-bottom:-10px;">
+													<input type="text" class='form-control' id='diploma-tag' placeholder="Add diploma/certificate" />
+												</div>
+												<div class="col-sm-12">
+													<span style="margin-left:-13px;"><a href="#" id="zoomTextarea" id="modal-diploma" onclick="updateValueDiplomaText()" title="Click to Zoom" data-toggle="modal" data-target="#diplomaBox">Add diploma/certificate requirements to your job posting</a>
+													</span>
+												</div>
+											</li>
+										</ul>
+								    </div>
+								</div>
+							</div>
+							<div class="row margin-rl-0">
+								<div class="col-sm-12">
+									<hr style="height:1px; background-color:#DDDDDD;">
+								</div>	
+							</div>
+							<div class="row margin-rl-0">
+								<div class="col-sm-12 padding-rl-0">
+									<div class='col-sm-1  font-size-4 '>
+										<span class="glyphicon glyphicon-time"></span>			    	
+								    </div>
+								    <div class="col-sm-6">
+								    	<label class="font-size-15">Preferred time commitments</label>
+								    </div>
+								    <div class='col-sm-11' >
+								    	<span>
+											Specify the time commitments, schedule and days of the week you need for a specific role or task. Potential volunteers may still apply if the timeframe they include does not align with your preferences, but they will be clearly notified that their schedules may not  meet the job's requirements.
+										</span>
+
+										<div class='row'>
+											<div class='margin-top-10'>
+											</div>
+										</div>
+										<button type="button"  class="btn btn-primary active" id="time">Add time commitments</button>
+										<ul class="ishidden" id="group-skills">
+										
+											<li style="list-style-type:none; margin-left:-16px;" id="datepicker">
+												<div class='col-sm-6'>
+						            				<div class="form-group" >
+										                <label>Start date</label>
+										                <div class='input-group date' id='datetimepicker8' style="max-width:330px;">
+										                    <input type='text' class="form-control"/>
+										                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+										                    </span>
+										                </div>
+										            </div>
+										        </div>
+												<div class='col-sm-6'>
+										            <div class="form-group">
+										            	<label>End date</label>
+										                <div class='input-group date' id='datetimepicker9'  style="max-width:330px;">
+										                    <input type='text' class="form-control"/>
+										                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+										                    </span>
+										                </div>
+										            </div>
+										        </div>
+											</li>
+
+											<li style="list-style-type:none" class="check-label">
+												<div class="row">
+													<label class="margin-left-28">Time commitment</label>
+													<a>
+														<i class="glyphicon glyphicon-question-sign blue" id="time-checkbox"></i>
+													</a>
+													<span id="optional-text">(optional) </span>
+													
+												</div>
+												<!-- <label class="margin">Time Comittment</label> -->
+												<div class="col-sm-6 ">
+													<div class="checkbox">
+														<label>
+															<input type="checkbox"> <a>Occasional (weekly or monthly)</a>
+														</label>
+													</div>
+													<div class="checkbox">
+														<label>
+															<input type="checkbox"> <a>Part-time (10+ hours/week)</a>
+														</label>
+													</div>
+													<div class="checkbox">
+														<label>
+															<input type="checkbox"> <a>Full time (30-40 hours/week)</a>
+														</label>
+													</div>
+												</div>
+												<div class="col-sm-6">
+													<div class="checkbox">
+														<label>
+															<input type="checkbox"> <a>One day or evening (a few hours or less)</a>
+														</label>
+													</div>
+													<div class="checkbox invisible">
+														<label>
+															<input type="checkbox" > <a>For few hours</a>
+														</label>
+													</div>
+													<div class="checkbox invisible">
+														<label>
+															<input type="checkbox"> <a>Less than 1 hour </a>
+														</label>
+													</div>
+												</div>
+											</li>
+											<!-- <li style="list-style-type:none">
+												<label id='form-component-arrangement-label'>Estimated Duration</label>
+												<div  id='form-component-arrangement-input'>
+													<input type="text" class='form-control' id='form-text-control' placeholder="Add Estimated duration" />
+												</div>
+											</li> -->
+											<li style="list-style-type:none" class="check-label">
+												<div class="row">
+													<label class="margin-left-28">Schedule</label>
+													<a>
+														<i class="glyphicon glyphicon-question-sign blue"  id="schedule-checkbox"></i>
+													</a>
+
+													<span id="optional-text">(optional) </span>
+													
+												</div>
+												<div class="col-sm-12 ">
+													<div class="checkbox">
+														<label>
+															<input type="checkbox"> <a>Flexible schedule</a>
+														</label>
+													</div>
+													<div class="checkbox">
+														<label>
+															<input type="checkbox"> <a>Set schedule</a>
+														</label>
+													</div>
+												</div>
+											</li>
+											<!-- <li style="list-style-type:none" id="dow-popover"> -->
+											<li style="list-style-type:none">
+												<label id='form-component-arrangement-label'>Days of the week</label>
+												<span id="optional-text">(optional) </span>
+												<div  id='form-component-arrangement-input' style="margin-bottom:-10px;">
+													<input type="text" class='form-control' id='dow-tag' placeholder="Add days of the week" />
+												</div>
+												<div class="col-sm-12">
+													<span style="margin-left:-13px;"><a href="#" id="zoomTextarea"id="modal-dow" onclick="updateValueDowText()" title="Click to Zoom" data-toggle="modal" data-target="#dowBox">Add days of the week requirements to your job posting</a>
+													</span>
+												</div>
+											</li>
+										</ul>
+								    </div>
+								</div>
+							</div>
+							<div class="row margin-rl-0">
+								<div class="col-sm-12 padding-rl-0">
+									<hr style="height:1px; background-color:#DDDDDD;">
+								</div>	
+							</div>
+							<div class="row margin-rl-0">
+								<div class="col-sm-11 padding-rl-0">
+									<div class='col-sm-1  font-size-4 '>
+										<span class="glyphicon glyphicon-tasks"></span>			    	
+								    </div>
+								    <div class="col-sm-6">
+								    	<label class="font-size-15">Additional preferences</label>
+								    </div>
+								    <div class='col-sm-11' >
+								    	<span>
+											Specify the International volunteer option, language and other experience and/or skills you're looking for in the right person to fulfill a specific role or task. Potential volunteers may still apply if their skills do not align with your preferences, but applicants will be clearly notified that what they have to offer may not meet the job's requirements.
+										</span>
+										<div class='row'>
+											<div class='margin-top-10'>
+											</div>
+										</div>
+										<button type="button"  class="btn btn-primary active" id="miscleaneous">Add additional preferences</button>
+										<ul class="ishidden" id="group-skills">
+											<li style="list-style-type:none" class="check-label">
+												<div class="row">
+													<label class="margin-left-28">Appropriate for</label>
+													<a>
+														<i class="glyphicon glyphicon-question-sign blue"  id="appropriate-checkbox"></i>
+													</a>
+													<span id="optional-text">(optional) </span>
+													
+												</div>
+												<!-- <label class="margin">Time Comittment</label> -->
+												<div class="col-sm-12">
+													<div class="checkbox">
+														<label>
+															<input type="checkbox"> <a>Families</a>
+														</label>
+													</div>
+													<div class="checkbox">
+														<label>
+															<input type="checkbox"> <a>Groups</a>
+														</label>
+													</div>
+												</div>
+											</li>
+											<li style="list-style-type:none" class="check-label">
+												<div class="row">
+													<label class="margin-left-28">International volunteer option</label>
+													<a>
+														<i class="glyphicon glyphicon-question-sign blue"  id="IVO-checkbox"></i>
+													</a>
+													<span id="optional-text">(optional) </span>
+													
+												</div>
+												<!-- <label class="margin">Time Comittment</label> -->
+												<div class="col-sm-6">
+													<div class="checkbox">
+														<label>
+															<input type="checkbox"> <a>Housing available</a>
+														</label>
+													</div>
+													<div class="checkbox">
+														<label>
+															<input type="checkbox"> <a>International volunteers welcome</a>
+														</label>
+													</div>
+												</div>
+												<div class="col-sm-6">
+													<div class="checkbox">
+														<label>
+															<input type="checkbox"> <a>Language/cultural support available</a>
+														</label>
+													</div>
+													<div class="checkbox">
+													</div>
+												</div>
+											</li>
+											<li style="list-style-type:none" class="check-label">
+												<div class="row">
+													<label class="margin-left-28 ">Additional details</label>
+													<a>
+														<i class="glyphicon glyphicon-question-sign blue"  id="extra-checkbox"></i>
+													</a>
+													<span id="optional-text">(optional) </span>
+												</div>
+												
+												<div class="col-sm-6">
+													<div class="checkbox">
+														<label>
+															<input type="checkbox"> <a>Training provided</a>
+														</label>
+													</div>
+													<div class="checkbox">
+														<label>
+															<input type="checkbox"> <a>Fee required</a>
+														</label>
+													</div>
+												</div>
+												<div class="col-sm-6">
+													<div class="checkbox">
+														<label>
+															<input type="checkbox"> <a>Stipend provided</a>
+														</label>
+													</div>
+													<div class="checkbox">
+													</div>
+												</div>
+											</li>
+											<li style="list-style-type:none" >								
+												<label>Language</label>
+												<span id="optional-text">(optional) </span>								
+												<div  id='form-component-arrangement-input' style="margin-bottom:-10px;">
+													<input type="text" class='form-control' id="language-tag" placeholder="Add languages" />
+												</div>
+
+												<div class="col-sm-12" >
+													<span style="margin-left:-13px;"><a href="#" id="zoomTextarea" onclick="updateValueLanText()" title="Click to Zoom" data-toggle="modal" data-target="#languageBox">Add language requirements to your job posting</a>
+													</span>
+												</div>
+											</li>
+										</ul>
+								    </div>
+								</div>
+							</div>
+							<div class="row margin-rl-0">
+								<div class="col-sm-12 padding-rl-0">
+									<hr style="height:1px; background-color:#DDDDDD;">
+								</div>	
+							</div>
+
+							<div class="row margin-rl-0">
+								<div class="col-sm-12 padding-rl-0">
+									<div class='col-sm-1  font-size-4 '>
+										<span class="glyphicon glyphicon-globe"></span>			    	
+								    </div>
+								    <div class="col-sm-6">
+								    	<label class="font-size-15">Job Location</label>
+								    </div>
+								    <div class='col-sm-9' >
+								    	<span>
+											Specify where the job is located.
+										</span>
+										<div class="margin-top-10"></div>
+										<div class="" id="boxAddress">
+											<span class="textBoxCrossIcon">
+												<input type="text" class='form-control' value ="United Kingdom, London, SW18 4HN, 4 Church Road" placeholder="Address"/>
+												<a id="removeCurrentNode"><i class="fa fa-times"></i></a>	
+											</span>
+										</div>
+								    	<span>
+								    		<a data-toggle="modal" ng-click=" locationZip = ''; locationCountry = 'Netherlands'; locationNumber = ''; locationAddress = '' " data-target="#locationNew">Add job location</a>	
+								    	</span>
+									    <div class='row'>
+											<div class='margin-top-10'>
+											</div>
+										</div>
+										<button type="button" class="btn btn-primary active hidden" id="location">Add job location</button>
+										<ul class="ishidden" id="address" style="padding-left: 0px; display:none">
+											<li style="list-style-type:none" style="margin-left:-50px;" >	
+												<div class="margin-top-15"></div>		
+												<label>Address</label>
+												<span id="optional-text">(optional) </span>
+												<div class="row"></div>					
+												<div class='border-address col-sm-7' id="address-block">
+													<label >City</label>
+													<input type='text' class='form-control' id='form-control-weight' for='city' id='form-text-control'>
+													<div class='row'>
+														<div id='extra-space-label'>
+														</div>
+													</div>
+
+													<label >Country</label>
+													<select name="country" id="country">
+				                                        <option value="0" label="Country">Country</option>
+				                                        <option value="41" label="Belgium">
+				                                            Belgium
+				                                        </option>                                        
+				                                        <option value="95" label="France">
+				                                            France
+				                                        </option>
+				                                        <option value="102" label="Germany">
+				                                            Germany
+				                                        </option>
+				                                        <option value="168" label="Netherlands">
+				                                            Netherlands
+				                                        </option>
+				                                        <option value="244" label="United Kingdom">
+				                                            United Kingdom
+				                                        </option>
+				                                        <optgroup label="&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;"></optgroup>
+				                                        <option value="23" label="Albania">
+				                                            Albania
+				                                        </option>
+				                                        <option value="24" label="Algeria">
+				                                            Algeria
+				                                        </option>
+				                                        <option value="25" label="American Samoa">
+				                                            American Samoa
+				                                        </option>
+				                                        <option value="26" label="Andorra">
+				                                            Andorra
+				                                        </option>
+				                                        <option value="266" label="Angola">
+				                                            Angola
+				                                        </option>
+				                                        <option value="27" label="Anguilla">
+				                                            Anguilla
+				                                        </option>
+				                                        <option value="28" label="Antarctica">
+				                                            Antarctica
+				                                        </option>
+				                                        <option value="29" label="Antigua and Barbuda">
+				                                            Antigua and Barbuda
+				                                        </option>
+				                                        <option value="30" label="Argentina">
+				                                            Argentina
+				                                        </option>
+				                                        <option value="31" label="Armenia">
+				                                            Armenia
+				                                        </option>
+				                                        <option value="32" label="Aruba">
+				                                            Aruba
+				                                        </option>
+				                                        <option value="261" label="Australia">
+				                                            Australia
+				                                        </option>
+				                                        <option value="34" label="Austria">
+				                                            Austria
+				                                        </option>
+				                                        <option value="35" label="Azerbaijan">
+				                                            Azerbaijan
+				                                        </option>
+				                                        <option value="36" label="Bahamas">
+				                                            Bahamas
+				                                        </option>
+				                                        <option value="37" label="Bahrain">
+				                                            Bahrain
+				                                        </option>
+				                                        <option value="38" label="Bangladesh">
+				                                            Bangladesh
+				                                        </option>
+				                                        <option value="39" label="Barbados">
+				                                            Barbados
+				                                        </option>
+				                                        <option value="40" label="Belarus">
+				                                            Belarus
+				                                        </option>                                        
+				                                        <option value="42" label="Belize">
+				                                            Belize
+				                                        </option>
+				                                        <option value="43" label="Benin">
+				                                            Benin
+				                                        </option>
+				                                        <option value="44" label="Bermuda">
+				                                            Bermuda
+				                                        </option>
+				                                        <option value="45" label="Bhutan">
+				                                            Bhutan
+				                                        </option>
+				                                        <option value="46" label="Bolivia">
+				                                            Bolivia
+				                                        </option>
+				                                        <option value="47" label="Bosnia and Herzegovina">
+				                                            Bosnia and Herzegovina
+				                                        </option>
+				                                        <option value="48" label="Botswana">
+				                                            Botswana
+				                                        </option>
+				                                        <option value="49" label="Bouvet Island">
+				                                            Bouvet Island
+				                                        </option>
+				                                        <option value="50" label="Brazil">
+				                                            Brazil
+				                                        </option>
+				                                        <option value="51" label="British Indian Ocean Territory">
+				                                            British Indian Ocean Territory
+				                                        </option>
+				                                        <option value="253" label="British Virgin Islands">
+				                                            British Virgin Islands
+				                                        </option>
+				                                        <option value="52" label="Brunei Darussalam">
+				                                            Brunei Darussalam
+				                                        </option>
+				                                        <option value="53" label="Bulgaria">
+				                                            Bulgaria
+				                                        </option>
+				                                        <option value="54" label="Burkina Faso">
+				                                            Burkina Faso
+				                                        </option>
+				                                        <option value="55" label="Burundi">
+				                                            Burundi
+				                                        </option>
+				                                        <option value="56" label="Cambodia">
+				                                            Cambodia
+				                                        </option>
+				                                        <option value="57" label="Cameroon">
+				                                            Cameroon
+				                                        </option>
+				                                        <option value="58" label="Canada">
+				                                            Canada
+				                                        </option>
+				                                        <option value="59" label="Cape Verde">
+				                                            Cape Verde
+				                                        </option>
+				                                        <option value="60" label="Cayman Islands">
+				                                            Cayman Islands
+				                                        </option>
+				                                        <option value="61" label="Central African Republic">
+				                                            Central African Republic
+				                                        </option>
+				                                        <option value="62" label="Chad">
+				                                            Chad
+				                                        </option>
+				                                        <option value="63" label="Chile">
+				                                            Chile
+				                                        </option>
+				                                        <option value="64" label="China">
+				                                            China
+				                                        </option>
+				                                        <option value="65" label="Christmas Island">
+				                                            Christmas Island
+				                                        </option>
+				                                        <option value="66" label="Cocos (Keeling) Islands">
+				                                            Cocos (Keeling) Islands
+				                                        </option>
+				                                        <option value="67" label="Colombia">
+				                                            Colombia
+				                                        </option>
+				                                        <option value="68" label="Comoros">
+				                                            Comoros
+				                                        </option>
+				                                        <option value="70" label="Congo">
+				                                            Congo
+				                                        </option>
+				                                        <option value="264" label="Congo, the Democratic Republic of the">
+				                                            Congo, the Democratic Republic of the
+				                                        </option>
+				                                        <option value="71" label="Cook Islands">
+				                                            Cook Islands
+				                                        </option>
+				                                        <option value="72" label="Costa Rica">
+				                                            Costa Rica
+				                                        </option>
+				                                        <option value="73" label="Cote d'Ivoire">
+				                                            Cote d'Ivoire
+				                                        </option>
+				                                        <option value="74" label="Croatia">
+				                                            Croatia
+				                                        </option>
+				                                        <option value="75" label="Cyprus">
+				                                            Cyprus
+				                                        </option>
+				                                        <option value="76" label="Czech Republic">
+				                                            Czech Republic
+				                                        </option>
+				                                        <option value="77" label="Denmark">
+				                                            Denmark
+				                                        </option>
+				                                        <option value="78" label="Djibouti">
+				                                            Djibouti
+				                                        </option>
+				                                        <option value="79" label="Dominica">
+				                                            Dominica
+				                                        </option>
+				                                        <option value="80" label="Dominican Republic">
+				                                            Dominican Republic
+				                                        </option>
+				                                        <option value="82" label="Ecuador">
+				                                            Ecuador
+				                                        </option>
+				                                        <option value="83" label="Egypt">
+				                                            Egypt
+				                                        </option>
+				                                        <option value="84" label="El Salvador">
+				                                            El Salvador
+				                                        </option>
+				                                        <option value="86" label="Equatorial Guinea">
+				                                            Equatorial Guinea
+				                                        </option>
+				                                        <option value="87" label="Eritrea">
+				                                            Eritrea
+				                                        </option>
+				                                        <option value="89" label="Estonia">
+				                                            Estonia
+				                                        </option>
+				                                        <option value="90" label="Ethiopia">
+				                                            Ethiopia
+				                                        </option>
+				                                        <option value="91" label="Falkland Islands">
+				                                            Falkland Islands
+				                                        </option>
+				                                        <option value="92" label="Faroe Islands">
+				                                            Faroe Islands
+				                                        </option>
+				                                        <option value="93" label="Fiji">
+				                                            Fiji
+				                                        </option>
+				                                        <option value="94" label="Finland">
+				                                            Finland
+				                                        </option>
+				                                        <option value="96" label="French Guiana">
+				                                            French Guiana
+				                                        </option>
+				                                        <option value="97" label="French Polynesia">
+				                                            French Polynesia
+				                                        </option>
+				                                        <option value="98" label="French Southern and Antarctic Lands">
+				                                            French Southern and Antarctic Lands
+				                                        </option>
+				                                        <option value="99" label="Gabon">
+				                                            Gabon
+				                                        </option>
+				                                        <option value="100" label="Gambia">
+				                                            Gambia
+				                                        </option>
+				                                        <option value="101" label="Georgia">
+				                                            Georgia
+				                                        </option>                                        
+				                                        <option value="103" label="Ghana">
+				                                            Ghana
+				                                        </option>
+				                                        <option value="104" label="Gibraltar">
+				                                            Gibraltar
+				                                        </option>
+				                                        <option value="106" label="Greece">
+				                                            Greece
+				                                        </option>
+				                                        <option value="107" label="Greenland">
+				                                            Greenland
+				                                        </option>
+				                                        <option value="108" label="Grenada">
+				                                            Grenada
+				                                        </option>
+				                                        <option value="109" label="Guadeloupe">
+				                                            Guadeloupe
+				                                        </option>
+				                                        <option value="110" label="Guam">
+				                                            Guam
+				                                        </option>
+				                                        <option value="111" label="Guatemala">
+				                                            Guatemala
+				                                        </option>
+				                                        <option value="112" label="Guinea">
+				                                            Guinea
+				                                        </option>
+				                                        <option value="113" label="Guinea-Bissau">
+				                                            Guinea-Bissau
+				                                        </option>
+				                                        <option value="114" label="Guyana">
+				                                            Guyana
+				                                        </option>
+				                                        <option value="115" label="Haiti">
+				                                            Haiti
+				                                        </option>
+				                                        <option value="116" label="Heard Island and McDonald Islands">
+				                                            Heard Island and McDonald Islands
+				                                        </option>
+				                                        <option value="250" label="Holy See">
+				                                            Holy See
+				                                        </option>
+				                                        <option value="117" label="Honduras">
+				                                            Honduras
+				                                        </option>
+				                                        <option value="118" label="Hong Kong">
+				                                            Hong Kong
+				                                        </option>
+				                                        <option value="119" label="Hungary">
+				                                            Hungary
+				                                        </option>
+				                                        <option value="120" label="Iceland">
+				                                            Iceland
+				                                        </option>
+				                                        <option value="121" label="India">
+				                                            India
+				                                        </option>
+				                                        <option value="122" label="Indonesia">
+				                                            Indonesia
+				                                        </option>
+				                                        <option value="123" label="Ireland">
+				                                            Ireland
+				                                        </option>
+				                                        <option value="278" label="Isle of Man">
+				                                            Isle of Man
+				                                        </option>
+				                                        <option value="124" label="Israel">
+				                                            Israel
+				                                        </option>
+				                                        <option value="125" label="Italy">
+				                                            Italy
+				                                        </option>
+				                                        <option value="126" label="Jamaica">
+				                                            Jamaica
+				                                        </option>
+				                                        <option value="127" label="Japan">
+				                                            Japan
+				                                        </option>
+				                                        <option value="128" label="Jordan">
+				                                            Jordan
+				                                        </option>
+				                                        <option value="129" label="Kazakhstan">
+				                                            Kazakhstan
+				                                        </option>
+				                                        <option value="130" label="Kenya">
+				                                            Kenya
+				                                        </option>
+				                                        <option value="131" label="Kiribati">
+				                                            Kiribati
+				                                        </option>
+				                                        <option value="134" label="Kuwait">
+				                                            Kuwait
+				                                        </option>
+				                                        <option value="135" label="Kyrgyzstan">
+				                                            Kyrgyzstan
+				                                        </option>
+				                                        <option value="136" label="Laos">
+				                                            Laos
+				                                        </option>
+				                                        <option value="137" label="Latvia">
+				                                            Latvia
+				                                        </option>
+				                                        <option value="138" label="Lebanon">
+				                                            Lebanon
+				                                        </option>
+				                                        <option value="139" label="Lesotho">
+				                                            Lesotho
+				                                        </option>
+				                                        <option value="141" label="Liechtenstein">
+				                                            Liechtenstein
+				                                        </option>
+				                                        <option value="142" label="Lithuania">
+				                                            Lithuania
+				                                        </option>
+				                                        <option value="143" label="Luxembourg">
+				                                            Luxembourg
+				                                        </option>
+				                                        <option value="144" label="Macao">
+				                                            Macao
+				                                        </option>
+				                                        <option value="145" label="Macedonia">
+				                                            Macedonia
+				                                        </option>
+				                                        <option value="146" label="Madagascar">
+				                                            Madagascar
+				                                        </option>
+				                                        <option value="147" label="Malawi">
+				                                            Malawi
+				                                        </option>
+				                                        <option value="148" label="Malaysia">
+				                                            Malaysia
+				                                        </option>
+				                                        <option value="149" label="Maldives">
+				                                            Maldives
+				                                        </option>
+				                                        <option value="150" label="Mali">
+				                                            Mali
+				                                        </option>
+				                                        <option value="151" label="Malta">
+				                                            Malta
+				                                        </option>
+				                                        <option value="152" label="Marshall Islands">
+				                                            Marshall Islands
+				                                        </option>
+				                                        <option value="153" label="Martinique">
+				                                            Martinique
+				                                        </option>
+				                                        <option value="154" label="Mauritania">
+				                                            Mauritania
+				                                        </option>
+				                                        <option value="155" label="Mauritius">
+				                                            Mauritius
+				                                        </option>
+				                                        <option value="156" label="Mayotte">
+				                                            Mayotte
+				                                        </option>
+				                                        <option value="157" label="Mexico">
+				                                            Mexico
+				                                        </option>
+				                                        <option value="158" label="Micronesia, Federated States of">
+				                                            Micronesia, Federated States of
+				                                        </option>
+				                                        <option value="159" label="Moldova">
+				                                            Moldova
+				                                        </option>
+				                                        <option value="160" label="Monaco">
+				                                            Monaco
+				                                        </option>
+				                                        <option value="161" label="Mongolia">
+				                                            Mongolia
+				                                        </option>
+				                                        <option value="263" label="Montenegro">
+				                                            Montenegro
+				                                        </option>
+				                                        <option value="162" label="Montserrat">
+				                                            Montserrat
+				                                        </option>
+				                                        <option value="163" label="Morocco">
+				                                            Morocco
+				                                        </option>
+				                                        <option value="164" label="Mozambique">
+				                                            Mozambique
+				                                        </option>
+				                                        <option value="272" label="Myanmar">
+				                                            Myanmar
+				                                        </option>
+				                                        <option value="165" label="Namibia">
+				                                            Namibia
+				                                        </option>
+				                                        <option value="167" label="Nepal">
+				                                            Nepal
+				                                        </option>
+				                                        
+				                                        <option value="169" label="Netherlands Antilles">
+				                                            Netherlands Antilles
+				                                        </option>
+				                                        <option value="170" label="New Caledonia">
+				                                            New Caledonia
+				                                        </option>
+				                                        <option value="171" label="New Zealand">
+				                                            New Zealand
+				                                        </option>
+				                                        <option value="172" label="Nicaragua">
+				                                            Nicaragua
+				                                        </option>
+				                                        <option value="173" label="Niger">
+				                                            Niger
+				                                        </option>
+				                                        <option value="174" label="Nigeria">
+				                                            Nigeria
+				                                        </option>
+				                                        <option value="175" label="Niue">
+				                                            Niue
+				                                        </option>
+				                                        <option value="176" label="Norfolk Island">
+				                                            Norfolk Island
+				                                        </option>
+				                                        <option value="178" label="Northern Mariana Islands">
+				                                            Northern Mariana Islands
+				                                        </option>
+				                                        <option value="179" label="Norway">
+				                                            Norway
+				                                        </option>
+				                                        <option value="180" label="Oman">
+				                                            Oman
+				                                        </option>
+				                                        <option value="181" label="Pakistan">
+				                                            Pakistan
+				                                        </option>
+				                                        <option value="182" label="Palau">
+				                                            Palau
+				                                        </option>
+				                                        <option value="276" label="Palestinian Territories">
+				                                            Palestinian Territories
+				                                        </option>
+				                                        <option value="183" label="Panama">
+				                                            Panama
+				                                        </option>
+				                                        <option value="184" label="Papua New Guinea">
+				                                        <option value="185" label="Paraguay">
+				                                            Paraguay
+				                                        </option>
+				                                        <option value="186" label="Peru">
+				                                            Peru
+				                                        </option>
+				                                        <option value="187" label="Philippines">
+				                                            Philippines
+				                                        </option>
+				                                        <option value="188" label="Pitcairn">
+				                                            Pitcairn
+				                                        </option>
+				                                        <option value="189" label="Poland">
+				                                            Poland
+				                                        </option>
+				                                        <option value="190" label="Portugal">
+				                                            Portugal
+				                                        </option>
+				                                        <option value="191" label="Puerto Rico">
+				                                            Puerto Rico
+				                                        </option>
+				                                        <option value="192" label="Qatar">
+				                                            Qatar
+				                                        </option>
+				                                        <option value="193" label="Reunion">
+				                                            Reunion
+				                                        </option>
+				                                        <option value="194" label="Romania">
+				                                            Romania
+				                                        </option>
+				                                        <option value="195" label="Russia">
+				                                            Russia
+				                                        </option>
+				                                        <option value="197" label="Rwanda">
+				                                            Rwanda
+				                                        </option>
+				                                        <option value="220" label="Saint Helena">
+				                                            Saint Helena
+				                                        </option>
+				                                        <option value="198" label="Saint Kitts and Nevis">
+				                                            Saint Kitts and Nevis
+				                                        </option>
+				                                        <option value="199" label="Saint Lucia">
+				                                            Saint Lucia
+				                                        </option>
+				                                        <option value="221" label="Saint Pierre and Miquelon">
+				                                            Saint Pierre and Miquelon
+				                                        </option>
+				                                        <option value="200" label="Saint Vincent and the Grenadines">
+				                                            Saint Vincent and the Grenadines
+				                                        </option>
+				                                        <option value="201" label="Samoa">
+				                                            Samoa
+				                                        </option>
+				                                        <option value="202" label="San Marino">
+				                                            San Marino
+				                                        </option>
+				                                        <option value="203" label="Sao Tome and Principe">
+				                                            Sao Tome and Principe
+				                                        </option>
+				                                        <option value="204" label="Saudi Arabia">
+				                                            Saudi Arabia
+				                                        </option>
+				                                        <option value="206" label="Senegal">
+				                                            Senegal
+				                                        </option>
+				                                        <option value="262" label="Serbia">
+				                                            Serbia
+				                                        </option>
+				                                        <option value="208" label="Seychelles">
+				                                            Seychelles
+				                                        </option>
+				                                        <option value="209" label="Sierra Leone">
+				                                            Sierra Leone
+				                                        </option>
+				                                        <option value="210" label="Singapore">
+				                                            Singapore
+				                                        </option>
+				                                        <option value="211" label="Slovakia">
+				                                            Slovakia
+				                                        </option>
+				                                        <option value="212" label="Slovenia">
+				                                            Slovenia
+				                                        </option>
+				                                        <option value="213" label="Solomon Islands">
+				                                            Solomon Islands
+				                                        </option>
+				                                        <option value="214" label="Somalia">
+				                                            Somalia
+				                                        </option>
+				                                        <option value="215" label="South Africa">
+				                                            South Africa
+				                                        </option>
+				                                        <option value="217" label="South Korea">
+				                                            South Korea
+				                                        </option>
+				                                        <option value="218" label="Spain">
+				                                            Spain
+				                                        </option>
+				                                        <option value="219" label="Sri Lanka">
+				                                            Sri Lanka
+				                                        </option>
+				                                        <option value="222" label="Suriname">
+				                                            Suriname
+				                                        </option>
+				                                        <option value="223" label="Svalbard and Jan Mayen">
+				                                            Svalbard and Jan Mayen
+				                                        </option>
+				                                        <option value="224" label="Swaziland">
+				                                            Swaziland
+				                                        </option>
+				                                        <option value="225" label="Sweden">
+				                                            Sweden
+				                                        </option>
+				                                        <option value="226" label="Switzerland">
+				                                            Switzerland
+				                                        </option>
+				                                        <option value="227" label="Taiwan">
+				                                            Taiwan
+				                                        </option>
+				                                        <option value="228" label="Tajikistan">
+				                                            Tajikistan
+				                                        </option>
+				                                        <option value="229" label="Tanzania">
+				                                            Tanzania
+				                                        </option>
+				                                        <option value="230" label="Thailand">
+				                                            Thailand
+				                                        </option>
+				                                        <option value="81" label="Timor-Leste">
+				                                            Timor-Leste
+				                                        </option>
+				                                        <option value="231" label="Togo">
+				                                            Togo
+				                                        </option>
+				                                        <option value="232" label="Tokelau">
+				                                            Tokelau
+				                                        </option>
+				                                        <option value="233" label="Tonga">
+				                                            Tonga
+				                                        </option>
+				                                        <option value="235" label="Trinidad and Tobago">
+				                                            Trinidad and Tobago
+				                                        </option>
+				                                        <option value="236" label="Tunisia">
+				                                            Tunisia
+				                                        </option>
+				                                        <option value="237" label="Turkey">
+				                                            Turkey
+				                                        </option>
+				                                        <option value="238" label="Turkmenistan">
+				                                            Turkmenistan
+				                                        </option>
+				                                        <option value="239" label="Turks and Caicos Islands">
+				                                            Turks and Caicos Islands
+				                                        </option>
+				                                        <option value="240" label="Tuvalu">
+				                                            Tuvalu
+				                                        </option>
+				                                        <option value="241" label="Uganda">
+				                                            Uganda
+				                                        </option>
+				                                        <option value="242" label="Ukraine">
+				                                            Ukraine
+				                                        </option>
+				                                        <option value="243" label="United Arab Emirates">
+				                                            United Arab Emirates
+				                                        </option>
+				                                        
+				                                        <option value="245" label="United States">
+				                                            United States
+				                                        </option>
+				                                        <option value="246" label="United States Minor Outlying Islands">
+				                                            United States Minor Outlying Islands
+				                                        </option>
+				                                        <option value="254" label="United States Virgin Islands">
+				                                            United States Virgin Islands
+				                                        </option>
+				                                        <option value="247" label="Uruguay">
+				                                            Uruguay
+				                                        </option>
+				                                        <option value="248" label="Uzbekistan">
+				                                            Uzbekistan
+				                                        </option>
+				                                        <option value="249" label="Vanuatu">
+				                                            Vanuatu
+				                                        </option>
+				                                        <option value="251" label="Venezuela">
+				                                            Venezuela
+				                                        </option>
+				                                        <option value="252" label="Vietnam">
+				                                            Vietnam
+				                                        </option>
+				                                        <option value="256" label="Wallis and Futuna">
+				                                            Wallis and Futuna
+				                                        </option>
+				                                        <option value="257" label="Western Sahara">
+				                                            Western Sahara
+				                                        </option>
+				                                        <option value="258" label="Yemen">
+				                                            Yemen
+				                                        </option>
+				                                        <option value="259" label="Zambia">
+				                                            Zambia
+				                                        </option>
+				                                        <option value="260" label="Zimbabwe">
+				                                            Zimbabwe
+				                                        </option>
+				                                    </select>
+	                                            Papua New Guinea
+	                                        </option>
+													<div class='row'>
+														<div id='extra-space-label'>
+														</div>
+													</div>
+
+													<label >Zip code</label>
+													<input type='text' class='form-control' id='form-control-weight' for='inserting address' id='form-text-control' placeholder='Zip code'>
+													<div class='row'>
+														<div id='extra-space-label'>
+														</div>
+													</div>
+													<span ><a style='text-align:right; cursor: pointer;' onclick="addNewAddress()">+Add another address</a></span>
+												</div>
+											</li>
+										</ul>
+								    </div>
+								</div>
+							</div>
+							<div class="row margin-rl-0">
+								<div class="col-sm-12 padding-rl-0">
+									<hr style="height:1px; background-color:#DDDDDD;">
+								</div>	
+							</div>
+							<div class="row margin-rl-0">
+								<div class="col-sm-12 padding-rl-0">
+									<div class='col-sm-1  font-size-4 '>
+										<span class="glyphicon glyphicon-edit"></span>			    	
+								    </div>
+								    <div class="col-sm-6">
+								    	<label class="font-size-15">Cover letter</label>
+								    </div>
+								    <div class='col-sm-9' >
+								    	<span>Ask applicants to write a cover letter that lets you get to know them and their skills and background.</span>
+								    	<div class="checkbox">
+									      <input type="checkbox" id='checkbox-cover'><span style='font-weight:700;'> Yes, require a cover letter</span>
+									  	</div>
+								    </div>
+								</div>
+							</div>
+							<div class="row margin-rl-0">
+								<div class="col-sm-12 padding-rl-0">
+									<hr style="height:1px; background-color:#DDDDDD;">
+								</div>	
+							</div>
+							<!--screening questions -->
+
+							<div class="row margin-rl-0">
+								<div class="col-sm-12 padding-rl-0">
+									<div class='col-sm-1  font-size-4 '>
+										<span class="glyphicon glyphicon-th-list"></span>			    	
+								    </div>
+								    <div class="col-sm-6">
+								    	<label class="font-size-15">Screening questions</label>
+								    </div>
+
+								    <div class='col-sm-9' id="screening-popover">
+								    	<span>Add a few questions that you'd like to ask your candidates to answer when applying to your job.</span>
+								    	<div class="margin-top-10"></div>
+								    	<input type="text" class='form-control' id='screening-tag' placeholder="Add Questions"/>
+								    </div>
+							    	<div class="col-sm-11">
+							    		<div class="col-sm-1">
+							    		</div>
+										<span style="margin-left:5px;"><a href="#" id="zoomTextarea" onclick="updateValueScreeningText()" title="Click to Zoom" data-toggle="modal" data-target="#screeningBox">Add suggested or recent questions to your job posting</a>
+										</span>
+										<span class="pull-right" style="margin-right:80px;"><a style="cursor: pointer;" onclick="addNewTextScreening()">Create my own question</a>	
+										</span>
+									</div>
+									<div id="screening-questions">
+									</div>
+											
+								</div>
+							</div>
+							<div class="row margin-rl-0">
+								<div class="col-sm-12 padding-rl-0">
+									<hr style="height:1px; background-color:#DDDDDD;">
+								</div>	
+							</div>
+							<!-- job Visibility -->
+							<div class="row margin-top-10 margin-rl-0" ng-init="showSocialAccount=true">
+	            <div class='col-sm-1 padding-right-0 padding-left-25 font-size-4 '>
+	                    <span class="fa fa-eye-slash vertical-align-top"></span>                  
+	                </div>
+	                <div class="col-sm-6">
+	                    <label class="font-size-15">Job visibility</label>
+	                </div>
+	                <div class='col-sm-11' >
+	                    <span>
+	                        Specify where this job can be viewed and where not?
+	                    </span>
+	                    <ul>
+	                        <!-- <li style="list-style-type:none; padding-bottom:30px;" id="skills-popover"> -->
+	                        <li style="list-style-type:none; padding-bottom:10px;">                             
+	                            <div class="radio">
+	                                <label>
+	                                  <input type="radio" id="rv1" name="jobVisibility"> &nbsp;Everywhere - we want to give maximum exposure it can be published anywhere.
+	                                </label>
+	                            </div>
+	                            <div class="radio">
+	                                <label>
+	                                  <input type="radio" id="rv2" name="jobVisibility" checked=""> &nbsp;Volunteer platform and own website only - this job will be allowed to be published only on these 2 websites.
+	                                </label>
+	                            </div>
+	                            <div class="radio">
+	                                <label>
+	                                  <input type="radio" id="rv3" name="jobVisibility"> &nbsp;Own website only - Job is only published on own website
+	                                </label>
+	                            </div>
+	                        </li>
+	                </div>
+	        </div>
+							<div style="margin-bottom:50px;">
+							</div>
+							<!-- buttons at the bottom -->
+							<div class='row margin-rl-0'>
+								<div class='col-sm-4'>
+								</div>
+								<div class='col-sm-4 padding-rl-0'>
+									<button class='btn btn-primary' type="button" style='padding:5px 15px 5px 15px; font-size:15px;'>Preview</button>
+									<button class='btn btn-success text-transform-none' type="submit" style='padding:5px 15px 5px 15px; font-size:15px;' ng-click="saveData()">Post a Job</button>
+									<button class='btn btn-danger' type="button" style='padding:5px 15px 5px 15px; font-size:15px;'>Cancel</button>
+								</div>
+							</div>
+							<div style="margin-bottom:50px;">
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="containerB">
+            <span class="prototype-scheme">PROTOTYPE</span>
+        </div>
+    </div>
+
+	<footer>
+        <div class="container1">
+            <div class="row">
+                <div class="col-lg-2">
+                    <ul class="footer-link-list" style="padding-left:80px">
+                        <li>
+                            <a href="#" class="footer-text">About Us </a>
+                        </li>
+                        <li><a href="#" class="footer-text">Blog </a></li>
+                        <li><a href="#" class="footer-text">Feedback </a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2">
+                    <ul class="footer-link-list" style="padding-left:40px">
+                        <li>
+                            <a href="#" class="footer-text">Comunnity</a>
+                        </li>
+                        <li><a href="#" class="footer-text">Trust & Safety </a></li>
+                        <li><a href="#" class="footer-text">Help & Support </a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2">
+                    <ul class="footer-link-list" style="padding-left:30px">
+                        <li>
+                            <a href="#" class="footer-text">Enterprise Solutions</a>
+                        </li>
+                        <li><a href="#" class="footer-text">Terms of Service</a></li>
+                        <li><a href="#" class="footer-text">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2">
+                    <ul class="footer-link-list" style="padding-left:30px">
+                        <li>
+                            <a href="#" class="footer-text">Tools</a>
+                        </li>
+                        <li><a href="#" class="footer-text">Client Resources</a></li>
+                        <li><a href="#" class="footer-text">Help & Support</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <div class="social-network-icon-wrap"  style="padding-right:60px">
+                        <a href="#" class="footer-select social-network-icons">
+                            <span class="footer-circle footer-circle-linkedin pull-right">
+                                <span class="fa fa-linkedin font-size-20 icon-attr1"> </i>
+                            </span>
+                        </a>
+                        <a href="#" class="social-network-icons">
+                            <span class="footer-circle footer-circle-facebook pull-right">
+                                <span class="fa fa-facebook font-size-20 icon-attr1"> </i>
+                            </span>
+                        </a>
+                        <a href="#" class="social-network-icons">
+                            <span class="footer-circle footer-circle-twitter pull-right">
+                                <span class="fa fa-twitter font-size-20 icon-attr1"> </i>
+                            </span>
+                        </a>
+                        <a href="#" class="social-network-icons">
+                            <span class="footer-circle footer-circle-google pull-right">
+                                <span class="fa fa-google-plus font-size-20 icon-attr1"> </i>
+                            </span>
+                        </a>
+                    </div>
+                    <span class="footer-copyrights" id='footer-copyrights' style="padding-right:60px">
+                        <span>&#169;&nbsp;Volunteer Corporation</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </footer>
+	</div>
+		<div class="col-sm-1">
+		</div>
+	</div>
+
+
+	<!-- Some modals -->
+	<!-- Describe the work to be done data modal-->
+	<div class="modal fade" id="textBoxBig" tabindex="-1" role="dialog" aria-labelledby="textBoxBig" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close big-close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h2 class="modal-title" id="myModalLabel">Describe the work to be done</h2>
+				</div>
+				<form role="form">
+					<div class="modal-body">
+						<div class="form-group">
+							<textarea id="text-content-pop" maxlength="4000" class="form-control" rows="15"></textarea>
+						</div>
+						<div class="form-group text-left">
+							<p>Number of characters: <span id="text-content-count-pop">0</span> (max 4000 characters)</p>
+						</div>
+						<div class="row">
+							<div class="col-sm-6 text-left">
+							</div>
+							<div class="col-sm-6">
+								<button type="button" class="btn btn-primary pull-right" data-dismiss="modal">OK <i class="glyphicon glyphicon-arrow-right"></i></button>
+								<button style="margin: 0 10px 0 0;" type="button" class="btn btn-default btn-danger pull-right" data-dismiss="modal" aria-hidden="true">Cancel</button>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- language modal box -->
+	<div class="modal fade" id="languageBox" tabindex="-1" role="dialog" aria-labelledby="languageBox" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close big-close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h2 class="modal-title" id="myModalLabel">Choose languages</h2>
+				</div>
+				<form role="form">
+					<div class="modal-body">
+						<div class="form-group">
+							<div class="col-sm-3">
+								<div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="lan1" value="Afrikaans"> Afrikaans
+								    </label>
+								</div>
+							    <div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="lan2" value="Albanian"> Albanian
+								    </label>
+								</div>
+								<div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="lan3" value="Arabic"> Arabic
+								    </label>
+								</div>
+							    <div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="lan4" value="Armenian"> Armenian
+								    </label>
+								</div>
+								<div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="lan5" value="Azerbaijani"> Azerbaijani
+								    </label>
+								</div>
+							    <div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="lan6" value="Basque"> Basque
+								    </label>
+								</div>
+								<div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="lan7" value="Belarusian"> Belarusian
+								    </label>
+								</div>
+							    <div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="lan8" value="Bengali"> Bengali
+								    </label>
+								</div>
+								<div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="lan9" value="Bosnian"> Bosnian
+								    </label>
+								</div>
+							    <div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="lan10" value="Bulgarian"> Bulgarian
+								    </label>
+								</div>
+								<div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="lan11" value="Catalan"> Catalan
+								    </label>
+								</div>
+							    <div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="lan12" value="Cebuano"> Cebuano
+								    </label>
+								</div>
+								<div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="lan13" value="Chinese"> Chinese
+								    </label>
+								</div>
+							    
+							</div>
+							<div class="col-sm-3">
+							    <div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="lan14" value="Danish"> Danish
+								    </label>
+								</div>
+								<div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="lan15" value="Dutch"> Dutch
+								    </label>
+								</div>
+							    <div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="lan16" value="English"> English
+								    </label>
+								</div>
+								<div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="lan17" value="Esperanto"> Esperanto
+								    </label>
+								</div>
+							    <div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="lan18" value="Estonian"> Estonian
+								    </label>
+								</div>
+								<div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="lan19" value="Filipino"> Filipino
+								    </label>
+								</div>
+							    <div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="lan20" value="French"> French
+								    </label>
+								</div>
+								<div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="lan21" value="Georgian"> Georgian
+								    </label>
+								</div>
+							    <div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="lan22" value="German"> German
+								    </label>
+								</div>
+								<div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="lan23" value="Greek"> Greek
+								    </label>
+								</div>
+							    <div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="lan24" value="Hausa"> Hausa
+								    </label>
+								</div>
+								<div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="lan25" value="Hebrew"> Hebrew
+								    </label>
+								</div>
+							    <div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="lan26" value="Hindi"> Hindi
+								    </label>
+								</div>
+							</div>
+							<div class="col-sm-3">
+								<div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="lan27" value="Hungarian"> Hungarian
+								    </label>
+								</div>
+							    <div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="lan28" value="Indonesian"> Indonesian
+								    </label>
+								</div>
+								<div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="lan29" value="Irish"> Irish
+								    </label>
+								</div>
+							    <div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="lan30" value="Italian"> Italian
+								    </label>
+								</div>
+								<div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="lan31" value="Japanese"> Japanese
+								    </label>
+								</div>
+							    <div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="lan32" value="Korean"> Korean
+								    </label>
+								</div>
+								<div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="lan33" value="Lao"> Lao
+								    </label>
+								</div>
+							    <div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="lan34" value="Latin"> Latin
+								    </label>
+								</div>
+								<div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="lan35" value="Mongolian"> Mongolian
+								    </label>
+								</div>
+							    <div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="lan36" value="Norwegian"> Norwegian
+								    </label>
+								</div>
+								<div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="lan37" value="Persian"> Persian
+								    </label>
+								</div>
+							    <div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="lan38" value="Portuguese"> Portuguese
+								    </label>
+								</div>
+								<div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="lan39" value="Punjabi"> Punjabi
+								    </label>
+								</div>
+							</div>
+							
+							<div class="col-sm-3">
+							    <div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="lan40" value="Romanian"> Romanian
+								    </label>
+								</div>
+								<div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="lan41" value="Russian"> Russian
+								    </label>
+								</div>
+							    <div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="lan42" value="Serbian"> Serbian
+								    </label>
+								</div>
+								<div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="lan43" value="Spanish"> Spanish
+								    </label>
+								</div>
+							    <div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="lan44" value="Swedish"> Swedish
+								    </label>
+								</div>
+								<div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="lan45" value="Thai"> Thai
+								    </label>
+								</div>
+							    <div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="lan46" value="Turkish"> Turkish
+								    </label>
+								</div>
+								<div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="lan47" value="Ukrainian"> Ukrainian
+								    </label>
+								</div>
+							    <div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="lan48" value="Urdu"> Urdu
+								    </label>
+								</div>
+								<div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="lan49" value="Vietnamese"> Vietnamese
+								    </label>
+								</div>
+							    <div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="lan50" value="Welsh"> Welsh
+								    </label>
+								</div>
+							    <div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="lan51" value="Yoruba"> Yoruba
+								    </label>
+								</div>
+							    <div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="lan52" value="Zulu"> Zulu
+								    </label>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-6 text-left">
+							</div>
+							<div class="col-sm-6">
+								<button style="margin: 20px 10px 30px 0;" type="button" class="btn btn-primary pull-right" data-dismiss="modal" onclick="updateValueLanCheck()">OK <i class="glyphicon glyphicon-arrow-right"></i></button>
+								<button style="margin: 20px 10px 30px 0;" type="button" class="btn btn-default btn-danger pull-right" data-dismiss="modal" aria-hidden="true" >Cancel</button>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- days of week -->
+	<div class="modal fade" id="dowBox" tabindex="-1" role="dialog" aria-labelledby="dowBox" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close big-close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h2 class="modal-title" id="myModalLabel">Days of week</h2>
+				</div>
+				<form role="form">
+					<div class="modal-body">
+						<div class="form-group">
+							<div class="row">
+								<div class="col-sm-1">
+								</div>
+								<div class="col-sm-2">
+									<label>Full day</label>
+								</div>
+								<div class="col-sm-2">
+									<label>Morning</label>
+								</div>
+								<div class="col-sm-2">
+									<label>Afternoon</label>
+								</div>
+								<div class="col-sm-2">
+									<label>Evening</label>
+								</div>
+								<div class="col-sm-2">
+									<label>Late Night</label>
+								</div>
+							</div>
+							<div class="row" style="margin-top:5px;margin-bottom:5px;">
+								<div class="col-sm-12 margin-left-5">
+									<hr style="height:1px; background-color:#DDDDDD;margin-top:5px;margin-bottom:5px;">
+								</div>	
+							</div>
+							<div class="row">
+								<div class="col-sm-1">
+								</div>
+								<div class="col-sm-2">
+									<div class="checkbox">
+									    <label>
+									      <input type="checkbox" id="dow1" value="All Weekdays - Full day"> All Weekdays
+									    </label>
+									</div>
+								    <div class="checkbox">
+									    <label>
+									      <input type="checkbox" id="dow2" value="Weekends - Full day"> Weekends
+									    </label>
+									</div>
+								</div>
+								<div class="col-sm-2">
+									<div class="checkbox">
+									    <label>
+									      <input type="checkbox" id="dow10" value="All Weekdays - Morning"> All Weekdays
+									    </label>
+									</div>
+								    <div class="checkbox">
+									    <label>
+									      <input type="checkbox" id="dow11" value="Weekends - Morning"> Weekends
+									    </label>
+									</div>
+								</div>
+								<div class="col-sm-2">
+									<div class="checkbox">
+									    <label>
+									      <input type="checkbox" id="dow21" value="All Weekdays - Afternoon"> All Weekdays
+									    </label>
+									</div>
+								    <div class="checkbox">
+									    <label>
+									      <input type="checkbox" id="dow22" value="Weekends - Afternoon"> Weekends
+									    </label>
+									</div>
+								</div>
+								<div class="col-sm-2">
+									<div class="checkbox">
+									    <label>
+									      <input type="checkbox" id="dow31" value="All Weekdays - Evening"> All Weekdays
+									    </label>
+									</div>
+								    <div class="checkbox">
+									    <label>
+									      <input type="checkbox" id="dow32" value="Weekends - Evening"> Weekends
+									    </label>
+									</div>
+								</div>
+								<div class="col-sm-2">
+									<div class="checkbox">
+									    <label>
+									      <input type="checkbox" id="dow41" value="All Weekdays - Late Night"> All Weekdays
+									    </label>
+									</div>
+								    <div class="checkbox">
+									    <label>
+									      <input type="checkbox" id="dow42" value="Weekends - Late Night"> Weekends
+									    </label>
+									</div>
+								</div>
+							</div>
+							<div class="row" style="margin-top:5px;margin-bottom:5px;">
+								<div class="col-sm-12 margin-left-5">
+									<hr style="height:1px; background-color:#DDDDDD;margin-top:5px;margin-bottom:5px;">
+								</div>	
+							</div>
+							<div class="row">
+								<div class="col-sm-1">
+								</div>
+								<div class="col-sm-2">
+									<div class="checkbox">
+									    <label>
+									      <input type="checkbox" id="dow3" value="Monday - Full day"> Monday
+									    </label>
+									</div>
+								    <div class="checkbox">
+									    <label>
+									      <input type="checkbox" id="dow4" value="Tuesday - Full day"> Tuesday
+									    </label>
+									</div>
+									<div class="checkbox">
+									    <label>
+									      <input type="checkbox" id="dow5" value="Wednesday - Full day"> Wednesday
+									    </label>
+									</div>
+								    <div class="checkbox">
+									    <label>
+									      <input type="checkbox" id="dow6" value="Thursday - Full day"> Thursday
+									    </label>
+									</div>
+									<div class="checkbox">
+									    <label>
+									      <input type="checkbox" id="dow7" value="Friday - Full day"> Friday
+									    </label>
+									</div>
+								    <div class="checkbox">
+									    <label>
+									      <input type="checkbox" id="dow8" value="Saturday - Full day"> Saturday
+									    </label>
+									</div>
+									<div class="checkbox">
+									    <label>
+									      <input type="checkbox" id="dow9" value="Sunday - Full day"> Sunday
+									    </label>
+									</div>
+								</div>
+								<div class="col-sm-2">
+									<div class="checkbox">
+									    <label>
+									      <input type="checkbox" id="dow13" value="Monday - Morning"> Monday
+									    </label>
+									</div>
+								    <div class="checkbox">
+									    <label>
+									      <input type="checkbox" id="dow14" value="Tuesday - Morning"> Tuesday
+									    </label>
+									</div>
+									<div class="checkbox">
+									    <label>
+									      <input type="checkbox" id="dow15" value="Wednesday - Morning"> Wednesday
+									    </label>
+									</div>
+								    <div class="checkbox">
+									    <label>
+									      <input type="checkbox" id="dow16" value="Thursday - Morning"> Thursday
+									    </label>
+									</div>
+									<div class="checkbox">
+									    <label>
+									      <input type="checkbox" id="dow17" value="Friday - Morning"> Friday
+									    </label>
+									</div>
+								    <div class="checkbox">
+									    <label>
+									      <input type="checkbox" id="dow18" value="Saturday - Morning"> Saturday
+									    </label>
+									</div>
+									<div class="checkbox">
+									    <label>
+									      <input type="checkbox" id="dow19" value="Sunday - Morning"> Sunday
+									    </label>
+									</div>
+								</div>
+								<div class="col-sm-2">
+									<div class="checkbox">
+									    <label>
+									      <input type="checkbox" id="dow23" value="Monday - Afternoon"> Monday
+									    </label>
+									</div>
+								    <div class="checkbox">
+									    <label>
+									      <input type="checkbox" id="dow24" value="Tuesday - Afternoon"> Tuesday
+									    </label>
+									</div>
+									<div class="checkbox">
+									    <label>
+									      <input type="checkbox" id="dow25" value="Wednesday - Afternoon"> Wednesday
+									    </label>
+									</div>
+								    <div class="checkbox">
+									    <label>
+									      <input type="checkbox" id="dow26" value="Thursday - Afternoon"> Thursday
+									    </label>
+									</div>
+									<div class="checkbox">
+									    <label>
+									      <input type="checkbox" id="dow27" value="Friday - Afternoon"> Friday
+									    </label>
+									</div>
+								    <div class="checkbox">
+									    <label>
+									      <input type="checkbox" id="dow28" value="Saturday - Afternoon"> Saturday
+									    </label>
+									</div>
+									<div class="checkbox">
+									    <label>
+									      <input type="checkbox" id="dow29" value="Sunday - Afternoon"> Sunday
+									    </label>
+									</div>
+								</div>
+								<div class="col-sm-2">
+									<div class="checkbox">
+									    <label>
+									      <input type="checkbox" id="dow33" value="Monday - Evening"> Monday
+									    </label>
+									</div>
+								    <div class="checkbox">
+									    <label>
+									      <input type="checkbox" id="dow34" value="Tuesday - Evening"> Tuesday
+									    </label>
+									</div>
+									<div class="checkbox">
+									    <label>
+									      <input type="checkbox" id="dow35" value="Wednesday - Evening"> Wednesday
+									    </label>
+									</div>
+								    <div class="checkbox">
+									    <label>
+									      <input type="checkbox" id="dow36" value="Thursday - Evening"> Thursday
+									    </label>
+									</div>
+									<div class="checkbox">
+									    <label>
+									      <input type="checkbox" id="dow37" value="Friday - Evening"> Friday
+									    </label>
+									</div>
+								    <div class="checkbox">
+									    <label>
+									      <input type="checkbox" id="dow38" value="Saturday - Evening"> Saturday
+									    </label>
+									</div>
+									<div class="checkbox">
+									    <label>
+									      <input type="checkbox" id="dow39" value="Sunday - Evening"> Sunday
+									    </label>
+									</div>
+								</div>
+								
+								<div class="col-sm-2">
+									<div class="checkbox">
+									    <label>
+									      <input type="checkbox" id="dow43" value="Monday - Late Night"> Monday
+									    </label>
+									</div>
+								    <div class="checkbox">
+									    <label>
+									      <input type="checkbox" id="dow44" value="Tuesday - Late Night"> Tuesday
+									    </label>
+									</div>
+									<div class="checkbox">
+									    <label>
+									      <input type="checkbox" id="dow45" value="Wednesday - Late Night"> Wednesday
+									    </label>
+									</div>
+								    <div class="checkbox">
+									    <label>
+									      <input type="checkbox" id="dow46" value="Thursday - Late Night"> Thursday
+									    </label>
+									</div>
+									<div class="checkbox">
+									    <label>
+									      <input type="checkbox" id="dow47" value="Friday - Late Night"> Friday
+									    </label>
+									</div>
+								    <div class="checkbox">
+									    <label>
+									      <input type="checkbox" id="dow48" value="Saturday - Late Night"> Saturday
+									    </label>
+									</div>
+									<div class="checkbox">
+									    <label>
+									      <input type="checkbox" id="dow49" value="Sunday - Late Night"> Sunday
+									    </label>
+									</div>
+								</div>
+								
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-6 text-left">
+							</div>
+							<div class="col-sm-6">
+								<button style="margin: 20px 10px 30px 0;" type="button" class="btn btn-success pull-right" data-dismiss="modal" onclick="updateValueDowCheck()">OK <i class="glyphicon glyphicon-arrow-right"></i></button>
+								<button style="margin: 20px 10px 30px 0;" type="button" class="btn btn-default btn-danger pull-right" data-dismiss="modal" aria-hidden="true" >Cancel</button>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- Screening questions -->
+	<div class="modal fade" id="screeningBox" tabindex="-1" role="dialog" aria-labelledby="screeningBox" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close big-close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h2 class="modal-title" id="myModalLabel">Screening questions</h2>
+				</div>
+				<form role="form">
+					<div class="modal-body">
+						<div class="form-group">
+							<div class="col-sm-11">
+								<div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="screening1" value="Have you taken any Volunteer tests and done well on them that you think are relevant to this job?"> Have you taken any Volunteer tests and done well on them that you think are relevant to this job?
+								    </label>
+								</div>
+							    <div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="screening2" value="Why did you apply to this particular job?"> Why did you apply to this particular job?
+								    </label>
+								</div>
+								<div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="screening3" value="Which part of the project do you think will take the most time?"> Which part of the project do you think will take the most time?
+								    </label>
+								</div>
+							    <div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="screening4" value="Do you have any questions about the job description?"> Do you have any questions about the job description?
+								    </label>
+								</div>
+								<div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="screening5" value="Do you have any suggestions to make this project run successfully?"> Do you have any suggestions to make this project run successfully?
+								    </label>
+								</div>
+							    <div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="screening6" value="Why do you think you are a good fit for this particular project?"> Why do you think you are a good fit for this particular project?
+								    </label>
+								</div>
+								<div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="screening7" value="What challenging part of this job are you most experienced in?"> What challenging part of this job are you most experienced in?
+								    </label>
+								</div>
+							    <div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="screening8" value="Which of the required job skills do you feel you you are strongest at?"> Which of the required job skills do you feel you you are strongest at?
+								    </label>
+								</div>
+								<div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="screening9" value="What questions do you have about the project?"> What questions do you have about the project?
+								    </label>
+								</div>
+								<div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="screening10" value="What past project or job have you had that is most like this one and why?"> What past project or job have you had that is most like this one and why?
+								    </label>
+								</div>
+							    
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-6 text-left">
+							</div>
+							<div class="col-sm-6">
+								<button style="margin: 20px 10px 30px 0;" type="button" class="btn btn-success pull-right" data-dismiss="modal" onclick="updateValueScreeningCheck()">OK <i class="glyphicon glyphicon-arrow-right"></i></button>
+								<button style="margin: 20px 10px 30px 0;" type="button" class="btn btn-default btn-danger pull-right" data-dismiss="modal" aria-hidden="true" >Cancel</button>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<!-- Skills Modal-->
+	<div class="modal fade" id="skillBox" tabindex="-1" role="dialog" aria-labelledby="skillBox" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close big-close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h2 class="modal-title" id="myModalLabel">Choose skills</h2>
+				</div>
+				<form role="form">
+					<div class="modal-body">
+						<div class="form-group">
+							<div class="col-sm-4">
+								<div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="skill1" value="Answering Telephones"> Answering Telephones
+								    </label>
+								</div>
+							    <div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="skill2" value="Accounting"> Accounting
+								    </label>
+								</div>
+								<div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="skill3" value="Administration"> Administration
+								    </label>
+								</div>
+							    <div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="skill4" value="Business Correspondence"> Business Correspondence
+								    </label>
+								</div>
+								<div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="skill5" value="Client Relations"> Client Relations
+								    </label>
+								</div>
+							    <div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="skill6" value="Communication"> Communication
+								    </label>
+								</div>
+								<div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="skill7" value="Crowd Control"> Crowd Control
+								    </label>
+								</div>
+							    <div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="skill8" value="Crime & Safety"> Crime & Safety
+								    </label>
+								</div>
+								<div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="skill9" value="Customer Service"> Customer Service
+								    </label>
+								</div>
+							    
+							</div>
+							<div class="col-sm-4">
+							    <div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="skill10" value="Clerical"> Clerical
+								    </label>
+								</div>
+								<div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="skill11" value="Document Management"> Document Management
+								    </label>
+								</div>
+							    <div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="skill12" value="Disaster Relief"> Disaster Relief
+								    </label>
+								</div>
+								<div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="skill13" value="Document Management"> Document Management
+								    </label>
+								</div>
+							    <div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="skill14" value="Event Coordination"> Event Coordination
+								    </label>
+								</div>
+								<div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="skill15" value="Employee Relations"> Employee Relations
+								    </label>
+								</div>
+							    <div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="skill16" value="Legal Familiarity"> Legal Familiarity
+								    </label>
+								</div>
+								<div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="skill17" value="Meeting Planning"> Meeting Planning
+								    </label>
+								</div>
+							    <div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="skill18" value="Office Administration"> Office Administration
+								    </label>
+								</div>
+							</div>
+							<div class="col-sm-3">
+								<div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="skill19" value="Organizational Skills"> Organizational Skills
+								    </label>
+								</div>
+							    <div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="skill20" value="Public Relations"> Public Relations
+								    </label>
+								</div>
+								<div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="skill21" value="Public Speaking"> Public Speaking
+								    </label>
+								</div>
+							    <div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="skill22" value="People Management"> People Management
+								    </label>
+								</div>
+								<div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="skill23" value="Receptionist"> Receptionist
+								    </label>
+								</div>
+							    <div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="skill24" value="Stenography"> Stenography
+								    </label>
+								</div>
+								<div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="skill25" value="Travel Arrangements"> Travel Arrangements
+								    </label>
+								</div>
+							    <div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="skill26" value="Word Processing"> Word Processing
+								    </label>
+								</div>
+								<div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="skill27" value="Written Communication"> Written Communication
+								    </label>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-6 text-left margin-top-25">
+                                <span class="margin-left-15"><a href="#" id="hideSkill" title="Suggest skills" data-toggle="modal" data-target="#suggestSkillBox">Don't see a skill listed? Suggest a skill</a></span>
+                            </div>
+							<div class="col-sm-6">
+								<button style="margin: 20px 10px 30px 0;" type="button" class="btn btn-success pull-right" data-dismiss="modal" onclick="updateValueSkillCheck()">OK <i class="glyphicon glyphicon-arrow-right"></i></button>
+								<button style="margin: 20px 10px 30px 0;" type="button" class="btn btn-default btn-danger pull-right" data-dismiss="modal" aria-hidden="true" >Cancel</button>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<!--Suggest skills-->
+    <div class="modal fade" id="suggestSkillBox" tabindex="-1" role="dialog" aria-labelledby="suggestSkillBox" aria-hidden="true">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close big-close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h2 class="modal-title" id="myModalLabel">Suggest a skill </h2>
+                </div>
+                <form role="form" id="suggestSkillForm">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <div class="row margin-rl-0">
+                                <div class="col-sm-12 padding-rl-0">
+                                    <label><strong>Important:</strong> Skills must fit in the sentence "I am an expert in _____."</label>
+                                </div>
+                            </div>
+                            <div class="row margin-rl-0">
+                                <div class="col-sm-4 padding-rl-0">
+                                    <label><strong>Acceptable skills</strong></label>
+                                </div>
+                                <div class="col-sm-8 padding-rl-0">
+                                    <label><strong>Non acceptable</strong></label>
+                                </div>
+                            </div>
+
+                            <div class="row margin-rl-0">
+                                <div class="col-sm-4 padding-rl-0 skillsSet">
+                                    <label ng-repeat="skill in ['JavaScript', 'Accounting', 'Photoshop', 'German']"><i class="fa fa-check green"></i> {{skill}}</label>
+                                </div>
+                                <div class="col-sm-8 padding-rl-0 skillsSet">
+                                    <label ng-repeat="skill in [' Punctuality - Personal attribute, not a skill', 'Accountant - Job title or certification, not a skill', 'Photoshop CS5 - For software, please omit versions', 'Expert in German - Please omit levels of expertise']"><i class="fa fa-exclamation red"></i> {{skill}}</label>
+                                </div>
+                            </div>
+                            <div class="row margin-rl-0">
+                                <div class="col-sm-12 padding-rl-0">
+                                    <p>Skills must also be in English and comply with the vrijwilligersvacaturebank.nl <a>Terms of Service</a></p>
+                                </div>
+                            </div>
+                            <div class="row margin-rl-0" id="errorMsg3">
+                                <div class="col-sm-12 padding-rl-0">
+                                    <div class="col-sm-1"></div>
+                                    <div class="alert alert-danger col-sm-10">
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                        <h4 class="text-center margin-top-0">Please fix the following issues</h4>
+                                        <ul id="errorList3" class="errorList" style="margin-bottom:35px"></ul>
+                                    </div>
+                                    <div class="col-sm-1"></div>
+                                </div>
+                            </div>
+                            <div class="row margin-rl-0 margin-bottom-20">
+                                <div class="col-sm-7 padding-rl-0">
+                                    <div class="form-group">
+                                        <label class="block"><strong>Skill name </strong></label>
+                                        <input type="text" name="skillname" id="skillname" class="col-sm-12" placeholder="Please enter only one skill at a time">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row margin-rl-0">
+                                <div class="col-sm-12 padding-rl-0">
+                                    <div class="form-group">
+                                        <label class="block"><strong>Description </strong></label>
+                                        <textarea class="text-area" id="skillDescription" cols="76" rows="4"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row margin-rl-0">
+                                <div class="col-sm-7 padding-rl-0">
+                                    <div class="form-group">
+                                        <label class="block"><strong>Link </strong></label>
+                                        <input type="text" name="SkillLink" id="SkillLink" class="col-sm-12" placeholder="e.g., http://en.wikipedia.org/wiki/JavaScript">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6 text-left">
+                            </div>
+                            <div class="col-sm-6">
+                                <button style="margin: 20px 10px 30px 0;" type="submit" class="btn btn-success pull-right" >Suggest these skils <i class="glyphicon glyphicon-arrow-right"></i></button>
+                                <button style="margin: 20px 10px 30px 0;" type="button" class="btn btn-default btn-danger pull-right" ng-click="cancelSuggestSkill()
+                                " aria-hidden="true" >Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+	<!-- Diploma Modal -->
+	<div class="modal fade" id="diplomaBox" tabindex="-1" role="dialog" aria-labelledby="diplomaBox" aria-hidden="true">
+		<div class="modal-dialog modal-md">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close big-close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h2 class="modal-title" id="myModalLabel">Choose Diplomas/Certificates </h2>
+				</div>
+				<form role="form">
+					<div class="modal-body">
+						<div class="form-group">
+							<div class="col-sm-6">
+								<div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="diploma1" value="First Aid Diploma"> First Aid Diploma
+								    </label>
+								</div>
+							    <div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="diploma2" value="Football Referee License"> Football Referee License
+								    </label>
+								</div>
+								<div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="diploma3" value="Active Volunteering"> Active Volunteering
+								    </label>
+								</div>
+							    <div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="diploma4" value="Training and Assessmement"> Training and Assessmement
+								    </label>
+								</div>
+								<div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="diploma5" value="Program Coordination"> Program Coordination
+								    </label>
+								</div>
+							</div>
+							<div class="col-sm-6">
+							    <div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="diploma6" value="Community Service Coordination"> Community Service Coordination
+								    </label>
+								</div>
+								<div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="diploma7" value="Effective Communication"> Effective Communication
+								    </label>
+								</div>
+							    <div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="diploma8" value="Negotiation"> Negotiation
+								    </label>
+								</div>
+								<div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="diploma9" value="Customer Service"> Customer Service
+								    </label>
+								</div>
+							    <div class="checkbox">
+								    <label>
+								      <input type="checkbox" id="diploma10" value="Risk Management"> Risk Management
+								    </label>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-9 text-left margin-top-25">
+                                <span class="margin-left-15"><a href="#" id="hideDiploma" title="Suggest diploma/certificate" data-toggle="modal" data-target="#suggestDiplomaBox">Don't see a diploma/certificate listed? Suggest a diploma/certificate</a></span>
+                            </div>
+							<div class="col-sm-3 padding-rl-0">
+								<button style="margin: 20px 10px 30px 0;" type="button" class="btn btn-success pull-right" data-dismiss="modal" onclick="updateValueDiplomaCheck()">OK <i class="glyphicon glyphicon-arrow-right"></i></button>
+								<button style="margin: 20px 10px 30px 0;" type="button" class="btn btn-default btn-danger pull-right" data-dismiss="modal" aria-hidden="true" >Cancel</button>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<!--Suggest diploma certificate-->
+    <div class="modal fade" id="suggestDiplomaBox" tabindex="-1" role="dialog" aria-labelledby="suggestDiplomaBox" aria-hidden="true">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close big-close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h2 class="modal-title" id="myModalLabel">Suggest a diploma/certificate </h2>
+                </div>
+                <form role="form" id="suggestDiplomaForm">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <div class="row margin-rl-0">
+                                <div class="col-sm-12 padding-rl-0">
+                                    <p>Diploma's/Certificate's must also be in English and comply with the vrijwilligersvacaturebank.nl <a>Terms of Service</a></p>
+                                </div>
+                            </div>
+                            <div class="row margin-rl-0" id="errorMsg4">
+                                <div class="col-sm-12 padding-rl-0">
+                                    <div class="col-sm-1"></div>
+                                    <div class="alert alert-danger col-sm-10">
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                        <h4 class="text-center margin-top-0">Please fix the following issues</h4>
+                                        <ul id="errorList4" class="errorList" style="margin-bottom:35px"></ul>
+                                    </div>
+                                    <div class="col-sm-1"></div>
+                                </div>
+                            </div>
+                            <div class="row margin-rl-0 margin-bottom-20">
+                                <div class="col-sm-7 padding-rl-0">
+                                    <div class="form-group">
+                                        <label class="block"><strong>Diploma/Certificate name </strong></label>
+                                        <input type="text" name="diplomaname" id="diplomaname" class="col-sm-12" placeholder="Please enter only one diploma/certificate at a time">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row margin-rl-0">
+                                <div class="col-sm-12 padding-rl-0">
+                                    <div class="form-group">
+                                        <label class="block"><strong>Description </strong></label>
+                                        <textarea class="text-area" id="diplomaDescription" cols="76" rows="4"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row margin-rl-0">
+                                <div class="col-sm-7 padding-rl-0">
+                                    <div class="form-group">
+                                        <label class="block"><strong>Link </strong></label>
+                                        <input type="text" name="diplomaLink" id="diplomaLink" class="col-sm-12" placeholder="e.g., http://en.wikipedia.org/microsoft/excel/foundation">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4 text-left">
+                            </div>
+                            <div class="col-sm-8">
+                                <button style="margin: 20px 10px 30px 0;" type="submit" class="btn btn-success pull-right" >Suggest diploma/certificate <i class="glyphicon glyphicon-arrow-right"></i></button>
+                                <button style="margin: 20px 10px 30px 0;" type="button" class="btn btn-default btn-danger pull-right" ng-click="cancelSuggestDiploma()" aria-hidden="true" >Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+	<!-- Address questions -->
+	<div class="modal fade" id="locationNew" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+		<div class="modal-dialog modal-md">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close big-close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h2 class="modal-title" id="myModalLabel">Add Address</h2>
+				</div>
+				<form role="form" name="jobForm" id="jobForm" novalidate>
+                    <div class="modal-body">
+                        <div class="row margin-left--15">
+                            <div class="col-sm-12">
+                                <label>Country</label>
+                            </div>
+                            <div class="col-sm-12">
+                        	<select class='col-sm-12' id="locationCountry" ng-model="locationCountry" ng-init="locationCountry = 'Belgium'">
+	                            <option value='Belgium'>Belgium</option>
+	                            <option value='France'>France</option>
+	                            <option value='Germany'>Germany</option>
+	                            <option value='Netherlands' selected="selected">Netherlands</option>
+	                            <option value='United Kingdom'>United Kingdom</option>
+	                            <optgroup label="&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;"></optgroup>
+	                            <option value='Afghanistan'>Afghanistan</option>
+	                            <option value='Akrotiri'>Akrotiri</option>
+	                            <option value='Albania'>Albania</option>
+	                            <option value='Algeria'>Algeria</option>
+	                            <option value='Angola'>Angola</option>
+	                            <option value='Antarctica'>Antarctica</option>
+	                            <option value='Antigua and Barbuda'>Antigua and Barbuda</option>
+	                            <option value='Argentina'>Argentina</option>
+	                            <option value='Australia'>Australia</option>
+	                            <option value='Austria'>Austria</option>
+	                            <option value='Bahamas, The'>Bahamas, The</option>
+	                            <option value='Bangladesh'>Bangladesh</option>
+	                            <option value='Bassas da India'>Bassas da India</option>
+	                            <option value='Belarus'>Belarus</option>
+	                            
+	                            <option value='Bermuda'>Bermuda</option>
+	                            <option value='Bhutan'>Bhutan</option>
+	                            <option value='Brazil'>Brazil</option>
+	                            <option value='British Indian Ocean Territory'>British Indian Ocean Territory</option>
+	                            <option value='British Virgin Islands'>British Virgin Islands</option>
+	                            <option value='Bulgaria'>Bulgaria</option>
+	                            <option value='Burma'>Burma</option>
+	                            <option value='Burundi'>Burundi</option>
+	                            <option value='Cambodia'>Cambodia</option>
+	                            <option value='Cameroon'>Cameroon</option>
+	                            <option value='Canada'>Canada</option>
+	                            <option value='China'>China</option>
+	                            <option value='Cocos (Keeling) Islands'>Cocos (Keeling) Islands</option>
+	                            <option value='Colombia'>Colombia</option>
+	                            <option value='Comoros'>Comoros</option>
+	                            <option value='Congo, Democratic Republic of the'>Congo, Democratic Republic of the</option>
+	                            <option value='Congo, Republic of the'>Congo, Republic of the</option>
+	                            <option value='Cook Islands'>Cook Islands</option>
+	                            <option value='Cuba'>Cuba</option>
+	                            <option value='Cyprus'>Cyprus</option>
+	                            <option value='Denmark'>Denmark</option>
+	                            <option value='Dominican Republic'>Dominican Republic</option>
+	                            <option value='Ecuador'>Ecuador</option>
+	                            <option value='Egypt'>Egypt</option>
+	                            <option value='Ethiopia'>Ethiopia</option>
+	                            <option value='Finland'>Finland</option>
+	                            
+	                            <option value='Georgia'>Georgia</option>
+	                            
+	                            <option value='Greece'>Greece</option>
+	                            <option value='Greenland'>Greenland</option>
+	                            <option value='Guinea'>Guinea</option>
+	                            <option value='Holy See (Vatican City)'>Holy See (Vatican City)</option>
+	                            <option value='Hong Kong'>Hong Kong</option>
+	                            <option value='Iceland'>Iceland</option>
+	                            <option value='India'>India</option>
+	                            <option value='Indonesia'>Indonesia</option>
+	                            <option value='Iran'>Iran</option>
+	                            <option value='Iraq'>Iraq</option>
+	                            <option value='Ireland'>Ireland</option>
+	                            <option value='Israel'>Israel</option>
+	                            <option value='Italy'>Italy</option>
+	                            <option value='Jamaica'>Jamaica</option>
+	                            <option value='Japan'>Japan</option>
+	                            <option value='Jersey'>Jersey</option>
+	                            <option value='Kazakhstan'>Kazakhstan</option>
+	                            <option value='Kenya'>Kenya</option>
+	                            <option value='Korea'>Korea</option>
+	                            <option value='Kuwait'>Kuwait</option>
+	                            <option value='Laos'>Laos</option>
+	                            <option value='Lebanon'>Lebanon</option>
+	                            <option value='Liberia'>Liberia</option>
+	                            <option value='Macau'>Macau</option>
+	                            <option value='Malaysia'>Malaysia</option>
+	                            <option value='Maldives'>Maldives</option>
+	                            <option value='Mauritius'>Mauritius</option>
+	                            <option value='Mexico'>Mexico</option>
+	                            <option value='Mozambique'>Mozambique</option>
+	                            <option value='Namibia'>Namibia</option>
+	                            <option value='Nepal'>Nepal</option>
+	                            
+	                            <option value='New Zealand'>New Zealand</option>
+	                            <option value='Norway'>Norway</option>
+	                            <option value='Oman'>Oman</option>
+	                            <option value='Pakistan'>Pakistan</option>
+	                            <option value='Peru'>Peru</option>
+	                            <option value='Philippines'>Philippines</option>
+	                            <option value='Poland'>Poland</option>
+	                            <option value='Portugal'>Portugal</option>
+	                            <option value='Qatar'>Qatar</option>
+	                            <option value='Romania'>Romania</option>
+	                            <option value='Russia'>Russia</option>
+	                            <option value='Saudi Arabia'>Saudi Arabia</option>
+	                            <option value='Sierra Leone'>Sierra Leone</option>
+	                            <option value='Singapore'>Singapore</option>
+	                            <option value='Solomon Islands'>Solomon Islands</option>
+	                            <option value='Somalia'>Somalia</option>
+
+	                            <option value='South Africa'>South Africa</option>
+	                            <option value='Spain'>Spain</option>
+	                            <option value='Sri Lanka'>Sri Lanka</option>
+	                            <option value='Sweden'>Sweden</option>
+	                            <option value='Switzerland'>Switzerland</option>
+	                            <option value='Syria'>Syria</option>
+	                            <option value='Taiwan'>Taiwan</option>
+	                            <option value='Thailand'>Thailand</option>
+	                            <option value='Turkey'>Turkey</option>
+	                            <option value='Uganda'>Uganda</option>
+	                            <option value='Ukraine'>Ukraine</option>
+	                            <option value='United Arab Emirates'>United Arab Emirates</option>
+	                            
+	                            <option value='United States'>United States</option>
+	                            <option value='Venezuela'>Venezuela</option>
+	                            <option value='Vietnam'>Vietnam</option>
+	                            <option value='Yemen'>Yemen</option>
+	                            <option value='Zambia'>Zambia</option>
+	                            <option value='Zimbabwe'>Zimbabwe</option>
+	                        </select>
+                            	                      
+                            </div>
+                            <div class="col-sm-12 margin-top-10 check-label">
+                                <label>Zip Code</label>
+                            </div>
+                            <div class="col-sm-12">
+                                <input type="text" class="col-sm-12" id="locationZip" ng-model="locationZip" placeholder="Enter zip code"/>
+                            </div>
+                            <div class="col-sm-12 margin-top-10">
+                                <label>Number</label>
+                            </div>
+                            <div class="col-sm-12">
+                                <input type="text" class="col-sm-12" id="locationNumber" ng-model="locationNumber" placeholder="Enter number"/>
+                            </div>
+                            <div class="col-sm-12 margin-top-15">
+                                <input type="text" class="col-sm-12" ng-model="locationAddress" id="locationAddress" placeholder="shows full address after selecting country, entering zip code and number"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 text-center center-block">
+                                <button style="margin: 20px 10px 30px 0;" ng-click=" locationZip = ''; locationCountry = 'Netherlands'; locationNumber = ''; " data-dismiss="modal" type="button" class="btn btn-default btn-danger" aria-hidden="true" >Cancel</button>
+                                <button style="margin: 20px 0 30px 0;" data-dismiss="modal" class="btn btn-success" onClick="addressLocationShow()">Okey</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+			</div>
+		</div>
+	</div>
+
+	<!-- Scripts -->
+	<script src="../../lib/jquery/dist/jquery.min.js"></script>
+	<script src="../../lib/bootstrap/dist/js/bootstrap.min.js"></script>	
+	<script src="../../lib/angular/angular.min.js"></script>
+    <!-- date picker Scripts -->
+	<script src="../../lib/moment/moment.js"></script>
+	<script src="../../lib/moment/min/moment.min.js"></script>
+	<script src="../../lib/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+	<!--tag inputs -->
+	<script src="../../lib/bootstrap.taginput.js"></script>
+	<script src="../../lib/bootstrap3-typeahead.js"></script>
+	<script src="../../js/app.js"></script>
+    <script src="controller.js"></script>
+    <script src="../../js/inputFile/inputFile.js"></script>
+	<script src="control.js"></script>
+	<script src="validation.js"></script>
+</body>
+</html>
