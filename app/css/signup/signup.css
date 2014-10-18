@@ -248,3 +248,81 @@ p.footer-copyrights{
     border-color:#C70909;
     box-shadow:none;
 }
+
+.signup-orange{
+    background-color: #ed6623;
+    padding: 5px 10px;
+    border: 3px solid #000;
+    border-radius: 3px;
+    color: #111111;
+    height: 155px;
+}
+.signup-orange img,
+.signup-green img,
+.signup-blue img{
+    width: 44px;
+}
+.signup-orange .up,
+.signup-green .up,
+.signup-blue .up{
+    text-transform: uppercase;
+}
+
+
+.signup-orange a,
+.signup-green a,
+.signup-blue a{
+    color: #fff;
+}
+
+.signup-blue{
+    background-color: #1489be;
+    padding: 5px 10px;
+    border: 3px solid #000;
+    border-radius: 3px;
+    color: #111111;
+    height: 450px;
+}
+.signup-green{
+    background-color: #6aa84f;
+    padding: 5px 10px;
+    border: 3px solid #000;
+    border-radius: 3px;
+    color: #111111;
+}
+.signup-green img.org{
+    width: 120px;
+    height: 120px;
+    margin: 20px 10px;
+    -webkit-box-shadow: 0px 3px 5px 1px rgba(7,69,39,1);
+    -moz-box-shadow: 0px 3px 5px 1px rgba(7,69,39,1);
+    box-shadow: 0px 3px 5px 1px rgba(7,69,39,1);
+}
+.signup-green .btn-join{
+    display: inline-block;
+    vertical-align: bottom;
+}
+.signup-blue .a-join{
+    position:absolute; 
+    bottom: 10px; 
+    right:25px;
+    width: 100%;
+}
+.signup-blue .row.button-join{
+    position:absolute;
+    bottom: 30px; 
+    right:25px;
+    width: 100%;
+}
+.signup-orange .a-join{
+    position:absolute; 
+    bottom: 10px; 
+    right:25px;
+    width: 100%;
+}
+.signup-orange .row.button-join{
+    position: absolute;
+    width: 100%;
+    bottom: 28px;
+    left: -27px;
+}
