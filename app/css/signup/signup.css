@@ -252,8 +252,8 @@ p.footer-copyrights{
 .signup-orange{
     background-color: #ed6623;
     padding: 5px 10px;
-    border: 3px solid #000;
-    border-radius: 3px;
+    border: 3px solid #ccc;
+    border-radius: 7px;
     color: #111111;
     height: 155px;
 }
@@ -265,7 +265,7 @@ p.footer-copyrights{
 .signup-orange .up,
 .signup-green .up,
 .signup-blue .up{
-    text-transform: uppercase;
+    font-weight: bold;
 }
 
 
@@ -278,16 +278,16 @@ p.footer-copyrights{
 .signup-blue{
     background-color: #1489be;
     padding: 5px 10px;
-    border: 3px solid #000;
-    border-radius: 3px;
+    border: 3px solid #ccc;
+    border-radius: 7px;
     color: #111111;
     height: 450px;
 }
 .signup-green{
     background-color: #6aa84f;
     padding: 5px 10px;
-    border: 3px solid #000;
-    border-radius: 3px;
+    border: 3px solid #ccc;
+    border-radius: 7px;
     color: #111111;
 }
 .signup-green img.org{
@@ -325,4 +325,51 @@ p.footer-copyrights{
     width: 100%;
     bottom: 28px;
     left: -27px;
+}
+.signup-blue .row.org{
+    position: absolute;
+    bottom: 100px;
+    left: 45px;
+}
+.signup-blue .row.org img{
+    width: 85px;
+    height: 80px;
+    -webkit-box-shadow: 0px 2px 5px 1px rgba(6,0,112,1);
+    -moz-box-shadow: 0px 2px 5px 1px rgba(6,0,112,1);
+    box-shadow: 0px 2px 5px 1px rgba(6,0,112,1);
+}
+#jobForm-section2 img.icon{
+    width: 57px;
+}
+#jobForm-section2 .or{
+    display: table;
+    height: 154px;
+    text-align: center;
+}
+#jobForm-section2 .or span {
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 30px;
+}
+#jobForm-section2 .fa-facebook-square{
+    color:#3b5998;
+    font-size:20px;
+    vertical-align:-2px;
+    padding-right:4px;
+}
+#jobForm-section2 .fa-linkedin-square{
+    color:#1777b1;
+    font-size:20px;
+    vertical-align:-2px;
+    padding-right:4px;
+}
+#jobForm-section2 .fa-google-plus-square{
+    color:#d93c39;
+    font-size:20px;
+    vertical-align:-2px;
+    margin-right:3px;
+}
+#jobForm-section2 .social-media{
+    line-height: 32px;
+    padding-top: 27px;   
 }
