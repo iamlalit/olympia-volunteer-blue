@@ -629,7 +629,7 @@ signUp.controller("signupOrgController", ['$scope', function ($scope) {
             }
 
             // // Organization
-            if ($scope.typeOfOwner == 'org2' || $scope.typeOfOwner == 'org4') {
+            if ($scope.typeOfOwner == 'org2' || $scope.typeOfOwner == 'org4' || $scope.typeOfOwner == 'org3') {
                 if (Organization.val() == '' || Organization.val() == null) {
                     if (errorList.find('.errormessage-Organization').length == 0) {
                         $('<li />', { html: 'Organization Name required !', class: 'col-sm-6 errormessage-Organization' })
@@ -751,7 +751,7 @@ signUp.controller("signupOrgController", ['$scope', function ($scope) {
                 }
             }
             //registered user is yes for registrationNumber
-            if ($scope.typeOfOwner == 'org2' || $scope.typeOfOwner == 'org4') {
+            if ($scope.typeOfOwner == 'org2' || $scope.typeOfOwner == 'org4' || $scope.typeOfOwner == 'org3') {
                 if (registrationNumber.val() == '' || registrationNumber.val() == null) {
                     if (errorList.find('.errormessage-registrationNumber').length == 0) {
                         $('<li />', { html: 'Registration Number is required !', class: 'col-sm-6 errormessage-registrationNumber' })
