@@ -250,75 +250,17 @@ p.footer-copyrights{
 }
 
 .signup-orange{
-    background-color: #ed6623;
-    padding: 5px 10px;
+    background-color: #ffffff;
+    padding: 15px 10px;
     border: 3px solid #ccc;
     border-radius: 7px;
     color: #111111;
-    height: 155px;
+    height: 250px;
 }
 .signup-orange img,
 .signup-green img,
 .signup-blue img{
-    width: 44px;
-}
-.signup-orange .up,
-.signup-green .up,
-.signup-blue .up{
-    font-weight: bold;
-}
-
-
-.signup-orange a,
-.signup-green a,
-.signup-blue a{
-    color: #fff;
-}
-
-.signup-blue{
-    background-color: #1489be;
-    padding: 5px 10px;
-    border: 3px solid #ccc;
-    border-radius: 7px;
-    color: #111111;
-    height: 450px;
-}
-.signup-green{
-    background-color: #6aa84f;
-    padding: 5px 10px;
-    border: 3px solid #ccc;
-    border-radius: 7px;
-    color: #111111;
-}
-.signup-green img.org{
-    width: 120px;
-    height: 120px;
-    margin: 20px 10px;
-    -webkit-box-shadow: 0px 3px 5px 1px rgba(7,69,39,1);
-    -moz-box-shadow: 0px 3px 5px 1px rgba(7,69,39,1);
-    box-shadow: 0px 3px 5px 1px rgba(7,69,39,1);
-}
-.signup-green .btn-join{
-    display: inline-block;
-    vertical-align: bottom;
-}
-.signup-blue .a-join{
-    position:absolute; 
-    bottom: 10px; 
-    right:25px;
-    width: 100%;
-}
-.signup-blue .row.button-join{
-    position:absolute;
-    bottom: 30px; 
-    right:25px;
-    width: 100%;
-}
-.signup-orange .a-join{
-    position:absolute; 
-    bottom: 10px; 
-    right:25px;
-    width: 100%;
+    width: 58px;
 }
 .signup-orange .row.button-join{
     position: absolute;
@@ -326,18 +268,8 @@ p.footer-copyrights{
     bottom: 28px;
     left: -27px;
 }
-.signup-blue .row.org{
-    position: absolute;
-    bottom: 100px;
-    left: 45px;
-}
-.signup-blue .row.org img{
-    width: 85px;
-    height: 80px;
-    -webkit-box-shadow: 0px 2px 5px 1px rgba(6,0,112,1);
-    -moz-box-shadow: 0px 2px 5px 1px rgba(6,0,112,1);
-    box-shadow: 0px 2px 5px 1px rgba(6,0,112,1);
-}
+
+
 #jobForm-section2 img.icon{
     width: 57px;
 }
@@ -374,46 +306,78 @@ p.footer-copyrights{
     padding-top: 27px;   
 }
 
+
+.row.show-it-login2 div{
+    display: table;
+    height: 200px;
+    text-align: center;
+    vertical-align: middle;
+}
+.signup-orange1.profile5 .row.show-it-login2 div,
+.signup-orange1.profile6 .row.show-it-login2 div,
+.signup-orange1.profile7 .row.show-it-login2 div{
+    height: 350px;
+}
+.row.show-it-login2 a{
+    display: table-cell;
+    vertical-align: middle;
+    color: #ffffff;
+    letter-spacing: 1px;
+    font-size: 16px;
+}
+.row.show-it-login2 a i{
+    font-size: 20px;
+    position: relative;
+    top: 2px;
+}
+.row.show-it-login2 a:hover{
+    text-decoration: none
+}
+
 .signup-orange1{
-    background-color: #394b59;
+    background-color: #ffffff;
     padding: 20px 10px 0 10px;
     border: 3px solid #e1e1e1;
     border-radius: 2px;
-    color: #ffffff;
-    height: 280px;
+    color: #111111;
+    height: 260px;
 }
 .signup-orange1 .up, .signup-green .up, .signup-blue .up {
-    text-transform: uppercase;
     font-size: 20px;
-    padding-top: 20px
+    padding-top: 15px
 }
 .signup-orange1 .login{
     position: absolute;
     height: 50px;
-    width: 94%;
+    width: 941px;
     bottom: 0;
     left: 0;
-    background-color: #243746;
-    border-top: 1px solid #435362;
-    margin: 3px 20px;
+    background-color: #e1e1e1;
+    border-top: 1px solid #aaaaaa;
+    margin: 3px 18px;
     padding: 10px 0 0 10px;
     text-align: center;
     line-height: 31px;
 }
 .signup-orange1 a.login{
-    color: #fff;
+    color: #428bca;
+    font-size: 15px;
+
 }
 .signup-orange1 a.login:hover{
     text-decoration: none;
+    -webkit-box-shadow: inset 0px 1px 2px 0px rgba(117,115,117,0.43);
+    -moz-box-shadow: inset 0px 1px 2px 0px rgba(117,115,117,0.43);
+    box-shadow: inset 0px 1px 2px 0px rgba(117,115,117,0.43);
+    color: #2a6496;
 }
 .signup-orange1.profile1 .login,
 .signup-orange1.profile2 .login,
 .signup-orange1.profile3 .login,
-.signup-orange1.profile4 .login,
 .signup-orange1.profile5 .login,
 .signup-orange1.profile6 .login,
 .signup-orange1.profile7 .login{
-    width: 88%;
+    width: 89%;
 }
 .signup-orange1.profile1 img,
 .signup-orange1.profile2 img,
@@ -430,5 +394,27 @@ p.footer-copyrights{
 .signup-orange1.profile5,
 .signup-orange1.profile6,
 .signup-orange1.profile7{
-    height: 400px;
+    height: 520px;
+}
+.signup-orange1 .org{
+    position: absolute;
+    bottom: 90px;
+}
+.signup-orange1 .org img {
+    width: 80px;
+    height: 85px;
+    -webkit-box-shadow: 3px 3px 5px 0px rgba(117,115,117,1);
+    -moz-box-shadow: 3px 3px 5px 0px rgba(117,115,117,1);
+    box-shadow: 3px 3px 5px 0px rgba(117,115,117,1);
+    margin-right: 5px;
+    margin-top: 12px;
+}
+.signup-orange1 img.org1 {
+    width: 170px;
+    height: 135px;
+    -webkit-box-shadow: 3px 3px 5px 0px rgba(117,115,117,1);
+    -moz-box-shadow: 3px 3px 5px 0px rgba(117,115,117,1);
+    box-shadow: 3px 3px 5px 0px rgba(117,115,117,1);
+    margin-right: 7px;
+    margin-top: 12px;
 }
