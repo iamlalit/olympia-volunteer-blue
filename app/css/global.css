@@ -709,6 +709,9 @@ Header Search Box
 .header-box button {
   height: 32px;
 }
+.header-box .col-lg-3 select{
+  width: 210px;
+}
 
 .select-search {
   position: relative;
@@ -788,7 +791,7 @@ Header Search Box
 .nav>li>a {
     position: relative;
     display: block;
-    padding: 15px 8px;
+    padding: 15px 20px;
 }
 /*alert message*/
 .alert-danger {

@@ -1,6 +1,5 @@
-﻿var changePasswordController = angular.module('changePasswordController', [])
-
-.controller('changePasswordCntrl', ['$scope', function ($scope) {
+﻿
+OrgVolApp.controller('changePasswordCntrl', ['$scope', function ($scope) {
      function getParameterByName(name) {
       name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
       var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),

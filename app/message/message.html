@@ -1,5 +1,5 @@
 ﻿<!doctype html>
-<html lang="en" ng-app="messageApp">
+<html lang="en" ng-app="OrgVolApp">
 <head>
     <meta charset="utf-8">
     <title>Message</title>
@@ -32,113 +32,7 @@
 </head>
 <body ng-controller='messageController'>
     <!-- Page Header Section Start-->
-    <header>
-        <div class="navbar navbar-default" role="navigation">
-            <div class="container-fluid">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#"><img src="../img/logo.png"></a>
-                </div>
-
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <!-- Volunteer Menu Start-->
-                    <ul class="nav navbar-nav" ng-if="typeOfOwner == 'volunteer'">
-                        <li><a href="../Volunteer/searchJob/searchJob.html" class='menu-interval'>Search Job</a></li>
-                        <li><a href="../Volunteer/jobApplication/jobApplication.html" class='menu-interval'>Job Applications</a></li>
-                        <li><a href="../volunteer/recommendation/recommendation.html" class='menu-interval'>Recommendations</a></li>
-                        <li><a href="../volunteer/volunteerProfile/volunteerProfile.html" class='menu-interval'>My Profile</a></li>
-                        <li class="active"><a href="#" class='menu-interval'>Messages<span class="message-number">23</span></a></li>
-                    </ul>
-                    <!-- Volunteer Menu end here-->
-                    <!-- organization Menu start-->
-                    <ul class="nav navbar-nav" ng-if="typeOfOwner == 'organization'">
-                        <li ><a href="../organization/search/searchVol.html" class='menu-interval'>Search Volunteer</a></li>
-                        <li><a href="../organization/postJob/postJob.html"  class='menu-interval'>Post a Job</a></li>
-                        <li><a href="../organization/jobPost/jobPost.html" class='menu-interval'>Job Postings</a></li>
-                        <li><a href="../organization/organizationpcms/organizationpcms.html" class='menu-interval'>My Profile</a></li>
-                        <li class="active"><a href="#" class='menu-interval'>Messages<span class="message-number">23</span></a></li>
-                    </ul>
-                    <!-- organization ends here start-->
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class='pull-right'><a href="#" id="icons-header-right"><span class="fa fa-question"></a></li>
-                        <li class='dropdown pull-right'>
-                            <a href="#" class="dropdown-toggle" id="icons-header-right" data-toggle="dropdown"><i class='fa fa-cog'></i></a>
-                            <ul class="dropdown-menu">
-                                <li role="presentation">
-                                    <a role="menuitem" href="../volunteer/createProfileForm/createProfile.html" ng-if="typeOfOwner == 'volunteer'"><img src="../img/VV_Icon_Profile.png" width="25" height="25"> Edit Profile</a>
-                                    <a role="menuitem" href="../organization/organizationProfile/organizationProfile.html" ng-if="typeOfOwner == 'organization'"><img src="../img/VV_Icon_OrganizationLogo.png" width="25" height="25"> Edit Profile</a>
-                                </li>
-                                <li role="presentation" class="divider"></li>
-                                <li role="presentation">
-                                    <a role="menuitem" href="../myAccount/myAccount.html?owner=organization" ng-if="typeOfOwner == 'organization'">&nbsp;<i class='fa fa-wrench'></i> &nbsp;My Account</a>
-                                    <a role="menuitem" href="../myAccount/myAccount.html?owner=volunteer" ng-if="typeOfOwner == 'volunteer'"><i class='fa fa-wrench'></i> My Account</a>
-                                </li>
-                                <li role="presentation" class="divider" ng-if="typeOfOwner == 'organization'"></li>
-                                <li role="presentation" ng-if="typeOfOwner == 'organization'"><a role="menuitem" href="../organization/staffAndPermission/staffAndPermission.html?owner=organization">&nbsp;<i class='fa fa-lock'></i> &nbsp; Manage Staff Permissions</a></li>
-                                <li role="presentation" class="divider"></li>
-                                <li role="presentation">
-                                    <a role="menuitem" href="../changePassword/changePassword.html?owner=organization" ng-if="typeOfOwner == 'organization'">&nbsp;<i class='fa fa-cog'></i> &nbsp;Change Password</a>
-                                    <a role="menuitem" href="../changePassword/changePassword.html?owner=volunteer" ng-if="typeOfOwner == 'volunteer'"><i class='fa fa-cog'></i> Change Password</a>
-                                </li>
-                                <li role="presentation" class="divider"></li>
-                                <li role="presentation">
-                                    <a role="menuitem" ng-if="typeOfOwner == 'organization'" href="../notificationSettings/notificationSettings.html?owner=organization">&nbsp;<i class='fa fa-bell'></i> &nbsp;Notification Settings</a>
-                                    <a role="menuitem" ng-if="typeOfOwner == 'volunteer'" href="../notificationSettings/notificationSettings.html?owner=volunteer">&nbsp;<i class='fa fa-bell'></i> &nbsp;Notification Settings</a>
-                                </li>
-                                <li role="presentation" class="divider" ng-if="typeOfOwner == 'volunteer'"></li>
-                                <li role="presentation" ng-if="typeOfOwner == 'volunteer'">
-                                    <a role="menuitem" href="../volunteer/createOrganization/createOrganization.html?owner=volunteer">&nbsp;<i class='fa fa-list-alt'></i> &nbsp;Create an Organization</a>
-                                </li>
-                                <li role="presentation" class="divider" ng-if="typeOfOwner == 'organization'"></li>
-                                <li role="presentation" ng-if="typeOfOwner == 'organization'">
-                                    <a role="menuitem" href="../integrationSettings/integrationSettings.html?owner=organization">&nbsp;<i class='fa fa-list-alt'></i> &nbsp;Integration Settings
-                                    </a>
-                                </li>
-                                <li role="presentation" class="divider" ng-if="typeOfOwner == 'organization'"></li>
-                                <li role="presentation" ng-if="typeOfOwner == 'organization'">
-                                    <a role="menuitem" href="../organization/socialMedia/socialMedia.html?owner=organization">&nbsp;<i class='fa fa-share-alt'></i> &nbsp;Publish to Social Media
-                                    </a>
-                                </li>
-                                <li role="presentation" class="divider" ng-if="typeOfOwner == 'volunteer'"></li>
-                                <li role="presentation" ng-if="typeOfOwner == 'volunteer'"><a role="menuitem" href="../volunteer/helpRequest/helpRequest.html">&nbsp;<i class='fa fa-th-list'></i> &nbsp;Help Request</a></li>
-                            </ul>
-
-                        </li>
-                        <li class='pull-right'><a href="#" id="icons-header-right"><span class="fa fa-exclamation"></a></li>
-                        <li class="dropdown pull-right" style="margin-top:5px;" id="username">
-                            <a href="#" class="dropdown-toggle"  id="hover-header-right" data-toggle="dropdown"  ng-if="typeOfOwner == 'organization'">Organization &nbsp;<b class="caret"></b></a>
-                            <a href="#" class="dropdown-toggle"  id="hover-header-right" data-toggle="dropdown" ng-if="typeOfOwner == 'volunteer'">Volunteer &nbsp;<b class="caret"></b></a>
-                            <ul class="dropdown-menu header-right-dropdown" ng-init=" addActive2 = 'make-it-white'">
-                                <li role="presentation" >
-                                    <a role="menuitem" ng-if="typeOfOwner == 'organization'" href="../organization/search/searchVol.html" id="tab-header-1" ng-class="{'make-it-white':typeOfOwner == 'organization'}"><img src="../img/VV_Icon_Volunteers.png" wdth="28" height="28">&nbsp;&nbsp;&nbsp;Organization</a>
-                                    <a role="menuitem" ng-if="typeOfOwner == 'volunteer'" href="../organization/search/searchVol.html" id="tab-header-1" ng-class="{'make-it-white':typeOfOwner == 'organization'}"><img src="../img/VV_Icon_OrganizationLogo.png" wdth="28" height="28">&nbsp;&nbsp;&nbsp;Organization</a>
-                                </li>
-                                <li role="presentation" class="divider"></li>
-                                <li role="presentation" >
-                                    <a role="menuitem" ng-if="typeOfOwner == 'organization'" href="../volunteer/searchJob/searchJob.html"  ng-class="{'make-it-white':typeOfOwner == 'volunteer'}"><img src="../img/VV_Icon_Profile.png" height="28" width="28">&nbsp;&nbsp;&nbsp;Volunteer</a>
-                                    <a role="menuitem" ng-if="typeOfOwner == 'volunteer'" href="../volunteer/searchJob/searchJob.html"  ng-class="{'make-it-white':typeOfOwner == 'volunteer'}"><img src="../img/VV_Icon_VolunteerOpportunities.png" height="28" width="28">&nbsp;&nbsp;&nbsp;Volunteer</a>
-                                </li>
-                                <li role="presentation" class="divider"></li>
-                                <li role="presentation" id="separate-highlight"> 
-                                    <span><a role="menuitem" href="../myAccount/myAccount.html?owner=volunteer" ng-if="typeOfOwner == 'volunteer'">hans.klevenbeek</a></span>
-                                    <span><a role="menuitem" href="../myAccount/myAccount.html?owner=organization" ng-if="typeOfOwner == 'organization'">hans.klevenbeek</a></span>
-                                    <span><a role="menuitem"  href="../login/login.html">Logout</a></span>
-                                </li>
-
-                            </ul>
-                        </li>
-                    </ul>
-                </div><!-- /.navbar-collapse -->
-            </div><!-- /.container-fluid -->
-        </div>
-    </header>
+    <div ng-include="'../templates/header.tmpl.html'"></div>
     <!-- Page Header Section End-->
     <div class="superContainer">
         <div class="containerB">
@@ -441,10 +335,11 @@
         </div>
     </footer>
 
-    <script src="../lib/jquery/dist/jquery.min.js"></script>
-    <script src="../lib/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="../lib/angular/angular.min.js"></script>
-    <script src="../lib/ng-table/ng-table.min.js"></script>
+    <script src="/lib/jquery/dist/jquery.min.js"></script>
+    <script src="/lib/angular/angular.min.js"></script>
+    <script src="/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/lib/ng-table/ng-table.js"></script>
+    <script src="/.tmp/scripts/core.js"></script>
     <script src="messageController.js"></script>
 
 

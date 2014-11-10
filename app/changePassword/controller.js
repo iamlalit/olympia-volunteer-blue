@@ -1,6 +1,5 @@
-﻿var changePasswordController = angular.module('changePasswordController', [])
-
-.controller('changePasswordCntrl', ['$scope', function ($scope) {
+﻿
+OrgVolApp.controller('changePasswordCntrl', ['$scope', function ($scope) {
     var
     errorDiv = $('#errorMsg'),
     errorList = $('#errorList'),

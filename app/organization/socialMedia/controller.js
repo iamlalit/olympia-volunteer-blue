@@ -1,6 +1,6 @@
 'use strict';
-/* main App */
-app.controller('socialMediaCtrl', function($scope){
+
+OrgVolApp.controller('socialMediaCtrl', function($scope){
     $scope.typeOfOwner = '';
     function getParameterByName(name) {
         name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");

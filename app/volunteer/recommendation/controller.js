@@ -1,5 +1,5 @@
-﻿var landingController = angular.module('recommendationController', []);
-landingController.controller('recommendationPage', ['$scope', function ($scope) {
+﻿
+OrgVolApp.controller('recommendationPage', ['$scope', function ($scope) {
 
 //ask for recommendation dummy data
 $scope.listOfSchools = [];

@@ -1,5 +1,5 @@
-﻿var app = angular.module('jobDetailsController', []);
-app.controller('jobDetails', ['$scope', function ($scope) {
+﻿
+OrgVolApp.controller('jobDetails', ['$scope', '$rootScope', function ($scope, $rootScope) {
     $scope.applicantData = [];
     $scope.applicantData.push({'city': 'Amsterdam',
       'date': '10 days ago',
@@ -114,6 +114,6 @@ app.controller('jobDetails', ['$scope', function ($scope) {
   }
 
   $scope.applyToJob = function(){
-    window.location.href = "../jobApply/jobApply.html?jobName=" + $scope.jobName +"&jobDate=" + $scope.jobDate;
+    window.location.href = "../jobApply/jobApply.html?jobName=" + $scope.jobName +"&jobDate=" + $scope.jobDate + "&owner=" + $rootScope.owner;
   }
 }]);

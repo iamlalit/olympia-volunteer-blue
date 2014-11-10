@@ -1,8 +1,6 @@
 'use strict';
 /* main App */
-var app = angular.module('searchVolController', []);
-
-app.controller('searchVolCtrl', function($scope){
+OrgVolApp.controller('searchVolCtrl', function($scope){
 	//Dummy data
 
       $scope.categories = ['Aggriculture', 'Animals', 'Arts', 'Communications access', 
@@ -31,6 +29,8 @@ app.controller('searchVolCtrl', function($scope){
         	'Monday - evening', 'Tuesday - evening', 'Wednesday - evening', 'Thursday - evening', 'Friday - evening', 'Saturday - evening', 'Sunday - evening', 
         	'Monday - Late Night', 'Tuesday - Late Night', 'Wednesday - Late Night', 'Thursday - Late Night', 'Friday - Late Night', 'Saturday - Late Night', 'Sunday - Late Night'];
         	
+
+      $scope.volunteerTypes = ['Individual volunteers', 'Group volunteers', 'Organization volunteers'];
   $scope.sortByList = ['Best match', 'Newest applicants', 'Oldest applicants', 'Feedback'];
 
   $scope.Applicants = [];
@@ -383,7 +383,7 @@ app.controller('searchVolCtrl', function($scope){
         }
 });
 
-app.controller('modalVolCtrl', function($scope) {
+OrgVolApp.controller('modalVolCtrl', function($scope) {
       $scope.jobPost = [{jobTitle: "Volunteer grant writers", client:"Posted 1 month ago by Hans Klevenbeek" ,Applicants: 50, messaged: 3, hired:2, status:"Open"},
           {jobTitle: "Outreach volunteer", client:"Posted 2 years ago by Hans Klevenbeek", Applicants: 27, messaged: 1, hired:0, status:"Closed"},
           {jobTitle: "Volunteer coordinator - volunteer", client:"Posted 4 days ago by Hans Klevenbeek", Applicants: 34, messaged: 1, hired:1, status:"Open"},

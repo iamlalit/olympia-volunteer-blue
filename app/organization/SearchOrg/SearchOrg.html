@@ -1,0 +1,483 @@
+﻿<!DOCTYPE html>
+<html ng-app="OrgVolApp">
+<head>
+    <meta charset="utf-8">
+    <title>Search Organizations</title>
+    <link href="../../img/olympia-fav.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="../../lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/organization/postJob/postJob.css"/>
+    <link rel="stylesheet" href="../../css/organization/searchVol/searchVol.css"/>
+    <link href="../../css/global.css" rel="stylesheet">
+    <link href="../../css/organization/viewApp/viewApp.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../../css/header/header.css">
+    <style type="text/css">
+        .superContainer{
+            width: 1349px;
+            margin: 0 auto;
+        }
+        .containerA{
+            width: 1008px;
+            display: inline-block;
+        }
+        .containerB{
+            width: 164px;
+            display: inline-block;
+            vertical-align: top;
+        }
+        .container{
+            width: 1048px;
+        }
+    </style>
+</head>
+
+<body ng-controller="searchJob">
+    <!-- Page Header Section Start-->
+    <div ng-include="'../../templates/header.tmpl.html'"></div>
+    <!-- Page Header Section End-->
+    <div class="superContainer">
+        <div class="containerB">
+            <span class="prototype-scheme">PROTOTYPE</span>
+        </div>
+        <div class="containerA" ng-init="showrecent = true;hideIt = false" >
+            <div class="header-box">
+                <div class="row margin-rl-0">
+
+                    <div class="col-lg-3 padding-rl-0">
+                        <select class="form-control select-option" change-owner ng-model="searchOwner" ng-init="searchOwner = 'Organizations'">
+                            <option value="Volunteers">Volunteers</option>
+                            <option value="Organizations">Organizations</option>
+                            <option value="Jobs">Jobs</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-4 padding-rl-0">
+                        <span class="search-txt">what&nbsp;</span>
+                        <input type="text" placeholder="Keywords (e.g. name, interests or skills)" class="wat-text"/>
+                    </div>
+
+                    <div class="col-lg-3 padding-rl-0">
+                        <span class="search-txt">where&nbsp;</span>
+                        <input type="text" placeholder="City or post code" class="waar-text"/>
+                    </div>
+                    <div class="col-lg-1 padding-rl-0">
+                            <select class="select-search">
+                                <option value="5 km">5 km</option>
+                                <option value="10 km">10 km</option>
+                                <option value="15 km">15 km</option>
+                                <option value="20 km">20 km</option>
+                                <option value="25 km">25 km</option>
+                                <option value="30 km" selected="selected">30 km</option>
+                                <option value="35 km">35 km</option>
+                                <option value="40 km">40 km</option>
+                                <option value="45 km">45 km</option>
+                                <option value="50 km">50 km</option>
+                            </select>
+                    </div>
+
+                    <div class="col-lg-1 padding-rl-0" >
+                        <button type="button" class="btn btn-primary pull-right small-btn active"><span class="fa fa-search"></span>&nbsp;Search</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row margin-rl-0">
+                <div class="col-sm-3 padding-left-0">
+                    <span class="small-box"  ng-click="showfavourite = true; showrecent = false" >
+                        <span class="fa fa-heart"> <a href="">Your favourite organizations ({{lengthOfFavouriteOrganizations}})</a></span>
+                    </span>
+
+                    <div class="box">
+                        <div class="data-box">
+                            <div class="box-heading">
+                                <b>Organization types</b>
+                            </div>
+                            <div class="box-content">
+                                <div class="checkbox" ng-repeat="type in organizationTypes">
+                                    <label>
+                                      <input type="checkbox" value="{{type}}"> {{type }} ({{$index + $index%3}})
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="data-box">
+                            <div class="box-heading">
+                                <b>Categories</b>
+                            </div>
+                            <div class="box-content">
+                                <div class="checkbox" ng-repeat="category in categories">
+                                    <label>
+                                      <input type="checkbox" value="{{category}}"> {{category }} ({{$index + $index%4}})
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="data-box">
+                            <div class="box-heading">
+                                <b>Skills</b>
+                            </div>
+                            <div class="box-content">
+                                <div class="checkbox" ng-repeat="skill in skills">
+                                    <label>
+                                      <input type="checkbox" value="{{skill}}"> {{skill}} ({{($index + $index)%8}})
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="data-box">
+                            <div class="box-heading">
+                                <b>Diploma/Certificates</b>
+                            </div>
+                            <div class="box-content">
+                                <div class="checkbox" ng-repeat="diploma in diplomas">
+                                    <label>
+                                      <input type="checkbox" value="{{diploma}}"> {{diploma}} ({{($index * $index + 1)%9}})
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="data-box">
+                            <div class="box-heading">
+                                <b>Working time preference</b>
+                            </div>
+                            <div class="box-content">
+                                <div class="checkbox" ng-repeat="time in timePreference">
+                                    <label>
+                                        <input type="checkbox" value="{{time}}"> {{ time }} ({{($index * $index + 5)%9}})
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="data-box">
+                            <div class="box-heading">
+                                <b>Languages</b>
+                            </div>
+                            <div class="box-content">
+                                <div class="checkbox" ng-repeat="language in languages">
+                                    <label>
+                                        <input type="checkbox" value="{{language}}"> {{ language }} ({{($index * $index + 2)%7}})
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-9 padding-rl-0">
+                    <div class="row margin-rl-0">
+                        <div class="main-border1 width-auto border-main-border1 padding-top-0 padding-bottom-0">
+                            <div class="row background-dgrey">
+                                <div class="col-sm-5 padding-top-10">
+                                    <span class="text-center" id='heading-form' >Search Organization</span>
+                                </div>
+                            </div>
+                            <div class="row background-dgrey">
+                                <div class="col-sm-4">
+                                    <span class="clear-search">
+                                        <b ng-show="showrecent">{{lengthOfOrganizations}}</b> 
+                                        <b ng-show="showfavourite">{{lengthOfFavouriteOrganizations}}</b> 
+                                        organizations found &nbsp;&nbsp;<a href="" title="Clear Search" ng-click="showrecent = true; showfavourite = false">Clear search</a>
+                                    </span>
+                                </div>
+                                <div class="col-sm-4 align-center">
+                                    &nbsp;
+                                </div>
+                                <div class="col-sm-4 padding-left-0  align-right">
+                                    &nbsp;
+                                </div>
+                            </div>
+                            <div class="row background-dgrey padding-top-15">
+                                
+                                <div class="col-sm-6">
+                                    <span>
+                                        <label>Sort by: </label>
+                                        <select class="form-control select-option">
+                                            <option value="values" ng-repeat="values in sortByList" ng-bind="values"></option>
+                                        </select>
+                                    </span>
+                                </div>
+                                <div class="col-sm-6 padding-left-0 padding-right-22 align-right">
+                                    <ul class="pagination" ng-hide="showfavourite == true && lengthOfFavouriteJobs == 0">
+                                        <li ng-class="{disabled: currentPage == 0}"><span ng-click="prevPage()"> Previous </span></li>
+                                        <li ng-repeat="n in range(pagedItems.length)" ng-class="{active: n == currentPage}" ng-click="setPage()"><span>{{n+1}}</span></li>
+                                        <li ng-class="{disabled: currentPage == pagedItems.length - 1}"><span ng-click="nextPage()"> Next </span></li>
+                                     </ul>
+                                </div>
+                            </div>
+                            <div class="margin-bottom-20 background-dgrey">&nbsp;</div>
+                            <div class="applicants" ng-repeat="Organization in pagedItems[currentPage]" ng-init="autoScroll = false" ng-if="showrecent == true">
+                                <div class="row margin-rl-0">
+                                    <div class="col-sm-2 padding-rl-0" ng-cloak>
+                                        <img src="{{Organization.image}}" class="image-logo-organozation">
+                                    </div>
+                                    <div class="col-sm-6 padding-rl-0">
+                                        <a style="color:#1489be" href="" ng-click="CreateObject(Organization)"><label ng-bind="Organization.Name" class="font-size-15 line-height-15"></label></a>
+                                        <div style="padding-top:1px"></div>
+                                        <div style="padding-top:1px"></div>
+                                        <div class="row margin-rl-0">
+                                            <span>{{Organization.typeOfInformation}}</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-4 pull-right padding-rl-0 padding-top-33">
+                                        <span id="contacts">
+                                            <button type="button" id="contact-replies1" class="btn btn-primary pull-right small-btn" ng-model="shortlisted" data-toggle="modal" data-target="#contactApplicantModal" ng-click="openModal(applicant)" title="Replies Rarely">&nbsp;Join organization</button>
+                                        </span>
+                                        <span>
+                                            <a id="removeIconHover" ng-if="!(Organization.value)" title="mark as favourite">
+                                                <div class="pull-right star-icon" ng-click="copyOrganization(Organization, Organizations, favouriteOrganizations)">
+                                                    <span class="fa fa-heart font-size-1-5 icon-attr color-grey"></i>
+                                                </div>
+                                            </a>
+                                            <a id="removeIconHover" ng-if="Organization.value" title="remove from favourite" ng-click="copyOrganization(Organization, Organizations, favouriteOrganizations)" >
+                                                <div class="pull-right star-icon">
+                                                    <span class="fa fa-heart font-size-1-5 icon-attr star-yellow"> </i>
+                                                </div>
+                                            </a>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="row margin-rl-0 margin-top-10" ng-init="more = true;letterLimit = 160">
+                                    <span class="margin-top-10">
+                                        {{Organization.bodyText | limitTo:letterLimit}}
+                                        <span ng-show="more">...
+                                            <a ng-click="letterLimit = 500;more = !more">more</a>
+                                        </span>
+                                        <span ng-show="!more">
+                                            <a ng-click="letterLimit = 160;more = !more">less</a>
+                                        </span>
+                                    </span>
+                                    <div style="padding-top:20px;margin-right: 0px;margin-left: 0px;"></div> 
+                                    <hr class="user-hr" ng-if="$index !== lengthOfOrganizationsPerPage - 1" />
+                                </div>
+                            </div>
+                            <div class="row background-dgrey padding-top-10" ng-if="showrecent == true">
+                               
+                                <div class="col-sm-4 padding-left-0">
+                                    &nbsp;
+                                </div>
+                                <div class="col-sm-4 align-center">
+                                    &nbsp;
+                                </div>
+                                <div class="col-sm-4 padding-left-0 padding-right-22 align-right">
+                                    <ul class="pagination">
+                                        <li ng-class="{disabled: currentPage == 0}"><span ng-click="prevPage()"> Previous </span></li>
+                                        <li ng-repeat="n in range(pagedItems.length)" ng-class="{active: n == currentPage}" ng-click="setPage()"><span>{{n+1}}</span></li>
+                                        <li ng-class="{disabled: currentPage == pagedItems.length - 1}"><span ng-click="nextPage()"> Next </span></li>
+                                     </ul>
+                                </div>
+                            </div>
+                            <div class="margin-top-0 background-dgrey" ng-if="showrecent == true">&nbsp;</div>
+                            
+                            <div class="applicants" ng-repeat="Organization in favouriteOrganizations" ng-init="autoScroll = false" ng-if="showfavourite == true">
+                                <div class="row margin-rl-0">
+                                    <div class="col-sm-2 padding-rl-0" ng-cloak>
+                                        <img src="{{Organization.image}}" class="image-logo-organozation">
+                                    </div>
+                                    <div class="col-sm-8 padding-rl-0">
+                                        <a style="color:#1489be" href="" ng-click="CreateObject(Organization)"><label ng-bind="Organization.Name"></label></a>
+                                        <div style="padding-top:1px"></div>
+                                        <div class="row margin-rl-0">
+                                            <span>Volunteer job posted by <a href="#">Henk</a> on behalf of</span>
+                                            <span><a ng-bind="Organization.company" href="../../organization/organizationpcms/organizationpcms.html?organizationName={{Organization.company}}"></a> </span>
+                                            <span class="color-999999"> - {{Job.about}}</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-2 pull-right padding-rl-0">
+                                        <span>
+                                            <a id="removeIconHover" ng-if="!(Organization.value)" title="mark as favourite">
+                                                <div class="pull-right star-icon" ng-click="copyOrganization(Organization, Organizations, favouriteOrganizations)">
+                                                    <span class="fa fa-heart font-size-1-5 icon-attr color-grey"></i>
+                                                </div>
+                                            </a>
+                                            <a id="removeIconHover" ng-if="Organization.value" title="remove from favourite" ng-click="copyOrganization(Organization, Organizations, favouriteOrganizations)" >
+                                                <div class="pull-right star-icon">
+                                                    <span class="fa fa-heart font-size-1-5 icon-attr star-yellow"> </i>
+                                                </div>
+                                            </a>
+                                            <span ng-if="Organization.selected" class="small-pill pull-right background-green color-ffffff"><i class="fa fa-check"></i> Applied</span>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="row margin-rl-0 margin-top-15" ng-init="moreF = true;letterLimit = 160">
+                                    <span class="padding-top-5">
+                                        {{Organization.bodyText | limitTo:letterLimit}}
+                                        <span ng-show="moreF">...
+                                            <a ng-click="letterLimit = 500;moreF = !moreF">more</a>
+                                        </span>
+                                        <span ng-show="!moreF">
+                                            <a ng-click="letterLimit = 160;moreF = !moreF">less</a>
+                                        </span>
+                                    </span>
+                                    <div style="padding-top:20px;margin-right: 0px;margin-left: 0px;"></div> 
+                                    <hr class="user-hr" ng-if="$index !== lengthOfFavouriteOrganizations - 1" />
+                                </div>
+                            </div>
+                            <div class="align-center show-clear" ng-show="lengthOfFavouriteOrganizations == 0 && showfavourite == true">
+                                <label>No favourite organization available</label>
+                            </div>
+                            <div class="row background-dgrey padding-top-10" ng-if="showfavourite == true && lengthOfFavouriteOrganizations > 0">
+                                <div class="col-sm-4 padding-left-0">
+                                    &nbsp;
+                                </div>
+                                <div class="col-sm-4 align-center">
+                                    &nbsp;
+                                </div>
+                                <div class="col-sm-4 padding-left-0 padding-right-22 align-right">
+                                    <ul class="pagination" >
+                                        <li ng-class="{disabled: currentPage == 0}"><span ng-click="prevPage()"> Previous </span></li>
+                                        <li ng-repeat="n in range(pagedItems.length)" ng-class="{active: n == currentPage}" ng-click="setPage()"><span>{{n+1}}</span></li>
+                                        <li ng-class="{disabled: currentPage == pagedItems.length - 1}"><span ng-click="nextPage()"> Next </span></li>
+                                     </ul>
+                                </div>
+                            </div>
+                            <div class="margin-top-0 background-dgrey" ng-if="showfavourite == true && lengthOfFavouriteOrganizations > 0">&nbsp;</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="containerB">
+            <span class="prototype-scheme">PROTOTYPE</span>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container1">
+            <div class="row">
+                <div class="col-lg-2">
+                    <ul class="footer-link-list" style="padding-left:80px">
+                        <li>
+                            <a href="#" class="footer-text">About Us </a>
+                        </li>
+                        <li><a href="#" class="footer-text">Blog </a></li>
+                        <li><a href="#" class="footer-text">Feedback </a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2">
+                    <ul class="footer-link-list" style="padding-left:40px">
+                        <li>
+                            <a href="#" class="footer-text">Comunnity</a>
+                        </li>
+                        <li><a href="#" class="footer-text">Trust & Safety </a></li>
+                        <li><a href="#" class="footer-text">Help & Support </a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2">
+                    <ul class="footer-link-list" style="padding-left:30px">
+                        <li>
+                            <a href="#" class="footer-text">Enterprise Solutions</a>
+                        </li>
+                        <li><a href="#" class="footer-text">Terms of Service</a></li>
+                        <li><a href="#" class="footer-text">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2">
+                    <ul class="footer-link-list" style="padding-left:30px">
+                        <li>
+                            <a href="#" class="footer-text">Tools</a>
+                        </li>
+                        <li><a href="#" class="footer-text">Client Resources</a></li>
+                        <li><a href="#" class="footer-text">Help & Support</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <div class="social-network-icon-wrap padding-right-65">
+                        <a href="#" class="footer-select social-network-icons">
+                            <span class="footer-circle footer-circle-linkedin pull-right">
+                                <i class="fa fa-linkedin font-size-20 icon-attr1"> </i>
+                            </span>
+                        </a>
+                        <a href="#" class="social-network-icons">
+                            <span class="footer-circle footer-circle-facebook pull-right">
+                                <i class="fa fa-facebook font-size-20 icon-attr1"> </i>
+                            </span>
+                        </a>
+                        <a href="#" class="social-network-icons">
+                            <span class="footer-circle footer-circle-twitter pull-right">
+                                <i class="fa fa-twitter font-size-20 icon-attr1"> </i>
+                            </span>
+                        </a>
+                        <a href="#" class="social-network-icons">
+                            <span class="footer-circle footer-circle-google pull-right">
+                                <i class="fa fa-google-plus font-size-20 icon-attr1"> </i>
+                            </span>
+                        </a>
+                        <a href="#" class="social-network-icons">
+                            <span class="footer-circle footer-circle-google pull-right">
+                                <span class="fa fa-rss font-size-20 icon-attr1"> </i>
+                            </span>
+                        </a>
+                    </div>
+                    <span class="footer-copyrights padding-right-65" id='footer-copyrights'>
+                        <span>&#169;&nbsp;Volunteer Corporation</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+     <div ng-controller="modalVolCtrl" class="modal fade" id="contactJobModal" tabindex="-1" role="dialog" aria-labelledby="contactJobModal" aria-hidden="true">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close big-close" data-dismiss="modal" ng-click="dismissModal()" aria-hidden="true">&times;</button>
+                    <h2 class="modal-title" id="myModalLabel">Invite Volunteer to Discuss Job</h2>
+                </div>
+                <form role="form" class="padding-container-12">
+                    <div class="modal-body">
+                        <div class="Jobs">
+                            <div class="row">
+                                <div class="col-sm-2">
+                                    <i class="glyphicon glyphicon-user font-size-4"></i>
+                                </div>
+                                <div class="col-sm-6">
+                                    <a style="color:#1489be" href="#"><label ng-bind="modalJob.Name"></label></a><br />
+                                    <div style="padding-top:5px;marging-top:10px;"></div>
+                                    <span ng-bind="modalJob.city" class="city-detail"></span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12 margin-top-5">
+                                    <label>Job Posting &nbsp;</label>
+
+                                    <span id="optional-text">(NOTE: Please select job to invite volunteer)</span>
+                                </div>
+                            </div>
+                            <div class="row padding-left-15" >
+                                <select class="form-control select-option">
+                                    <option value="{{values.jobTitle}}" ng-repeat="values in jobPost" ng-bind="values.jobTitle" ng-if="values.status == 'Open'"></option>
+                                </select>
+                            </div>
+                            <div class="row padding-left-15 margin-top-10" >
+                                <label>Message &nbsp;</label>
+                            </div>
+                            <div class="row padding-left-15" >
+                                <textarea class="text-area" cols="88" rows="7" id="modalMessage"></textarea>
+                            </div>
+                            <div class="row padding-left-15 margin-top-10" >
+                                <button type="submit" class="btn btn-success" data-dismiss="modal">Send Invitation</button>
+                                <button type="submit" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                            </div>
+                            <div class="row padding-left-15 margin-top-10" >
+                                <p>Already now this volunteer?&nbsp;<span><a href="#">Hire now</a></span></p>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="/lib/jquery/dist/jquery.min.js"></script>
+    <script src="/lib/angular/angular.min.js"></script>
+    <script src="/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/lib/ng-table/ng-table.js"></script>
+    <script src="/.tmp/scripts/core.js"></script>
+    <script src="controller.js"></script>
+
+</body>
+</html>

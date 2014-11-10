@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="signUp">
+<html ng-app="OrgVolApp">
 <head>
     <title>Create an account</title>
     <link href="../../img/olympia-fav.ico" rel="shortcut icon" type="image/x-icon" />
@@ -61,9 +61,9 @@
                     <div class="col-lg-12 wrapper-form sign-up-form" style="text-align: left">
                         <div class="col-sm-1" ></div>
                         <div class="col-sm-11 padding-rl-0">
-                            <h2 class="font-size-26" ng-if="typeOfOwner == 'vol1'">I want to help, sign me up as volunteer!</h2>
-                            <h2 class="font-size-26" ng-if="typeOfOwner == 'vol2'">I'm seeking help, sign me up!</h2>
-                            <h2 class="font-size-26" ng-if="typeOfOwner == 'vol3'">I want to join an organization, sign me up!</h2>
+                            <h2 class="font-size-26" ng-if="typeOfOwner == 'volunteer'">I want to help, sign me up as volunteer!</h2>
+                            <h2 class="font-size-26" ng-if="typeOfOwner == 'seekingHelp'">I'm Seeking Help, sign me up!</h2>
+                            <h2 class="font-size-26" ng-if="typeOfOwner == 'joinOrganization'">I want to join an organization, sign me up!</h2>
                             <!-- Error Placeholder-->
                             <div class="row">
                                 <div class="col-lg-2"></div>
@@ -927,9 +927,11 @@
             </div>
         </div>
     </footer>
-    <script src="../../lib/jquery/dist/jquery.min.js"></script>
-    <script src="../../lib/angular/angular.min.js"></script>
-    <script src="../../lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/lib/jquery/dist/jquery.min.js"></script>
+    <script src="/lib/angular/angular.min.js"></script>
+    <script src="/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/lib/ng-table/ng-table.js"></script>
+    <script src="/.tmp/scripts/core.js"></script>
     <script src="signupController.js"></script>
 </body>
 </html>

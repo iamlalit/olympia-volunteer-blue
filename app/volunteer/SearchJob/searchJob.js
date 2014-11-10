@@ -1,5 +1,5 @@
-﻿var app = angular.module('searchJobController', []);
-app.controller('searchJob', ['$scope', function ($scope) {
+﻿
+OrgVolApp.controller('searchJob', ['$scope', '$rootScope', function ($scope, $rootScope) {
     
     //search job logi starts
       $scope.categories = ['Aggriculture', 'Animals', 'Arts', 'Communications access', 
@@ -27,7 +27,7 @@ app.controller('searchJob', ['$scope', function ($scope) {
             'Monday - Afternoon', 'Tuesday - Afternoon', 'Wednesday - Afternoon', 'Thursday - Afternoon', 'Friday - Afternoon', 'Saturday - Afternoon', 'Sunday - Afternoon', 
             'Monday - Evening', 'Tuesday - Evening', 'Wednesday - Evening', 'Thursday - Evening', 'Friday - Evening', 'Saturday - Evening', 'Sunday - Evening', 
             'Monday - Late Night', 'Tuesday - Late Night', 'Wednesday - Late Night', 'Thursday - Late Night', 'Friday - Late Night', 'Saturday - Late Night', 'Sunday - Late Night'];
-            
+      $scope.jobTypes = [ 'Organizations', 'Individuals', 'Volunteer groups']         
   $scope.sortByList = ['Newest Jobs', 'Best Match', 'Oldest Jobs', 'Feedback'];
     
   $scope.Jobs = [];
@@ -263,14 +263,14 @@ app.controller('searchJob', ['$scope', function ($scope) {
        }
 
        $scope.CreateObject = function( job ) {
-            window.location.href = "../jobDetails/jobDetails.html?jobName=" + job.Name +"&jobDate=" + job.about;
+            window.location.href = "../jobDetails/jobDetails.html?jobName=" + job.Name +"&jobDate=" + job.about + "&owner=" + $rootScope.owner;
        }
 
 
     //search job logic ends
 }]);
 
-app.controller('modalVolCtrl', function($scope) {
+OrgVolApp.controller('modalVolCtrl', function($scope) {
       $scope.jobPost = [{jobTitle: "Volunteer Grant Writers", client:"Posted 1 month ago by Hans Klevenbeek" ,Applicants: 50, messaged: 3, hired:2, status:"Open"},
           {jobTitle: "Outreach Volunteer", client:"Posted 2 years ago by Hans Klevenbeek", Applicants: 27, messaged: 1, hired:0, status:"Closed"},
           {jobTitle: "Volunteer Coordinator - Volunteer", client:"Posted 4 days ago by Hans Klevenbeek", Applicants: 34, messaged: 1, hired:1, status:"Open"},

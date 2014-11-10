@@ -2,7 +2,7 @@
 <html lang="en" ng-app="postJobcontroller">
 <head>
 	<meta charset="utf-8">
-	<title>Help request</title>
+	<title>I'm Seeking Help</title>
 	<link href="../../img/olympia-fav.ico" rel="shortcut icon" type="image/x-icon" />
 	<link rel="stylesheet" href="../../css/olympia-icons.css"/>
 	<link rel="stylesheet" href="../../css/bootstrap-tagsinput/bootstrap-tagsinput.css"/>
@@ -35,70 +35,71 @@
 <body ng-controller="postJobCntrl">
 
 	<header>
-        <div class="navbar navbar-default" role="navigation">
-            <div class="container-fluid">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#"><img src="../../img/logo.png"></a>
-                </div>
+        <div class=''>
+        <nav class="navbar navbar-default" role="navigation">
+          <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#"><img src="../../img/logo.png"></a>
+            </div>
 
-                    <!-- Volunteer Menu ??Start-->
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                        <li><a href="../searchJob/searchJob.html" class='menu-interval'>Search Jobs</a></li>
-                        <li><a href="../jobApplication/jobApplication.html" class='menu-interval'>Job Applications</a></li>
-                        <li><a href="../recommendation/recommendation.html" class='menu-interval'>Recommendations</a></li>
-                        <li><a href="../volunteerProfile/volunteerProfile.html" class='menu-interval'>My Profile</a></li>
-                        <li><a href="../../message/message.html?owner=volunteer" class='menu-interval'>Messages<span class="message-number">23</span></a></li>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                <li><a href="../search/searchVol.html"  class='menu-interval'>Recruitment</a></li>
+                <li class="active"><a href="../organizationpcms/organizationpcms.html" class='menu-interval'>Profile</a></li>
+                <li><a href="../../message/message.html?owner=organization" class='menu-interval'>Messages<span class="message-number">23</span></a></li>
+              </ul>
+              
+              <ul class="nav navbar-nav navbar-right">
+                <li class='pull-right'><a href="#" id="icons-header-right"><span class="fa fa-question"></a></li>
+                <li class='dropdown pull-right'>
+                    <a href="#" class="dropdown-toggle" id="icons-header-right" data-toggle="dropdown"><i class='fa fa-cog'></i></a>
+                    <ul class="dropdown-menu">
+                        <li role="presentation"><a role="menuitem" href="../../myAccount/myAccount.html?owner=organization">&nbsp;<i class='fa fa-wrench'></i> &nbsp;My Account</a></li>
+                        <li role="presentation" class="divider"></li>
+                        <li role="presentation"><a role="menuitem" href="../../changePassword/changePassword.html?owner=organization">&nbsp;<i class='fa fa-cog'></i> &nbsp;Change Password</a></li>
+                        <li role="presentation" class="divider"></li>
+                        <li role="presentation"><a role="menuitem" href="../../notificationSettings/notificationSettings.html?owner=organization">&nbsp;<i class='fa fa-bell'></i> &nbsp;Notification Settings</a></li>
                     </ul>
-                    <!-- Volunteer Menu end here-->
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class='pull-right'><a href="#" id="icons-header-right"><span class="fa fa-question"></a></li>
-                        <li class='dropdown pull-right'>
-                            <a href="#" class="dropdown-toggle" id="icons-header-right" data-toggle="dropdown"><i class='fa fa-cog'></i></a>
-                            <ul class="dropdown-menu">
-                                <li role="presentation"><a role="menuitem" href="../createProfileForm/createProfile.html"><img src="../../img/VV_Icon_Profile.png" width="25" height="25"> Edit Profile</a></li>
-                                <li role="presentation" class="divider"></li>
-                                <li role="presentation"><a role="menuitem" href="../../myAccount/myAccount.html?owner=volunteer">&nbsp;<i class='fa fa-wrench'></i> &nbsp;My Account</a></li>
-                                <li role="presentation" class="divider"></li>
-                                <li role="presentation"><a role="menuitem" href="../../changePassword/changePassword.html?owner=volunteer">&nbsp;<i class='fa fa-cog'></i> &nbsp;Change Password</a></li>
-                                <li role="presentation" class="divider"></li>
-                                <li role="presentation"><a role="menuitem" href="../../notificationSettings/notificationSettings.html?owner=volunteer">&nbsp;<i class='fa fa-bell'></i> &nbsp;Notification Settings</a></li>
-                                <li role="presentation" class="divider"></li>
-                                <li role="presentation"><a role="menuitem" href="../createOrganization/createOrganization.html?owner=volunteer">&nbsp;<i class='fa fa-list-alt'></i> &nbsp;Create an Organization</a></li>
-                                <li role="presentation" class="divider"></li>
-                                <li role="presentation"><a role="menuitem" href="../helpRequest/helpRequest.html">&nbsp;<i class='fa fa-th-list'></i> &nbsp;Help Request</a></li>
-                            </ul>
+                </li>
+                <li class='pull-right' ><a href="#" id="icons-header-right"><span class="fa fa-exclamation"></a></li>
+                <li class="dropdown pull-right" style="margin-top:5px;" id="username" ng-init="client = false; organization = true">
+                    <a href="#" class="dropdown-toggle"  id="hover-header-right" data-toggle="dropdown"  ng-if="organization == true">Organization &nbsp;<b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle"  id="hover-header-right" data-toggle="dropdown" ng-if="client == true">Volunteer &nbsp;<b class="caret"></b></a>
+                    <ul class="dropdown-menu header-right-dropdown" ng-init=" addActive2 = 'make-it-white'">
+                        <li role="presentation" ><a role="menuitem" ng-model="organization" ng-click="organization = true; client = false; addActive2 = 'make-it-white';addActive1=''"  href="../../organization/search/searchVol.html" id="tab-header-1" ng-class="addActive2"><img src="../../img/VV_Icon_Volunteers.png" width="28" height="28">&nbsp;&nbsp;&nbsp;Organization</a></li>
+                        <li role="presentation" class="divider"></li>
+                        <li role="presentation" ><a role="menuitem" ng-model="client" ng-click="organization = false; client = true; addActive1 = 'make-it-white';addActive2=''" href="../../volunteer/searchJob/searchJob.html" ng-class="addActive1"><img src="../../img/VV_Icon_Profile.png" width="28" height="28">&nbsp;&nbsp;&nbsp;Volunteer</a></li>
+                        <li role="presentation" class="divider"></li>
+                        <li role="presentation" id="separate-highlight"> 
+                            <span><a role="menuitem"  href="../../myAccount/myAccount.html?owner=organization" ng-if="client == true">hans.klevenbeek</a></span>
+                            <span><a role="menuitem"  href="../../myAccount/myAccount.html?owner=organization" ng-if="organization == true">hans.klevenbeek</a></span>
+                            <span><a role="menuitem"  href="../../login/login.html">Logout</a></span>
                         </li>
-                        <li class='pull-right'><a href="#" id="icons-header-right"><span class="fa fa-exclamation"></a></li>
-                        <li class="dropdown pull-right" style="margin-top:5px;" id="username" ng-init="client = true; organization = false">
-                            <a href="#" class="dropdown-toggle"  id="hover-header-right" data-toggle="dropdown"  ng-if="organization == true">Organization &nbsp;<b class="caret"></b></a>
-                            <a href="#" class="dropdown-toggle"  id="hover-header-right" data-toggle="dropdown" ng-if="client == true">Volunteer &nbsp;<b class="caret"></b></a>
-                            <ul class="dropdown-menu header-right-dropdown" ng-init=" addActive1 = 'make-it-white'">
-                                <li role="presentation" ng-cloak><a role="menuitem" ng-model="organization" ng-click="organization = true; client = false; addActive2 = 'make-it-white';addActive1=''" href="../../organization/search/searchVol.html" id="tab-header-1" ng-class="addActive2" ><img src="../../img/VV_Icon_OrganizationLogo.png" width="28" height="28">&nbsp;&nbsp;&nbsp;Organization</a></li>
-                                <li role="presentation" class="divider" ng-cloak></li>
-                                <li role="presentation" ng-cloak><a role="menuitem" ng-model="client" ng-click="organization = false; client = true; addActive1 = 'make-it-white';addActive2=''" href="../../volunteer/searchJob/searchJob.html" ng-class="addActive1"><img src="../../img/VV_Icon_VolunteerOpportunities.png" width="28" height="28">&nbsp;&nbsp;&nbsp;Volunteer</a></li>
-                                <li role="presentation" class="divider"></li>
-                                <li role="presentation" id="separate-highlight"> 
-                                    <span><a role="menuitem"  href="../../myAccount/myAccount.html?owner=volunteer" ng-if="client == true">hans.klevenbeek</a></span>
-                                    <span><a role="menuitem"  href="../../myAccount/myAccount.html?owner=volunteer" ng-if="organization == true">hans.klevenbeek</a></span>
-                                    <span><a role="menuitem"  href="../../login/login.html">Logout</a></span>
-                                </li>
-                            </ul>
-                        </li>
+
                     </ul>
-                </div><!-- /.navbar-collapse -->
-            </div><!-- /.container-fluid -->
+                </li>
+              </ul>
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+        </nav>
+        <div class="container">
+            <nav role="navigation" id="submenu">
+                <ul class="nav navbar-nav collapse" id="solutions">
+                  <li class="active arrow_box "><a href="../search/searchVol.html">Search Volunteer</a></li>
+                  <li><a href="../helpRequest/helpRequest.html">Post a Job</a></li>
+                  <li><a href="../jobPost/jobPost.html">Job Postings</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
-
 	<div class="superContainer">
         <div class="containerB">
             <span class="prototype-scheme">PROTOTYPE</span>
@@ -123,7 +124,7 @@
 					<form  id="postJobForm" role="form">
 						<div class="col-sm-12">
 							<div class='row margin-rl-0'>
-								<span id='heading-form'>Help request</span>
+								<span id='heading-form'>I'm Seeking Help</span>
 							</div>
 							<div class='row margin-rl-0'>
 								<div class='margin-top-15'>
@@ -2757,6 +2758,7 @@
 	<script src="../../js/app.js"></script>
     <script src="../../js/inputFile/inputFile.js"></script>
 	<script src="control.js"></script>
+	<script src="controller.js"></script>
 	<script src="validation.js"></script>
 </body>
 </html>

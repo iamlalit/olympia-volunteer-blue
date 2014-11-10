@@ -1,6 +1,5 @@
-﻿var changePasswordController = angular.module('changePasswordController', [])
-
-.controller('changePasswordCntrl', ['$scope', function ($scope) {
+﻿
+OrgVolApp.controller('changePasswordCntrl', ['$scope', function ($scope) {
 
     $scope.typeOfOwner = '';
     function getParameterByName(name) {

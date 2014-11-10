@@ -1,8 +1,6 @@
 'use strict';
 /* main App */
-var app = angular.module('viewAppcontroller', []);
-
-app.controller('viewAppCtrl', function($scope){
+OrgVolApp.controller('viewAppCtrl', function($scope, $filter, ngTableParams){
 	$scope.sortByList = ['Best Match', 'Newest Applicants', 'Oldest Applicants', 'Feedback'];
 
 	$scope.Applicants = [];
@@ -105,7 +103,8 @@ var element_title = "<i class='icon-exclamation-sign font-size-1-7' style='color
                     "<i class='icon-exclamation-sign font-size-1-7' style='color:#b25a01;padding-right:7px;'></i><span style='vertical-align:top;'>First aid certification</span><br/>" +
                     "<i class='icon-exclamation-sign font-size-1-7' style='color:#009e0f;padding-right:7px;'></i><span style='vertical-align:top;'>Cooking</span><br/>" +
                     "<i class='icon-exclamation-sign font-size-1-7' style='color:#b25a01;padding-right:7px;'></i><span style='vertical-align:top;'>Crowd control</span>" 
-app.directive('hoverPopover', function ($compile, $templateCache, $timeout, $rootScope) {
+
+OrgVolApp.directive('hoverPopover', function ($compile, $templateCache, $timeout, $rootScope) {
 var getTemplate = function (contentType) {
     return $templateCache.get(element_title);
 	};
@@ -152,7 +151,7 @@ var element_title_green = "<i class='icon-exclamation-sign font-size-1-7' style=
 					"<i class='icon-exclamation-sign font-size-1-7' style='color:#009e0f;padding-right:7px;'></i><span style='vertical-align:top;'>First aid certification</span><br/>" +
 					"<i class='icon-exclamation-sign font-size-1-7' style='color:#009e0f;padding-right:7px;'></i><span style='vertical-align:top;'>Cooking</span><br/>" +
 					"<i class='icon-exclamation-sign font-size-1-7' style='color:#009e0f;padding-right:7px;'></i><span style='vertical-align:top;'>Crowd control</span>" 
-app.directive('hoverPopover1', function ($compile, $templateCache, $timeout, $rootScope) {
+OrgVolApp.directive('hoverPopover1', function ($compile, $templateCache, $timeout, $rootScope) {
 var getTemplate = function (contentType) {
     return $templateCache.get(element_title);
 	};

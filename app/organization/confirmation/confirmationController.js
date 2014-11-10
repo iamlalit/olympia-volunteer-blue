@@ -1,7 +1,5 @@
 'use strict';
-/* main App */
-var app = angular.module('submitConformationcontroller', []);
-app.controller('confirmationCtrl', ['$scope', function($scope){
+OrgVolApp.controller('confirmationCtrl', ['$scope', function($scope){
 	
 	$scope.volunteerList = ["Joop Bakker", "Dirk Dijkstra", "Sterre Hendriks",
 	 "Hendrik Jacobs", "Hans Heuvel", "Jaap Beek", "Jan-Jaap Dijk", 

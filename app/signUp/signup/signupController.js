@@ -1,5 +1,5 @@
-﻿var signUp = angular.module('signUp', []);
-signUp.controller("signupVolController", ['$scope', function ($scope) {
+﻿//for volunteer controller
+OrgVolApp.controller("signupVolController", ['$scope', function ($scope) {
 
     $scope.typeOfOwner = '';
     function getParameterByName(name) {
@@ -304,61 +304,6 @@ signUp.controller("signupVolController", ['$scope', function ($scope) {
                     //$('#errorMsg').hide();
                 }
             }
-            //Organization nickname 
-            // if (OrganizationValue == 'true') {
-            //     if (nickname.val() == '' || nickname.val() == null) {
-            //         if (errorList.find('.errormessage-nickname').length == 0) {
-            //             $('<li />', { html: 'Organization Nick Name required !', class: 'col-sm-6 errormessage-nickname' })
-            //             .appendTo(errorList)
-            //             .click(function () {
-            //                 $('html, body').animate({
-            //                     scrollTop: nickname.offset().top - 100
-            //                 }, 500);
-            //                 nickname.focus();
-            //             });
-            //             //$('#errorMsg').show();
-            //             nickname.parent().addClass('has-error');
-            //         }
-            //     } else {
-            //         if (nickname.parent().hasClass('has-error')) {
-            //             nickname.parent().removeClass('has-error')
-            //         };
-            //         if (errorList.find('.errormessage-nickname').length > 0) {
-            //             errorList.find('.errormessage-nickname').remove();
-            //             //$('#errorMsg').hide();
-            //         }
-            //     }
-            // }
-            //registered user is yes for registrationNumber
-            // if($('#registered').is(':checked')) { 
-            //     if (registrationNumber.val() == '' || registrationNumber.val() == null) {
-            //         if (errorList.find('.errormessage-registrationNumber').length == 0) {
-            //             $('<li />', { html: 'Registration Number is required !', class: 'col-sm-6 errormessage-registrationNumber' })
-            //             .appendTo(errorList)
-            //             .click(function () {
-            //                 $('html, body').animate({
-            //                     scrollTop: street.offset().top - 100
-            //                 }, 500);
-            //                 registrationNumber.focus();
-            //             });
-            //             //$('#errorMsg').show();
-            //             registrationNumber.parent().addClass('has-error');
-            //         }
-            //     } else {
-            //         if (registrationNumber.parent().hasClass('has-error')) {
-            //             registrationNumber.parent().removeClass('has-error')
-            //         };
-            //         if (errorList.find('.errormessage-registrationNumber').length > 0) {
-            //             errorList.find('.errormessage-registrationNumber').remove();
-            //             //$('#errorMsg').hide();
-            //         }
-            //     }
-            // }else{
-            //     //no is choosen
-            //     registrationNumber.val('');
-            //     errorList.find('.errormessage-registrationNumber').remove();
-            //     registrationNumber.parent().removeClass('has-error');
-            // }
 
             $scope.typeOfOwner = '';
             function getParameterByName(name) {
@@ -375,12 +320,12 @@ signUp.controller("signupVolController", ['$scope', function ($scope) {
                 }, 500);
             } else {
                 $('#errorMsg').hide();
-                if($scope.typeOfOwner == 'vol1'){
-                    window.location.href = '../../landingPage/landing.html' + '?form=signup&owner=volunteer&fname=' + firstname.val() + '&lname=' + lastname.val() + '&email=' + email.val();    
-                }else if($scope.typeOfOwner == 'vol2'){
-                    window.location.href = '../../landingPage/landing.html' + '?form=signup&owner=volunteer&fname=' + firstname.val() + '&lname=' + lastname.val() + '&email=' + email.val();    
-                }else if($scope.typeOfOwner == 'vol3'){
-                    window.location.href = '../../landingPage/landing.html' + '?form=signup&owner=volunteer&fname=' + firstname.val() + '&lname=' + lastname.val() + '&email=' + email.val();    
+                if($scope.typeOfOwner == 'volunteer'){
+                    window.location.href = '/landingPage/landing.html' + '?owner=volunteer';
+                }else if($scope.typeOfOwner == 'seekingHelp'){
+                    window.location.href = '/landingPage/landing.html' + '?owner=seekingHelp';
+                }else if($scope.typeOfOwner == 'joinOrganization'){
+                    window.location.href = '/landingPage/landing.html' + '?owner=joinOrganization';
                 }
                 
             }
@@ -388,8 +333,8 @@ signUp.controller("signupVolController", ['$scope', function ($scope) {
         });
     });
 }]);
-
-signUp.controller("signupOrgController", ['$scope', function ($scope) {
+//for organization controller
+OrgVolApp.controller("signupOrgController", ['$scope', function ($scope) {
 
     $scope.typeOfOwner = '';
     function getParameterByName(name) {
@@ -791,14 +736,14 @@ signUp.controller("signupOrgController", ['$scope', function ($scope) {
                 }, 500);
             } else {
                 $('#errorMsg').hide();
-                if($scope.typeOfOwner == 'org1'){
-                    window.location.href = '../../landingPage/landing.html' + '?form=signup&owner=organization&fname=' + firstname.val() + '&lname=' + lastname.val() + '&email=' + email.val();    
-                }else if($scope.typeOfOwner == 'org2'){
-                    window.location.href = '../../landingPage/landing.html' + '?form=signup&owner=organization&fname=' + firstname.val() + '&lname=' + lastname.val() + '&email=' + email.val();    
+                if($scope.typeOfOwner == 'volunteerGroup'){
+                    window.location.href = '/landingPage/landing.html?owner=volunteerGroup';
+                }else if($scope.typeOfOwner == 'organization'){
+                    window.location.href = '/landingPage/landing.html?owner=organization';
                 }else if($scope.typeOfOwner == 'org3'){
-                    window.location.href = '../../landingPage/landing.html' + '?form=signup&owner=organization&fname=' + firstname.val() + '&lname=' + lastname.val() + '&email=' + email.val();    
+                    window.location.href = '/landingPage/landing.html?owner=organization';
                 }else if($scope.typeOfOwner == 'org4'){
-                    window.location.href = '../../landingPage/landing.html' + '?form=signup&owner=organization&fname=' + firstname.val() + '&lname=' + lastname.val() + '&email=' + email.val();    
+                    window.location.href = '/landingPage/landing.html?owner=organization';
                 }
                 
             }

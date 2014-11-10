@@ -1,5 +1,5 @@
-﻿var landingController = angular.module('landingController', []);
-landingController.controller('landingPage', ['$scope', function ($scope) {
+﻿
+OrgVolApp.controller('landingPage', ['$scope', '$rootScope', function ($scope, $rootScope) {
     $scope.OrganizationMenu = false;
     $scope.volunteerMenu = false;
     $scope.profileModel = [
@@ -52,25 +52,27 @@ landingController.controller('landingPage', ['$scope', function ($scope) {
         }
     ];
 
-    var urlParams;
-    var match,
-    pl = /\+/g,  // Regex for replacing addition symbol with a space
-    search = /([^&=]+)=?([^&]*)/g,
-    decode = function (s) { return decodeURIComponent(s.replace(pl, " ")); },
-    query = window.location.search.substring(1);
-    urlParams = {};
-    while (match = search.exec(query))
-        urlParams[decode(match[1])] = decode(match[2]);
-
-    console.log(urlParams);
-
-    var userType = urlParams.owner;
-    var formType = urlParams.form;
-    $scope.typeOfOwner = userType;
-    if (userType == 'organization') {
-        $scope.OrganizationMenu = true;
+    function getParameterByName(name) {
+      name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+      var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+      results = regex.exec(location.search);
+      return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
     }
-    if (userType == 'volunteer') {
-        $scope.volunteerMenu = true;
+    $scope.typeOfOwner = getParameterByName('owner');
+
+    $scope.gotoCreateProfileVol = function(){
+        window.location.href = '/volunteer/CreateProfileForm/createProfile.html?owner=' + $rootScope.owner;
+    }
+    $scope.gotoPostJob = function(){
+        window.location.href = '/organization/postJob/postjob.html?owner=' + $rootScope.owner;
+    }
+    $scope.goToStaffing = function(){
+        window.location.href= '/organization/staffAndPermission/staffAndPermission.html?owner=' + $rootScope.owner;
+    }
+    $scope.goToOrganization = function(){
+        window.location.href= '/organization/organizationProfile/organizationProfile.html?owner=' + $rootScope.owner;
+    }
+    $scope.gotosearchOrg = function(){
+        window.location.href= '/organization/searchOrg/searchOrg.html?owner=' + $rootScope.owner;   
     }
 }]);

@@ -1,0 +1,266 @@
+﻿<!-- for organization -->
+<header ng-if="$root.owner == 'organization'">
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="#"><img src="/img/logo.png"></a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                <li class="search">
+                    <a href="/organization/search/searchVol.html?owner={{$root.owner}}" active-nav class='menu-interval'>Search</a>
+                </li>
+                <li class="recruitment">
+                    <a href="/organization/jobPost/jobPost.html?owner={{$root.owner}}" active-nav class='menu-interval'>Recruitment</a>
+                </li>
+                <li class="profile">
+                    <a href="/organization/organizationpcms/organizationpcms.html?owner={{$root.owner}}" active-nav class='menu-interval'>Profile</a>
+                </li>
+                <li class="reports">
+                    <a href="/reports/timesheet.html?owner={{$root.owner}}" active-nav class='menu-interval'>Reports</a>
+                </li>
+                <li class="message">
+                    <a href="/message/message.html?owner={{$root.owner}}" active-nav class='menu-interval'>Messages<span class="message-number">23</span></a>
+                </li>
+              </ul>
+              
+              <ul class="nav navbar-nav navbar-right">
+                <li class='pull-right'><a href="#" id="icons-header-right"><span class="fa fa-question"></a></li>
+                <li class='dropdown pull-right'>
+                    <a href="#" class="dropdown-toggle" id="icons-header-right" data-toggle="dropdown"><i class='fa fa-cog'></i></a>
+                    <ul class="dropdown-menu">
+                        <li role="presentation"><a role="menuitem" href="/myAccount/myAccount.html?owner={{$root.owner}}">&nbsp;<i class='fa fa-wrench'></i> &nbsp;My account</a></li>
+                        <li role="presentation" class="divider"></li>
+                        <li role="presentation"><a role="menuitem" href="/changePassword/changePassword.html?owner={{$root.owner}}">&nbsp;<i class='fa fa-cog'></i> &nbsp;Change password</a></li>
+                        <li role="presentation" class="divider"></li>
+                        <li role="presentation"><a role="menuitem" href="/notificationSettings/notificationSettings.html?owner={{$root.owner}}">&nbsp;<i class='fa fa-bell'></i> &nbsp;Notification settings</a></li>
+                        <li role="presentation" class="divider"></li>
+                        <li role="presentation"><a role="menuitem" href="/integrationSettings/integrationSettings.html?owner={{$root.owner}}">&nbsp;<i class='fa fa-list-alt'></i> &nbsp;Integration settings</a></li>
+                        <li role="presentation" class="divider"></li>
+                        <li role="presentation"><a role="menuitem" href="/organization/socialMedia/socialMedia.html?owner={{$root.owner}}">&nbsp;<i class='fa fa-share-alt'></i> &nbsp;Publish to social media</a></li>
+                    </ul>
+                </li>
+                <li class='pull-right' ><a href="#" id="icons-header-right"><span class="fa fa-exclamation"></a></li>
+                <li class="dropdown pull-right" style="margin-top:5px;" id="username">
+                    <a href="#" class="dropdown-toggle"  id="hover-header-right" data-toggle="dropdown">Red Cross NL &nbsp;<b class="caret"></b></a>
+                    <ul class="dropdown-menu header-right-dropdown" ng-init=" addActive2 = 'make-it-white'">
+                        <li role="presentation" >
+                            <a role="menuitem" id="tab-header-1"><img src="/.tmp/img/VV_Icon_OrganizationLogo.png" width="28" height="28">&nbsp;&nbsp;&nbsp;Red Cross NL</a>
+                        </li>
+                        <li role="presentation" class="divider"></li>
+                        <li role="presentation" id="separate-highlight">
+                            <span><a role="menuitem"  href="/myAccount/myAccount.html?owner={{$root.owner}}">hans.klevenbeek</a></span>
+                            <span><a role="menuitem"  href="/login/login.html?owner={{$root.owner}}">Logout</a></span>
+                        </li>
+
+                    </ul>
+                </li>
+              </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <div class="container" style="padding-left: 240px;">
+        <nav role="navigation" id="submenu">
+            <ul class="nav navbar-nav collapse" id="search">
+              <li class="searchJob"><a href="/volunteer/searchJob/searchJob.html?owner={{$root.owner}}" secondary-nav>Search Job</a></li>
+              <li class="searchVol"><a href="/organization/search/searchVol.html?owner={{$root.owner}}" secondary-nav>Search Volunteer</a></li>
+              <li class="searchOrg"><a href="/organization/searchOrg/searchOrg.html?owner={{$root.owner}}" secondary-nav>Search Organization</a></li>
+            </ul>
+            <ul class="nav navbar-nav collapse" id="recruitment">
+              <li class="jobPost viewApp"><a href="/organization/jobPost/jobPost.html?owner={{$root.owner}}" secondary-nav>Job Postings</a></li>
+              <li class="postajob"><a href="/organization/postJob/postjob.html?owner={{$root.owner}}" secondary-nav>Post a Job</a></li>
+            </ul>
+            <ul class="nav navbar-nav collapse" id="profile">
+              <li class="profile"><a href="/organization/organizationpcms/organizationpcms.html?owner={{$root.owner}}" secondary-nav>My Profile</a></li>
+              <li class="jobApplication"><a href="/volunteer/jobApplication/jobApplication.html?owner={{$root.owner}}" secondary-nav>My Job Applications</a></li>
+              <li class="staffPermission"><a href="/organization/staffAndPermission/staffAndPermission.html?owner={{$root.owner}}" secondary-nav>Manage Staff Permissions</a></li>
+              <li class="recommendation"><a href="/volunteer/recommendation/recommendation.html?owner={{$root.owner}}" secondary-nav>Recommendations</a></li>
+            </ul>
+            <ul class="nav navbar-nav collapse" id="reports">
+              <li class="timesheet"><a href="/reports/timesheet.html?owner={{$root.owner}}" secondary-nav>Timesheet</a></li>
+            </ul>
+            <ul class="nav navbar-nav collapse" id="messages">
+              <li class="message"><a href="/message/message.html?owner={{$root.owner}}" secondary-nav>Messages</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<!--organization menu ends here -->
+<!-- volunteer group -->
+<header ng-if="$root.owner == 'volunteerGroup'">
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="#"><img src="/img/logo.png"></a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                <li class="search">
+                    <a href="/volunteer/searchJob/searchJob.html?owner={{$root.owner}}" active-nav class='menu-interval'>Search</a>
+                </li>
+                <li class="recruitment">
+                    <a href="/organization/jobPost/jobPost.html?owner={{$root.owner}}" active-nav class='menu-interval'>Recruitment</a>
+                </li>
+                <li class="profile">
+                    <a href="/organization/organizationpcms/organizationpcms.html?owner={{$root.owner}}" active-nav class='menu-interval'>Profile</a>
+                </li>
+                <li class="reports">
+                    <a href="/reports/timesheet.html?owner={{$root.owner}}" active-nav class='menu-interval'>Reports</a>
+                </li>
+                <li class="message">
+                    <a href="/message/message.html?owner={{$root.owner}}" active-nav class='menu-interval'>Messages<span class="message-number">23</span></a>
+                </li>
+              </ul>
+              
+              <ul class="nav navbar-nav navbar-right">
+                <li class='pull-right'><a href="#" id="icons-header-right"><span class="fa fa-question"></a></li>
+                <li class='dropdown pull-right'>
+                    <a href="#" class="dropdown-toggle" id="icons-header-right" data-toggle="dropdown"><i class='fa fa-cog'></i></a>
+                    <ul class="dropdown-menu">
+                        <li role="presentation"><a role="menuitem" href="/myAccount/myAccount.html?owner={{$root.owner}}">&nbsp;<i class='fa fa-wrench'></i> &nbsp;My account</a></li>
+                        <li role="presentation" class="divider"></li>
+                        <li role="presentation"><a role="menuitem" href="/changePassword/changePassword.html?owner={{$root.owner}}">&nbsp;<i class='fa fa-cog'></i> &nbsp;Change password</a></li>
+                        <li role="presentation" class="divider"></li>
+                        <li role="presentation"><a role="menuitem" href="/notificationSettings/notificationSettings.html?owner={{$root.owner}}">&nbsp;<i class='fa fa-bell'></i> &nbsp;Notification settings</a></li>
+                        <li role="presentation" class="divider"></li>
+                        <li role="presentation"><a role="menuitem" href="/integrationSettings/integrationSettings.html?owner={{$root.owner}}">&nbsp;<i class='fa fa-list-alt'></i> &nbsp;Integration settings</a></li>
+                        <li role="presentation" class="divider"></li>
+                        <li role="presentation"><a role="menuitem" href="/organization/socialMedia/socialMedia.html?owner={{$root.owner}}">&nbsp;<i class='fa fa-share-alt'></i> &nbsp;Publish to social media</a></li>
+                    </ul>
+                </li>
+                <li class='pull-right' ><a href="#" id="icons-header-right"><span class="fa fa-exclamation"></a></li>
+                <li class="dropdown pull-right" style="margin-top:5px;" id="username">
+                    <a href="#" class="dropdown-toggle"  id="hover-header-right" data-toggle="dropdown">Rainbow Group &nbsp;<b class="caret"></b></a>
+                    <ul class="dropdown-menu header-right-dropdown" ng-init=" addActive2 = 'make-it-white'">
+                        <li role="presentation" >
+                            <a role="menuitem" id="tab-header-1"><img src="/.tmp/img/VV_Icon_OrganizationLogo.png" width="28" height="28">&nbsp;&nbsp;&nbsp;Rainbow Group</a>
+                        </li>
+                        <li role="presentation" class="divider"></li>
+                        <li role="presentation" id="separate-highlight">
+                            <span><a role="menuitem"  href="/myAccount/myAccount.html?owner={{$root.owner}}">hans.klevenbeek</a></span>
+                            <span><a role="menuitem"  href="/login/login.html?owner={{$root.owner}}">Logout</a></span>
+                        </li>
+
+                    </ul>
+                </li>
+              </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <div class="container" style="padding-left: 240px;">
+        <nav role="navigation" id="submenu">
+            <ul class="nav navbar-nav collapse" id="search">
+              <li class="searchJob"><a href="/volunteer/searchJob/searchJob.html?owner={{$root.owner}}" secondary-nav>Search Job</a></li>
+              <li class="searchVol"><a href="/organization/search/searchVol.html?owner={{$root.owner}}" secondary-nav>Search Volunteer</a></li>
+              <li class="searchOrg"><a href="/organization/searchOrg/searchOrg.html?owner={{$root.owner}}" secondary-nav>Search Organization</a></li>
+            </ul>
+            <ul class="nav navbar-nav collapse" id="recruitment">
+              <li class="jobPost viewApp"><a href="/organization/jobPost/jobPost.html?owner={{$root.owner}}" secondary-nav>Job Postings</a></li>
+              <li class="postajob"><a href="/organization/postJob/postjob.html?owner={{$root.owner}}" secondary-nav>Post a Job</a></li>
+            </ul>
+            <ul class="nav navbar-nav collapse" id="profile">
+              <li class="profile"><a href="/organization/organizationpcms/organizationpcms.html?owner={{$root.owner}}" secondary-nav>My Profile</a></li>
+              <li class="jobApplication"><a href="/volunteer/jobApplication/jobApplication.html?owner={{$root.owner}}" secondary-nav>My Job Applications</a></li>
+              <li class="staffPermission"><a href="/organization/staffAndPermission/staffAndPermission.html?owner={{$root.owner}}" secondary-nav>Manage Staff Permissions</a></li>
+              <li class="recommendation"><a href="/volunteer/recommendation/recommendation.html?owner={{$root.owner}}" secondary-nav>Recommendations</a></li>
+            </ul>
+            <ul class="nav navbar-nav collapse" id="reports">
+              <li class="timesheet"><a href="/reports/timesheet.html?owner={{$root.owner}}" secondary-nav>Timesheet</a></li>
+            </ul>
+            <ul class="nav navbar-nav collapse" id="messages">
+              <li class="message"><a href="/message/message.html?owner={{$root.owner}}" secondary-nav>Messages</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<!--volunteer menus -->
+<header ng-if="$root.owner == 'volunteer' || $root.owner == 'seekingHelp' || $root.owner == 'joinOrganization'">
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="#"><img src="/img/logo.png"></a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                <li class="search">
+                    <a href="/volunteer/searchJob/searchJob.html?owner={{$root.owner}}" active-nav class='menu-interval'>Search</a>
+                </li>
+                <li class="recruitment">
+                    <a href="/organization/jobPost/jobPost.html?owner={{$root.owner}}" active-nav class='menu-interval'>Recruitment</a>
+                </li>
+                <li class="profile">
+                    <a href="/volunteer/volunteerProfile/volunteerProfile.html?owner={{$root.owner}}" active-nav class='menu-interval'>Profile</a>
+                </li>
+                <li class="reports">
+                    <a href="/reports/timesheet.html?owner={{$root.owner}}" active-nav class='menu-interval'>Reports</a>
+                </li>
+                <li class="message">
+                    <a href="/message/message.html?owner={{$root.owner}}" active-nav class='menu-interval'>Messages<span class="message-number">23</span></a>
+                </li>
+              </ul>
+              
+              <ul class="nav navbar-nav navbar-right">
+                <li class='pull-right'><a href="#" id="icons-header-right"><span class="fa fa-question"></a></li>
+                <li class='dropdown pull-right'>
+                    <a href="#" class="dropdown-toggle" id="icons-header-right" data-toggle="dropdown"><i class='fa fa-cog'></i></a>
+                    <ul class="dropdown-menu">
+                        <li role="presentation"><a role="menuitem" href="/myAccount/myAccount.html?owner={{$root.owner}}">&nbsp;<i class='fa fa-wrench'></i> &nbsp;My account</a></li>
+                        <li role="presentation" class="divider"></li>
+                        <li role="presentation"><a role="menuitem" href="/changePassword/changePassword.html?owner={{$root.owner}}">&nbsp;<i class='fa fa-cog'></i> &nbsp;Change password</a></li>
+                        <li role="presentation" class="divider"></li>
+                        <li role="presentation"><a role="menuitem" href="/notificationSettings/notificationSettings.html?owner={{$root.owner}}">&nbsp;<i class='fa fa-bell'></i> &nbsp;Notification settings</a></li>
+                        <li role="presentation" class="divider"></li>
+                        <li role="presentation"><a role="menuitem" href="/integrationSettings/integrationSettings.html?owner={{$root.owner}}">&nbsp;<i class='fa fa-list-alt'></i> &nbsp;Integration settings</a></li>
+                        <li role="presentation" class="divider"></li>
+                        <li role="presentation"><a role="menuitem" href="/organization/socialMedia/socialMedia.html?owner={{$root.owner}}">&nbsp;<i class='fa fa-share-alt'></i> &nbsp;Publish to social media</a></li>
+                    </ul>
+                </li>
+                <li class='pull-right' ><a href="#" id="icons-header-right"><span class="fa fa-exclamation"></a></li>
+                <li class="dropdown pull-right" style="margin-top:5px;" id="username">
+                    <a href="#" class="dropdown-toggle"  id="hover-header-right" data-toggle="dropdown">Hans Klevenbeek &nbsp;<b class="caret"></b></a>
+                    <ul class="dropdown-menu header-right-dropdown" ng-init=" addActive2 = 'make-it-white'">
+                        <li role="presentation" >
+                            <a role="menuitem" id="tab-header-1"><img src="/.tmp/img/VV_Icon_VolunteerOpportunities.png" width="28" height="28">&nbsp;&nbsp;&nbsp;Hans Klevenbeek</a>
+                        </li>
+                        <li role="presentation" class="divider"></li>
+                        <li role="presentation" id="separate-highlight">
+                            <span><a role="menuitem"  href="/myAccount/myAccount.html?owner={{$root.owner}}" style="padding-right: 71px;">hans.klevenbeek</a></span>
+                            <span><a role="menuitem"  href="/login/login.html?owner={{$root.owner}}">Logout</a></span>
+                        </li>
+
+                    </ul>
+                </li>
+              </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <div class="container" style="padding-left: 240px;">
+        <nav role="navigation" id="submenu">
+            <ul class="nav navbar-nav collapse" id="search">
+              <li class="searchJob"><a href="/volunteer/searchJob/searchJob.html?owner={{$root.owner}}" secondary-nav>Search Job</a></li>
+              <li class="searchVol"><a href="/organization/search/searchVol.html?owner={{$root.owner}}" secondary-nav>Search Volunteer</a></li>
+              <li class="searchOrg"><a href="/organization/searchOrg/searchOrg.html?owner={{$root.owner}}" secondary-nav>Search Organization</a></li>
+            </ul>
+            <ul class="nav navbar-nav collapse" id="recruitment">
+              <li class="jobPost viewApp"><a href="/organization/jobPost/jobPost.html?owner={{$root.owner}}" secondary-nav>Job Postings</a></li>
+              <li class="postajob"><a href="/organization/postJob/postjob.html?owner={{$root.owner}}" secondary-nav>Post a Job</a></li>
+            </ul>
+            <ul class="nav navbar-nav collapse" id="profile">
+              <li class="profile"><a href="/volunteer/volunteerProfile/volunteerProfile.html?owner={{$root.owner}}" secondary-nav>My Profile</a></li>
+              <li class="jobApplication"><a href="/volunteer/jobApplication/jobApplication.html?owner={{$root.owner}}" secondary-nav>My Job Applications</a></li>
+              <li class="staffPermission"><a href="/organization/staffAndPermission/staffAndPermission.html?owner={{$root.owner}}" secondary-nav>Manage Staff Permissions</a></li>
+              <li class="recommendation"><a href="/volunteer/recommendation/recommendation.html?owner={{$root.owner}}" secondary-nav>Recommendations</a></li>
+            </ul>
+            <ul class="nav navbar-nav collapse" id="reports">
+              <li class="timesheet"><a href="/reports/timesheet.html?owner={{$root.owner}}" secondary-nav>Timesheet</a></li>
+            </ul>
+            <ul class="nav navbar-nav collapse" id="messages">
+              <li class="message"><a href="/message/message.html?owner={{$root.owner}}" secondary-nav>Messages</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+

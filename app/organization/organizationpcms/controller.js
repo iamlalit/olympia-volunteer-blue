@@ -1,11 +1,17 @@
-﻿var app = angular.module('jobDetailsController', []);
-app.controller('jobDetails', ['$scope', function ($scope) {
+﻿
+OrgVolApp.controller('jobDetails', ['$scope', '$filter', 'ngTableParams', '$rootScope',  function ($scope, $filter, ngTableParams, $rootScope) {
     
   $scope.organizationCategories = ["Immigration", "Education", "Civic engagement", "Media", "Job and workplace", "consumer protection"];  
 
   $scope.members = [{name:"Robert de Bakker", image:"../../img/name6.png"}, 
                     {name:"Lydia jnasen", image:"../../img/name12.png"}, 
                     {name:"Marleen Bosch", image:"../../img/name9.png"}];
+
+  $scope.volunteers = [{name:"Geertruda Brouwer", image:"../../img/name2.png"}, 
+                    {name:"Sterre Jansen", image:"../../img/name11.png"}, 
+                    {name:"Driel Hendriks", image:"../../img/name7.png"},
+                    {name:"Els Dekker", image:"../../img/name1.png"}, 
+                    {name:"Joep Jacobs", image:"../../img/name4.png"}];  
 
   $scope.jobPost = [{jobTitle: "Football refree volunteering", client:"Posted 1 month ago by Hans Klevenbeek", Applicants: 34, messaged: 1, hired:0, status:"Closed", jobDate: '1 month ago'},
         {jobTitle: "Volunteer grant writers", client:"Posted 1 month ago by Hans Klevenbeek" ,Applicants: 50, messaged: 3, hired:2, status:"Open", jobDate: '1 month ago'},
@@ -21,5 +27,9 @@ app.controller('jobDetails', ['$scope', function ($scope) {
           results = regex.exec(location.search);
       return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
   }
-  $scope.organizationName = getParameterByName('organizationName');
+  if($rootScope.owner == 'organization')
+    $scope.organizationName = getParameterByName('organizationName');
+  else{
+    $scope.organizationName = 'Rainbow Group';
+  }
 }]);

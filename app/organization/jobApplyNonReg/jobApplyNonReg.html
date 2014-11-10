@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html ng-app="jobDetailsController">
+<html ng-app="OrgVolApp">
 <head>
     <meta charset="utf-8">
     <title>Job apply Non Registered</title>
@@ -13,7 +13,6 @@
     
     <link href="../../css/volunteer/jobDetails/jobDetails.css" rel="stylesheet">
     <link href="../../css/global.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="../../css/header/header.css">
     <style type="text/css">
         .superContainer{
             width: 1349px;
@@ -39,19 +38,20 @@
 </head>
 
 <body ng-controller="jobDetails" ng-cloak ng-style="{'background-color': colorBackground, 'background-image' : 'none', 'color': colorBodyText, 'font-family': fontFace, 'font-size': bodySize}">
-    <!-- Page Header Section Start-->
-    <header>
-        <div class="navbar navbar-default" role="navigation" ng-cloak ng-style="{'background-color': topBar, 'border-color': topBar}" style="height: 110px;">
+
+    <div ng-include="'../../templates/header.tmpl.html'" ng-class="{ishidden: topBar}"></div>
+    <header  ng-class="{ishidden: !topBar}">
+        <div class="navbar navbar-default" role="navigation" ng-style="{'background-color': topBar, 'border-color': topBar}" style="height: 110px;">
             <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="#" ng-if="clientImage == 'undefined' || clientImage == ''"><img src="../../img/logo.png"></a>
                     <a class="navbar-brand padding-bottom-20" href="http://{{headerImageLink}}" ng-if="clientImage !== ''"><img ng-src="{{clientImage}}"></a>
                 </div>
+
+                
             </div><!-- /.container-fluid -->
         </div>
     </header>
-
     <div class="superContainer">
         <div class="containerB">
             <span class="prototype-scheme">PROTOTYPE</span>
@@ -973,7 +973,7 @@
                                 <img src="{{clientImage}}" height="50" width="50">
                             </div>
                             <div class="col-sm-10">
-                                <span><a href="../../organization/organizationpcms/organizationpcms.html?organizationName=Red Cross NL">Red Cross NL</a></span>
+                                <span><a href="../../organization/organizationpcms/organizationpcms.html?organizationName=Red Cross NL&owner={{$root.owner}}">Red Cross NL</a></span>
                                 <p>Riders Club is more than just a way to get from here to there. Riders Club is a way to maintain freedom. Our mission is very simple: We provide scheduled transportation for mobile seniors. <span><a href="#" class="pull-right">more >></a></span></p>
                             </div>
                         </div>
@@ -1114,10 +1114,13 @@
     </footer>
 
      
-    <script src="../../lib/jquery/dist/jquery.min.js"></script>
-    <script src="../../lib/angular/angular.min.js"></script>
-    <script src="../../lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/lib/jquery/dist/jquery.min.js"></script>
+    <script src="/lib/angular/angular.min.js"></script>
+    <script src="/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/lib/ng-table/ng-table.js"></script>
+    <script src="/.tmp/scripts/core.js"></script>
     <script src="controller.js"></script>
+
     <script src="inputFile.js"></script>
     <script src="validation.js"></script>    
 </body>

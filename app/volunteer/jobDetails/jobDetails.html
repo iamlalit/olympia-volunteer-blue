@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html ng-app="jobDetailsController">
+<html ng-app="OrgVolApp">
 <head>
     <meta charset="utf-8">
     <title>Job details</title>
@@ -34,78 +34,14 @@
 
 <body ng-controller="jobDetails">
     <!-- Page Header Section Start-->
-    <header>
-        <div class="navbar navbar-default" role="navigation">
-            <div class="container-fluid">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="#" ><img src="../../img/logo.png"></a>
-                </div>
+    <div ng-include="'../../templates/header.tmpl.html'"></div>
+    <!-- Page Header Section End-->
 
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
-                    <!-- Volunteer Menu Start-->
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="../searchJob/searchJob.html" class='menu-interval'>Search Job</a></li>
-                        <li><a href="../jobApplication/jobApplication.html" class='menu-interval'>Job Applications</a></li>
-                        <li><a href="../recommendation/recommendation.html" class='menu-interval'>Recommendations</a></li>
-                        <li><a href="../volunteerProfile/volunteerProfile.html" class='menu-interval'>My Profile</a></li>
-                        <li><a href="../../message/message.html?owner=volunteer" class='menu-interval'>Messages<span class="message-number">23</span></a></li>
-                    </ul>
-                    <!-- Volunteer Menu end here-->
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class='pull-right'><a href="#" id="icons-header-right" ><span class="fa fa-question"></a></li>
-                        <li class='dropdown pull-right'>
-                            <a href="#" class="dropdown-toggle" id="icons-header-right" data-toggle="dropdown"><i class='fa fa-cog'></i></a>
-                            <ul class="dropdown-menu">
-                                <li role="presentation"><a role="menuitem" href="../createProfileForm/createProfile.html"><img src="../../img/VV_Icon_Profile.png" width="25" height="25"> Edit Profile</a></li>
-                                <li role="presentation" class="divider"></li>
-                                <li role="presentation"><a role="menuitem" href="../../myAccount/myAccount.html?owner=volunteer">&nbsp;<i class='fa fa-wrench'></i> &nbsp;My Account</a></li>
-                                <li role="presentation" class="divider"></li>
-                                <li role="presentation"><a role="menuitem" href="../../changePassword/changePassword.html?owner=volunteer">&nbsp;<i class='fa fa-cog'></i> &nbsp;Change Password</a></li>
-                                <li role="presentation" class="divider"></li>
-                                <li role="presentation"><a role="menuitem" href="../../notificationSettings/notificationSettings.html?owner=volunteer">&nbsp;<i class='fa fa-bell'></i> &nbsp;Notification Settings</a></li>
-                                <li role="presentation" class="divider"></li>
-                                <li role="presentation"><a role="menuitem" href="../createOrganization/createOrganization.html?owner=volunteer">&nbsp;<i class='fa fa-list-alt'></i> &nbsp;Create an Organization</a></li>
-                            </ul>
-                        </li>
-                        <li class='pull-right'><a href="#" id="icons-header-right"><span class="fa fa-exclamation"></a></li>
-                        <li class="dropdown pull-right" style="margin-top:5px;" id="username" ng-init="client = true; organization = false">
-                            <a href="#" class="dropdown-toggle"  id="hover-header-right" data-toggle="dropdown"  ng-if="organization == true">Organization &nbsp;<b class="caret"></b></a>
-                            <a href="#" class="dropdown-toggle"  id="hover-header-right" data-toggle="dropdown" ng-if="client == true">Volunteer &nbsp;<b class="caret"></b></a>
-                            <ul class="dropdown-menu header-right-dropdown" ng-init=" addActive1 = 'make-it-white'">
-                                <li role="presentation" ng-cloak><a role="menuitem" ng-model="organization" ng-click="organization = true; client = false; addActive2 = 'make-it-white';addActive1=''" href="../../organization/search/searchVol.html" id="tab-header-1" ng-class="addActive2" ><img src="../../img/VV_Icon_OrganizationLogo.png" width="28" height="28">&nbsp;&nbsp;&nbsp;Organization</a></li>
-                                <li role="presentation" class="divider" ng-cloak></li>
-                                <li role="presentation" ng-cloak><a role="menuitem" ng-model="client" ng-click="organization = false; client = true; addActive1 = 'make-it-white';addActive2=''" href="../../volunteer/searchJob/searchJob.html" ng-class="addActive1"><img src="../../img/VV_Icon_VolunteerOpportunities.png" width="28" height="28">&nbsp;&nbsp;&nbsp;Volunteer</a></li>
-                                <li role="presentation" class="divider"></li>
-                                <li role="presentation" id="separate-highlight"> 
-                                    <span><a role="menuitem"  href="../../myAccount/myAccount.html?owner=volunteer" ng-if="client == true">hans.klevenbeek</a></span>
-                                    <span><a role="menuitem"  href="../../myAccount/myAccount.html?owner=volunteer" ng-if="organization == true">hans.klevenbeek</a></span>
-                                    <span><a role="menuitem"  href="../../login/login.html">Logout</a></span>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div><!-- /.navbar-collapse -->
-            </div><!-- /.container-fluid -->
-        </div>
-    </header>
     <div class="superContainer">
         <div class="containerB">
             <span class="prototype-scheme">PROTOTYPE</span>
         </div>
         <div class="containerA">
-            
-            <div class="row margin-rl-0">
-                <div class="col-sm-12 padding-rl-0">
-                    <!-- Navigation back to page-->
-                    <span>
-                        <a href="../Searchjob/Searchjob.html">
-                            <i class="fa fa-chevron-left black-arrow"></i>Back to Job Postings
-                        </a>
-                    </span>
-                </div>
-            </div>
             <div class="row margin-rl-0">
                 <div class="col-sm-8 padding-rl-0">
                     <div class="main-border1">
@@ -185,7 +121,7 @@
                                 <img src="../../img/redCross.jpg" height="33" width="50">
                             </div>
                             <div class="col-sm-10">
-                                <span><a href="../../organization/organizationpcms/organizationpcms.html?organizationName=Red Cross NL">Red Cross NL</a></span>
+                                <span><a href="/organization/organizationpcms/organizationpcms.html?organizationName=Red Cross NL&owner={{$root.owner}}">Red Cross NL</a></span>
                                 <p>Riders Club is more than just a way to get from here to there. Riders Club is a way to maintain freedom. Our mission is very simple: We provide scheduled transportation for mobile seniors. <span><a href="#" class="pull-right">more >></a></span></p>
                                 
                             </div>
@@ -328,9 +264,10 @@
     </footer>
 
      
-    <script src="../../lib/jquery/dist/jquery.min.js"></script>
-    <script src="../../lib/angular/angular.min.js"></script>
-    <script src="../../lib/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="controller.js"></script>
-</body>
+    <script src="/lib/jquery/dist/jquery.min.js"></script>
+    <script src="/lib/angular/angular.min.js"></script>
+    <script src="/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/lib/ng-table/ng-table.js"></script>
+    <script src="/.tmp/scripts/core.js"></script>
+    <script src="controller.js"></script></body>
 </html>

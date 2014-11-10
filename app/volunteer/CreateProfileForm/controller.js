@@ -1,5 +1,5 @@
-﻿var landingController = angular.module('landingController', []);
-landingController.controller('landingPage', ['$scope', function ($scope) {
+﻿
+OrgVolApp.controller('landingPage', ['$scope', '$rootScope', function ($scope, $rootScope) {
     $scope.listOfSchools = [];
     $scope.lengthOfSchools = $scope.listOfSchools.length;
     var
@@ -1415,5 +1415,7 @@ landingController.controller('landingPage', ['$scope', function ($scope) {
         $('#updateProject').modal('hide');
     }
 
-
+    $scope.goToProfile = function(){
+        window.location.href = '/volunteer/volunteerProfile/volunteerProfile.html?owner='+$rootScope.owner;
+    }
 }]);

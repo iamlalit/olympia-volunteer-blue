@@ -1,5 +1,5 @@
-﻿var landingController = angular.module('landingController', []);
-landingController.controller('landingPage', ['$scope', function ($scope) {
+﻿
+OrgVolApp.controller('landingPage', ['$scope', function ($scope) {
     var userID5 = $('#userID5');
     var userID6 = $('#userID6');
     var userID7 = $('#userID7');

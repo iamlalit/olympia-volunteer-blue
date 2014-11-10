@@ -1,8 +1,6 @@
 'use strict';
-/* main App */
-var app = angular.module('jobApplicationcontroller', ['ngTable']);
 
-app.controller('jobAPPlicationCtrl', function($scope, $filter, ngTableParams){
+OrgVolApp.controller('jobAPPlicationCtrl', function($scope, $filter, ngTableParams){
 	var data = [{jobTitle: "Volunteer Grant Writers", client:"Red Cross" , date:"14/11/2013", status:"Active"},
                 {jobTitle: "Outreach Volunteer", client:"Red Cross",  date:"23/03/2014", status:"Archived", reason: "Declined by You"},
                 {jobTitle: "Looking for Technical Volunteer", client:"Red Cross",  date:"19/11/2013", status:"Hired"},

@@ -19,7 +19,7 @@
 }
 /* Scroll bar in for scrolling, now in searchVol */
 .box .data-box .box-content{
-	height:130px;
+	max-height:130px;
 	font-size: 13px;
 	overflow-y:scroll;
 	width: 208px;
@@ -27,6 +27,9 @@
 .box .data-box .box-content::-webkit-scrollbar{
 width:10px;
 background-color:#ffffff;
+}
+.box .data-box:nth-child(1) .box-content::-webkit-scrollbar{
+display: none;
 }
 .box .data-box .box-content::-webkit-scrollbar-thumb{
 background-color:#a5a5a5;
@@ -151,8 +154,8 @@ border-radius:10px;
 	margin: 0 -15px 0 -15px;
 }
 .image-logo-organozation{
-	max-width:95px;
-	min-height: 57px;
+	width:95px;
+	height: 60px;
 }
 
 .popover{

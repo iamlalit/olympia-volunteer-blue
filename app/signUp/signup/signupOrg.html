@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="signUp">
+<html ng-app="OrgVolApp">
 <head>
     <title>Create an account</title>
     <link href="../../img/olympia-fav.ico" rel="shortcut icon" type="image/x-icon" />
@@ -62,10 +62,8 @@
                     <div class="col-lg-12 wrapper-form sign-up-form" style="text-align: left">
                         <div class="col-sm-1" ></div>
                         <div class="col-sm-11 padding-rl-0">
-                            <h2 class="font-size-26" ng-if="typeOfOwner == 'org1'">We want to help, sign me up!</h2>
-                            <h2 class="font-size-26" ng-if="typeOfOwner == 'org2'">Sign me up and create my organization!</h2>
-                            <h2 class="font-size-26" ng-if="typeOfOwner == 'org3'">Sign me up and create my organization!</h2>
-                            <h2 class="font-size-26" ng-if="typeOfOwner == 'org4'">Sign me up and create my organization!</h2>
+                            <h2 class="font-size-26" ng-if="typeOfOwner == 'volunteerGroup'">We want to help, sign me up!</h2>
+                            <h2 class="font-size-26" ng-if="typeOfOwner == 'organization'">Sign me up and create my organization!</h2>
                             <!-- Error Placeholder-->
                             <div class="row">
                                 <div class="col-lg-2"></div>
@@ -87,19 +85,19 @@
                                     <img src="../../img/VV_Icon_OrganizationLogo.png" class="icon">
                                 </div>
                                 <div class="col-sm-5">
-                                    <div class="form-group" ng-if="typeOfOwner == 'org1'">
+                                    <div class="form-group" ng-if="typeOfOwner == 'volunteerGroup'">
                                         <label><strong>Group name</strong></label>
                                         <input type="text" name="groupname" id="groupname" class="form-control" placeholder="Group name">
                                     </div>
-                                    <div class="form-group" ng-if="typeOfOwner == 'org2' || typeOfOwner == 'org4' || typeOfOwner == 'org3'">
+                                    <div class="form-group" ng-if="typeOfOwner == 'organization' || typeOfOwner == 'org4' || typeOfOwner == 'org3'">
                                         <label><strong>Organization name</strong></label>
                                         <input type="text" name="Organization" id="Organization" class="form-control" placeholder="Organization name">
                                     </div>
-                                    <div class="form-group" ng-if="typeOfOwner == 'org2' || typeOfOwner == 'org4' || typeOfOwner == 'org3'">
+                                    <div class="form-group" ng-if="typeOfOwner == 'organization' || typeOfOwner == 'org4' || typeOfOwner == 'org3'">
                                         <label><strong>Organization nickname</strong></label>
                                         <input type="text" name="nickname" id="nickname" class="form-control" placeholder="Organization nickname">
                                     </div>
-                                    <div class="form-group" ng-if="typeOfOwner == 'org2' || typeOfOwner == 'org4' || typeOfOwner == 'org3'">
+                                    <div class="form-group" ng-if="typeOfOwner == 'organization' || typeOfOwner == 'org4' || typeOfOwner == 'org3'">
                                         <label><strong>Organization registration number</strong></label>
                                         <input type="text" name="registrationNumber" id="registrationNumber" class="form-control" placeholder="Organization registration number">
                                     </div>
@@ -830,6 +828,7 @@
                                         <label><strong>Password</strong></label>
                                         <input type="password" name="password" id="password" class="form-control" placeholder="Password">
                                     </div>
+                                    
                                     <div class="form-group margin-top-10">
                                         <label><strong>Type the letter below</strong></label>
                                         <input type="text" name="captcha" id="captcha" class="form-control" placeholder="Type the letter below">
@@ -850,7 +849,7 @@
                                             <input type="checkbox"> Yes, I agree with the <a href="#">general terms and conditions</a> and sponsor agreement.
                                         </label>
                                      </div>
-                                    <div class="checkbox"  ng-if="typeOfOwner == 'org1' || typeOfOwner == 'org2' || typeOfOwner == 'org4'">
+                                    <div class="checkbox"  ng-if="typeOfOwner == 'volunteerGroup' || typeOfOwner == 'organization' || typeOfOwner == 'org4'">
                                         <label>
                                             <input type="checkbox"> Yes, I agree with the <a href="#">general terms and conditions</a> 
                                         </label>
@@ -955,9 +954,11 @@
             </div>
         </div>
     </footer>
-    <script src="../../lib/jquery/dist/jquery.min.js"></script>
-    <script src="../../lib/angular/angular.min.js"></script>
-    <script src="../../lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/lib/jquery/dist/jquery.min.js"></script>
+    <script src="/lib/angular/angular.min.js"></script>
+    <script src="/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/lib/ng-table/ng-table.js"></script>
+    <script src="/.tmp/scripts/core.js"></script>
     <script src="signupController.js"></script>
 </body>
 </html>

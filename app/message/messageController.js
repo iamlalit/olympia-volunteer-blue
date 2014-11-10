@@ -1,6 +1,5 @@
-﻿var messageApp = angular.module('messageApp', []);
-
-messageApp.controller('messageController', ['$scope', function ($scope) {
+﻿
+OrgVolApp.controller('messageController', ['$scope', function ($scope) {
     $scope.compose = true;
     $scope.inbox = false;
     $scope.send = false;
