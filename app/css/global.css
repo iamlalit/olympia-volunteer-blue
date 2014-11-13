@@ -961,3 +961,7 @@ ul.memberList li p{
   vertical-align: top;
   display: inherit;
 }
+
+.form-group.has-error .form-control {
+border: 3px solid #C70909;
+}
