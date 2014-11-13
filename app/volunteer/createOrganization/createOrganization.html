@@ -135,31 +135,30 @@
                                         </div>
                                     </div>    
                                 </div>
-                                <div class="row margin-rl-0 margin-top-10">
-                                    <div class="col-sm-5 center-block">
-                                        <div class="form-group">
-                                            <p class="text-align-justify">Our volunteer platform strives to create stronger, thriving communities. The aim of this platform is to enable an effortless connection between caring people and facilitate the coordination of services and volunteers. In order to maintain this service and what it provides, we need the support of sponsors who want to be a part of this exciting initiative. [MAIN SPONSOR] is committed to making this platform a success, and the potential for growth is tremendous. Any business or organization that chooses to sponsor this website is a true team member, to the benefit of all parties.</p>
+                                <div class="row margin-rl-0" >
+                                    <div class="col-sm-5 center-block checks">
+                                        <div class="form-group margin-top-10" ng-if="typeOfOrganization == 'Non-profit' ">
+                                            <p>Our platform strives to create stranger, thriving communities. The aim of this platform is to enable an effortless connection between caring people and facilitatethe coordination of services and volunteers. In order to maintain the services and what it provides, we need the support of sponsors who want to be a part of this exciting initiative.</p>
+                                            <p><a href="">MAIN SPONSOR</a> is committed to making this platform a success, and the potential for growth is tremendous. Any business or organization that chooses to sponsor this website is a true team member, to the benefit of all parties.</p>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="row margin-rl-0" ng-if="typeOfOrganization == 'Political Organization' || typeOfOrganization == 'Profit organization'">
-                                    <div class="col-sm-5 center-block">
-                                        <div class="checkbox margin-top-0">
+                                        
+                                        <div class="checkbox" ng-if="typeOfOrganization == 'Non-profit'">
+                                            <label >
+                                                <input type="checkbox"> Yes, I agree with the <a href="#">general terms and conditions</a> and sponsor agreement.
+                                            </label>
+                                         </div>
+                                        <div class="checkbox"  ng-if="typeOfOrganization == 'Profit organization' || typeOfOrganization == 'Volunteer group' || typeOfOrganization == 'Political Organization'">
                                             <label>
-                                                <input type="checkbox">We hereby accept the <a>terms and conditions</a> of this platform.
+                                                <input type="checkbox"> Yes, I agree with the <a href="#">general terms and conditions</a> 
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox"> Yes, I would like to receive genuinely useful emails every now and then.
                                             </label>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row margin-rl-0" ng-if="typeOfOrganization == 'Volunteer group' || typeOfOrganization == 'Non-profit' ">
-                                    <div class="col-sm-5 center-block" >
-                                        <div class="checkbox text-align-justify margin-top-0">
-                                            <label>
-                                                <input type="checkbox">We hereby accept the <a>terms and conditions</a> of this platform and its services with a sponsorship contribution from our organization. This <a>sponsorship</a> entails full access to the volunteer platform and the volunteer community, help desk support, integration with your site and all volunteer recruitment tool sets the platform provides. We will acknowledge this contribution from [MAIN SPONSOR] on our organization's website.
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
+                                </div>    
                                 <div class="col-sm-5 center-block">
                                     <input type="submit" class="btn btn-success btn-signup" value="Get Started" />
                                 </div>

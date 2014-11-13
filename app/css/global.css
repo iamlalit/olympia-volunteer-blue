@@ -965,3 +965,6 @@ ul.memberList li p{
 .form-group.has-error .form-control {
 border: 3px solid #C70909;
 }
+.center-block.checks{
+  text-align: justify;
+}
