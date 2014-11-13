@@ -62,7 +62,7 @@
                 <div class="col-sm-12 padding-rl-0">
                     <!-- Navigation back to page-->
                     <span>
-                        <a href="../Searchjob/Searchjob.html" class="navigation">
+                        <a href="../Searchjob/Searchjob.html?owner={{$root.owner}}" class="navigation">
                             <i class="fa fa-chevron-left black-arrow"></i>Back to Job Postings
                         </a>
                     </span>
@@ -95,7 +95,30 @@
                     </div>
                     <div class="main-border1">
                         <form id="jobApplyForm" role="form">
-                            <div>
+                            <div class="row margin-rl-0" ng-if="$root.owner == 'organization'" >
+                                <label class="bold inline-block">Apply for</label> <span class="color-999999">(optional)</span>
+                                <input type="text" class="col-sm-12" placeholder="Enter name of team members"/>
+                            </div>
+                            <div class="row margin-rl-0" ng-show="$root.owner == 'volunteer'" >
+                                <label class="bold inline-block">Apply as</label>
+                                <div class="radio margin-top-0" ng-init="applyAs = 'Individual volunteer'">
+                                    <label>
+                                        <input type="radio" ng-model="applyAs" value="Individual volunteer"> Individual volunteer
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" ng-model="applyAs" value="Organization volunteer" > Organization volunteer
+                                    </label>
+                                </div>
+                                <span>
+                                    <select class="margin-left-10" ng-show="applyAs == 'Organization volunteer'">
+                                        <option>Please select your organization</option>
+                                        <option ng-repeat="organization in organizationIndividual" value="{{organization}}">{{organization}}</option>
+                                    </select>
+                                </span>
+                            </div>
+                            <div class="margin-top-10">
                                 <label class="bold inline-block">Cover Letter</label>
                                 <span id="optional-text" class="italic"> &nbsp;&nbsp;Write few lines to motivate your application</span>
                                 <textarea class="text-area" cols="87" rows="10" maxlength="5000" id="question1"></textarea>
@@ -128,9 +151,8 @@
                 </div>
 
                 <div class="col-sm-4 padding-right-0">
-                    <div class="main-border1">
-                        <h5 class="bold">Organization</h5>
-                        <div class="row">
+                    <div class="main-border1"  >
+                        <div class="row" ng-if="postedBy !== 'volunteer'">
                             <div class="col-sm-2">
                                 <img src="../../img/redCross.jpg" height="33" width="50">
                             </div>
@@ -139,8 +161,18 @@
                                 <p>Riders Club is more than just a way to get from here to there. Riders Club is a way to maintain freedom. Our mission is very simple: We provide scheduled transportation for mobile seniors. <span><a href="#" class="pull-right">more >></a></span></p>
                             </div>
                         </div>
-                        <label class="margin-bottom-0" >Area of foucs</label>
-                        <div class="row margin-rl-0 margin-top--3">
+                        <div class="row" ng-if="postedBy == 'volunteer'">
+                            <div class="col-sm-2">
+                                <img src="../../img/name8.png" height="33" width="50">
+                            </div>
+                            <div class="col-sm-10">
+                                <span><a href="/volunteer/volunteerProfile/volunteerProfile.html?name=Sterre Jansen&owner={{$root.owner}}&image=../../img/name8.png&city=Hippolytushoef,%20Noord%20Holland">Sterre Jansen</a></span>
+                                <p>I am four-year student in Biology working towards a Master's degree. I have fundamental basis in Ecology, Plant physiology and development and i have ever done several research projects in laboratories working on Evolutionary Biology.<span><a href="#" class="pull-right">more >></a></span></p>
+                                
+                            </div>
+                        </div>
+                        <label class="margin-bottom-0"  ng-if="postedBy !== 'volunteer'" >Area of foucs</label>
+                        <div class="row margin-rl-0 margin-top--3"  ng-if="postedBy !== 'volunteer'">
                             <span class="small-pill" ng-repeat="areaOfFocus in areaFocuses">{{areaOfFocus}}</span>
                         </div>
                     </div>

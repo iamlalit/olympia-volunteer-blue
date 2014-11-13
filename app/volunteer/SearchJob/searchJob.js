@@ -61,7 +61,18 @@ OrgVolApp.controller('searchJob', ['$scope', '$rootScope', function ($scope, $ro
             invited: false,
             selected: false,
             value: false    
-    }); 
+    });
+    $scope.Jobs.push({Name:"Crowd control",
+            company: 'Red cross NL',
+            postedBy: 'volunteer',
+            city: 'De Kwakel, Noord Holland', 
+            bodyText: "Global Conscience Initiative seeks to the address and improve Cameroon's most pressing human right issues: chiefly, Corruption. abuse of prisoner's, gender discrimination and etc.",
+            about: 'About 3 hours ago',
+            image: '/.tmp/img/name8.png',
+            invited: false,
+            selected: false,
+            value: false    
+    });  
     $scope.Jobs.push({Name:"Student Activist Coordinator",
             company: 'Global Conscience Initiative',
             city: 'Drechterland, Noord Holland', 
@@ -101,8 +112,7 @@ OrgVolApp.controller('searchJob', ['$scope', '$rootScope', function ($scope, $ro
             invited: false,
             selected: false,      
             value: false
-    }); 
-      
+    });  
       $scope.Jobs.push({Name:"Kenyan Internship",
             company: 'Global Conscience Initiative',
             city: 'Amsterdam, Noord Holland', 
@@ -154,6 +164,7 @@ OrgVolApp.controller('searchJob', ['$scope', '$rootScope', function ($scope, $ro
             selected: false,
             value: false    
     }); 
+
       
 
 
@@ -263,7 +274,7 @@ OrgVolApp.controller('searchJob', ['$scope', '$rootScope', function ($scope, $ro
        }
 
        $scope.CreateObject = function( job ) {
-            window.location.href = "../jobDetails/jobDetails.html?jobName=" + job.Name +"&jobDate=" + job.about + "&owner=" + $rootScope.owner;
+            window.location.href = "../jobDetails/jobDetails.html?jobName=" + job.Name +"&jobDate=" + job.about + "&owner=" + $rootScope.owner + "&postedBy=" + job.postedBy;
        }
 
 

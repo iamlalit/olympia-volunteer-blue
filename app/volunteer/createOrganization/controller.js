@@ -1,5 +1,5 @@
-﻿var signUp = angular.module('signUp', []);
-signUp.controller("signupController", ['$scope', function ($scope) {
+﻿
+OrgVolApp.controller("signupController", ['$scope', function ($scope) {
     
     $(document).ready(function () {
 

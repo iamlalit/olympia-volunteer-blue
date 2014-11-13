@@ -947,3 +947,17 @@ table thead{
 .text-transform-none{
   text-transform: none;
 }
+/* volunteer profile and organization profile */
+ul.memberList{
+  margin-top: 10px;
+  padding-left:0;
+}
+ul.memberList li{
+  width: 49%;
+  margin-right: 0;
+  display: inline-block;
+}
+ul.memberList li p{
+  vertical-align: top;
+  display: inherit;
+}

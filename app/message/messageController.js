@@ -44,51 +44,69 @@ OrgVolApp.controller('messageController', ['$scope', function ($scope) {
         date: "August 12",
         checked: false,
         title: "Lorem ipsum title",
+        image: '/.tmp/img/name1.png',
+        city: 'Amsterdam, Noord Holland', 
         content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut tincidunt, tortor id ultricies eleifend, dui erat dapibus massa, quis aliquet lacus quam id leo."
     });
     $scope.messageInbox.push({name:"Klaassen Bosch",
         date: "August 1",
         checked: false,
+        image: '/.tmp/img/name3.png',
+        city: 'Amsterdam, Noord Holland', 
         title: "Lorem ipsum title",
         content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut tincidunt, tortor id ultricies eleifend, dui erat dapibus massa, quis aliquet lacus quam id leo."
     });
     $scope.messageInbox.push({name:"Marleen Dijkstrajo",
         date: "June 18",
         checked: false,
+        image: '/.tmp/img/name5.png',
+        city: 'Amsterdam, Noord Holland', 
         title: "Lorem ipsum title",
         content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut tincidunt, tortor id ultricies eleifend, dui erat dapibus massa, quis aliquet lacus quam id leo."
     });
     $scope.messageInbox.push({name:"Jaap Hendriks",
         date: "Feburary 4",
         checked: false,
+        image: '/.tmp/img/name7.png',
+        city: 'Amsterdam, Noord Holland', 
         title: "Lorem ipsum title",
         content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut tincidunt, tortor id ultricies eleifend, dui erat dapibus massa, quis aliquet lacus quam id leo."
     });
     $scope.messageInbox.push({name:"Robin Hendriks",
         date: "January 29",
         checked: false,
+        image: '/.tmp/img/name9.png',
+        city: 'Amsterdam, Noord Holland', 
         title: "Lorem ipsum title",
         content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut tincidunt, tortor id ultricies eleifend, dui erat dapibus massa, quis aliquet lacus quam id leo."
     });
     $scope.messageInbox.push({name:"Hendrik Jansen",
         date: "January 1",
         checked: false,
+        image: '/.tmp/img/name2.png',
+        city: 'Amsterdam, Noord Holland', 
         title: "Lorem ipsum title",
         content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut tincidunt, tortor id ultricies eleifend, dui erat dapibus massa, quis aliquet lacus quam id leo."
     }); 
     //sent messages
     $scope.messageSent.push({name:"Geertruda Hendriks",
         date: "August 3",
+        image: '/.tmp/img/name4.png',
+        city: 'Amsterdam, Noord Holland', 
         title: "Lorem ipsum title",
         content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut tincidunt, tortor id ultricies eleifend, dui erat dapibus massa, quis aliquet lacus quam id leo."
     });
     $scope.messageSent.push({name:"Rob-jan Brouwer",
         date: "January 10",
+        image: '/.tmp/img/name6.png',
+        city: 'Amsterdam, Noord Holland', 
         title: "Lorem ipsum title",
         content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut tincidunt, tortor id ultricies eleifend, dui erat dapibus massa, quis aliquet lacus quam id leo."
     });
     $scope.messageSent.push({name:"Klaassen Dijkstra",
         date: "January 8",
+        image: '/.tmp/img/name10.png',
+        city: 'Amsterdam, Noord Holland', 
         title: "Lorem ipsum title",
         content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut tincidunt, tortor id ultricies eleifend, dui erat dapibus massa, quis aliquet lacus quam id leo."
     });

@@ -25,16 +25,16 @@
 	width: 30px;
 	height: 30px;
 	z-index: 10;
-	top: 45%;
+	top: 305px;
 	background-color: #999999;
-	border-radius: 50%;
+	border-radius: 100%;
 	cursor: pointer;
 }
 .icon-right{
-	right: 6%;
+	right: 34px;
 }
 .icon-left{
-	left: 5%;
+	left: 32px;
 }
 .icon-left:hover,
 .icon-right:hover {

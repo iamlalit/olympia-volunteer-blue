@@ -12,6 +12,8 @@ OrgVolApp.controller('jobDetails', ['$scope', '$rootScope', function ($scope, $r
     $scope.postJobLanguage = ["English", "Dutch"];
     $scope.postJobMiscellaneous = ["Training provided", "Fee required"];
 
+    $scope.organizationIndividual = ["Red Cross NL", "Global Conscience Initiative"]
+
     $('#errorMsg').hide();
 
     var
@@ -164,5 +166,6 @@ OrgVolApp.controller('jobDetails', ['$scope', '$rootScope', function ($scope, $r
       return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
     }
     $scope.jobName = getParameterByName('jobName');
-    $scope.jobDate = getParameterByName('jobDate')
+    $scope.jobDate = getParameterByName('jobDate');
+    $scope.postedBy = getParameterByName('postedBy');
 }]);

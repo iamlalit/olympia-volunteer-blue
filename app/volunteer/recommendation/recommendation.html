@@ -308,15 +308,8 @@
                 </div>
                 <div class="row margin-rl-0 margin-top-10">
                     <div class="col-lg-1">&nbsp;</div>
-                    <div class="col-lg-11 padding-rl-0">
-                        <span>Your connections: </span>
-                        <!-- <label id='form-component-arrangement-label'>Days of the Week</label>
-                        <span id="optional-text">(optional) </span>
-                         -->
-
-                        <div  id='connections' class="inline-block margin-left-10">
-                            <input type="text" style="width:614px;" id='connection-tag' placeholder="Add connections" />
-                        </div>  
+                    <div class="col-lg-11 padding-left-0">
+                        <input type="text" class="col-sm-10" id='connection-tag' placeholder="Enter volunteer name" />
                     </div>
                 </div>
                 <div class="row margin-rl-0 margin-top-20">
@@ -379,8 +372,8 @@
                     </div>
                     <div class="row margin-rl-0 margin-top-10">
                         <div class="col-lg-1">&nbsp;</div>
-                        <div class="col-lg-10 padding-rl-0">
-                            <input type="text" class="col-lg-11" placeholder="Enter Connection Name" value="Marleen Bosch">
+                        <div class="col-lg-10 padding-left-0">
+                            <input type="text" class="col-lg-11" placeholder="Enter volunteer name" value="Marleen Bosch">
                             <!--
                             <select class="col-lg-12 select-option float-none" ng-model="currentPosition">
                                 <option value="default">Choose...</option>
@@ -403,10 +396,7 @@
                     </div>
                     <div class="row margin-rl-0 margin-top-10">
                         <div class="col-lg-1">&nbsp;</div>
-                        <div class="col-lg-11 padding-rl-0">
-                            <!-- <label id='form-component-arrangement-label'>Days of the Week</label>
-                            <span id="optional-text">(optional) </span>
-                             -->
+                        <div class="col-lg-5 padding-rl-0">
                             <select>
                                 <option selected="">Choose...</option>
                                 <optgroup label="Professional">
@@ -426,6 +416,10 @@
                                     <option value="RUE">You were Marleen Bosch together</option>
                                 </optgroup>
                             </select> 
+                        </div>
+                        <div class="col-lg-6 padding-rl-0 row margin-rl-0 ishidden">
+                            <label class="padding-left-15 col-sm-1 margin-top-7 padding-right-5">at</label>
+                            <input type="text" class="col-sm-7" placeholder="Organization name"><span class="col-sm-4"></span>
                         </div>
                     </div>
                     <div class="row margin-rl-0 margin-top-20">
@@ -1185,10 +1179,7 @@
     </div>
     
 
-    <script src="/lib/jquery/dist/jquery.min.js"></script>
-    <script src="/lib/angular/angular.min.js"></script>
-    <script src="/lib/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="/lib/ng-table/ng-table.js"></script>
+    <script src="/.tmp/scripts/bower.js"></script>
     <script src="/.tmp/scripts/core.js"></script>
     <script src="controller.js"></script>
     <script src="control.js"></script>

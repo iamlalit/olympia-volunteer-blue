@@ -115,8 +115,7 @@
                         <button class="btn btn-primary active apply-button" type="button" ng-click="applyToJob()">Apply to this Job</button>
                     </div>
                     <div class="main-border1">
-                        <h5 class="bold">Organization</h5>
-                        <div class="row">
+                        <div class="row" ng-if="postedBy !== 'volunteer'">
                             <div class="col-sm-2">
                                 <img src="../../img/redCross.jpg" height="33" width="50">
                             </div>
@@ -126,8 +125,18 @@
                                 
                             </div>
                         </div>
-                        <label class="margin-bottom-0" >Area of foucs</label>
-                        <div class="row margin-rl-0 margin-top--3">
+                        <div class="row" ng-if="postedBy == 'volunteer'">
+                            <div class="col-sm-2">
+                                <img src="../../img/name8.png" height="33" width="50">
+                            </div>
+                            <div class="col-sm-10">
+                                <span><a href="/volunteer/volunteerProfile/volunteerProfile.html?name=Sterre Jansen&owner={{$root.owner}}&image=../../img/name8.png&city=Hippolytushoef,%20Noord%20Holland">Sterre Jansen</a></span>
+                                <p>I am four-year student in Biology working towards a Master's degree. I have fundamental basis in Ecology, Plant physiology and development and i have ever done several research projects in laboratories working on Evolutionary Biology.<span><a href="#" class="pull-right">more >></a></span></p>
+                                
+                            </div>
+                        </div>
+                        <label class="margin-bottom-0" ng-if="postedBy !== 'volunteer'">Area of foucs</label>
+                        <div class="row margin-rl-0 margin-top--3" ng-if="postedBy !== 'volunteer'">
                             <span class="small-pill" ng-repeat="areaOfFocus in areaFocuses">{{areaOfFocus}}</span>
                         </div>
                     </div>

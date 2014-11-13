@@ -221,7 +221,7 @@
 
                                     <div class="col-sm-4 pull-right padding-rl-0 padding-top-33">
                                         <span id="contacts">
-                                            <button type="button" id="contact-replies1" class="btn btn-primary pull-right small-btn" ng-model="shortlisted" data-toggle="modal" data-target="#contactApplicantModal" ng-click="openModal(applicant)" title="Replies Rarely">&nbsp;Join organization</button>
+                                            <button type="button" id="contact-organization" class="btn btn-primary pull-right small-btn" data-toggle="modal" data-target="#contactOrganizationModal" ng-click="openModal(Organization)" title="contact organization">&nbsp;Contact</button>
                                         </span>
                                         <span>
                                             <a id="removeIconHover" ng-if="!(Organization.value)" title="mark as favourite">
@@ -420,50 +420,47 @@
         </div>
     </footer>
 
-     <div ng-controller="modalVolCtrl" class="modal fade" id="contactJobModal" tabindex="-1" role="dialog" aria-labelledby="contactJobModal" aria-hidden="true">
+    <div ng-controller="modalVolCtrl" class="modal fade" id="contactOrganizationModal" tabindex="-1" role="dialog" aria-labelledby="contactOrganizationModal" aria-hidden="true">
         <div class="modal-dialog modal-md">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close big-close" data-dismiss="modal" ng-click="dismissModal()" aria-hidden="true">&times;</button>
-                    <h2 class="modal-title" id="myModalLabel">Invite Volunteer to Discuss Job</h2>
+                    <h2 class="modal-title" id="myModalLabel">Contact Organization</h2>
                 </div>
                 <form role="form" class="padding-container-12">
                     <div class="modal-body">
-                        <div class="Jobs">
+                        <div class="applicants">
                             <div class="row">
                                 <div class="col-sm-2">
-                                    <i class="glyphicon glyphicon-user font-size-4"></i>
+                                    <img src="{{modalOrganization.image}}" width="70" height="73">
                                 </div>
                                 <div class="col-sm-6">
-                                    <a style="color:#1489be" href="#"><label ng-bind="modalJob.Name"></label></a><br />
+                                    <a style="color:#1489be" class="font-size-15" href="#"><label ng-bind="modalOrganization.Name"></label></a><br />
                                     <div style="padding-top:5px;marging-top:10px;"></div>
-                                    <span ng-bind="modalJob.city" class="city-detail"></span>
+                                    <span ng-bind="modalOrganization.city" class="city-detail"></span>
                                 </div>
                             </div>
-                            <div class="row">
+                            <div class="row padding-top-10">
                                 <div class="col-sm-12 margin-top-5">
-                                    <label>Job Posting &nbsp;</label>
+                                    <label>Reason &nbsp;</label>
 
-                                    <span id="optional-text">(NOTE: Please select job to invite volunteer)</span>
+                                    <span id="optional-text">(NOTE: Please select a reason to contact organization)</span>
                                 </div>
                             </div>
                             <div class="row padding-left-15" >
                                 <select class="form-control select-option">
-                                    <option value="{{values.jobTitle}}" ng-repeat="values in jobPost" ng-bind="values.jobTitle" ng-if="values.status == 'Open'"></option>
+                                    <option value="{{values}}" ng-repeat="values in reasonToContact" ng-bind="values"></option>
                                 </select>
                             </div>
                             <div class="row padding-left-15 margin-top-10" >
                                 <label>Message &nbsp;</label>
                             </div>
                             <div class="row padding-left-15" >
-                                <textarea class="text-area" cols="88" rows="7" id="modalMessage"></textarea>
+                                <textarea class="text-area" cols="77" rows="7" placeholder="Please enter your message to organization"></textarea>
                             </div>
                             <div class="row padding-left-15 margin-top-10" >
-                                <button type="submit" class="btn btn-success" data-dismiss="modal">Send Invitation</button>
+                                <button type="submit" class="btn btn-success" data-dismiss="modal">Submit</button>
                                 <button type="submit" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-                            </div>
-                            <div class="row padding-left-15 margin-top-10" >
-                                <p>Already now this volunteer?&nbsp;<span><a href="#">Hire now</a></span></p>
                             </div>
                         </div>
                     </div>

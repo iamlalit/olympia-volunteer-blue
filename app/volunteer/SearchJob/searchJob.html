@@ -216,9 +216,14 @@
                                     <div class="col-sm-8 padding-rl-0">
                                         <a style="color:#1489be" href="#" ng-click="CreateObject(Job)"><label ng-bind="Job.Name" class="font-size-15 line-height-15"></label></a>
                                         <div style="padding-top:1px"></div>
-                                        <div class="row margin-rl-0">
-                                            <span>Volunteer job posted by <a href="#">Henk</a> on behalf of</span>
+                                        <div class="row margin-rl-0" ng-if="Job.postedBy !== 'volunteer'">
+                                            <span>Volunteer job posted by{{postedBy == 'volunteer'}} <a href="#">Henk</a> on behalf of</span>
                                             <span><a ng-bind="Job.company" href="../../organization/organizationpcms/organizationpcms.html?organizationName={{Job.company}}&owner={{$root.owner}}"></a> </span>
+                                            <div style="padding-top:1px"></div>
+                                            <span class="color-999999">{{Job.about}}</span>
+                                        </div>
+                                        <div class="row margin-rl-0" ng-if="Job.postedBy == 'volunteer'">
+                                            <span>Volunteer job posted by <a href="#">Sterre Jansen</a>
                                             <div style="padding-top:1px"></div>
                                             <span class="color-999999">{{Job.about}}</span>
                                         </div>
@@ -281,10 +286,15 @@
                                     <div class="col-sm-8 padding-rl-0">
                                         <a style="color:#1489be" href="" ng-click="CreateObject(Job)"><label ng-bind="Job.Name"></label></a>
                                         <div style="padding-top:1px"></div>
-                                        <div class="row margin-rl-0">
+                                        <div class="row margin-rl-0" ng-if="Job.postedBy !== 'volunteer'">
                                             <span>Volunteer job posted by <a href="#">Henk</a> on behalf of</span>
                                             <span><a ng-bind="Job.company" href="../../organization/organizationpcms/organizationpcms.html?organizationName={{Job.company}}&owner={{$root.owner}}"></a> </span>
                                             <span class="color-999999"> - {{Job.about}}</span>
+                                        </div>
+                                        <div class="row margin-rl-0" ng-if="Job.postedBy == 'volunteer'">
+                                            <span>Volunteer job posted by <a href="#">Sterre Jansen</a>
+                                            <div style="padding-top:1px"></div>
+                                            <span class="color-999999">{{Job.about}}</span>
                                         </div>
                                     </div>
 

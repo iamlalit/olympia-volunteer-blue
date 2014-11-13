@@ -233,7 +233,7 @@ OrgVolApp.controller('searchJob', ['$scope', '$rootScope', function ($scope, $ro
       
       $scope.dismissModal = function() { }
       $scope.openModal = function(object) {
-            $scope.modalJob= object;
+            $scope.modalOrganization = object;
        }
 
        $scope.CreateObject = function( job ) {
@@ -245,17 +245,5 @@ OrgVolApp.controller('searchJob', ['$scope', '$rootScope', function ($scope, $ro
 }]);
 
 OrgVolApp.controller('modalVolCtrl', function($scope) {
-      $scope.jobPost = [{jobTitle: "Volunteer Grant Writers", client:"Posted 1 month ago by Hans Klevenbeek" ,Applicants: 50, messaged: 3, hired:2, status:"Open"},
-          {jobTitle: "Outreach Volunteer", client:"Posted 2 years ago by Hans Klevenbeek", Applicants: 27, messaged: 1, hired:0, status:"Closed"},
-          {jobTitle: "Volunteer Coordinator - Volunteer", client:"Posted 4 days ago by Hans Klevenbeek", Applicants: 34, messaged: 1, hired:1, status:"Open"},
-          {jobTitle: "Crowd Control Volunteering", client:"Posted 6 weeks ago by Hans Klevenbeek", Applicants: 43, messaged: 3, hired:0, status:"Open"},
-          {jobTitle: "Football Refree Volunteer", client:"Posted 2 months ago by Hans Klevenbeek", Applicants: 27, messaged: 2, hired:0, status:"Closed"},
-          {jobTitle: "Volunteering Coordinator", client:"Posted 3 weeks ago by Hans Klevenbeek", Applicants: 34, messaged: 5, hired:3, status:"Open"},
-          {jobTitle: "Crowd Control Volunteer", client:"Posted 2 weeks ago by Hans Klevenbeek", Applicants: 43, messaged: 4, hired:2, status:"Closed"},
-          {jobTitle: "Football Refree Volunteering", client:"Posted 1 month ago by Hans Klevenbeek", Applicants: 34, messaged: 1, hired:0, status:"Closed"},
-          {jobTitle: "Public Relation Intern - Volunteer", client:"Posted 10 days ago by Hans Klevenbeek", Applicants: 34, messaged: 3, hired:2, status:"Open"}];
-      var message = "Hello, \n\n"+
-                  "I'd like to personally invite you to apply to my job. Please review the job post and apply if you are available \n\n"+
-                  "Rob";
-      $("#modalMessage").val(message);
+      $scope.reasonToContact = ['Join organization', 'Job oppurtunities', 'Need more information'];
 });

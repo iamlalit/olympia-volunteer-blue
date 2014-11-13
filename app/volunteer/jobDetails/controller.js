@@ -63,6 +63,7 @@ OrgVolApp.controller('jobDetails', ['$scope', '$rootScope', function ($scope, $r
   }
   $scope.jobName = getParameterByName('jobName');
   $scope.jobDate = getParameterByName('jobDate');
+  $scope.postedBy = getParameterByName('postedBy');
   //parameters for theming
 
 
@@ -114,6 +115,6 @@ OrgVolApp.controller('jobDetails', ['$scope', '$rootScope', function ($scope, $r
   }
 
   $scope.applyToJob = function(){
-    window.location.href = "../jobApply/jobApply.html?jobName=" + $scope.jobName +"&jobDate=" + $scope.jobDate + "&owner=" + $rootScope.owner;
+    window.location.href = "../jobApply/jobApply.html?jobName=" + $scope.jobName +"&jobDate=" + $scope.jobDate + "&owner=" + $rootScope.owner + "&postedBy=" + $scope.postedBy;
   }
 }]);

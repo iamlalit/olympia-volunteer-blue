@@ -1,4 +1,11 @@
 ﻿.icon-left,
 .icon-right {
-	top:39.5%;
+	top:439px;
+	position: absolute;
+}
+.icon-left{
+	left: 32px;
+}
+.icon-right{
+	right:34px;
 }

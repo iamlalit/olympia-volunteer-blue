@@ -124,7 +124,7 @@
                         </p>
                     </div>
                     <div class="main-border1 background-white">
-                        <h4 class="margin-top-0 bold">Employment/Volunteering job history</h4>
+                        <h4 class="margin-top-0 bold">Job history</h4>
                         
                         <div ng-repeat="job in listOfJobs track by $index">
                             <div class='padding-rl-0 margin-bottom-5'>
@@ -171,6 +171,64 @@
                                     <div class="hr1"></div>
                                 </div>  
                             </div>
+                        </div>
+                    </div>
+                    <div class="main-border1 background-white">
+
+                        <h4 class="margin-top-0 bold">Projects</h4>
+                        
+                        <div ng-repeat="project in listOfProjects track by $index">
+                            <div class='padding-rl-0 margin-bottom-5'>
+                                <span class="margin-right-15"><a href="" ng-bind="project.name"></a></span>
+                            </div>
+                            <p class="margin-bottom-1 color-999999" ng-bind="project.date"></p>
+                            <p class="margin-bottom-1" ng-bind="project.description"></p>
+                            <ul class="memberList" ng-if="$index != 0">
+                                <li>
+                                    <img src="/.tmp/img/name10.png" width="40" height="40">
+                                    <p><a href="/volunteer/volunteerProfile/volunteerProfile.html?name=Joep Dijkstra&city=Amsterdam,%20Noord%20Holland&image=/.tmp/img/name10.png&owner={{$root.owner}}">Joep Dijkstra</a><br><span class="color-999999">Amsterdam, Noord Holland</span></p>
+                                </li>
+                                <li>
+                                    <img src="/.tmp/img/name12.png" width="40" height="40">
+                                    <p><a href="/volunteer/volunteerProfile/volunteerProfile.html?name=Hough Douglas&city=Amsterdam,%20Noord%20Holland&image=/.tmp/img/name12.png&owner={{$root.owner}}">Hough Douglas</a><br><span class="color-999999">Amsterdam, Noord Holland</span></p>
+                                    
+                                </li>
+                                <li>
+                                    <img src="/.tmp/img/name8.png" width="40" height="40">
+                                    <p><a href="/volunteer/volunteerProfile/volunteerProfile.html?name=Han je kaap&city=Amsterdam,%20Noord%20Holland&image=/.tmp/img/name8.png&owner={{$root.owner}}">Han je kaap</a><br><span class="color-999999">Amsterdam, Noord Holland</span></p>
+                                    
+                                </li>
+                            </ul>
+                            <div class="row margin-top-10 margin-bottom-10" ng-if="$index !== lengthOfProjects-1">
+                                <div class="col-sm-12 padding-right-5">
+                                    <div class="hr1"></div>
+                                </div>  
+                            </div>
+                        </div>
+                    </div>
+                    <div class="main-border1 background-white">
+
+                        <h4 class="margin-top-0 bold">Recommendations</h4>
+                        
+                        <div class="recommendation-title padding-top-10">
+                            <div class="row margin-rl-0" ng-repeat="recommendation in volnteerRecommendations">
+                                <div class="col-lg-2 padding-left-0">
+                                    <img ng-src="{{recommendation.image}}" class="img-responsive">
+                                </div>
+                                <div class="col-lg-10 padding-rl-0 recommend-given">
+                                    <a class="margin-bottom-10" href="/volunteer/volunteerProfile/volunteerProfile.html?name={{recommendation.name}}&city=Amsterdam,%20Noord%20Holland&image={{recommendation.image}}&owner={{$root.owner}}" ng-bind="recommendation.name"></a>
+                                    <p class="paraFirst"> <i class="fa fa-quote-left"></i>
+                                        {{recommendation.description}}
+                                    </p>
+                                    <span class="color-999999" ng-bind="recommendation.dateMessage"></span>
+                                </div>
+                                <div class="row margin-top-10 margin-bottom-10" ng-if="$index !== lengthOfRecommendations-1">
+                                    <div class="col-sm-12 padding-right-5">
+                                        <div class="hr1"></div>
+                                    </div>  
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
