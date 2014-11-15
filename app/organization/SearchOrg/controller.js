@@ -237,7 +237,7 @@ OrgVolApp.controller('searchJob', ['$scope', '$rootScope', function ($scope, $ro
        }
 
        $scope.CreateObject = function( job ) {
-            window.location.href = "/organization/organizationpcms/organizationpcms.html?organizationName=" + job.Name +"&organizationDate=" + job.about + "&owner=" + $rootScope.owner;
+            window.location.href = "/organization/organizationpcms/organizationpcms.html?organizationName=" + job.Name +"&organizationDate=" + job.about + "&owner=" + $rootScope.owner +"&secondOwner=" + $rootScope.secondOwner;
        }
 
 

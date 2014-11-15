@@ -153,7 +153,7 @@ OrgVolApp.controller('jobDetails', ['$scope', '$rootScope', function ($scope, $r
             }, 500);
         } else {
             $('#errorMsg').hide();
-            window.location.href = "../confirmation/confirmation.html?owner=" + $rootScope.owner;
+            window.location.href = "../confirmation/confirmation.html?owner=" + $rootScope.owner + "&secondOwner=" + $rootScope.secondOwner;
         }
 
     });

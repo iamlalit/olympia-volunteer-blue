@@ -212,7 +212,7 @@ OrgVolApp.controller('postJobCntrl', ['$scope', '$rootScope', function($scope, $
             }, 500);
         } else {
             $('#errorMsg').hide();
-            window.location.href = '../confirmation/submitConformation.html?'+ 'jobTitle='+jobTitle.val()+'&jobType=' + jobType.val() + '&describeWork='+describeWork.val() + "&owner=" + $rootScope.owner;
+            window.location.href = '../confirmation/submitConformation.html?'+ 'jobTitle='+jobTitle.val()+'&jobType=' + jobType.val() + '&describeWork='+describeWork.val() + "&owner=" + $rootScope.owner + "&secondOwner=" + $rootScope.secondOwner;
             
         }
     });

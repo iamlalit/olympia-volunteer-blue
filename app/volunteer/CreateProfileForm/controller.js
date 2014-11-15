@@ -1416,6 +1416,6 @@ OrgVolApp.controller('landingPage', ['$scope', '$rootScope', function ($scope, $
     }
 
     $scope.goToProfile = function(){
-        window.location.href = '/volunteer/volunteerProfile/volunteerProfile.html?owner='+$rootScope.owner;
+        window.location.href = '/volunteer/volunteerProfile/volunteerProfile.html?owner='+$rootScope.owner+"&secondOwner="+$rootScope.secondOwner;
     }
 }]);

@@ -218,6 +218,10 @@ right: 3px;
 .navbar-right .dropdown-menu li#separate-highlight {
 	background-color: #E5E5E5;
 }
+.navbar-right .dropdown-menu li#separate-highlight span:last-child{
+	float: right;
+	padding-right: 12px;	
+}
 .navbar-right .dropdown-menu li#separate-highlight span:last-child a{
 	padding-right: 0px;
 }

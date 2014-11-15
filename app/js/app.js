@@ -9,10 +9,12 @@ function getParameterByName(name) {
       return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 }
 var typeOfOwner = getParameterByName('owner');
+var typeOfsecondOwner = getParameterByName('secondOwner');
 
 OrgVolApp.run(function($rootScope){
     $rootScope.owner = typeOfOwner;
-})
+    $rootScope.secondOwner = typeOfsecondOwner;
+});
 
 OrgVolApp.directive('activeNav', function() {
     return {

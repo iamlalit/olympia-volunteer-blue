@@ -72,19 +72,19 @@
                             <table ng-table="tableParams" class="table">
                             <tr ng-repeat="user in $data | filter:statusShow.status">
                                 <td data-title="'Job Title'" sortable="'jobTitle'">
-                                    <span><a href="../viewApp/viewApp.html?jobTitle={{user.jobTitle}}&owner={{$root.owner}}">{{user.jobTitle}}</a></span><br/>
-                                    <span style="font-size:12px;">{{user.client}}<a style="padding-left:20px" href="../../volunteer/jobDetails/jobDetails.html?jobName={{user.jobTitle}}&jobDate={{user.jobDate}}&owner={{$root.owner}}">View job postings</a></span>
+                                    <span><a href="../viewApp/viewApp.html?jobTitle={{user.jobTitle}}&owner={{$root.owner}}&secondOwner={{secondOwner}}">{{user.jobTitle}}</a></span><br/>
+                                    <span style="font-size:12px;">{{user.client}}<a style="padding-left:20px" href="../../volunteer/jobDetails/jobDetails.html?jobName={{user.jobTitle}}&jobDate={{user.jobDate}}&owner={{$root.owner}}&secondOwner={{secondOwner}}">View job postings</a></span>
                                 </td>
                                 <td data-title="'Applicants'" sortable="'Applicants'" class="text-center">
-                                    <span><a href="../viewApp/viewApp.html?jobTitle={{user.jobTitle}}&owner={{$root.owner}}">{{user.Applicants}}</a></span>
+                                    <span><a href="../viewApp/viewApp.html?jobTitle={{user.jobTitle}}&owner={{$root.owner}}&secondOwner={{secondOwner}}">{{user.Applicants}}</a></span>
                                 </td>
 
                                 <td data-title="'Messaged'" sortable="'messaged'" class="text-center">
-                                    <span><a href="../viewApp/viewApp.html?jobTitle={{user.jobTitle}}&owner={{$root.owner}}">{{user.messaged}}</a></span>
+                                    <span><a href="../viewApp/viewApp.html?jobTitle={{user.jobTitle}}&owner={{$root.owner}}&secondOwner={{secondOwner}}">{{user.messaged}}</a></span>
                                 </td>
 
                                 <td data-title="'Hired'" sortable="'hired'" class="text-center">
-                                    <span><a href="../viewApp/viewApp.html?jobTitle={{user.jobTitle}}&owner={{$root.owner}}">{{user.hired}}</a></span>
+                                    <span><a href="../viewApp/viewApp.html?jobTitle={{user.jobTitle}}&owner={{$root.owner}}&secondOwner={{secondOwner}}">{{user.hired}}</a></span>
                                 </td>
 
                                 <td data-title="'Status'"  sortable="'status'" class="text-center">

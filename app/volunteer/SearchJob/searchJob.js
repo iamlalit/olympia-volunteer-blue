@@ -274,7 +274,7 @@ OrgVolApp.controller('searchJob', ['$scope', '$rootScope', function ($scope, $ro
        }
 
        $scope.CreateObject = function( job ) {
-            window.location.href = "../jobDetails/jobDetails.html?jobName=" + job.Name +"&jobDate=" + job.about + "&owner=" + $rootScope.owner + "&postedBy=" + job.postedBy;
+            window.location.href = "../jobDetails/jobDetails.html?jobName=" + job.Name +"&jobDate=" + job.about + "&owner=" + $rootScope.owner + "&secondOwner=" + $rootScope.secondOwner + "&postedBy=" + job.postedBy;
        }
 
 

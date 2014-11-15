@@ -54,7 +54,7 @@
                         <span class="padding-left-5 margin-top-10" ng-bind="volunteerCity" ng-if="volunteerCity"></span>
                         <span class="padding-left-5 margin-top-10" ng-if="!volunteerCity">Amsterdam, Noord Holland</span>
                     </div>
-                    <span class="pull-right margin-top-15"><a href="/volunteer/createProfileForm/createProfile.html?owner={{$root.owner}}"><i class="fa fa-pencil font-size-1-3 padding-right-5"></i>Edit Profile</a></span>
+                    <span class="pull-right margin-top-15"><a href="/volunteer/createProfileForm/createProfile.html?owner={{$root.owner}}&secondOwner={{$root.secondOwner}}"><i class="fa fa-pencil font-size-1-3 padding-right-5"></i>Edit Profile</a></span>
                     <div class=" padding-rl-0 margin-top-10 margin-bottom-10">
                         <div class="row margin-rl-0 margin-top-15">
                             <span class="small-pill" ng-class="{'margin-left-10':$index != 0}" ng-repeat="volunteerSkill in volunteerSkills" ng-bind="volunteerSkill"></span>
@@ -186,16 +186,16 @@
                             <ul class="memberList" ng-if="$index != 0">
                                 <li>
                                     <img src="/.tmp/img/name10.png" width="40" height="40">
-                                    <p><a href="/volunteer/volunteerProfile/volunteerProfile.html?name=Joep Dijkstra&city=Amsterdam,%20Noord%20Holland&image=/.tmp/img/name10.png&owner={{$root.owner}}">Joep Dijkstra</a><br><span class="color-999999">Amsterdam, Noord Holland</span></p>
+                                    <p><a href="/volunteer/volunteerProfile/volunteerProfile.html?name=Joep Dijkstra&city=Amsterdam,%20Noord%20Holland&image=/.tmp/img/name10.png&owner={{$root.owner}}&secondOwner={{$root.secondOwner}}">Joep Dijkstra</a><br><span class="color-999999">Amsterdam, Noord Holland</span></p>
                                 </li>
                                 <li>
                                     <img src="/.tmp/img/name12.png" width="40" height="40">
-                                    <p><a href="/volunteer/volunteerProfile/volunteerProfile.html?name=Hough Douglas&city=Amsterdam,%20Noord%20Holland&image=/.tmp/img/name12.png&owner={{$root.owner}}">Hough Douglas</a><br><span class="color-999999">Amsterdam, Noord Holland</span></p>
+                                    <p><a href="/volunteer/volunteerProfile/volunteerProfile.html?name=Hough Douglas&city=Amsterdam,%20Noord%20Holland&image=/.tmp/img/name12.png&owner={{$root.owner}}&secondOwner={{$root.secondOwner}}">Hough Douglas</a><br><span class="color-999999">Amsterdam, Noord Holland</span></p>
                                     
                                 </li>
                                 <li>
                                     <img src="/.tmp/img/name8.png" width="40" height="40">
-                                    <p><a href="/volunteer/volunteerProfile/volunteerProfile.html?name=Han je kaap&city=Amsterdam,%20Noord%20Holland&image=/.tmp/img/name8.png&owner={{$root.owner}}">Han je kaap</a><br><span class="color-999999">Amsterdam, Noord Holland</span></p>
+                                    <p><a href="/volunteer/volunteerProfile/volunteerProfile.html?name=Han je kaap&city=Amsterdam,%20Noord%20Holland&image=/.tmp/img/name8.png&owner={{$root.owner}}&secondOwner={{$root.secondOwner}}">Han je kaap</a><br><span class="color-999999">Amsterdam, Noord Holland</span></p>
                                     
                                 </li>
                             </ul>
@@ -216,7 +216,7 @@
                                     <img ng-src="{{recommendation.image}}" class="img-responsive">
                                 </div>
                                 <div class="col-lg-10 padding-rl-0 recommend-given">
-                                    <a class="margin-bottom-10" href="/volunteer/volunteerProfile/volunteerProfile.html?name={{recommendation.name}}&city=Amsterdam,%20Noord%20Holland&image={{recommendation.image}}&owner={{$root.owner}}" ng-bind="recommendation.name"></a>
+                                    <a class="margin-bottom-10" href="/volunteer/volunteerProfile/volunteerProfile.html?name={{recommendation.name}}&city=Amsterdam,%20Noord%20Holland&image={{recommendation.image}}&owner={{$root.owner}}&secondOwner={{$root.secondOwner}}" ng-bind="recommendation.name"></a>
                                     <p class="paraFirst"> <i class="fa fa-quote-left"></i>
                                         {{recommendation.description}}
                                     </p>
@@ -236,10 +236,10 @@
                     <div class="main-border1 background-white">
                         <h4 class="margin-top-0 bold">Associated with</h4>
                         <div class="row margin-rl-0 margin-bottom-15 margin-top--3">
-                            <img src="../../img/redCross.jpg" width="60" height="50" ><a href="/organization/organizationpcms/organizationpcms.html?organizationName=Red Cross NL&owner={{$root.owner}}" class="padding-left-15">Red Cross</a>
+                            <img src="../../img/redCross.jpg" width="60" height="50" ><a href="/organization/organizationpcms/organizationpcms.html?organizationName=Red Cross NL&owner={{$root.owner}}&secondOwner={{$root.secondOwner}}" class="padding-left-15">Red Cross</a>
                         </div>
                         <div class="row margin-rl-0 margin-bottom-15 margin-top--3">
-                            <img src="../../img/GCI.jpg" width="60" height="50" ><a href="/organization/organizationpcms/organizationpcms.html?organizationName=Global Conscience Initiative&owner={{$root.owner}}" class="padding-left-15">Global Conscience Initiative</a>
+                            <img src="../../img/GCI.jpg" width="60" height="50" ><a href="/organization/organizationpcms/organizationpcms.html?organizationName=Global Conscience Initiative&owner={{$root.owner}}&secondOwner={{$root.secondOwner}}" class="padding-left-15">Global Conscience Initiative</a>
                         </div>
                     </div>
                 </div>
@@ -264,7 +264,7 @@
                         <h4 class="margin-top-0 bold">Recent job postings:</h4>
                         <div class="row job margin-rl-0" ng-repeat="job in jobPost">
                             <span>
-                                <a href="../../volunteer/jobDetails/jobDetails.html?jobName={{job.jobTitle}}&jobDate={{job.jobDate}}&owner={{$root.owner}}" ng-bind="job.jobTitle">
+                                <a href="../../volunteer/jobDetails/jobDetails.html?jobName={{job.jobTitle}}&jobDate={{job.jobDate}}&owner={{$root.owner}}&secondOwner={{$root.secondOwner}}" ng-bind="job.jobTitle">
                                 </a>
                             </span>
                             <span ng-bind="job.jobDate" class="pull-right"></span>

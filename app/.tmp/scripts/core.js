@@ -9,10 +9,12 @@ function getParameterByName(name) {
       return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 }
 var typeOfOwner = getParameterByName('owner');
+var typeOfsecondOwner = getParameterByName('secondOwner');
 
 OrgVolApp.run(function($rootScope){
     $rootScope.owner = typeOfOwner;
-})
+    $rootScope.secondOwner = typeOfsecondOwner;
+});
 
 OrgVolApp.directive('activeNav', function() {
     return {
@@ -147,11 +149,11 @@ OrgVolApp.directive('changeOwner', function($rootScope) {
      link: function (scope, element, attrs, ngModel) {
      	element.on('change', function(){
      		if(ngModel.$viewValue == 'Volunteers'){
-     			window.location.href = '/organization/search/searchVol.html?owner='+$rootScope.owner;
+     			window.location.href = '/organization/search/searchVol.html?owner='+$rootScope.owner + '&secondOwner=' + $rootScope.secondOwner;
      		}else if(ngModel.$viewValue == 'Organizations'){
-     			window.location.href = '/organization/searchOrg/searchOrg.html?owner='+$rootScope.owner;
+     			window.location.href = '/organization/searchOrg/searchOrg.html?owner='+$rootScope.owner + '&secondOwner=' + $rootScope.secondOwner; 
      		}else if(ngModel.$viewValue == 'Jobs'){
-     			window.location.href = '/volunteer/searchJob/searchJob.html?owner='+$rootScope.owner;
+     			window.location.href = '/volunteer/searchJob/searchJob.html?owner='+$rootScope.owner + '&secondOwner=' + $rootScope.secondOwner;
      		}
 
      	});

@@ -145,7 +145,7 @@ OrgVolApp.controller('landingPage', ['$scope', '$rootScope', function ($scope, $
             }, 500);
         } else {
             $('#errorMsg').hide();
-            window.location.href = '/organization/organizationpcms/organizationpcms.html?organizationName='+organizationName.val() + '&owner=' + $rootScope.owner;
+            window.location.href = '/organization/organizationpcms/organizationpcms.html?organizationName='+organizationName.val() + '&owner=' + $rootScope.owner + "&secondOwner=" + $rootScope.secondOwner;
         }
     });
 }]);

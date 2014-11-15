@@ -115,6 +115,6 @@ OrgVolApp.controller('jobDetails', ['$scope', '$rootScope', function ($scope, $r
   }
 
   $scope.applyToJob = function(){
-    window.location.href = "../jobApply/jobApply.html?jobName=" + $scope.jobName +"&jobDate=" + $scope.jobDate + "&owner=" + $rootScope.owner + "&postedBy=" + $scope.postedBy;
+    window.location.href = "../jobApply/jobApply.html?jobName=" + $scope.jobName +"&jobDate=" + $scope.jobDate + "&owner=" + $rootScope.owner + "&postedBy=" + $scope.postedBy + "&secondOwner=" + $rootScope.secondOwner;
   }
 }]);
