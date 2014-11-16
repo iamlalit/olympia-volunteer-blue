@@ -1,21 +1,4 @@
-'use strict';
-/* main App */
-var OrgVolApp = angular.module('OrgVolApp', ['ngTable']);
-
-function getParameterByName(name) {
-      name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-      var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-          results = regex.exec(location.search);
-      return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-}
-var typeOfOwner = getParameterByName('owner');
-var typeOfsecondOwner = getParameterByName('secondOwner');
-
-OrgVolApp.run(function($rootScope){
-    $rootScope.owner = typeOfOwner;
-    $rootScope.secondOwner = typeOfsecondOwner;
-})
-;OrgVolApp.directive('activeNav', function($rootScope) {
+OrgVolApp.directive('activeNav', function($rootScope) {
     return {
      restrict: 'A',
      link: function (scope, element, attrs, ctrl) {
@@ -150,22 +133,4 @@ OrgVolApp.directive('secondaryNav', function() {
         });
      }
     };
-});
-OrgVolApp.directive('changeOwner', function($rootScope) {
-    return {
-     restrict: 'A',
-     require: 'ngModel',
-     link: function (scope, element, attrs, ngModel) {
-     	element.on('change', function(){
-     		if(ngModel.$viewValue == 'Volunteers'){
-     			window.location.href = '/organization/search/searchVol.html?owner='+$rootScope.owner + '&secondOwner=' + $rootScope.secondOwner;
-     		}else if(ngModel.$viewValue == 'Organizations'){
-     			window.location.href = '/organization/searchOrg/searchOrg.html?owner='+$rootScope.owner + '&secondOwner=' + $rootScope.secondOwner; 
-     		}else if(ngModel.$viewValue == 'Jobs'){
-     			window.location.href = '/volunteer/searchJob/searchJob.html?owner='+$rootScope.owner + '&secondOwner=' + $rootScope.secondOwner;
-     		}
-
-     	});
-     }
-    };
-});
+})

@@ -123,11 +123,50 @@
     height: 26px;
     border-radius: 50%;
     color: #ffffff;
-    background-color: #aed2e5;
+    background-color: #00bcd1;
     border-radius: 100%;
     webkit-box-shadow: inset 0px -2px 0px 0px rgba(6, 113, 169, 0.19);
     -moz-box-shadow: inset 0px -2px 0px 0px rgba(6, 113, 169, 0.19);
     box-shadow: inset 0px -2px 0px 0px rgba(6, 113, 169, 0.19);
+}
+
+.navbar-default .navbar-nav > li.question-chat > a{
+	padding: 14px 2px 0;
+}
+.navbar-default .navbar-nav > li.question-chat > a:hover,
+.navbar-default .navbar-nav > li.question-chat > a:focus{
+	background-color: #cae3f0;
+	border-color: #cae3f0;
+}
+ul.flag{
+	position: absolute;
+	top: -25px;
+	right: 194px;
+	
+}
+ul.flag li > ul{
+	width: 250px;
+	margin-top: 6px !important;
+}
+ul.flag img{
+	width: 20px;
+	height: 11px;
+}
+ul.flag li > ul > li{
+	width: 49%;
+	display: inline-block;
+	padding-right: 10px;
+}
+ul.flag li .dropdown-menu li a{
+	font-size: 12px;
+}
+
+ul.flag li a#icons-header-right,
+ul.flag li a#icons-header-right:hover,
+ul.flag li a#icons-header-right:focus{
+	background-color: #cae3f0;
+	border-color: #cae3f0;
+	box-shadow: none;
 }
 
 .navbar-right li a#icons-header-right span,.navbar-right li a#icons-header-right i, .navbar-right li a#icons-header-right span.fa-question {
@@ -157,8 +196,8 @@ right: 3px;
 .navbar-right li a#icons-header-right i {
     display: block;
     text-align: center;
-    top: 4px;
-    left: -1px;
+    top: 5px;
+    left: 0px;
     font-size: 16px;
 }
 .blue{
@@ -183,11 +222,10 @@ right: 3px;
 }
 .navbar-right .dropdown-menu li a{
 	font-family: inherit;
-	font-size: 17px;
+	font-size: 15px;
 	font-weight: 500;
-	padding: 8px 15px;
 	color: #9F9F99;
-	padding: 10px 60px 10px 13px;
+	padding: 8px 40px 8px 10px;
 	background-color:#f7f7f5;
 	border-radius: 4px;
 }
@@ -198,7 +236,7 @@ right: 3px;
 .navbar-right .dropdown-menu li a:focus{
 	background-color:#ffffff;
 	border: #444444;
-	color: black;
+	color: #000000;
 	outline: 0;
 }
 
@@ -233,9 +271,6 @@ right: 3px;
 	font-family: inherit;
 	padding-right: 15px;
 }
-.navbar-right .dropdown-menu li#separate-highlight span a{
-	padding-right: 40px;
-}
 .make-it-white{
 	background-color: #ffffff !important;
 }
@@ -248,7 +283,7 @@ right: 3px;
     -webkit-box-sizing:border-box;
 }
 .navbar-nav > li > .dropdown-menu.header-right-dropdown{
-	margin-top: 20px;
+	margin-top: 15px;
 	border-top-left-radius: 6px;
 	border-top-right-radius: 6px;
 }
@@ -265,9 +300,9 @@ right: 3px;
 	-ms-transform: scaleX(1.5);
 	-o-transform: scaleX(1.5);
 	transform: scaleX(1.5);
-	font-size: 19px;
-	right: 23px;
-	top: -19px;
+	font-size: 15px;
+	right: 4px;
+	top: -16px;
 	content: "▲";
 	cursor: default;
 }

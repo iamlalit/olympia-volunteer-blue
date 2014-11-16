@@ -26,11 +26,35 @@
               </ul>
               
               <ul class="nav navbar-nav navbar-right">
-                <li class='pull-right'><a href="#" id="icons-header-right"><span class="fa fa-question"></a></li>
-                <li class='dropdown pull-right'>
+                <li class='pull-right question-chat' ng-init="changeImage = fal3e">
+                    <a href="#" class="dropdown-toggle" ng-mouseover="changeImage = true" ng-mouseout="changeImage = false" data-toggle="dropdown">
+                        <img ng-if="!changeImage" src="/img/question-chat3.png">
+                        <img ng-if="changeImage" src="/img/question-chat1.png">
+                    </a>
+                    <ul class="dropdown-menu header-right-dropdown">
+                        <li role="presentation">
+                            <a role="menuitem" target="_tab" href="http://support.vrijwilligersvacaturebank.nl/hc/nl">&nbsp;<i class='fa fa-comments'></i> &nbsp;Give platform feedback</a>
+                        </li>
+                        <li role="presentation" class="divider"></li>
+                        <li role="presentation">
+                            <a role="menuitem" target="_tab" href="http://support.vrijwilligersvacaturebank.nl/hc/nl">&nbsp;<i class='fa fa-headphones'></i> &nbsp;Customer service</a>
+                        </li>
+                        <li role="presentation" class="divider"></li>
+                        <li role="presentation">
+                            <a role="menuitem" target="_tab" href="http://support.vrijwilligersvacaturebank.nl/hc/nl">&nbsp;<i class='fa fa-file-text'></i> &nbsp;Community and forms</a>
+                        </li>
+                        <li role="presentation" class="divider"></li>
+                        <li role="presentation">
+                            <a role="menuitem" target="_tab" href="http://support.vrijwilligersvacaturebank.nl/hc/nl">&nbsp;<img src="/.tmp/img/VV_Icon_Profile.png" width="17px" height="17px"> &nbsp;New to vrijwilligersvacture.nl</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class='pull-right'>
                     <a href="#" class="dropdown-toggle" id="icons-header-right" data-toggle="dropdown"><i class='fa fa-cog'></i></a>
-                    <ul class="dropdown-menu">
-                        <li role="presentation"><a role="menuitem" href="/myAccount/myAccount.html?owner={{$root.owner}}&secondOwner={{$root.secondOwner}}">&nbsp;<i class='fa fa-wrench'></i> &nbsp;My account</a></li>
+                    <ul class="dropdown-menu header-right-dropdown">
+                        <li role="presentation">
+                            <a role="menuitem" href="/myAccount/myAccount.html?owner={{$root.owner}}&secondOwner={{$root.secondOwner}}">&nbsp;<i class='fa fa-wrench'></i> &nbsp;My account</a>
+                        </li>
                         <li role="presentation" class="divider"></li>
                         <li role="presentation"><a role="menuitem" href="/changePassword/changePassword.html?owner={{$root.owner}}&secondOwner={{$root.secondOwner}}">&nbsp;<i class='fa fa-cog'></i> &nbsp;Change password</a></li>
                         <li role="presentation" class="divider"></li>
@@ -60,6 +84,22 @@
                         <li role="presentation" id="separate-highlight">
                             <span><a role="menuitem"  href="/myAccount/myAccount.html?owner={{$root.owner}}&secondOwner={{$root.secondOwner}}">hans.klevenbeek</a></span>
                             <span><a role="menuitem"  href="/login/login.html?owner={{$root.owner}}&secondOwner={{$root.secondOwner}}">Logout</a></span>
+                        </li>
+                    </ul>
+                </li>
+              </ul>
+              <ul class="nav navbar-nav navbar-right flag">
+                <li class='pull-right'>
+                    <a href="#" class="dropdown-toggle" id="icons-header-right" data-toggle="dropdown"><img src="/img/nl.png"></a>
+                    <ul class="dropdown-menu header-right-dropdown" ng-init=" addActive2 = 'make-it-white'">
+                        <li role="presentation">
+                            <a role="menuitem" href="#" id="tab-header-1"><img src="/img/nl.png">&nbsp;Netherland</a>
+                        </li>
+                        <li role="presentation" >
+                            <a role="menuitem" href="#" id="tab-header-1"><img src="/img/uk.png">&nbsp;English(UK)</a>
+                        </li>
+                        <li role="presentation">
+                            <a role="menuitem" href="#" id="tab-header-1"><img src="/img/us.png">&nbsp;English(US)</a>
                         </li>
                     </ul>
                 </li>
@@ -122,10 +162,32 @@
               </ul>
               
               <ul class="nav navbar-nav navbar-right">
-                <li class='pull-right'><a href="#" id="icons-header-right"><span class="fa fa-question"></a></li>
-                <li class='dropdown pull-right'>
+                <li class='pull-right question-chat' ng-init="changeImage = false">
+                    <a href="#" class="dropdown-toggle" ng-mouseover="changeImage = true" ng-mouseout="changeImage = false" data-toggle="dropdown">
+                        <img ng-if="!changeImage" src="/img/question-chat3.png">
+                        <img ng-if="changeImage" src="/img/question-chat1.png">
+                    </a>
+                    <ul class="dropdown-menu header-right-dropdown">
+                        <li role="presentation">
+                            <a role="menuitem" target="_tab" href="http://support.vrijwilligersvacaturebank.nl/hc/nl">&nbsp;<i class='fa fa-comments'></i> &nbsp;Give platform feedback</a>
+                        </li>
+                        <li role="presentation" class="divider"></li>
+                        <li role="presentation">
+                            <a role="menuitem" target="_tab" href="http://support.vrijwilligersvacaturebank.nl/hc/nl">&nbsp;<i class='fa fa-headphones'></i> &nbsp;Customer service</a>
+                        </li>
+                        <li role="presentation" class="divider"></li>
+                        <li role="presentation">
+                            <a role="menuitem" target="_tab" href="http://support.vrijwilligersvacaturebank.nl/hc/nl">&nbsp;<i class='fa fa-file-text'></i> &nbsp;Community and forms</a>
+                        </li>
+                        <li role="presentation" class="divider"></li>
+                        <li role="presentation">
+                            <a role="menuitem" target="_tab" href="http://support.vrijwilligersvacaturebank.nl/hc/nl">&nbsp;<img src="/.tmp/img/VV_Icon_Profile.png" width="17px" height="17px"> &nbsp;New to vrijwilligersvacture.nl</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class='pull-right'>
                     <a href="#" class="dropdown-toggle" id="icons-header-right" data-toggle="dropdown"><i class='fa fa-cog'></i></a>
-                    <ul class="dropdown-menu">
+                    <ul class="dropdown-menu header-right-dropdown">
                         <li role="presentation"><a role="menuitem" href="/myAccount/myAccount.html?owner={{$root.owner}}&secondOwner={{$root.secondOwner}}">&nbsp;<i class='fa fa-wrench'></i> &nbsp;My account</a></li>
                         <li role="presentation" class="divider"></li>
                         <li role="presentation"><a role="menuitem" href="/changePassword/changePassword.html?owner={{$root.owner}}&secondOwner={{$root.secondOwner}}">&nbsp;<i class='fa fa-cog'></i> &nbsp;Change password</a></li>
@@ -154,6 +216,22 @@
                             <span><a role="menuitem"  href="/login/login.html?owner={{$root.owner}}&secondOwner={{$root.secondOwner}}">Logout</a></span>
                         </li>
 
+                    </ul>
+                </li>
+              </ul>
+              <ul class="nav navbar-nav navbar-right flag">
+                <li class='pull-right'>
+                    <a href="#" class="dropdown-toggle" id="icons-header-right" data-toggle="dropdown"><img src="/img/nl.png"></a>
+                    <ul class="dropdown-menu header-right-dropdown" ng-init=" addActive2 = 'make-it-white'">
+                        <li role="presentation">
+                            <a role="menuitem" href="#" id="tab-header-1"><img src="/img/nl.png">&nbsp;Netherland</a>
+                        </li>
+                        <li role="presentation" >
+                            <a role="menuitem" href="#" id="tab-header-1"><img src="/img/uk.png">&nbsp;English(UK)</a>
+                        </li>
+                        <li role="presentation">
+                            <a role="menuitem" href="#" id="tab-header-1"><img src="/img/us.png">&nbsp;English(US)</a>
+                        </li>
                     </ul>
                 </li>
               </ul>
@@ -195,65 +273,101 @@
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-              <ul class="nav navbar-nav">
-                <li class="search">
-                    <a href="/volunteer/searchJob/searchJob.html?owner={{$root.owner}}&secondOwner={{$root.secondOwner}}" active-nav class='menu-interval'>Search</a>
-                </li>
-                <li class="recruitment">
-                    <a href="/organization/jobPost/jobPost.html?owner={{$root.owner}}&secondOwner={{$root.secondOwner}}" active-nav class='menu-interval'>Recruitment</a>
-                </li>
-                <li class="profile">
-                    <a href="/volunteer/volunteerProfile/volunteerProfile.html?owner={{$root.owner}}&secondOwner={{$root.secondOwner}}" active-nav class='menu-interval'>Profile</a>
-                </li>
-                <li class="reports">
-                    <a href="/reports/timesheet.html?owner={{$root.owner}}&secondOwner={{$root.secondOwner}}" active-nav class='menu-interval'>Reports</a>
-                </li>
-                <li class="message">
-                    <a href="/message/message.html?owner={{$root.owner}}&secondOwner={{$root.secondOwner}}" active-nav class='menu-interval'>Messages<span class="message-number">23</span></a>
-                </li>
-              </ul>
+                <ul class="nav navbar-nav">
+                    <li class="search">
+                        <a href="/volunteer/searchJob/searchJob.html?owner={{$root.owner}}&secondOwner={{$root.secondOwner}}" active-nav class='menu-interval'>Search</a>
+                    </li>
+                    <li class="recruitment">
+                        <a href="/organization/jobPost/jobPost.html?owner={{$root.owner}}&secondOwner={{$root.secondOwner}}" active-nav class='menu-interval'>Recruitment</a>
+                    </li>
+                    <li class="profile">
+                        <a href="/volunteer/volunteerProfile/volunteerProfile.html?owner={{$root.owner}}&secondOwner={{$root.secondOwner}}" active-nav class='menu-interval'>Profile</a>
+                    </li>
+                    <li class="reports">
+                        <a href="/reports/timesheet.html?owner={{$root.owner}}&secondOwner={{$root.secondOwner}}" active-nav class='menu-interval'>Reports</a>
+                    </li>
+                    <li class="message">
+                        <a href="/message/message.html?owner={{$root.owner}}&secondOwner={{$root.secondOwner}}" active-nav class='menu-interval'>Messages<span class="message-number">23</span></a>
+                    </li>
+                </ul>
               
-              <ul class="nav navbar-nav navbar-right">
-                <li class='pull-right'><a href="#" id="icons-header-right"><span class="fa fa-question"></a></li>
-                <li class='dropdown pull-right'>
-                    <a href="#" class="dropdown-toggle" id="icons-header-right" data-toggle="dropdown"><i class='fa fa-cog'></i></a>
-                    <ul class="dropdown-menu">
-                        <li role="presentation"><a role="menuitem" href="/myAccount/myAccount.html?owner={{$root.owner}}&secondOwner={{$root.secondOwner}}">&nbsp;<i class='fa fa-wrench'></i> &nbsp;My account</a></li>
-                        <li role="presentation" class="divider"></li>
-                        <li role="presentation"><a role="menuitem" href="/changePassword/changePassword.html?owner={{$root.owner}}&secondOwner={{$root.secondOwner}}">&nbsp;<i class='fa fa-cog'></i> &nbsp;Change password</a></li>
-                        <li role="presentation" class="divider"></li>
-                        <li role="presentation"><a role="menuitem" href="/notificationSettings/notificationSettings.html?owner={{$root.owner}}&secondOwner={{$root.secondOwner}}">&nbsp;<i class='fa fa-bell'></i> &nbsp;Notification settings</a></li>
-                        <li role="presentation" class="divider"></li>
-                        <li role="presentation"><a role="menuitem" href="/integrationSettings/integrationSettings.html?owner={{$root.owner}}&secondOwner={{$root.secondOwner}}">&nbsp;<i class='fa fa-list-alt'></i> &nbsp;Integration settings</a></li>
-                        <li role="presentation" class="divider"></li>
-                        <li role="presentation"><a role="menuitem" href="/organization/socialMedia/socialMedia.html?owner={{$root.owner}}&secondOwner={{$root.secondOwner}}">&nbsp;<i class='fa fa-share-alt'></i> &nbsp;Publish to social media</a></li>
-                        <li role="presentation" class="divider"></li>
-                        <li role="presentation"><a role="menuitem" href="/volunteer/createOrganization/createOrganization.html?owner={{$root.owner}}&secondOwner={{$root.secondOwner}}">&nbsp;<img src="/.tmp/img/VV_Icon_OrganizationLogo.png" width="17px" height="17px"> &nbsp;Create an organization</a></li>
-                        <!-- <li role="presentation" class="divider"></li>
-                        <li role="presentation"><a role="menuitem" href="/volunteer/createProfileForm/createProfile.html?owner={{$root.owner}}&secondOwner={{$root.secondOwner}}">&nbsp;<img src="/.tmp/img/VV_Icon_Profile.png" width="17px" height="17px"> &nbsp;Become volunteer</a></li> -->
-                    </ul>
-                </li>
-                <li class='pull-right' ><a href="#" id="icons-header-right"><span class="fa fa-exclamation"></a></li>
-                <li class="dropdown pull-right" style="margin-top:5px;" id="username">
-                    <a href="#" class="dropdown-toggle" id="hover-header-right" data-toggle="dropdown">Hans Klevenbeek &nbsp;<b class="caret"></b></a>
-                    <ul class="dropdown-menu header-right-dropdown" ng-init=" addActive2 = 'make-it-white'">
-                        <li role="presentation" ng-if="$root.secondOwner == 'both'">
-                            <a role="menuitem" href="/organization/search/searchVol.html?owner=organization&secondOwner={{$root.secondOwner}}" id="tab-header-1"><img src="/.tmp/img/VV_Icon_OrganizationLogo.png" width="28" height="28">&nbsp;&nbsp;&nbsp;Red Cross NL</a>
-                        </li>
-                        <li role="presentation" class="divider" ng-if="$root.secondOwner == 'both'"></li>
-                        <li role="presentation" >
-                            <a role="menuitem" href="#" id="tab-header-1"><img src="/.tmp/img/VV_Icon_VolunteerOpportunities.png" width="28" height="28">&nbsp;&nbsp;&nbsp;Hans Klevenbeek</a>
-                        </li>
-                        <li role="presentation" class="divider"></li>
-                        <li role="presentation" id="separate-highlight">
-                            <span><a role="menuitem"  href="/myAccount/myAccount.html?owner={{$root.owner}}&secondOwner={{$root.secondOwner}}" style="padding-right: 71px;">hans.klevenbeek</a></span>
-                            <span><a role="menuitem"  href="/login/login.html?owner={{$root.owner}}&secondOwner={{$root.secondOwner}}">Logout</a></span>
-                        </li>
-
-                    </ul>
-                </li>
-
-              </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class='pull-right question-chat' ng-init="changeImage = false">
+                        <a href="#" class="dropdown-toggle" ng-mouseover="changeImage = true" ng-mouseout="changeImage = false" data-toggle="dropdown">
+                            <img ng-if="!changeImage" src="/img/question-chat3.png">
+                            <img ng-if="changeImage" src="/img/question-chat1.png">
+                        </a>
+                        <ul class="dropdown-menu header-right-dropdown">
+                            <li role="presentation">
+                                <a role="menuitem" target="_tab" href="http://support.vrijwilligersvacaturebank.nl/hc/nl">&nbsp;<i class='fa fa-comments'></i> &nbsp;Give platform feedback</a>
+                            </li>
+                            <li role="presentation" class="divider"></li>
+                            <li role="presentation">
+                                <a role="menuitem" target="_tab" href="http://support.vrijwilligersvacaturebank.nl/hc/nl">&nbsp;<i class='fa fa-headphones'></i> &nbsp;Customer service</a>
+                            </li>
+                            <li role="presentation" class="divider"></li>
+                            <li role="presentation">
+                                <a role="menuitem" target="_tab" href="http://support.vrijwilligersvacaturebank.nl/hc/nl">&nbsp;<i class='fa fa-file-text'></i> &nbsp;Community and forms</a>
+                            </li>
+                            <li role="presentation" class="divider"></li>
+                            <li role="presentation">
+                                <a role="menuitem" target="_tab" href="http://support.vrijwilligersvacaturebank.nl/hc/nl">&nbsp;<img src="/.tmp/img/VV_Icon_Profile.png" width="17px" height="17px"> &nbsp;New to vrijwilligersvacture.nl</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class='pull-right'>
+                        <a href="#" class="dropdown-toggle" id="icons-header-right" data-toggle="dropdown"><i class='fa fa-cog'></i></a>
+                        <ul class="dropdown-menu header-right-dropdown">
+                            <li role="presentation"><a role="menuitem" href="/myAccount/myAccount.html?owner={{$root.owner}}&secondOwner={{$root.secondOwner}}">&nbsp;<i class='fa fa-wrench'></i> &nbsp;My account</a></li>
+                            <li role="presentation" class="divider"></li>
+                            <li role="presentation"><a role="menuitem" href="/changePassword/changePassword.html?owner={{$root.owner}}&secondOwner={{$root.secondOwner}}">&nbsp;<i class='fa fa-cog'></i> &nbsp;Change password</a></li>
+                            <li role="presentation" class="divider"></li>
+                            <li role="presentation"><a role="menuitem" href="/notificationSettings/notificationSettings.html?owner={{$root.owner}}&secondOwner={{$root.secondOwner}}">&nbsp;<i class='fa fa-bell'></i> &nbsp;Notification settings</a></li>
+                            <li role="presentation" class="divider"></li>
+                            <li role="presentation"><a role="menuitem" href="/integrationSettings/integrationSettings.html?owner={{$root.owner}}&secondOwner={{$root.secondOwner}}">&nbsp;<i class='fa fa-list-alt'></i> &nbsp;Integration settings</a></li>
+                            <li role="presentation" class="divider"></li>
+                            <li role="presentation"><a role="menuitem" href="/organization/socialMedia/socialMedia.html?owner={{$root.owner}}&secondOwner={{$root.secondOwner}}">&nbsp;<i class='fa fa-share-alt'></i> &nbsp;Publish to social media</a></li>
+                            <li role="presentation" class="divider"></li>
+                            <li role="presentation"><a role="menuitem" href="/volunteer/createOrganization/createOrganization.html?owner={{$root.owner}}&secondOwner={{$root.secondOwner}}">&nbsp;<img src="/.tmp/img/VV_Icon_OrganizationLogo.png" width="17px" height="17px"> &nbsp;Create an organization</a></li>
+                            <!-- <li role="presentation" class="divider"></li>
+                            <li role="presentation"><a role="menuitem" href="/volunteer/createProfileForm/createProfile.html?owner={{$root.owner}}&secondOwner={{$root.secondOwner}}">&nbsp;<img src="/.tmp/img/VV_Icon_Profile.png" width="17px" height="17px"> &nbsp;Become volunteer</a></li> -->
+                        </ul>
+                    </li>
+                    <li class='pull-right' ><a href="#" id="icons-header-right"><span class="fa fa-exclamation"></a></li>
+                    <li class="dropdown pull-right" style="margin-top:5px;" id="username">
+                        <a href="#" class="dropdown-toggle" id="hover-header-right" data-toggle="dropdown">Hans Klevenbeek<b class="caret"></b></a>
+                        <ul class="dropdown-menu header-right-dropdown" ng-init=" addActive2 = 'make-it-white'">
+                            <li role="presentation" ng-if="$root.secondOwner == 'both'">
+                                <a role="menuitem" href="/organization/search/searchVol.html?owner=organization&secondOwner={{$root.secondOwner}}" id="tab-header-1"><img src="/.tmp/img/VV_Icon_OrganizationLogo.png" width="28" height="28">&nbsp;&nbsp;Red Cross NL</a>
+                            </li>
+                            <li role="presentation" class="divider" ng-if="$root.secondOwner == 'both'"></li>
+                            <li role="presentation" >
+                                <a role="menuitem" href="#" id="tab-header-1"><img src="/.tmp/img/VV_Icon_VolunteerOpportunities.png" width="28" height="28">&nbsp;&nbsp;Hans Klevenbeek</a>
+                            </li>
+                            <li role="presentation" class="divider"></li>
+                            <li role="presentation" id="separate-highlight">
+                                <span><a role="menuitem"  href="/myAccount/myAccount.html?owner={{$root.owner}}&secondOwner={{$root.secondOwner}}">hans.klevenbeek</a></span>
+                                <span><a role="menuitem"  href="/login/login.html?owner={{$root.owner}}&secondOwner={{$root.secondOwner}}">Logout</a></span>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right flag">
+                    <li class='pull-right'>
+                        <a href="#" class="dropdown-toggle" id="icons-header-right" data-toggle="dropdown"><img src="/img/nl.png"></a>
+                        <ul class="dropdown-menu header-right-dropdown" ng-init=" addActive2 = 'make-it-white'">
+                            <li role="presentation">
+                                <a role="menuitem" href="#" id="tab-header-1"><img src="/img/nl.png">&nbsp;Netherland</a>
+                            </li>
+                            <li role="presentation" >
+                                <a role="menuitem" href="#" id="tab-header-1"><img src="/img/uk.png">&nbsp;English(UK)</a>
+                            </li>
+                            <li role="presentation">
+                                <a role="menuitem" href="#" id="tab-header-1"><img src="/img/us.png">&nbsp;English(US)</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>

@@ -18,14 +18,14 @@ module.exports = function (grunt) {
         watch: {
             js: {
                 files: ['<%= config.app %>/js/**/*.js'],
-                tasks: ['concat:appJS'],
+                tasks: ['concat:appJS', 'concat:css'],
                 options: {
                     livereload: true
                 }
             },
             sass: {
                 files: ['<%= config.app %>/scss/**/*.{scss,sass}'],
-                tasks: ['sass:compile', 'autoprefixer']
+                tasks: ['sass:compile', 'autoprefixer', 'concat:css']
             },
             livereload: {
                 options: {
@@ -64,13 +64,13 @@ module.exports = function (grunt) {
                 files: [{
                     dot: true,
                     src: [
-                        '.tmp',
+                        '<%= config.app %>/.tmp',
                         '<%= config.dist %>/*',
                         '!<%= config.dist %>/.git*'
                     ]
                 }]
             },
-            server: '.tmp'
+            server: '<%= config.app %>/.tmp'
         },
         //SASS
         sass: {
@@ -80,8 +80,7 @@ module.exports = function (grunt) {
               loadPath: ['<%= config.app %>/sass']
             },
             files: {
-              '<%= config.app %>/.tmp/styles/main.css': '<%= config.app %>/scss/bootstrap.scss',
-              '<%= config.app %>/.tmp/styles/app.css': '<%= config.app %>/scss/app.scss'
+              '<%= config.app %>/.tmp/styles/main.css': '<%= config.app %>/scss/bootstrap.scss'
             }
           }
         },
@@ -124,6 +123,17 @@ module.exports = function (grunt) {
               '<%= config.app %>/lib/angular/angular.js',
               '<%= config.app %>/lib/bootstrap/dist/js/bootstrap.js',
               '<%= config.app %>/lib/ng-table/ng-table.js',
+              //date picker Scripts
+              '<%= config.app %>/lib/moment/moment.js',
+              '<%= config.app %>/lib/moment/min/moment.min.js',
+              '<%= config.app %>/lib/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js',
+              // typeahead - tag inputs
+              '<%= config.app %>/lib/bootstrap.taginput.js',
+              '<%= config.app %>/lib/bootstrap3-typeahead.js',
+              '<%= config.app %>/lib/jasny-bootstrap/js/jasny-bootstrap.min.js',
+              '<%= config.app %>/js/colpick/colpick.js',
+              '<%= config.app %>/js/inputFile/inputFile.js',
+              '<%= config.app %>/js/imageSlider/imageSlider.js',
                    ],
               dest: '<%= config.app %>/.tmp/scripts/bower.js',
             },
@@ -131,9 +141,21 @@ module.exports = function (grunt) {
             appJS: {
               src: [
               '<%= config.app %>/js/app.js',
+              '<%= config.app %>/js/directive/navigation.js',
               '<%= config.app %>/js/directive/changeOwner.js',
                     ],
               dest: '<%= config.app %>/.tmp/scripts/core.js',
+            },
+            css: {
+                src: [
+                '<%= config.app %>/lib/bootstrap/dist/css/bootstrap.min.css',
+                '<%= config.app %>/css/bootstrap-responsive.min.css',
+                '<%= config.app %>/css/font-awesome.css',
+                '<%= config.app %>/css/organization/postJob/postJob.css',
+                '<%= config.app %>/css/organization/viewApp/viewApp.css',
+                '<%= config.app %>/css/global.css',
+                ],
+                dest: '<%= config.app %>/.tmp/styles/app.css',
             }
         },
 
@@ -156,6 +178,7 @@ module.exports = function (grunt) {
             'clean:server',
             'concurrent',
             'autoprefixer',
+            'concat:css',
             'connect:livereload',
             'watch'
         ]);
@@ -163,6 +186,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask('build', [
         'concurrent',
+        'concat:css',
         'autoprefixer'
     ]);
 
