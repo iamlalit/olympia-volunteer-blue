@@ -3,7 +3,13 @@
     <nav class="navbar navbar-default" role="navigation">
         <div class="container-fluid">
             <div class="navbar-header">
-              <a class="navbar-brand" href="#"><img src="/img/logo.png"></a>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#b-menu-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><img src="/img/logo.png"></a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -92,13 +98,13 @@
                 <li class='pull-right'>
                     <a href="#" class="dropdown-toggle" id="icons-header-right" data-toggle="dropdown"><img src="/img/nl.png"></a>
                     <ul class="dropdown-menu header-right-dropdown" ng-init=" addActive2 = 'make-it-white'">
-                        <li role="presentation">
+                        <li role="presentation" change-language class="active">
                             <a role="menuitem" href="#" id="tab-header-1"><img src="/img/nl.png">&nbsp;Netherland</a>
                         </li>
-                        <li role="presentation" >
+                        <li role="presentation" change-language>
                             <a role="menuitem" href="#" id="tab-header-1"><img src="/img/uk.png">&nbsp;English(UK)</a>
                         </li>
-                        <li role="presentation">
+                        <li role="presentation" change-language>
                             <a role="menuitem" href="#" id="tab-header-1"><img src="/img/us.png">&nbsp;English(US)</a>
                         </li>
                     </ul>
@@ -356,13 +362,13 @@
                     <li class='pull-right'>
                         <a href="#" class="dropdown-toggle" id="icons-header-right" data-toggle="dropdown"><img src="/img/nl.png"></a>
                         <ul class="dropdown-menu header-right-dropdown" ng-init=" addActive2 = 'make-it-white'">
-                            <li role="presentation">
+                            <li role="presentation" change-language class="active">
                                 <a role="menuitem" href="#" id="tab-header-1"><img src="/img/nl.png">&nbsp;Netherland</a>
                             </li>
-                            <li role="presentation" >
+                            <li role="presentation" change-language>
                                 <a role="menuitem" href="#" id="tab-header-1"><img src="/img/uk.png">&nbsp;English(UK)</a>
                             </li>
-                            <li role="presentation">
+                            <li role="presentation" change-language>
                                 <a role="menuitem" href="#" id="tab-header-1"><img src="/img/us.png">&nbsp;English(US)</a>
                             </li>
                         </ul>

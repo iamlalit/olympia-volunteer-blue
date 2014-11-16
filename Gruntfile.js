@@ -18,13 +18,16 @@ module.exports = function (grunt) {
         watch: {
             js: {
                 files: ['<%= config.app %>/js/**/*.js'],
-                tasks: ['concat:appJS', 'concat:css'],
+                tasks: ['concat:appJS'],
                 options: {
                     livereload: true
                 }
             },
+            gruntfile: {
+                files: ['Gruntfile.js']
+            },
             sass: {
-                files: ['<%= config.app %>/scss/**/*.{scss,sass}'],
+                files: ['<%= config.app %>/css/**/*.{scss,sass}'],
                 tasks: ['sass:compile', 'autoprefixer', 'concat:css']
             },
             livereload: {
@@ -34,7 +37,8 @@ module.exports = function (grunt) {
                 files: [
                     '<%= config.app %>/{,*/}*.html',
                     '.tmp/styles/app.css',
-                    '<%= config.app %>/img/{,*/}*'
+                    '<%= config.app %>/img/{,*/}*',
+                    '**/*.scss'
                 ]
             }
         },
@@ -77,10 +81,10 @@ module.exports = function (grunt) {
           compile: {
             options: {
               sourcemap: true,
-              loadPath: ['<%= config.app %>/sass']
+              loadPath: ['<%= config.app %>/css']
             },
             files: {
-              '<%= config.app %>/.tmp/styles/main.css': '<%= config.app %>/scss/bootstrap.scss'
+              '<%= config.app %>/.tmp/styles/main.css': '<%= config.app %>/css/responsive/header.scss'
             }
           }
         },
