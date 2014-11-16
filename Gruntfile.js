@@ -143,6 +143,7 @@ module.exports = function (grunt) {
               '<%= config.app %>/js/app.js',
               '<%= config.app %>/js/directive/navigation.js',
               '<%= config.app %>/js/directive/changeOwner.js',
+              '<%= config.app %>/js/directive/changeLanguage.js',
                     ],
               dest: '<%= config.app %>/.tmp/scripts/core.js',
             },
