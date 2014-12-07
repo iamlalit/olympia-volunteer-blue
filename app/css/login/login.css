@@ -1,21 +1,15 @@
 ﻿/* Login Screen */
+.dummy{
+}
+
 html {
   position: relative;
   min-height: 100%;
-}
-body {
-  /* Margin bottom by footer height */
-  /*background:#ebebeb;*/
 }
 .container-fluid{
     padding-left:0;
     padding-right:0;
 }
-/* Header */
-/*.navbar-default{
-      height:200px;
-}*/
-
 /* Login wrapper */
 .sign-wrapper{
 }

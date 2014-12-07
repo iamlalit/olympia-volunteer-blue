@@ -67,17 +67,10 @@
 	border: 1px solid #eeeeee;
 	outline: 0;
 }
-.nav>li>a {
-    position: relative;
-    display: block;
-    padding: 15px 8px;
-}
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover, 
 .navbar-default .navbar-nav > .active > a:focus
 .navbar-default .navbar-nav > li > a:active{
-	color: #ffffff;
-	background-color:  #1489be;
 	border-radius: 10px 10px 0 0;
 	border: 1px solid #eeeeee;
 }
@@ -140,9 +133,8 @@
 }
 ul.flag{
 	position: absolute;
-	top: -25px;
+	top: -18px;
 	right: 194px;
-	
 }
 ul.flag li > ul{
 	width: 250px;
@@ -163,15 +155,27 @@ ul.flag li > ul > li.active > a{
 ul.flag li .dropdown-menu li a{
 	font-size: 12px;
 }
-
+ul.flag li a#icons-header-right{
+	display: inline-flex;
+}
 ul.flag li a#icons-header-right,
 ul.flag li a#icons-header-right:hover,
 ul.flag li a#icons-header-right:focus{
 	background-color: #cae3f0;
 	border-color: #cae3f0;
 	box-shadow: none;
+	width: 38px;
 }
-
+ul.flag li a#icons-header-right b{
+	position: relative;
+	top: 3px;
+	margin-left: 7px;
+	color: #777777;
+}
+ul.flag li a#icons-header-right b:hover,
+ul.flag li a#icons-header-right b:focus{
+	color: #ffffff;
+}
 .navbar-right li a#icons-header-right span,.navbar-right li a#icons-header-right i, .navbar-right li a#icons-header-right span.fa-question {
 position: relative;
 bottom: 10px;

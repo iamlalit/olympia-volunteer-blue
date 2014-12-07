@@ -1,7 +1,9 @@
 /* global css*/
+.dummy{
+}
 
 body{
-  background: url('../img/background.png') left top;
+  background: url('/.tmp/img/background.png') left top;
   font-size: 13px;
 }
 ul{
@@ -128,7 +130,7 @@ hr {
 	color: #00aeec;
 }
 .align-center{
-	text-align: center;
+	text-align: center !important;
 }
 .align-right{
 	text-align:right;
@@ -365,7 +367,7 @@ position: relative;
 }
 
 .padding-left-0{
-	padding-left: 0px;
+	padding-left: 0px !important;
 }
 .padding-left-5{
 	padding-left: 5px;
@@ -969,4 +971,30 @@ border: 3px solid #C70909;
 }
 .center-block.checks{
   text-align: justify;
+}
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus
+.navbar-default .navbar-nav > li > a:active{
+    border-radius: 10px 10px 0 0;
+    border: 1px solid #eeeeee;
+    background: url('../../img/background.png') left top;
+    color: #1489be;
+    font-weight: regular;
+ }
+header{
+    height: 135px;
+    border-bottom: 2px solid #dcd6dc;
+    margin-bottom: 20px;
+}
+#submenu  .active  a{
+    background: url('../../img/background.png') left top;
+    color: #1489be;
+    font-weight: regular;
+ }
+.hide{
+  display: none;
+}
+.user-hr {
+  padding-top: 0px;
+  margin: 0 0 20px 0;
+  border: 1.5px solid #eee;
 }

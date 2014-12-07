@@ -4,15 +4,9 @@
     <meta charset="utf-8">
     <title>View applications</title>
     <link href="../../img/olympia-fav.ico" rel="shortcut icon" type="image/x-icon" />
-    <link href="../../lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" type="text/css" />
-    <link href="../../lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="../../css/bootstrap-responsive.min.css" rel="stylesheet">
-    <link href="../../css/font-awesome.css" rel="stylesheet">
-    <link rel="stylesheet" href="../../css/organization/postjob/postjob.css"/>
-    <link href="../../css/organization/viewApp/viewApp.css" rel="stylesheet">
-    <link href="../../css/global.css" rel="stylesheet">    
-    
-    <link rel="stylesheet" type="text/css" href="../../css/header/header.css">
+    <link rel="stylesheet" href="/css/font-awesome.css">
+    <link rel="stylesheet" href="/.tmp/styles/app.css" >
+    <link rel="stylesheet" href="/.tmp/styles/common.css">
     <style type="text/css">
         .superContainer{
             width: 1349px;
@@ -93,7 +87,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="applicants" ng-repeat="applicant in Applicants">
+                        <div class="applicants margin-top-20" ng-repeat="applicant in Applicants">
                             <div class="row margin-rl-0">
                                 <div class="col-sm-2" ng-cloak>
                                     <img src="{{applicant.image}}" width="70" height="73">
@@ -189,7 +183,7 @@
                             </div>
                         </div>
 
-                        <div class="applicants" ng-repeat="applicant in hiddenApplicants">
+                        <div class="applicants margin-top-20" ng-repeat="applicant in hiddenApplicants">
                             <div class="row margin-rl-0">
                                 <div class="col-sm-2" ng-cloak>
                                     <img src="{{applicant.image}}" width="70" height="73">
@@ -283,7 +277,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="applicants" ng-repeat="applicant in shortlistedApplicants">
+                        <div class="applicants margin-top-20" ng-repeat="applicant in shortlistedApplicants">
                             <div class="row margin-rl-0">
                                 <div class="col-sm-2" ng-cloak>
                                     <img src="{{applicant.image}}" width="70" height="73">
@@ -384,7 +378,7 @@
                             </div>
                         </div>
 
-                        <div class="applicants" ng-repeat="applicant in messagedApplicants">
+                        <div class="applicants margin-top-20" ng-repeat="applicant in messagedApplicants">
                             <div class="row margin-rl-0">
                                 <div class="col-sm-2" ng-cloak>
                                     <img src="{{applicant.image}}" width="70" height="73">
@@ -478,7 +472,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="applicants" ng-repeat="applicant in hiredApplicants">
+                        <div class="applicants margin-top-20" ng-repeat="applicant in hiredApplicants">
                             <div class="row margin-rl-0">
                                 <div class="col-sm-2" ng-cloak>
                                     <img src="{{applicant.image}}" width="70" height="73">

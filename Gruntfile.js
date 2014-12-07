@@ -1,4 +1,4 @@
-'use strict';
+ 'use strict';
 
 module.exports = function (grunt) {
 
@@ -28,7 +28,11 @@ module.exports = function (grunt) {
             },
             sass: {
                 files: ['<%= config.app %>/css/**/*.{scss,sass}'],
-                tasks: ['sass:compile', 'autoprefixer', 'concat:css']
+                tasks: ['sass:compile', 'autoprefixer', 'concat:cssApp', 'concat:cssCommon']
+            },
+            css: {
+                files: ['<%= config.app %>/css/**/*.css'],
+                tasks: ['concat:cssApp', 'concat:cssCommon']  
             },
             livereload: {
                 options: {
@@ -84,7 +88,7 @@ module.exports = function (grunt) {
               loadPath: ['<%= config.app %>/css']
             },
             files: {
-              '<%= config.app %>/.tmp/styles/main.css': '<%= config.app %>/css/responsive/header.scss'
+              '<%= config.app %>/.tmp/styles/main.css': '<%= config.app %>/css/responsive/app.scss'
             }
           }
         },
@@ -151,19 +155,43 @@ module.exports = function (grunt) {
                     ],
               dest: '<%= config.app %>/.tmp/scripts/core.js',
             },
-            css: {
+            cssApp: {
                 src: [
+                '<%= config.app %>/css/colpick/colpick.css',
+                '<%= config.app %>/lib/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css',
                 '<%= config.app %>/lib/bootstrap/dist/css/bootstrap.min.css',
                 '<%= config.app %>/css/bootstrap-responsive.min.css',
-                '<%= config.app %>/css/font-awesome.css',
-                '<%= config.app %>/css/organization/postJob/postJob.css',
-                '<%= config.app %>/css/organization/viewApp/viewApp.css',
-                '<%= config.app %>/css/global.css',
                 ],
                 dest: '<%= config.app %>/.tmp/styles/app.css',
+            },
+            cssCommon: {
+                src: [
+                '<%= config.app %>/css/global.css',
+                '<%= config.app %>/css/landing/landing.css',
+                '<%= config.app %>/css/bootstrap-tagsinput/bootstrap-tagsinput.css',
+                '<%= config.app %>/css/message/message.css',
+                '<%= config.app %>/css/organization/staffAndPermission/staffAndPermission.css',
+                '<%= config.app %>/css/volunteer/jobDetails/jobDetails.css',
+                '<%= config.app %>/css/organization/organizationProfile/organizationProfile.css',
+                '<%= config.app %>/css/organization/jobPost/jobPost.css',
+                '<%= config.app %>/css/organization/postJob/postJob.css',
+                '<%= config.app %>/css/organization/viewApp/viewApp.css',
+                '<%= config.app %>/css/slider/slider.css',
+                ],
+                dest: '<%= config.app %>/.tmp/styles/common.css',
             }
         },
 
+        // Copies remaining files to places other tasks can use
+        copy: {
+            font: {
+                expand: true,
+                flatten: true,
+                cwd: '<%= config.app %>',
+                dest: '<%= config.app %>/.tmp/fonts/',
+                src: ['fonts/*']
+            }
+        },
 
         // Run some tasks in parallel to speed up build process
         concurrent: {
@@ -171,6 +199,7 @@ module.exports = function (grunt) {
                 'sass:compile',
                 'concat:bowerJS',
                 'concat:appJS',
+                'copy:font',
                 'imagemin:server'
             ]
         }
@@ -183,7 +212,9 @@ module.exports = function (grunt) {
             'clean:server',
             'concurrent',
             'autoprefixer',
-            'concat:css',
+            'concat:cssApp',
+            'concat:cssCommon',
+            'copy:font',
             'connect:livereload',
             'watch'
         ]);
@@ -191,7 +222,9 @@ module.exports = function (grunt) {
 
     grunt.registerTask('build', [
         'concurrent',
-        'concat:css',
+        'concat:cssApp',
+        'copy:font',
+        'concat:cssCommon',
         'autoprefixer'
     ]);
 

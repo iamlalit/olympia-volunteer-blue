@@ -1,0 +1,25 @@
+//write scss to make footer responsive
+
+footer {
+	background-color: #1489be;
+	padding-top: 22px;
+	padding-bottom: 15px;
+	height: auto;
+	width: 100%;
+	position: relative;
+	.containerA{
+		margin-left: 168px;
+		width: auto;
+	}
+}
+.containerA, .container1, .container, .superContainer, .container-body {
+	min-height: 100%;
+	position: relative;
+	min-height: -moz-calc(100% - 120px);
+	min-height: -webkit-calc(100% - 120px);
+	min-height: -o-calc(100% - 120px);
+	min-height: calc(100% - 120px);
+}
+@media only screen and (min-device-width : 1024px) and (max-device-width: 1200) {
+	
+}

@@ -1,4 +1,7 @@
-﻿.container{
+﻿.dummy{
+}
+
+.container{
     width:1048px;
 }
 .apply-button{
@@ -56,14 +59,6 @@
 ul{
     padding-left: 15px;
 }
-.image-scroller {
-    padding: 10px;
-    border-radius: 4px;
-    border: 2px solid #eeeeee;
-}
-.image-scroller img {
-    border-radius: 4px;
-}
 
 p.disabled,
 label.disabled {
@@ -116,4 +111,3 @@ vertical-align: -2px;
 margin-left: 5px;
 margin-right: 3px;
 }
-2daae2
