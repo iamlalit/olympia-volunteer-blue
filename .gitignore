@@ -1,4 +1,7 @@
 !.gitkeep
 node_modules/
-.tmp/
+app/.tmp/
 .sass-cache
+config/
+scripts/
+test/
