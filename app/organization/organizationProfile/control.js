@@ -214,6 +214,100 @@ function closeAddress(){
  $("#address div:last-child").remove(); 
 }
 
+
+//volunteer work value
+var volunteer_set = [{'value':'Agriculture','text':'Agriculture'}, {'value':'Animals','text':'Animals'}, 
+                  {'value':'Arts','text':'Arts'}, {'value':'Civic engegement','text':'Civic engegement'}, 
+                  {'value':'Communications access','text':'Communications access'}, {'value':'Community development','text':'Community development'}, 
+                  {'value':'Conflict resolution','text':'Conflict resolution'} , {'value':'Consumer protection','text':'Consumer protection'}, 
+                  {'value':'Crime & Safety','text':'Crime & Safety'}, {'value':'Disability','text':'Disability'}, {'value':'Disaster relief','text':'Disaster relief'}, 
+                  {'value':'Drug abuse','text':'Drug abuse'}, {'value':'Economic development','text':'Economic development'}, 
+                  {'value':'Education','text':'Education'}, {'value':'Energy conservation','text':'Energy conservation'}, 
+                  {'value':'Environment','text':'Environment'}, {'value':'Family','text':'Family'}, 
+                  {'value':'Government reform','text':'Government reform'}, {'value':'Health & Medicine','text':'Health & Medicine'},
+                  {'value':'Housing and homelessness','text':'Housing and homelessness'}, {'value':'Human rights','text':'Human rights'},
+                  {'value':'Human services','text':'Human services'}, {'value':'Immigration','text':'Immigration'},
+                  {'value':'International cooperation','text':'International cooperation'}, {'value':'International relations','text':'International relations'}, 
+                  {'value':'Job & workplace','text':'Job & workplace'}, {'value':'Legal assistance','text':'Legal assistance'},
+                  {'value':'LGBT','text':'LGBT'},{'value':'Library or resource center','text':'Library or resource center'},
+                  {'value':'Media','text':'Media'},{'value':'Men','text':'Men'},
+                  {'value':'Mental health','text':'Mental health'},{'value':'Microedit','text':'Microedit'},
+                  {'value':'Multi-service agency','text':'Multi-service agency'},{'value':'Museums and history','text':'Museums and history'},
+                  {'value':'Network of nonprofits','text':'Network of nonprofits'},{'value':'Personal finance','text':'Personal finance'},
+                  {'value':'Philanthropy','text':'Philanthropy'},{'value':'Politics','text':'Politics'},
+                  {'value':'Poverty and hunger','text':'Poverty and hunger'},{'value':'Prison reform','text':'Prison reform'},
+                  {'value':'Professional association','text':'Professional association'},{'value':'Race and ethnicity','text':'Race and ethnicity'},
+                  {'value':'Religion and spirituality','text':'Religion and spirituality'},{'value':'Research and science','text':'Research and science'},
+                  {'value':'Rural','text':'Rural'},{'value':'Social enterprise','text':'Social enterprise'},
+                  {'value':'Sports and recreation','text':'Sports and recreation'},{'value':'Technology','text':'Technology'},
+                  {'value':'Travel and transportation','text':'Travel and transportation'},{'value':'Urban','text':'Urban'},
+                  {'value':'Veterans','text':'Veterans'},{'value':'Victim support','text':'Victim support'},
+                  {'value':'Volunteering','text':'Volunteering'},{'value':'Women','text':'Women'},
+                  {'value':'Youth','text':'Youth'}];
+$('#volunteer-tag').tagsinput({
+  itemValue: 'value',
+  itemText: 'text',
+  typeahead: {
+    source: volunteer_set,
+    sorter: function (items) {
+        return items.sort();
+    }
+  }
+});
+function updateValueVolunteerInterest() {
+    var listOfVolunteerWork = [], listOfVolunteerWorkObject = {};
+    for (i = 1 ; i <= 56 ; i++) {
+        var target = $("#desiredWork" + i).children("span");
+        tickCheck=target[0].className.indexOf("tick");
+        if(tickCheck>-1){
+          listOfVolunteerWorkObject = {'text' : ' ', 'value' : ' '};
+          //getting current node elements
+          var currentnode = $("#desiredWork" + i).children("label").text();
+          listOfVolunteerWorkObject.text = currentnode;
+          listOfVolunteerWorkObject.value = currentnode;
+          listOfVolunteerWork.push(listOfVolunteerWorkObject);
+          
+        }
+    }
+    $('#volunteer-tag').tagsinput('removeAll');
+    $("#volunteer-tag").tagsinput("refresh");
+    for (i = 0 ; i < listOfVolunteerWork.length ; i++) {
+        $("#volunteer-tag").tagsinput('add', listOfVolunteerWork[i]);
+    }
+    $("#volunteer-tag").next().children('input').attr("placeholder", " ");
+}
+
+/* On Removing tags */
+$('#volunteer-tag').on('itemRemoved', function(event) {
+  var lengthInputTag = $("#volunteer-tag").next().children().length;
+  if (lengthInputTag == 1){
+      $("#volunteer-tag").next().children('input').attr("placeholder", "Add volunteer work area");   
+  }
+});
+
+function clearVolunteerInterest(){
+  $(".jsBlank").click();
+}
+
+function updateValueVolunteerInterestText(){
+  
+  $("#volunteer-tag").tagsinput("refresh");
+  var tagsValue = $("#volunteer-tag").val();
+  var tagsList = tagsValue.split(",");
+  console.log(tagsList);
+  for( i=1 ; i <= 57 ; i++){
+        $("#v" + i + "").prop("checked", false);
+  }
+  for( i=1 ; i <= 57 ; i++){
+    for( j = 0 ; j < tagsList.length ; j++ ){
+      if($("#v" + i + "").val() === tagsList[j]){
+        $("#v" + i + "").prop("checked", true);
+      }
+    }
+  }
+}
+
+
 //Stop enter from being execute.
 function doNothing() {  
 var keyCode = event.keyCode ? event.keyCode : event.which ? event.which : event.charCode;
