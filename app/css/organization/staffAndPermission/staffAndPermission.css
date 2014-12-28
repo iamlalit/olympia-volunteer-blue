@@ -100,3 +100,37 @@ input[type=radio], input[type=checkbox]{
 .behave-table .behave-row.staff .behave-cell:last-child{
 	border-right:1px solid #e4e4e4;
 }
+/*for managing staff groups */
+.staff-groups .table>thead:first-child>tr:first-child>th:first-child div {
+	width: 98px;
+}
+.staff-groups table>thead:first-child>tr:first-child>th:nth-child(2) div{
+	width: 57px;
+	margin-left: 217px;
+}
+.staff-groups table>thead:first-child>tr:first-child>th:nth-child(3) div {
+	width: 71px;
+	margin-left: -8px;
+}
+.staff-groups table>thead:first-child>tr:first-child>th div{
+	color: #336699;
+}
+/*for managing staff users */
+.staff-users .table>thead:first-child>tr:first-child>th:first-child div {
+	width: 90px;
+}
+.staff-users table>thead:first-child>tr:first-child>th:nth-child(2) div{
+	margin-left: 2px;
+}
+.staff-users table>thead:first-child>tr:first-child>th:nth-child(3) div {
+	margin-left: 0px;
+}
+.staff-users table>thead:first-child>tr:first-child>th:nth-child(4) div {
+	margin-left: 0px;
+}
+.staff-users table > tbody > tr > td:nth-child(4){
+	padding-left: 15px;
+}
+.staff-users table>thead:first-child>tr:first-child>th div{
+	color: #336699;
+}

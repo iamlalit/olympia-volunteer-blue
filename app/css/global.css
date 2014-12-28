@@ -78,8 +78,7 @@ a {
     /* Removed border radius 2px in order to keep textbox rounded corner consistent*/
     border:3px solid #d2d2cd;
     box-shadow:none;
-    padding-top:15px;
-    padding-bottom:15px;
+    
 }
 .form-group .form-control:focus{
     border-color:#33ccff;

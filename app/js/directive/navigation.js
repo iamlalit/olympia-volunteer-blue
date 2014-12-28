@@ -20,7 +20,7 @@ OrgVolApp.directive('activeNav', function($rootScope) {
                 }
             }else if(window.location.pathname.match("/organizationProfile.html$")){
                 $('.container-fluid .profile').addClass('active');
-            }else if(window.location.pathname.match("/staffAndPermission.html$")){
+            }else if(window.location.pathname.match("/staffAndPermission.html$") || window.location.pathname.match("/staffAndPermissionGroups.html$")){
                 $('.container-fluid .profile').addClass('active');
             }else if(window.location.pathname.match("/recommendation.html$")){
                 $('.container-fluid .profile').addClass('active');
@@ -89,6 +89,9 @@ OrgVolApp.directive('secondaryNav', function() {
             }else if(window.location.pathname.match("/staffAndPermission.html$")){
                 $('#profile').addClass('in');
                 $('#profile .staffPermission').addClass('active arrow_box');
+            }else if(window.location.pathname.match("/staffAndPermissionGroups.html$")){
+                $('#profile').addClass('in');
+                $('#profile .staffPermissionGroups').addClass('active arrow_box');
             }else if(window.location.pathname.match("/recommendation.html$")){
                 $('#profile').addClass('in');
                 $('#profile .recommendation').addClass('active arrow_box');

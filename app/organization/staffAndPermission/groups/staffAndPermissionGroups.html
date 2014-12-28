@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html>
+<html ng-app="OrgVolApp">
+<head>
+    <meta charset="utf-8">
+    <title>Staff & permission</title>
+    
+    <link href="../../img/olympia-fav.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" href="/css/font-awesome.css">
+    <link rel="stylesheet" href="/.tmp/styles/app.css" >
+    <link rel="stylesheet" href="/.tmp/styles/common.css">
+    <style type="text/css">
+        .superContainer{
+            width: 1349px;
+            margin: 0 auto;
+        }
+        .containerA{
+            width: 1008px;
+            display: inline-block;
+        }
+        .containerB{
+            width: 164px;
+            display: inline-block;
+            vertical-align: top;
+        }
+        .container {
+            width: 1048px;
+        }
+    </style>
+</head>
+
+<body ng-controller="landingPage">
+    <!-- Page Header Section Start-->
+    <div ng-include="'../../../templates/header.tmpl.html'"></div>
+    <!-- Page Header Section End-->
+    <div class="superContainer">
+        <div class="containerB">
+            <span class="prototype-scheme">PROTOTYPE</span>
+        </div>
+        <div class="containerA">
+            <div class="main-border1 staffnPer">
+                <div class="row margin-rl-0">
+                    <span class="panel-title">Manage Groups</span>
+                    <span class="float-right"><a href="" href="#" id="zoomTextarea" ng-click="refreshmodal()" title="Click to Zoom" data-toggle="modal" data-target="#addUser">Add Groups</a></span>
+                </div>
+                <div class="row margin-rl-0 margin-top-20">
+                    <div class="col-sm-12">
+                        <section class="accrd_table staff-groups">
+                            <table ng-table="tableParams" class="table">
+                                <tr ng-repeat="user in $data">
+                                    <td data-title="'Group Name'" sortable="'groupName'">
+                                        <span><a href="">{{user.groupName}}</a></span><br/>
+                                    </td>
+                                    <td data-title="'Users'" sortable="'users'" class="text-center" >
+                                        <span>{{user.users}}</span>
+                                    </td>
+                                    <td data-title="'Actions'">
+                                        <span><a><i class="fa fa-pencil"></i></a> &nbsp;<a><i class="fa fa-times" ng-click="deleteUser(user)"></i></a></span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </section>
+                    </div>
+                </div>
+            </div>                
+        </div>
+        <div class="containerB">
+            <span class="prototype-scheme">PROTOTYPE</span>
+        </div>
+    </div>
+
+    <!-- Page footer Section Start-->
+    <div ng-include="'../../../templates/footer.tmpl.html'"></div>
+    <!-- Page footer Section End-->
+
+    <!-- volunteer add groups -->
+    <div class="modal fade" id="addUser" tabindex="-1" role="dialog" aria-labelledby="inviteUser" aria-hidden="true">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close big-close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h2 class="modal-title" id="myModalLabel">Add Group</h2>
+                </div>
+                <br>
+                <br>
+                <form role="form" name="addGroupForm" id="addGroupForm" novalidate>
+                    <div class="row margin-rl-0">
+                        <div class="col-sm-12">
+                            <input type="text" placeholder="Group name" class='col-sm-12' ng-required ng-model="groupName" />
+                        </div>
+                    </div>
+                    <div class="row margin-rl-0 padding-top-10">
+                        <div class="col-sm-12">
+                            <button class="btn btn-primary" ng-click="addGroups()">save</button>
+                        </div>
+                    </div>
+                    <br>
+                </form>
+                <form role="form" name="permissionForm" id="permissionForm" novalidate ng-hide="permissions.length == 0">
+                    <div class="row margin-rl-0">
+                        <div class="col-sm-12">
+                            <h4><strong>Add Permissions</strong></h4>
+                        </div>
+                    </div>
+                    
+                    <div class="row margin-rl-0 margin-top-10" ng-repeat="permission in permissions">
+                        <div class="col-sm-5">
+                            <label ng-bind="permission" class="padding-right-40"></label>
+                        </div>
+                        <div class="col-sm-7">
+                            <input type="checkbox" value="{{permission}}" ng-model="permissionsGiven.tags[permission]">
+                        </div>
+                    </div>
+                    <div class="row margin-rl-0 padding-top-10">
+                        <div class="col-sm-12">
+                            <button class="btn btn-primary" data-dismiss="modal" ng-click="givePermissions()">save</button>
+                        </div>
+                    </div>
+                    <br>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="/.tmp/scripts/bower.js"></script>
+    <script src="/.tmp/scripts/core.js"></script>
+    <script src="controller.js"></script>
+</body>
+</html>

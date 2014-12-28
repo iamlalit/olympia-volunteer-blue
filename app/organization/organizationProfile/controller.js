@@ -7,110 +7,11 @@ OrgVolApp.controller('landingPage', ['$scope', '$rootScope', function ($scope, $
   organizationName = $('#organizationName'),
   organizationNickName = $('#organizationNickName'),
   termsAndCondition = $('#termsAndCondition')  
-  
-    //on change of writing in any of input fields
-    organizationName.change(function() {
-        if (organizationName.val() == '' || organizationName.val() == null) {
-            if (errorList.find('.errormessage-organizationName').length == 0) {
-                $('<li />', { html: 'Organization Name required !', class: 'col-sm-6 errormessage-organizationName' })
-                .appendTo(errorList)
-                .click(function () {
-                    $('html, body').animate({
-                        scrollTop: organizationName.offset().top - 100
-                    }, 500);
-                    organizationName.focus();
-                })
-                $('#errorMsg').show();
-                organizationName.parent().addClass('has-error');
-            }
-        }
-        else {
-            if (organizationName.parent().hasClass('has-error')) {
-                organizationName.parent().removeClass('has-error')
-            };
-            if (errorList.find('.errormessage-organizationName').length > 0) {
-                errorList.find('.errormessage-organizationName').remove();
-                $('#errorMsg').hide();
-            }
-        }
-    });
-    organizationNickName.change(function() {
-            if (organizationNickName.val() == '' || organizationNickName.val() == null) {
-                if (errorList.find('.errormessage-organizationNickName').length == 0) {
-                    $('<li />', { html: 'Organization Nick Name required !', class: 'col-sm-6 errormessage-organizationNickName' })
-                    .appendTo(errorList)
-                    .click(function () {
-                        $('html, body').animate({
-                            scrollTop: organizationNickName.offset().top - 100
-                        }, 500);
-                        organizationNickName.focus();
-                    })
-                    $('#errorMsg').show();
-                    organizationNickName.parent().addClass('has-error');
-                }
-            }
-            else {
-                if (organizationNickName.parent().hasClass('has-error')) {
-                    organizationNickName.parent().removeClass('has-error')
-                };
-                if (errorList.find('.errormessage-organizationNickName').length > 0) {
-                    errorList.find('.errormessage-organizationNickName').remove();
-                    $('#errorMsg').hide();
-                }
-            }
-        });
+
     //on submit
     $('#organizationProfile').submit(function (e) {
         e.preventDefault();
-        //Job title is required
-        if (organizationName.val() == '' || organizationName.val() == null) {
-            if (errorList.find('.errormessage-organizationName').length == 0) {
-                $('<li />', { html: 'Organization name required !', class: 'col-sm-6 errormessage-organizationName' })
-                .appendTo(errorList)
-                .click(function () {
-                    $('html, body').animate({
-                        scrollTop: organizationName.offset().top - 100
-                    }, 500);
-                    organizationName.focus();
-                })
-                $('#errorMsg').show();
-                organizationName.parent().addClass('has-error');
-            }
-        }
-        else {
-            if (organizationName.parent().hasClass('has-error')) {
-                organizationName.parent().removeClass('has-error')
-            };
-            if (errorList.find('.errormessage-organizationName').length > 0) {
-                errorList.find('.errormessage-organizationName').remove();
-                $('#errorMsg').hide();
-            }
-        }
-
-        //nick name
-        if (organizationNickName.val() == '' || organizationNickName.val() == null) {
-            if (errorList.find('.errormessage-organizationNickName').length == 0) {
-                $('<li />', { html: 'Organization nickname required !', class: 'col-sm-6 errormessage-organizationNickName' })
-                .appendTo(errorList)
-                .click(function () {
-                    $('html, body').animate({
-                        scrollTop: organizationNickName.offset().top - 100
-                    }, 500);
-                    organizationNickName.focus();
-                })
-                $('#errorMsg').show();
-                organizationNickName.parent().addClass('has-error');
-            }
-        }
-        else {
-            if (organizationNickName.parent().hasClass('has-error')) {
-                organizationNickName.parent().removeClass('has-error')
-            };
-            if (errorList.find('.errormessage-organizationNickName').length > 0) {
-                errorList.find('.errormessage-organizationNickName').remove();
-                $('#errorMsg').hide();
-            }
-        }
+        
         //Terms and condtion name
         if (termsAndCondition.is(":not(:checked)")) {
 
