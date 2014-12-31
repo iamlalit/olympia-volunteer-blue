@@ -3,12 +3,12 @@ OrgVolApp.controller('landingPage', ['$scope', '$filter', 'ngTableParams', funct
     
     $scope.permissions = [];
     $scope.permissionsGiven = {tags: []};
-    $scope.data = [{ groupName:"Red Cross UI Developers" , users:"2", status:"Active"},
-                { groupName:"Red Cross .net Developers",  users:"3", status:"Archived", reason: "Declined by You"},
-                { groupName:"Red Cross Administration",  users:"3", status:"Hired"},
-                { groupName:"Red Cross Managers",  users:"2", status:"Hired"},
-                { groupName:"Red Cross Business Analyst",  users:"4", status:"Sent"},
-                { groupName:"Red Cross Designers",  users:"2", status:"Archived", reason: "Declined by You"}];
+    $scope.data = [{ groupName:"Resource manager",  users:"3"},
+                { groupName:"Admin",  users:"3"},
+                { groupName:"Staffing manager",  users:"2"},
+                { groupName:"Recruitment manager",  users:"4"},
+                { groupName:"Volunteer",  users:"10 "}];
+    $scope.permissions = ["Contact volunteer","Apply for job","Contact organization","Post job","Job posting","Recruit","Edit profile","Manage job applications","Manage users", "Manage groups","Manage timesheet"];
 
 
     $scope.tableParams = new ngTableParams({
@@ -35,15 +35,9 @@ OrgVolApp.controller('landingPage', ['$scope', '$filter', 'ngTableParams', funct
         }
         $scope.tableParams.reload();
     }
-    $scope.addGroups = function(){
-      if(typeof $scope.groupName !== 'undefined' && $scope.groupName !== ''){
-        $scope.permissions = ["Post a job", "Manage job postings", "Edit profile", "Manage users", "Manage groups", "Approve timesheet"];
-      }
-    };
     $scope.givePermissions =function(){
       $scope.data.push({ groupName:$scope.groupName , users:"0", status:"Active"}); 
       $scope.tableParams.reload();
-      console.log($scope.permissionsGiven);  
     }
     $scope.refreshmodal = function(){
       $scope.permissions = [];

@@ -40,7 +40,7 @@
             <div class="main-border1 staffnPer">
                 <div class="row margin-rl-0">
                     <span class="panel-title">Manage Groups</span>
-                    <span class="float-right"><a href="" href="#" id="zoomTextarea" ng-click="refreshmodal()" title="Click to Zoom" data-toggle="modal" data-target="#addUser">Add Groups</a></span>
+                    <span class="float-right"><a href="" href="#" id="zoomTextarea" title="add group" data-toggle="modal" data-target="#addUser"><i class="fa fa-plus"></i><span class="margin-left-4">Add Group<span></a></span>
                 </div>
                 <div class="row margin-rl-0 margin-top-20">
                     <div class="col-sm-12">
@@ -48,13 +48,13 @@
                             <table ng-table="tableParams" class="table">
                                 <tr ng-repeat="user in $data">
                                     <td data-title="'Group Name'" sortable="'groupName'">
-                                        <span><a href="">{{user.groupName}}</a></span><br/>
+                                        <span>{{user.groupName}}</span><br/>
                                     </td>
                                     <td data-title="'Users'" sortable="'users'" class="text-center" >
                                         <span>{{user.users}}</span>
                                     </td>
                                     <td data-title="'Actions'">
-                                        <span><a><i class="fa fa-pencil"></i></a> &nbsp;<a><i class="fa fa-times" ng-click="deleteUser(user)"></i></a></span>
+                                        <span><a title="edit group permissions"><i class="fa fa-pencil"></i></a> &nbsp;<a title="delete group"><i class="fa fa-times" ng-click="deleteUser(user)"></i></a></span>
                                     </td>
                                 </tr>
                             </table>
@@ -85,20 +85,16 @@
                 <form role="form" name="addGroupForm" id="addGroupForm" novalidate>
                     <div class="row margin-rl-0">
                         <div class="col-sm-12">
-                            <input type="text" placeholder="Group name" class='col-sm-12' ng-required ng-model="groupName" />
+                            <label class="col-sm-2 padding-rl-0 padding-top-7">Group name</label>
+                            <input type="text" placeholder="Group name" class='col-sm-8' ng-required ng-model="groupName" />
                         </div>
-                    </div>
-                    <div class="row margin-rl-0 padding-top-10">
-                        <div class="col-sm-12">
-                            <button class="btn btn-primary" ng-click="addGroups()">save</button>
-                        </div>
-                    </div>
+                    </div>      
                     <br>
                 </form>
-                <form role="form" name="permissionForm" id="permissionForm" novalidate ng-hide="permissions.length == 0">
+                <form role="form" name="permissionForm" id="permissionForm" novalidate>
                     <div class="row margin-rl-0">
                         <div class="col-sm-12">
-                            <h4><strong>Add Permissions</strong></h4>
+                            <h4><strong>Permissions</strong></h4>
                         </div>
                     </div>
                     
@@ -106,7 +102,7 @@
                         <div class="col-sm-5">
                             <label ng-bind="permission" class="padding-right-40"></label>
                         </div>
-                        <div class="col-sm-7">
+                        <div class="col-sm-1">
                             <input type="checkbox" value="{{permission}}" ng-model="permissionsGiven.tags[permission]">
                         </div>
                     </div>

@@ -40,13 +40,14 @@
             <div class="main-border1 staffnPer">
                 <div class="row margin-rl-0">
                     <div class="panel-title">
-                        <span>Manage Users</span>
+                        <span>Manage Users</span> <input class="float-right" ng-model="query" placeholder="Search" type="text">
                     </div>
+
                     <div class="row margin-rl-0 margin-top-20">
                         <div class="col-sm-12">
                             <section class="accrd_table staff-users">
                                 <table ng-table="tableParams" class="table">
-                                    <tr ng-repeat="user in $data">
+                                    <tr ng-repeat="user in $data | filter:query">
                                         <td data-title="'User Name'" sortable="'username'">
                                             <span><a href="">{{user.username}}</a></span><br/>
                                         </td>
@@ -54,10 +55,10 @@
                                             <span><a href="">{{user.fullName}}</a></span><br/>
                                         </td>
                                         <td data-title="'Groups'" sortable="'groups'">
-                                            <span  ng-repeat="group in user.groupName track by $index"><a href="">{{user.groupName[$index]}}</a><br/></span>
+                                            <span ng-repeat="group in user.groupName track by $index">{{user.groupName[$index]}}<br/></span>
                                         </td>
                                         <td data-title="'Actions'">
-                                            <span><a><i class="fa fa-pencil"></i></a> &nbsp;<a><i class="fa fa-times" ng-click="deleteUser(user)"></i></a></span>
+                                            <span><a title="Edit user groups"><i class="fa fa-pencil"></i></a> &nbsp;<a title="Remove user groups"><i class="fa fa-times" ng-click="deleteUser(user, data, tableParams)"></i></a></span>
                                         </td>
                                     </tr>
                                 </table>
@@ -67,24 +68,24 @@
                 </div>
                 <div class="row margin-rl-0 margin-top-25">
                     <div class="panel-title">
-                        <span>Manage Joining Requests</span>
+                        <span>Manage Joining Requests</span> <input class="float-right" ng-model="queryJoining" placeholder="Search" type="text">
                     </div>
                     <div class="row margin-rl-0 margin-top-20">
                         <div class="col-sm-12">
                             <section class="accrd_table staff-users">
                                 <table ng-table="tableParams1" class="table">
-                                    <tr ng-repeat="user in $data">
+                                    <tr ng-repeat="user in $data | filter:queryJoining">
                                         <td data-title="'User Name'" sortable="'username'">
                                             <span><a href="">{{user.username}}</a></span><br/>
                                         </td>
                                         <td data-title="'Full Name'" sortable="'fullName'">
                                             <span><a href="">{{user.fullName}}</a></span><br/>
                                         </td>
-                                        <td data-title="'Date'" sortable="'date'">
+                                        <td data-title="'Date'">
                                             <span>{{user.date}} </span>
                                         </td>
                                         <td data-title="'Actions'">
-                                            <span><a><i class="fa fa-pencil"></i></a> &nbsp;<a><i class="fa fa-times" ng-click="deleteUser(user)"></i></a></span>
+                                            <span><a title="Accept user"><i class="fa fa-check" ng-click="refreshModal(user)" data-toggle="modal" data-target="#acceptUser"></i></a> &nbsp;<a title="Reject user"><i class="fa fa-times" ng-click="deleteUser(user, joiningReq, tableParams1)" data-toggle="modal" data-target="#hiddenBig" ></i></a></span>
                                         </td>
                                     </tr>
                                 </table>
@@ -104,6 +105,72 @@
     <div ng-include="'../../../templates/footer.tmpl.html'"></div>
     <!-- Page footer Section End-->
 
+    <!-- Hidden modal box-->
+    <div class="modal fade" id="hiddenBig" tabindex="-1" role="dialog" aria-labelledby="hiddenBig" aria-hidden="true">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close big-close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h2 class="modal-title" id="myModalLabel">Reject user</h2>
+                </div>
+                <form role="form">
+                    <div class="modal-body">
+                        <div class="row" style="padding-left:10px;">
+                            <div class="wrap1 col-sm-12">
+                                <textarea class="text-area" cols="77" rows="10" maxlength="5000" id="question1" placeholder="Please put the message, why you are rejecting this user"></textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-1"></div>
+                            <div class="col-sm-10" style="color:#858383;text-align:center">
+                                The user will be notified. Your feedback helps the user to improve on his skills.
+                            </div>
+                            <div class="col-sm-1"></div>
+                        </div>
+                    </div>
+                    <div class="row margin-rl-0 padding-bottom-10">
+                        <div class="col-sm-12">
+                            <button class="btn btn-primary" data-dismiss="modal">submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Hidden modal box-->
+    <!-- volunteer add groups -->
+    <div class="modal fade" id="acceptUser" tabindex="-1" role="dialog" aria-labelledby="acceptUser" aria-hidden="true">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close big-close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h2 class="modal-title" id="myModalLabel">Accept user</h2>
+                </div>
+                <form role="form" name="permissionForm" id="permissionForm" novalidate>
+                    <div class="row margin-rl-0">
+                        <div class="col-sm-12">
+                            <h4><strong>Permissions</strong></h4>
+                        </div>
+                    </div>
+                    
+                    <div class="row margin-rl-0 margin-top-10" ng-repeat="permission in permissions">
+                        <div class="col-sm-5">
+                            <label ng-bind="permission" class="padding-right-40"></label>
+                        </div>
+                        <div class="col-sm-1">
+                            <input type="checkbox" value="{{permission}}" ng-model="permissionsGiven.tags[permission]">
+                        </div>
+                    </div>
+                    <div class="row margin-rl-0 padding-top-10">
+                        <div class="col-sm-12">
+                            <button class="btn btn-primary" data-dismiss="modal" ng-click="addUser(permissionsGiven.tags)">save</button>
+                        </div>
+                    </div>
+                    <br>
+                </form>
+            </div>
+        </div>
+    </div>
     <script src="/.tmp/scripts/bower.js"></script>
     <script src="/.tmp/scripts/core.js"></script>
     <script src="controller.js"></script>
